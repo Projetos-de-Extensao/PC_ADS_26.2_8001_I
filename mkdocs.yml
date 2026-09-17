@@ -9,6 +9,7 @@ nav:
   - Iniciação: 
       - Index: Iniciacao/index.md
       - Pesquisa: Iniciacao/pesquisa.md
+      - Casos de Uso Arquiteturais: Iniciacao/casos_de_uso_arquiteturais.md
 
   - Elaboração:
       - Index: Elaboracao/index.md
