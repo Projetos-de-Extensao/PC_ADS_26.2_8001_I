@@ -20,6 +20,13 @@ O sistema será responsável pelo processamento e armazenamento de informações
 
 A plataforma será projetada utilizando serviços da Amazon Web Services (AWS), adotando mecanismos de isolamento de rede, controle granular de acesso, criptografia, monitoramento centralizado e trilhas completas de auditoria.
 
+---
+
+### **1.3 - Modulos**
+
+- Portal: Reune serviços destinados aos cidadãos
+- Zeladoria Urbana: Aplicação para solicitação de serviços de zeladoria urbana.
+
 - Terminologias aplicadas
 VPC (Virtual Private Cloud): ambiente de rede isolado utilizado para proteger os recursos da aplicação.
 Security Groups: mecanismos de controle de tráfego associados aos recursos da AWS, funcionando de maneira stateful.
