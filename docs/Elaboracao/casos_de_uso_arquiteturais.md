@@ -49,8 +49,7 @@ Os casos de uso arquiteturais abrangem a configuração e administração da inf
 ### 2.2 Diagrama de casos de Uso
 
 <!-- ![DIAGRAMA DE CASOS DE USO](../assets//XLJBRJ~1.PNG) -->
-```
-puml
+```puml
 @startuml
 left to right direction
 
