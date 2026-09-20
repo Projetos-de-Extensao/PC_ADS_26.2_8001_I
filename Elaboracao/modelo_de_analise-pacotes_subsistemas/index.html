@@ -1,87 +1,1203 @@
-<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Jonh Carvalho"><link href=../casos_de_uso_arquiteturais/ rel=prev><link href=../../Construcao/ rel=next><link rel=icon href=../../assets/ibmec_icon.png><meta name=generator content="mkdocs-1.5.3, mkdocs-material-9.4.14"><title>Modelo de Análise (Pacotes/Subsistemas) - PC_ADS_26.2_8001</title><link rel=stylesheet href=../../assets/stylesheets/main.fad675c6.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.356b1318.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../css/extra.css><link rel=stylesheet href=../../assets/mkdocs_puml/puml.css><link rel=stylesheet href=../../assets/mkdocs_puml/interaction.css><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#modelo-de-analise-pacotessubsistemas class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title=PC_ADS_26.2_8001 class="md-header__button md-logo" aria-label=PC_ADS_26.2_8001 data-md-component=logo> <img src=../../assets/ibmec_logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> PC_ADS_26.2_8001 </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Modelo de Análise (Pacotes/Subsistemas) </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media=(prefers-color-scheme) data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to light mode" type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=black aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme=slate data-md-color-primary=deep-orange data-md-color-accent=amber aria-label="Switch to system preference" type=radio name=__palette id=__palette_3> <label class="md-header__button md-icon" title="Switch to system preference" for=__palette_2 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg> </label> </form> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" title=Share aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg> </a> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/jonh-carvalho/PC_ADS_26.2_8001 title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </div> <div class=md-source__repository> GitHub </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class=md-grid> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=../../Iniciacao/ class=md-tabs__link> Iniciação </a> </li> <li class="md-tabs__item md-tabs__item--active"> <a href=../ class=md-tabs__link> Elaboração </a> </li> <li class=md-tabs__item> <a href=../../Construcao/ class=md-tabs__link> Construção </a> </li> <li class=md-tabs__item> <a href=../../Transicao/index.md class=md-tabs__link> Transição </a> </li> <li class=md-tabs__item> <a href=../../Disciplina/Bibliografia.md class=md-tabs__link> Bibliografia </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title=PC_ADS_26.2_8001 class="md-nav__button md-logo" aria-label=PC_ADS_26.2_8001 data-md-component=logo> <img src=../../assets/ibmec_logo.png alt=logo> </a> PC_ADS_26.2_8001 </label> <div class=md-nav__source> <a href=https://github.com/jonh-carvalho/PC_ADS_26.2_8001 title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </div> <div class=md-source__repository> GitHub </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> <span class=md-ellipsis> Home </span> </a> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <div class="md-nav__link md-nav__container"> <a href=../../Iniciacao/ class="md-nav__link "> <span class=md-ellipsis> Iniciação </span> </a> <label class="md-nav__link " for=__nav_2 id=__nav_2_label tabindex> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Iniciação </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Iniciacao/pesquisa/ class=md-nav__link> <span class=md-ellipsis> Documento de Visão </span> </a> </li> <li class=md-nav__item> <a href=../../Iniciacao/req_suplementares/ class=md-nav__link> <span class=md-ellipsis> Requisitos Suplementares </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_3 checked> <div class="md-nav__link md-nav__container"> <a href=../ class="md-nav__link "> <span class=md-ellipsis> Elaboração </span> </a> <label class="md-nav__link " for=__nav_3 id=__nav_3_label tabindex> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=true> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> Elaboração </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../casos_de_uso_arquiteturais/ class=md-nav__link> <span class=md-ellipsis> Casos de Uso Arquiteturais </span> </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> <span class=md-ellipsis> Modelo de Análise (Pacotes/Subsistemas) </span> <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> <span class=md-ellipsis> Modelo de Análise (Pacotes/Subsistemas) </span> </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#portal-cidadao-seguro-arquitetura-em-nuvem-aws class=md-nav__link> <span class=md-ellipsis> PORTAL CIDADÃO SEGURO - ARQUITETURA EM NUVEM AWS </span> </a> </li> <li class=md-nav__item> <a href=#1-introducao class=md-nav__link> <span class=md-ellipsis> 1. INTRODUÇÃO </span> </a> <nav class=md-nav aria-label="1. INTRODUÇÃO"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#11-proposito class=md-nav__link> <span class=md-ellipsis> 1.1. Propósito </span> </a> </li> <li class=md-nav__item> <a href=#12-escopo class=md-nav__link> <span class=md-ellipsis> 1.2. Escopo </span> </a> </li> <li class=md-nav__item> <a href=#13-definicoes-e-siglas class=md-nav__link> <span class=md-ellipsis> 1.3. Definições e Siglas </span> </a> </li> <li class=md-nav__item> <a href=#14-referencias class=md-nav__link> <span class=md-ellipsis> 1.4. Referências </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4> <div class="md-nav__link md-nav__container"> <a href=../../Construcao/ class="md-nav__link "> <span class=md-ellipsis> Construção </span> </a> <label class="md-nav__link " for=__nav_4 id=__nav_4_label tabindex> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> Construção </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Construcao/github_workflows/ class=md-nav__link> <span class=md-ellipsis> Github Workflows </span> </a> </li> <li class=md-nav__item> <a href=../../Construcao/github_projects/ class=md-nav__link> <span class=md-ellipsis> GitHub Projects </span> </a> </li> <li class=md-nav__item> <a href=../../Construcao/codespace/ class=md-nav__link> <span class=md-ellipsis> CodeSpace </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5> <label class=md-nav__link for=__nav_5 id=__nav_5_label tabindex> <span class=md-ellipsis> Transição </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_5_label aria-expanded=false> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> Transição </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Transicao/index.md class=md-nav__link> <span class=md-ellipsis> Index </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../../Disciplina/Bibliografia.md class=md-nav__link> <span class=md-ellipsis> Bibliografia </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=modelo-de-analise-pacotessubsistemas>Modelo de Análise (Pacotes/Subsistemas)<a class=headerlink href=#modelo-de-analise-pacotessubsistemas title="Permanent link">&para;</a></h1> <h2 id=portal-cidadao-seguro-arquitetura-em-nuvem-aws>PORTAL CIDADÃO SEGURO - ARQUITETURA EM NUVEM AWS<a class=headerlink href=#portal-cidadao-seguro-arquitetura-em-nuvem-aws title="Permanent link">&para;</a></h2> <table> <thead> <tr> <th style="text-align: left;"><strong>Informação do Documento</strong></th> <th style="text-align: left;"></th> </tr> </thead> <tbody> <tr> <td style="text-align: left;"><strong>Projeto</strong></td> <td style="text-align: left;">Portal Cidadão Seguro - Plataforma GovTech</td> </tr> <tr> <td style="text-align: left;"><strong>Documento</strong></td> <td style="text-align: left;">Modelo de Análise (Pacotes/Subsistemas)</td> </tr> <tr> <td style="text-align: left;"><strong>Versão</strong></td> <td style="text-align: left;">1.0</td> </tr> <tr> <td style="text-align: left;"><strong>Data</strong></td> <td style="text-align: left;">19/09/2026</td> </tr> <tr> <td style="text-align: left;"><strong>Status</strong></td> <td style="text-align: left;">Em Desenvolvimento</td> </tr> <tr> <td style="text-align: left;"><strong>Responsável</strong></td> <td style="text-align: left;">Caio Domingues - Keanu Santos - Bernardo Meireles - Eric Lerer</td> </tr> <tr> <td style="text-align: left;"><strong>Disciplina</strong></td> <td style="text-align: left;">Projeto de Cloud</td> </tr> <tr> <td style="text-align: left;"><strong>Fase RUP/UP</strong></td> <td style="text-align: left;">Elaboration</td> </tr> </tbody> </table> <hr> <h2 id=1-introducao>1. INTRODUÇÃO<a class=headerlink href=#1-introducao title="Permanent link">&para;</a></h2> <h3 id=11-proposito>1.1. Propósito<a class=headerlink href=#11-proposito title="Permanent link">&para;</a></h3> <p>Este documento apresenta o <strong>Modelo de Análise (Pacotes/Subsistemas)</strong> para a arquitetura da plataforma <strong>Portal Cidadão Seguro</strong> na Amazon Web Services (AWS).</p> <p>O modelo organiza os principais componentes arquiteturais da solução em pacotes coesos, facilitando a compreensão da infraestrutura, a manutenção e a evolução da arquitetura, além de permitir a rastreabilidade entre os requisitos definidos no projeto, os casos de uso arquiteturais e os elementos técnicos da infraestrutura AWS.</p> <p>O modelo é derivado diretamente dos seguintes artefatos:</p> <ul> <li><strong>Documento de Visão</strong> - Portal Cidadão Seguro</li> <li><strong>Documento de Requisitos Suplementares</strong> - Portal Cidadão Seguro</li> <li><strong>Casos de Uso Arquiteturais</strong> - Portal Cidadão Seguro</li> <li><strong>Requisitos relacionados à segurança, disponibilidade, escalabilidade, monitoramento, auditoria e LGPD</strong></li> </ul> <h3 id=12-escopo>1.2. Escopo<a class=headerlink href=#12-escopo title="Permanent link">&para;</a></h3> <p>O modelo abrange os subsistemas arquiteturais necessários para sustentar o funcionamento do <strong>Portal Cidadão Seguro</strong>, incluindo o módulo <strong>Zeladoria Urbana</strong>.</p> <p>Os principais elementos contemplados são:</p> <ul> <li><strong>Rede e isolamento:</strong> Amazon VPC, sub-redes públicas e privadas e Internet Gateway.</li> <li><strong>Segurança de rede:</strong> Security Groups e Network Access Control Lists (NACLs).</li> <li><strong>Identidade e controle de acesso:</strong> AWS IAM e princípio do menor privilégio.</li> <li><strong>Computação:</strong> Amazon EC2 / ECS para execução dos serviços da aplicação.</li> <li><strong>Persistência:</strong> Amazon RDS para armazenamento dos dados estruturados.</li> <li><strong>Armazenamento de arquivos:</strong> Amazon S3 para imagens, documentos e outros arquivos.</li> <li><strong>Proteção de dados:</strong> AWS KMS, criptografia em trânsito e em repouso.</li> <li><strong>Monitoramento:</strong> Amazon CloudWatch para métricas, eventos e logs.</li> <li><strong>Auditoria:</strong> AWS CloudTrail para registro das ações realizadas no ambiente AWS.</li> <li><strong>Alta disponibilidade e escalabilidade:</strong> utilização de múltiplas Availability Zones e mecanismos de dimensionamento.</li> <li><strong>Continuidade:</strong> mecanismos de backup e recuperação considerando RPO e RTO.</li> <li><strong>Governança e conformidade:</strong> controles relacionados à proteção de dados e à LGPD.</li> </ul> <p>O módulo <strong>Zeladoria Urbana</strong> representa o serviço funcional do portal que permite aos cidadãos realizar e acompanhar solicitações de serviços de zeladoria urbana. Sua persistência utiliza os componentes arquiteturais descritos neste documento.</p> <h3 id=13-definicoes-e-siglas>1.3. Definições e Siglas<a class=headerlink href=#13-definicoes-e-siglas title="Permanent link">&para;</a></h3> <table> <thead> <tr> <th style="text-align: left;"><strong>Sigla</strong></th> <th style="text-align: left;"><strong>Definição</strong></th> </tr> </thead> <tbody> <tr> <td style="text-align: left;"><strong>AWS</strong></td> <td style="text-align: left;">Amazon Web Services</td> </tr> <tr> <td style="text-align: left;"><strong>VPC</strong></td> <td style="text-align: left;">Virtual Private Cloud</td> </tr> <tr> <td style="text-align: left;"><strong>IAM</strong></td> <td style="text-align: left;">Identity and Access Management</td> </tr> <tr> <td style="text-align: left;"><strong>KMS</strong></td> <td style="text-align: left;">Key Management Service</td> </tr> <tr> <td style="text-align: left;"><strong>SG</strong></td> <td style="text-align: left;">Security Group</td> </tr> <tr> <td style="text-align: left;"><strong>NACL</strong></td> <td style="text-align: left;">Network Access Control List</td> </tr> <tr> <td style="text-align: left;"><strong>EC2</strong></td> <td style="text-align: left;">Elastic Compute Cloud</td> </tr> <tr> <td style="text-align: left;"><strong>ECS</strong></td> <td style="text-align: left;">Elastic Container Service</td> </tr> <tr> <td style="text-align: left;"><strong>RDS</strong></td> <td style="text-align: left;">Relational Database Service</td> </tr> <tr> <td style="text-align: left;"><strong>S3</strong></td> <td style="text-align: left;">Simple Storage Service</td> </tr> <tr> <td style="text-align: left;"><strong>TLS</strong></td> <td style="text-align: left;">Transport Layer Security</td> </tr> <tr> <td style="text-align: left;"><strong>LGPD</strong></td> <td style="text-align: left;">Lei Geral de Proteção de Dados</td> </tr> <tr> <td style="text-align: left;"><strong>RPO</strong></td> <td style="text-align: left;">Recovery Point Objective</td> </tr> <tr> <td style="text-align: left;"><strong>RTO</strong></td> <td style="text-align: left;">Recovery Time Objective</td> </tr> <tr> <td style="text-align: left;"><strong>AZ</strong></td> <td style="text-align: left;">Availability Zone</td> </tr> <tr> <td style="text-align: left;"><strong>CRUD</strong></td> <td style="text-align: left;">Create, Read, Update, Delete</td> </tr> </tbody> </table> <h3 id=14-referencias>1.4. Referências<a class=headerlink href=#14-referencias title="Permanent link">&para;</a></h3> <ul> <li>Documento de Visão - Portal Cidadão Seguro</li> <li>Documento de Requisitos Suplementares - Portal Cidadão Seguro</li> <li>Casos de Uso Arquiteturais - Portal Cidadão Seguro</li> <li>Arquitetura da Nuvem AWS - Portal Cidadão Seguro</li> <li>Lei Geral de Proteção de Dados (LGPD)</li> </ul> <hr> <h1 id=2-visao-geral-dos-pacotes>2. VISÃO GERAL DOS PACOTES<a class=headerlink href=#2-visao-geral-dos-pacotes title="Permanent link">&para;</a></h1> <h2 id=21-diagrama-de-pacotes-plantuml>2.1. Diagrama de Pacotes (PlantUML)<a class=headerlink href=#21-diagrama-de-pacotes-plantuml title="Permanent link">&para;</a></h2> <div class="language-text highlight"><pre><span></span><code><span id=__span-0-1><a id=__codelineno-0-1 name=__codelineno-0-1 href=#__codelineno-0-1></a>@startuml
-</span><span id=__span-0-2><a id=__codelineno-0-2 name=__codelineno-0-2 href=#__codelineno-0-2></a>
-</span><span id=__span-0-3><a id=__codelineno-0-3 name=__codelineno-0-3 href=#__codelineno-0-3></a>title Modelo de Análise (Pacotes) - Portal Cidadão Seguro
-</span><span id=__span-0-4><a id=__codelineno-0-4 name=__codelineno-0-4 href=#__codelineno-0-4></a>
-</span><span id=__span-0-5><a id=__codelineno-0-5 name=__codelineno-0-5 href=#__codelineno-0-5></a>skinparam packageStyle rectangle
-</span><span id=__span-0-6><a id=__codelineno-0-6 name=__codelineno-0-6 href=#__codelineno-0-6></a>skinparam packageBackgroundColor #F5F5F5
-</span><span id=__span-0-7><a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a>skinparam packageBorderColor #333333
-</span><span id=__span-0-8><a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a>
-</span><span id=__span-0-9><a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a>package &quot;Portal Cidadão Seguro&quot; {
-</span><span id=__span-0-10><a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a>
-</span><span id=__span-0-11><a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a>  package &quot;Network &amp; Isolation&quot; as Network #E3F2FD {
-</span><span id=__span-0-12><a id=__codelineno-0-12 name=__codelineno-0-12 href=#__codelineno-0-12></a>    [VPC]
-</span><span id=__span-0-13><a id=__codelineno-0-13 name=__codelineno-0-13 href=#__codelineno-0-13></a>    [Sub-redes Públicas]
-</span><span id=__span-0-14><a id=__codelineno-0-14 name=__codelineno-0-14 href=#__codelineno-0-14></a>    [Sub-redes Privadas]
-</span><span id=__span-0-15><a id=__codelineno-0-15 name=__codelineno-0-15 href=#__codelineno-0-15></a>    [Internet Gateway]
-</span><span id=__span-0-16><a id=__codelineno-0-16 name=__codelineno-0-16 href=#__codelineno-0-16></a>    [Security Groups]
-</span><span id=__span-0-17><a id=__codelineno-0-17 name=__codelineno-0-17 href=#__codelineno-0-17></a>    [NACLs]
-</span><span id=__span-0-18><a id=__codelineno-0-18 name=__codelineno-0-18 href=#__codelineno-0-18></a>  }
-</span><span id=__span-0-19><a id=__codelineno-0-19 name=__codelineno-0-19 href=#__codelineno-0-19></a>
-</span><span id=__span-0-20><a id=__codelineno-0-20 name=__codelineno-0-20 href=#__codelineno-0-20></a>  package &quot;Identity &amp; Access&quot; as IAM #FFF3E0 {
-</span><span id=__span-0-21><a id=__codelineno-0-21 name=__codelineno-0-21 href=#__codelineno-0-21></a>    [IAM Users]
-</span><span id=__span-0-22><a id=__codelineno-0-22 name=__codelineno-0-22 href=#__codelineno-0-22></a>    [IAM Roles]
-</span><span id=__span-0-23><a id=__codelineno-0-23 name=__codelineno-0-23 href=#__codelineno-0-23></a>    [IAM Policies]
-</span><span id=__span-0-24><a id=__codelineno-0-24 name=__codelineno-0-24 href=#__codelineno-0-24></a>    [Least Privilege]
-</span><span id=__span-0-25><a id=__codelineno-0-25 name=__codelineno-0-25 href=#__codelineno-0-25></a>  }
-</span><span id=__span-0-26><a id=__codelineno-0-26 name=__codelineno-0-26 href=#__codelineno-0-26></a>
-</span><span id=__span-0-27><a id=__codelineno-0-27 name=__codelineno-0-27 href=#__codelineno-0-27></a>  package &quot;Compute &amp; Application&quot; as Compute #E8F5E9 {
-</span><span id=__span-0-28><a id=__codelineno-0-28 name=__codelineno-0-28 href=#__codelineno-0-28></a>    [EC2]
-</span><span id=__span-0-29><a id=__codelineno-0-29 name=__codelineno-0-29 href=#__codelineno-0-29></a>    [ECS]
-</span><span id=__span-0-30><a id=__codelineno-0-30 name=__codelineno-0-30 href=#__codelineno-0-30></a>    [Serviços da Aplicação]
-</span><span id=__span-0-31><a id=__codelineno-0-31 name=__codelineno-0-31 href=#__codelineno-0-31></a>    [Zeladoria Urbana]
-</span><span id=__span-0-32><a id=__codelineno-0-32 name=__codelineno-0-32 href=#__codelineno-0-32></a>  }
-</span><span id=__span-0-33><a id=__codelineno-0-33 name=__codelineno-0-33 href=#__codelineno-0-33></a>
-</span><span id=__span-0-34><a id=__codelineno-0-34 name=__codelineno-0-34 href=#__codelineno-0-34></a>  package &quot;Data &amp; Storage Protection&quot; as Data #FCE4EC {
-</span><span id=__span-0-35><a id=__codelineno-0-35 name=__codelineno-0-35 href=#__codelineno-0-35></a>    [RDS]
-</span><span id=__span-0-36><a id=__codelineno-0-36 name=__codelineno-0-36 href=#__codelineno-0-36></a>    [S3]
-</span><span id=__span-0-37><a id=__codelineno-0-37 name=__codelineno-0-37 href=#__codelineno-0-37></a>    [KMS]
-</span><span id=__span-0-38><a id=__codelineno-0-38 name=__codelineno-0-38 href=#__codelineno-0-38></a>    [Criptografia em Repouso]
-</span><span id=__span-0-39><a id=__codelineno-0-39 name=__codelineno-0-39 href=#__codelineno-0-39></a>    [TLS/HTTPS]
-</span><span id=__span-0-40><a id=__codelineno-0-40 name=__codelineno-0-40 href=#__codelineno-0-40></a>  }
-</span><span id=__span-0-41><a id=__codelineno-0-41 name=__codelineno-0-41 href=#__codelineno-0-41></a>
-</span><span id=__span-0-42><a id=__codelineno-0-42 name=__codelineno-0-42 href=#__codelineno-0-42></a>  package &quot;Monitoring &amp; Audit&quot; as Monitoring #EDE7F6 {
-</span><span id=__span-0-43><a id=__codelineno-0-43 name=__codelineno-0-43 href=#__codelineno-0-43></a>    [CloudWatch]
-</span><span id=__span-0-44><a id=__codelineno-0-44 name=__codelineno-0-44 href=#__codelineno-0-44></a>    [CloudTrail]
-</span><span id=__span-0-45><a id=__codelineno-0-45 name=__codelineno-0-45 href=#__codelineno-0-45></a>    [Métricas]
-</span><span id=__span-0-46><a id=__codelineno-0-46 name=__codelineno-0-46 href=#__codelineno-0-46></a>    [Logs]
-</span><span id=__span-0-47><a id=__codelineno-0-47 name=__codelineno-0-47 href=#__codelineno-0-47></a>    [Trilhas de Auditoria]
-</span><span id=__span-0-48><a id=__codelineno-0-48 name=__codelineno-0-48 href=#__codelineno-0-48></a>  }
-</span><span id=__span-0-49><a id=__codelineno-0-49 name=__codelineno-0-49 href=#__codelineno-0-49></a>
-</span><span id=__span-0-50><a id=__codelineno-0-50 name=__codelineno-0-50 href=#__codelineno-0-50></a>  package &quot;Availability &amp; Continuity&quot; as Availability #FFF8E1 {
-</span><span id=__span-0-51><a id=__codelineno-0-51 name=__codelineno-0-51 href=#__codelineno-0-51></a>    [Multi-AZ]
-</span><span id=__span-0-52><a id=__codelineno-0-52 name=__codelineno-0-52 href=#__codelineno-0-52></a>    [Escalabilidade Horizontal]
-</span><span id=__span-0-53><a id=__codelineno-0-53 name=__codelineno-0-53 href=#__codelineno-0-53></a>    [Dimensionamento]
-</span><span id=__span-0-54><a id=__codelineno-0-54 name=__codelineno-0-54 href=#__codelineno-0-54></a>    [Backup]
-</span><span id=__span-0-55><a id=__codelineno-0-55 name=__codelineno-0-55 href=#__codelineno-0-55></a>    [Recuperação]
-</span><span id=__span-0-56><a id=__codelineno-0-56 name=__codelineno-0-56 href=#__codelineno-0-56></a>    [RPO/RTO]
-</span><span id=__span-0-57><a id=__codelineno-0-57 name=__codelineno-0-57 href=#__codelineno-0-57></a>  }
-</span><span id=__span-0-58><a id=__codelineno-0-58 name=__codelineno-0-58 href=#__codelineno-0-58></a>
-</span><span id=__span-0-59><a id=__codelineno-0-59 name=__codelineno-0-59 href=#__codelineno-0-59></a>  package &quot;Governance &amp; Compliance&quot; as Governance #E0F2F1 {
-</span><span id=__span-0-60><a id=__codelineno-0-60 name=__codelineno-0-60 href=#__codelineno-0-60></a>    [LGPD]
-</span><span id=__span-0-61><a id=__codelineno-0-61 name=__codelineno-0-61 href=#__codelineno-0-61></a>    [Controles de Segurança]
-</span><span id=__span-0-62><a id=__codelineno-0-62 name=__codelineno-0-62 href=#__codelineno-0-62></a>    [Auditoria]
-</span><span id=__span-0-63><a id=__codelineno-0-63 name=__codelineno-0-63 href=#__codelineno-0-63></a>    [Proteção de Dados]
-</span><span id=__span-0-64><a id=__codelineno-0-64 name=__codelineno-0-64 href=#__codelineno-0-64></a>  }
-</span><span id=__span-0-65><a id=__codelineno-0-65 name=__codelineno-0-65 href=#__codelineno-0-65></a>}
-</span><span id=__span-0-66><a id=__codelineno-0-66 name=__codelineno-0-66 href=#__codelineno-0-66></a>
-</span><span id=__span-0-67><a id=__codelineno-0-67 name=__codelineno-0-67 href=#__codelineno-0-67></a>Network ..&gt; Compute : &lt;&lt;provides network&gt;&gt;
-</span><span id=__span-0-68><a id=__codelineno-0-68 name=__codelineno-0-68 href=#__codelineno-0-68></a>Network ..&gt; Data : &lt;&lt;isolates&gt;&gt;
-</span><span id=__span-0-69><a id=__codelineno-0-69 name=__codelineno-0-69 href=#__codelineno-0-69></a>IAM ..&gt; Compute : &lt;&lt;controls access&gt;&gt;
-</span><span id=__span-0-70><a id=__codelineno-0-70 name=__codelineno-0-70 href=#__codelineno-0-70></a>IAM ..&gt; Data : &lt;&lt;controls access&gt;&gt;
-</span><span id=__span-0-71><a id=__codelineno-0-71 name=__codelineno-0-71 href=#__codelineno-0-71></a>
-</span><span id=__span-0-72><a id=__codelineno-0-72 name=__codelineno-0-72 href=#__codelineno-0-72></a>Compute ..&gt; Data : &lt;&lt;uses&gt;&gt;
-</span><span id=__span-0-73><a id=__codelineno-0-73 name=__codelineno-0-73 href=#__codelineno-0-73></a>Compute ..&gt; Monitoring : &lt;&lt;generates logs&gt;&gt;
-</span><span id=__span-0-74><a id=__codelineno-0-74 name=__codelineno-0-74 href=#__codelineno-0-74></a>
-</span><span id=__span-0-75><a id=__codelineno-0-75 name=__codelineno-0-75 href=#__codelineno-0-75></a>Data ..&gt; Availability : &lt;&lt;backup/recovery&gt;&gt;
-</span><span id=__span-0-76><a id=__codelineno-0-76 name=__codelineno-0-76 href=#__codelineno-0-76></a>Compute ..&gt; Availability : &lt;&lt;scaling&gt;&gt;
-</span><span id=__span-0-77><a id=__codelineno-0-77 name=__codelineno-0-77 href=#__codelineno-0-77></a>
-</span><span id=__span-0-78><a id=__codelineno-0-78 name=__codelineno-0-78 href=#__codelineno-0-78></a>Monitoring ..&gt; Governance : &lt;&lt;provides evidence&gt;&gt;
-</span><span id=__span-0-79><a id=__codelineno-0-79 name=__codelineno-0-79 href=#__codelineno-0-79></a>IAM ..&gt; Governance : &lt;&lt;access controls&gt;&gt;
-</span><span id=__span-0-80><a id=__codelineno-0-80 name=__codelineno-0-80 href=#__codelineno-0-80></a>Data ..&gt; Governance : &lt;&lt;data protection&gt;&gt;
-</span><span id=__span-0-81><a id=__codelineno-0-81 name=__codelineno-0-81 href=#__codelineno-0-81></a>Network ..&gt; Governance : &lt;&lt;network controls&gt;&gt;
-</span><span id=__span-0-82><a id=__codelineno-0-82 name=__codelineno-0-82 href=#__codelineno-0-82></a>
-</span><span id=__span-0-83><a id=__codelineno-0-83 name=__codelineno-0-83 href=#__codelineno-0-83></a>Availability ..&gt; Compute : &lt;&lt;maintains service&gt;&gt;
-</span><span id=__span-0-84><a id=__codelineno-0-84 name=__codelineno-0-84 href=#__codelineno-0-84></a>Availability ..&gt; Data : &lt;&lt;protects persistence&gt;&gt;
-</span><span id=__span-0-85><a id=__codelineno-0-85 name=__codelineno-0-85 href=#__codelineno-0-85></a>
-</span><span id=__span-0-86><a id=__codelineno-0-86 name=__codelineno-0-86 href=#__codelineno-0-86></a>@enduml
-</span></code></pre></div> </article> </div> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg> Back to top </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright ©️ 2026, Jonh Carvalho </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <div class=md-progress data-md-component=progress role=progressbar></div> <script id=__config type=application/json>{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script> <script src=../../assets/javascripts/bundle.cd18aaf1.min.js></script> <script src=../../assets/mkdocs_puml/puml.js></script> <script src=https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js></script> <script src=../../assets/mkdocs_puml/interaction.js></script> </body> </html>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../casos_de_uso_arquiteturais/">
+      
+      
+        <link rel="next" href="../../Construcao/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Modelo de Análise (Pacotes/Subsistemas) - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-de-analise-pacotessubsistemas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelo de Análise (Pacotes/Subsistemas)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Construcao/" class="md-tabs__link">
+          
+  
+    
+  
+  Construção
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Transicao/index.md" class="md-tabs__link">
+          
+  
+    
+  
+  Transição
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia.md" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/req_suplementares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Pacotes/Subsistemas)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Pacotes/Subsistemas)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#portal-cidadao-seguro-arquitetura-em-nuvem-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORTAL CIDADÃO SEGURO - ARQUITETURA EM NUVEM AWS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. INTRODUÇÃO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. INTRODUÇÃO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Propósito
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Escopo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-definicoes-e-siglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Definições e Siglas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Referências
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Construcao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Construção
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Construção
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Construcao/github_workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Construcao/github_projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Construcao/codespace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeSpace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Transição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Transição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Transicao/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="modelo-de-analise-pacotessubsistemas">Modelo de Análise (Pacotes/Subsistemas)<a class="headerlink" href="#modelo-de-analise-pacotessubsistemas" title="Permanent link">&para;</a></h1>
+<h2 id="portal-cidadao-seguro-arquitetura-em-nuvem-aws">PORTAL CIDADÃO SEGURO - ARQUITETURA EM NUVEM AWS<a class="headerlink" href="#portal-cidadao-seguro-arquitetura-em-nuvem-aws" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Informação do Documento</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Projeto</strong></td>
+<td style="text-align: left;">Portal Cidadão Seguro - Plataforma GovTech</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documento</strong></td>
+<td style="text-align: left;">Modelo de Análise (Pacotes/Subsistemas)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Versão</strong></td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Data</strong></td>
+<td style="text-align: left;">19/09/2026</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Status</strong></td>
+<td style="text-align: left;">Em Desenvolvimento</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Responsável</strong></td>
+<td style="text-align: left;">Caio Domingues - Keanu Santos - Bernardo Meireles - Eric Lerer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disciplina</strong></td>
+<td style="text-align: left;">Projeto de Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fase RUP/UP</strong></td>
+<td style="text-align: left;">Elaboration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-introducao">1. INTRODUÇÃO<a class="headerlink" href="#1-introducao" title="Permanent link">&para;</a></h2>
+<h3 id="11-proposito">1.1. Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h3>
+<p>Este documento apresenta o <strong>Modelo de Análise (Pacotes/Subsistemas)</strong> para a arquitetura da plataforma <strong>Portal Cidadão Seguro</strong> na Amazon Web Services (AWS).</p>
+<p>O modelo organiza os principais componentes arquiteturais da solução em pacotes coesos, facilitando a compreensão da infraestrutura, a manutenção e a evolução da arquitetura, além de permitir a rastreabilidade entre os requisitos definidos no projeto, os casos de uso arquiteturais e os elementos técnicos da infraestrutura AWS.</p>
+<p>O modelo é derivado diretamente dos seguintes artefatos:</p>
+<ul>
+<li><strong>Documento de Visão</strong> - Portal Cidadão Seguro</li>
+<li><strong>Documento de Requisitos Suplementares</strong> - Portal Cidadão Seguro</li>
+<li><strong>Casos de Uso Arquiteturais</strong> - Portal Cidadão Seguro</li>
+<li><strong>Requisitos relacionados à segurança, disponibilidade, escalabilidade, monitoramento, auditoria e LGPD</strong></li>
+</ul>
+<h3 id="12-escopo">1.2. Escopo<a class="headerlink" href="#12-escopo" title="Permanent link">&para;</a></h3>
+<p>O modelo abrange os subsistemas arquiteturais necessários para sustentar o funcionamento do <strong>Portal Cidadão Seguro</strong>, incluindo o módulo <strong>Zeladoria Urbana</strong>.</p>
+<p>Os principais elementos contemplados são:</p>
+<ul>
+<li><strong>Rede e isolamento:</strong> Amazon VPC, sub-redes públicas e privadas e Internet Gateway.</li>
+<li><strong>Segurança de rede:</strong> Security Groups e Network Access Control Lists (NACLs).</li>
+<li><strong>Identidade e controle de acesso:</strong> AWS IAM e princípio do menor privilégio.</li>
+<li><strong>Computação:</strong> Amazon EC2 / ECS para execução dos serviços da aplicação.</li>
+<li><strong>Persistência:</strong> Amazon RDS para armazenamento dos dados estruturados.</li>
+<li><strong>Armazenamento de arquivos:</strong> Amazon S3 para imagens, documentos e outros arquivos.</li>
+<li><strong>Proteção de dados:</strong> AWS KMS, criptografia em trânsito e em repouso.</li>
+<li><strong>Monitoramento:</strong> Amazon CloudWatch para métricas, eventos e logs.</li>
+<li><strong>Auditoria:</strong> AWS CloudTrail para registro das ações realizadas no ambiente AWS.</li>
+<li><strong>Alta disponibilidade e escalabilidade:</strong> utilização de múltiplas Availability Zones e mecanismos de dimensionamento.</li>
+<li><strong>Continuidade:</strong> mecanismos de backup e recuperação considerando RPO e RTO.</li>
+<li><strong>Governança e conformidade:</strong> controles relacionados à proteção de dados e à LGPD.</li>
+</ul>
+<p>O módulo <strong>Zeladoria Urbana</strong> representa o serviço funcional do portal que permite aos cidadãos realizar e acompanhar solicitações de serviços de zeladoria urbana. Sua persistência utiliza os componentes arquiteturais descritos neste documento.</p>
+<h3 id="13-definicoes-e-siglas">1.3. Definições e Siglas<a class="headerlink" href="#13-definicoes-e-siglas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Sigla</strong></th>
+<th style="text-align: left;"><strong>Definição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>AWS</strong></td>
+<td style="text-align: left;">Amazon Web Services</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VPC</strong></td>
+<td style="text-align: left;">Virtual Private Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IAM</strong></td>
+<td style="text-align: left;">Identity and Access Management</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KMS</strong></td>
+<td style="text-align: left;">Key Management Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SG</strong></td>
+<td style="text-align: left;">Security Group</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NACL</strong></td>
+<td style="text-align: left;">Network Access Control List</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EC2</strong></td>
+<td style="text-align: left;">Elastic Compute Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ECS</strong></td>
+<td style="text-align: left;">Elastic Container Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RDS</strong></td>
+<td style="text-align: left;">Relational Database Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>S3</strong></td>
+<td style="text-align: left;">Simple Storage Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TLS</strong></td>
+<td style="text-align: left;">Transport Layer Security</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LGPD</strong></td>
+<td style="text-align: left;">Lei Geral de Proteção de Dados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RPO</strong></td>
+<td style="text-align: left;">Recovery Point Objective</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RTO</strong></td>
+<td style="text-align: left;">Recovery Time Objective</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AZ</strong></td>
+<td style="text-align: left;">Availability Zone</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CRUD</strong></td>
+<td style="text-align: left;">Create, Read, Update, Delete</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-referencias">1.4. Referências<a class="headerlink" href="#14-referencias" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Documento de Visão - Portal Cidadão Seguro</li>
+<li>Documento de Requisitos Suplementares - Portal Cidadão Seguro</li>
+<li>Casos de Uso Arquiteturais - Portal Cidadão Seguro</li>
+<li>Arquitetura da Nuvem AWS - Portal Cidadão Seguro</li>
+<li>Lei Geral de Proteção de Dados (LGPD)</li>
+</ul>
+<hr />
+<h1 id="2-visao-geral-dos-pacotes">2. VISÃO GERAL DOS PACOTES<a class="headerlink" href="#2-visao-geral-dos-pacotes" title="Permanent link">&para;</a></h1>
+<h2 id="21-diagrama-de-pacotes-plantuml">2.1. Diagrama de Pacotes (PlantUML)<a class="headerlink" href="#21-diagrama-de-pacotes-plantuml" title="Permanent link">&para;</a></h2>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:2851px;height:1064px;background:#FFFFFF;" width="2851px" height="1064px" viewBox="0 0 2851 1064" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.8beta1?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="title" data-source-line="3"><text x="1213.664" y="22.995" fill="#000" font-size="14" textLength="416.985" font-weight="700">Modelo de Análise (Pacotes) - Portal Cidadão Seguro</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro" id="ent0001" data-source-line="9"><rect x="19.36" y="44.297" width="2700" height="1005.78" fill="#F5F5F5" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="22.36" y="59.292" fill="#000" font-size="14" textLength="177.188" font-weight="700">Portal Cidadão Seguro</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Network" id="ent0002" data-source-line="11"><rect x="2134.36" y="95.297" width="553" height="311.59" fill="#E3F2FD" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="2137.36" y="110.292" fill="#000" font-size="14" textLength="157.11" font-weight="700">Network &amp; Isolation</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.IAM" id="ent0009" data-source-line="20"><rect x="999.36" y="95.297" width="356" height="311.59" fill="#FFF3E0" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1002.36" y="110.292" fill="#000" font-size="14" textLength="137.553" font-weight="700">Identity &amp; Access</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Compute" id="ent0014" data-source-line="27"><rect x="1395.36" y="274.597" width="445" height="329.59" fill="#E8F5E9" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1398.36" y="289.592" fill="#000" font-size="14" textLength="181.911" font-weight="700">Compute &amp; Application</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Data" id="ent0019" data-source-line="34"><rect x="1880.36" y="471.887" width="420" height="257.6" fill="#FCE4EC" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1883.36" y="486.882" fill="#000" font-size="14" textLength="208.646" font-weight="700">Data &amp; Storage Protection</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Monitoring" id="ent0025" data-source-line="42"><rect x="223.36" y="471.887" width="473" height="257.6" fill="#EDE7F6" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="226.36" y="486.882" fill="#000" font-size="14" textLength="150.589" font-weight="700">Monitoring &amp; Audit</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Availability" id="ent0031" data-source-line="50"><rect x="736.36" y="471.887" width="619" height="257.6" fill="#FFF8E1" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="739.36" y="486.882" fill="#000" font-size="14" textLength="192.548" font-weight="700">Availability &amp; Continuity</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Governance" id="ent0038" data-source-line="59"><rect x="1948.36" y="778.487" width="388" height="239.59" fill="#E0F2F1" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1951.36" y="793.482" fill="#000" font-size="14" textLength="207.074" font-weight="700">Governance &amp; Compliance</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.VPC" id="ent0003" data-source-line="12"><rect x="2177.46" y="157.297" width="67.795" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2225.255" y="162.297" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2223.255" y="164.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2223.255" y="168.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2192.46" y="190.292" fill="#000" font-size="14" textLength="27.795">VPC</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Sub-redes P.blicas" id="ent0004" data-source-line="13"><rect x="2279.93" y="157.297" width="172.863" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2432.793" y="162.297" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2430.793" y="164.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2430.793" y="168.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2294.93" y="190.292" fill="#000" font-size="14" textLength="132.863">Sub-redes Públicas</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Sub-redes Privadas" id="ent0005" data-source-line="14"><rect x="2487.85" y="157.297" width="175.023" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2642.873" y="162.297" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2640.873" y="164.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2640.873" y="168.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2502.85" y="190.292" fill="#000" font-size="14" textLength="135.023">Sub-redes Privadas</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Internet Gateway" id="ent0006" data-source-line="15"><rect x="2188.29" y="336.597" width="162.131" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2330.421" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2328.421" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2328.421" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2203.29" y="369.592" fill="#000" font-size="14" textLength="122.131">Internet Gateway</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Security Groups" id="ent0007" data-source-line="16"><rect x="2385.28" y="336.597" width="152.164" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2517.444" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2515.444" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2515.444" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2400.28" y="369.592" fill="#000" font-size="14" textLength="112.164">Security Groups</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.NACLs" id="ent0008" data-source-line="17"><rect x="2572.9" y="336.597" width="84.919" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2637.819" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2635.819" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2635.819" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2587.9" y="369.592" fill="#000" font-size="14" textLength="44.919">NACLs</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.IAM Users" id="ent0010" data-source-line="21"><rect x="1058.64" y="157.297" width="109.439" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1148.079" y="162.297" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1146.079" y="164.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1146.079" y="168.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1073.64" y="190.292" fill="#000" font-size="14" textLength="69.439">IAM Users</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.IAM Roles" id="ent0011" data-source-line="22"><rect x="1203.2" y="157.297" width="108.325" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1291.525" y="162.297" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1289.525" y="164.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1289.525" y="168.297" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1218.2" y="190.292" fill="#000" font-size="14" textLength="68.325">IAM Roles</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.IAM Policies" id="ent0012" data-source-line="23"><rect x="1023.1" y="336.597" width="122.517" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1125.617" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1123.617" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1123.617" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1038.1" y="369.592" fill="#000" font-size="14" textLength="82.517">IAM Policies</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.Least Privilege" id="ent0013" data-source-line="24"><rect x="1181.11" y="336.597" width="142.491" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1303.601" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1301.601" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1301.601" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1196.11" y="369.592" fill="#000" font-size="14" textLength="102.491">Least Privilege</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.EC2" id="ent0015" data-source-line="28"><rect x="1485.6" y="336.597" width="67.528" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1533.128" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1531.128" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1531.128" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1500.6" y="369.592" fill="#000" font-size="14" textLength="27.528">EC2</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.ECS" id="ent0016" data-source-line="29"><rect x="1588.61" y="336.597" width="67.508" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1636.118" y="341.597" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1634.118" y="343.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1634.118" y="347.597" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1603.61" y="369.592" fill="#000" font-size="14" textLength="27.508">ECS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.Servi.os da Aplica..o" id="ent0017" data-source-line="30"><rect x="1427" y="533.887" width="192.715" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1599.715" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1597.715" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1597.715" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1442" y="566.882" fill="#000" font-size="14" textLength="152.715">Serviços da Aplicação</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.Zeladoria Urbana" id="ent0018" data-source-line="31"><rect x="1654.5" y="533.887" width="161.721" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1796.221" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1794.221" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1794.221" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1669.5" y="566.882" fill="#000" font-size="14" textLength="121.721">Zeladoria Urbana</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.RDS" id="ent0020" data-source-line="35"><rect x="1976.66" y="533.887" width="69.395" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2026.055" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2024.055" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2024.055" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1991.66" y="566.882" fill="#000" font-size="14" textLength="29.395">RDS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.S3" id="ent0021" data-source-line="36"><rect x="2081.46" y="533.887" width="57.794" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2119.254" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2117.254" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2117.254" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2096.46" y="566.882" fill="#000" font-size="14" textLength="17.794">S3</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.KMS" id="ent0022" data-source-line="37"><rect x="2174.29" y="533.887" width="70.146" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2224.436" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2222.436" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2222.436" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2189.29" y="566.882" fill="#000" font-size="14" textLength="30.146">KMS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.Criptografia em Repouso" id="ent0023" data-source-line="38"><rect x="1904.03" y="659.187" width="214.658" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2098.688" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2096.688" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2096.688" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1919.03" y="692.182" fill="#000" font-size="14" textLength="174.658">Criptografia em Repouso</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.TLS.HTTPS" id="ent0024" data-source-line="39"><rect x="2153.9" y="659.187" width="114.915" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2248.815" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2246.815" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2246.815" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2168.9" y="692.182" fill="#000" font-size="14" textLength="74.915">TLS/HTTPS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.CloudWatch" id="ent0026" data-source-line="43"><rect x="267.12" y="533.887" width="124.472" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="371.592" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="369.592" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="369.592" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="282.12" y="566.882" fill="#000" font-size="14" textLength="84.472">CloudWatch</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.CloudTrail" id="ent0027" data-source-line="44"><rect x="427.03" y="533.887" width="110.656" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="517.686" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="515.686" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="515.686" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="442.03" y="566.882" fill="#000" font-size="14" textLength="70.656">CloudTrail</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.M.tricas" id="ent0028" data-source-line="45"><rect x="572.66" y="533.887" width="99.397" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="652.057" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="650.057" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="650.057" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="587.66" y="566.882" fill="#000" font-size="14" textLength="59.397">Métricas</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.Logs" id="ent0029" data-source-line="46"><rect x="293.09" y="659.187" width="72.546" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="345.636" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="343.636" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="343.636" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="308.09" y="692.182" fill="#000" font-size="14" textLength="32.546">Logs</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.Trilhas de Auditoria" id="ent0030" data-source-line="47"><rect x="400.99" y="659.187" width="176.739" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="557.729" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="555.729" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="555.729" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="415.99" y="692.182" fill="#000" font-size="14" textLength="136.739">Trilhas de Auditoria</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Multi-AZ" id="ent0032" data-source-line="51"><rect x="760.14" y="533.887" width="98.44" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="838.58" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="836.58" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="836.58" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="775.14" y="566.882" fill="#000" font-size="14" textLength="58.44">Multi-AZ</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Escalabilidade Horizontal" id="ent0033" data-source-line="52"><rect x="893.19" y="533.887" width="216.34" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1089.53" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1087.53" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1087.53" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="908.19" y="566.882" fill="#000" font-size="14" textLength="176.34">Escalabilidade Horizontal</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Dimensionamento" id="ent0034" data-source-line="53"><rect x="1144.27" y="533.887" width="168.174" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1292.444" y="538.887" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1290.444" y="540.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1290.444" y="544.887" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1159.27" y="566.882" fill="#000" font-size="14" textLength="128.174">Dimensionamento</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Backup" id="ent0035" data-source-line="54"><rect x="763.49" y="659.187" width="91.748" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="835.238" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="833.238" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="833.238" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="778.49" y="692.182" fill="#000" font-size="14" textLength="51.748">Backup</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Recupera..o" id="ent0036" data-source-line="55"><rect x="890.57" y="659.187" width="131.588" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1002.158" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1000.158" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1000.158" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="905.57" y="692.182" fill="#000" font-size="14" textLength="91.588">Recuperação</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.RPO.RTO" id="ent0037" data-source-line="56"><rect x="1056.76" y="659.187" width="103.205" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1139.965" y="664.187" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1137.965" y="666.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="1137.965" y="670.187" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1071.76" y="692.182" fill="#000" font-size="14" textLength="63.205">RPO/RTO</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.LGPD" id="ent0039" data-source-line="60"><rect x="1972.42" y="840.487" width="77.871" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2030.291" y="845.487" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2028.291" y="847.487" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2028.291" y="851.487" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1987.42" y="873.482" fill="#000" font-size="14" textLength="37.871">LGPD</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.Controles de Seguran.a" id="ent0040" data-source-line="61"><rect x="2085.38" y="840.487" width="207.966" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2273.346" y="845.487" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2271.346" y="847.487" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2271.346" y="851.487" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2100.38" y="873.482" fill="#000" font-size="14" textLength="167.966">Controles de Segurança</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.Auditoria" id="ent0041" data-source-line="62"><rect x="1972.61" y="947.777" width="103.506" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2056.116" y="952.777" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2054.116" y="954.777" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2054.116" y="958.777" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="1987.61" y="980.772" fill="#000" font-size="14" textLength="63.506">Auditoria</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.Prote..o de Dados" id="ent0042" data-source-line="63"><rect x="2111.25" y="947.777" width="172.214" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2263.464" y="952.777" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2261.464" y="954.777" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="2261.464" y="958.777" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="2126.25" y="980.772" fill="#000" font-size="14" textLength="132.214">Proteção de Dados</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0014" id="lnk43" data-source-line="67" data-link-type="dependency"><path d="M2134.059,182.354 C2133.823,182.38 2133.583,182.406 2133.337,182.433 C2132.846,182.487 2132.336,182.543 2131.806,182.601 C2129.689,182.834 2127.267,183.1 2124.554,183.398 C2113.699,184.589 2098.177,186.29 2078.813,188.404 C2040.084,192.633 1985.984,198.518 1923.11,205.297 C1797.362,218.854 1636.52,235.987 1493.36,250.597 C1484.25,251.527 1417.78,252.067 1411.36,258.597 C1407.509,262.516 1404.484,266.986 1402.141,271.814 C1401.848,272.417 1401.566,273.026 1401.294,273.64 C1401.158,273.947 1402.97,269.65 1402.84,269.959" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Network-to-Compute"/><polygon points="1400.894,274.565,1408.081,267.831,1402.84,269.959,1400.711,264.718,1400.894,274.565" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1654.36" y="246.664" fill="#000" font-size="13" textLength="128.711">«provides network»</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0019" id="lnk44" data-source-line="68" data-link-type="dependency"><path d="M2134.278,190.544 C2134.155,190.69 2134.03,190.838 2133.904,190.988 C2133.401,191.587 2132.881,192.211 2132.346,192.858 C2131.278,194.152 2130.15,195.541 2128.978,197.015 C2126.634,199.964 2124.112,203.256 2121.522,206.824 C2111.165,221.097 2099.735,239.787 2094.36,258.597 C2074.3,328.807 2044.16,369.867 2094.36,422.887 C2105.53,434.687 2224.77,426.307 2240.36,430.887 C2261.94,437.227 2272.28,436.917 2284.36,455.887 C2287.31,460.522 2289.655,465.532 2291.5,470.756 C2291.615,471.083 2290.121,466.675 2290.232,467.003" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Network-to-Data"/><polygon points="2291.84,471.738,2292.734,461.93,2290.232,467.003,2285.159,464.502,2291.84,471.738" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2095.36" y="364.304" fill="#000" font-size="13" textLength="65.692">«isolates»</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0014" id="lnk45" data-source-line="69" data-link-type="dependency"><path d="M1355.424,206.977 C1355.501,207.222 1355.579,207.467 1355.657,207.714 C1355.969,208.7 1356.287,209.708 1356.611,210.736 C1361.804,227.174 1368.588,248.652 1375.371,270.127 C1382.154,291.602 1388.937,313.074 1394.125,329.503 C1394.45,330.53 1394.768,331.537 1395.079,332.523 C1395.157,332.77 1393.729,328.247 1393.806,328.491" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAM-to-Compute"/><polygon points="1395.312,333.259,1396.415,323.472,1393.806,328.491,1388.787,325.881,1395.312,333.259" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1369.36" y="246.664" fill="#000" font-size="13" textLength="115.965">«controls access»</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0019" id="lnk46" data-source-line="70" data-link-type="dependency"><path d="M1355.516,181.853 C1356.478,181.904 1357.521,181.959 1358.641,182.019 C1360.88,182.14 1363.431,182.28 1366.271,182.44 C1377.633,183.082 1393.633,184.049 1412.949,185.385 C1451.579,188.056 1503.468,192.201 1558.013,198.167 C1667.103,210.099 1786.82,229.317 1832.36,258.597 C1906.07,305.987 1864.72,380.397 1941.36,422.887 C1969.75,438.627 2205.41,414.387 2233.36,430.887 C2240.91,435.347 2236.2,442.827 2243.36,447.887 C2258.51,458.617 2271.99,442.037 2284.36,455.887 C2288.02,459.986 2290.9,464.592 2293.138,469.519 C2293.418,470.135 2293.687,470.756 2293.947,471.381 C2294.012,471.538 2292.195,467.062 2292.259,467.219" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAM-to-Data"/><polygon points="2294.14,471.851,2294.46,462.008,2292.259,467.219,2287.048,465.018,2294.14,471.851" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1942.36" y="364.304" fill="#000" font-size="13" textLength="115.965">«controls access»</text></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0019" id="lnk47" data-source-line="72" data-link-type="dependency"><path d="M1844.072,430.118 C1866.177,430.059 1887.957,429.992 1909.08,429.925 C1951.326,429.793 1990.943,429.665 2025.267,429.617 C2093.914,429.521 2141.385,429.744 2146.36,430.887 C2163.6,434.857 2165.26,443.347 2182.36,447.887 C2193.35,450.807 2276.32,447.857 2284.36,455.887 C2288.248,459.769 2291.299,464.213 2293.662,469.02 C2293.958,469.621 2294.242,470.228 2294.517,470.84 C2294.654,471.146 2292.823,466.855 2292.955,467.164" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Compute-to-Data"/><polygon points="2294.92,471.762,2295.061,461.914,2292.955,467.164,2287.705,465.058,2294.92,471.762" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2183.36" y="443.954" fill="#000" font-size="13" textLength="45.69">«uses»</text></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0025" id="lnk48" data-source-line="73" data-link-type="dependency"><path d="M1395.22,372.971 C1395.099,373.139 1394.977,373.309 1394.854,373.479 C1393.867,374.842 1392.803,376.281 1391.664,377.779 C1389.387,380.774 1386.813,384.002 1383.976,387.326 C1372.627,400.619 1357.06,415.432 1339.36,422.887 C1324,429.367 1056.03,430.407 1039.36,430.887 C951.8,433.447 318.21,399.277 251.36,455.887 C247.098,459.497 243.581,463.735 240.692,468.392 C240.331,468.974 239.979,469.562 239.637,470.157 C239.466,470.454 239.298,470.753 239.132,471.054 C239.049,471.204 241.351,466.96 241.269,467.111" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Compute-to-Monitoring"/><polygon points="238.884,471.505,246.692,465.503,241.269,467.111,239.661,461.687,238.884,471.505" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1040.36" y="443.954" fill="#000" font-size="13" textLength="112.296">«generates logs»</text></g><g class="link" data-entity-1="ent0019" data-entity-2="ent0031" id="lnk49" data-source-line="75" data-link-type="dependency"><path d="M2300.397,520.836 C2300.433,520.529 2300.467,520.222 2300.501,519.913 C2300.568,519.296 2300.633,518.676 2300.693,518.052 C2300.815,516.804 2300.922,515.544 2301.013,514.273 C2302.465,493.944 2299.745,471.037 2284.36,456.827 C2248.73,423.927 1453.89,433.527 1411.36,456.827 C1389.275,468.932 1373.705,492.259 1363.456,513.363 C1360.894,518.639 1358.664,523.776 1356.749,528.564 C1356.27,529.761 1357.597,526.266 1357.157,527.416" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Data-to-Availability"/><polygon points="1355.371,532.086,1362.322,525.109,1357.157,527.416,1354.85,522.251,1355.371,532.086" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1865.36" y="443.954" fill="#000" font-size="13" textLength="124.846">«backup/recovery»</text></g><g class="link" data-entity-1="ent0031" data-entity-2="ent0019" id="lnk56" data-source-line="84" data-link-type="dependency"><path d="M1355.371,532.086 C1355.811,530.936 1356.27,529.761 1356.749,528.564 C1358.664,523.776 1360.894,518.639 1363.456,513.363 C1373.705,492.259 1389.275,468.932 1411.36,456.827 C1453.89,433.527 2248.73,423.927 2284.36,456.827 C2299.745,471.037 2302.465,493.944 2301.013,514.273 C2300.922,515.544 2300.815,516.804 2300.693,518.052 C2300.633,518.676 2300.568,519.296 2300.501,519.913 C2300.467,520.222 2301.005,515.562 2300.97,515.869" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Availability-to-Data"/><polygon points="2300.397,520.836,2305.402,512.354,2300.97,515.869,2297.455,511.437,2300.397,520.836" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1996.36" y="443.954" fill="#000" font-size="13" textLength="148.935">«protects persistence»</text></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0031" id="lnk50" data-source-line="76" data-link-type="dependency"><path d="M1395.191,372.892 C1395.07,373.059 1394.947,373.228 1394.824,373.397 C1393.834,374.753 1392.766,376.185 1391.625,377.676 C1389.341,380.657 1386.762,383.873 1383.92,387.187 C1372.553,400.442 1356.985,415.262 1339.36,422.887 C1321.6,430.577 1178.73,416.897 1165.36,430.887 C1160.14,436.357 1160.15,442.417 1165.36,447.887 C1177.86,461.017 1314.68,443.987 1328.36,455.887 C1332.565,459.547 1336.023,463.823 1338.854,468.507 C1339.208,469.092 1339.552,469.684 1339.886,470.282 C1340.053,470.581 1340.218,470.882 1340.381,471.184 C1340.462,471.334 1338.208,467.064 1338.288,467.216" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Compute-to-Availability"/><polygon points="1340.623,471.637,1339.958,461.811,1338.288,467.216,1332.883,465.546,1340.623,471.637" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1166.36" y="443.954" fill="#000" font-size="13" textLength="61.509">«scaling»</text></g><g class="link" data-entity-1="ent0031" data-entity-2="ent0014" id="lnk55" data-source-line="83" data-link-type="dependency"><path d="M1339.829,471.784 C1339.673,471.475 1339.514,471.168 1339.354,470.862 C1339.033,470.249 1338.703,469.642 1338.364,469.04 C1335.65,464.228 1332.353,459.778 1328.36,455.887 C1311.53,439.487 1248.67,465.937 1279.36,430.887 C1288.22,420.767 1327.26,428.757 1339.36,422.887 C1356.64,414.507 1372.195,399.664 1383.643,386.586 C1386.504,383.316 1389.11,380.156 1391.421,377.236 C1392.576,375.775 1393.658,374.375 1394.662,373.05 C1394.788,372.884 1394.912,372.72 1395.035,372.557 C1395.097,372.475 1392.153,376.39 1392.214,376.309" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Availability-to-Compute"/><polygon points="1395.219,372.313,1386.613,377.102,1392.214,376.309,1393.007,381.91,1395.219,372.313" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1280.36" y="443.954" fill="#000" font-size="13" textLength="130.774">«maintains service»</text></g><g class="link" data-entity-1="ent0025" data-entity-2="ent0038" id="lnk51" data-source-line="78" data-link-type="dependency"><path d="M223.305,578.415 C223.262,578.509 223.218,578.603 223.175,578.697 C223.002,579.075 222.825,579.455 222.647,579.838 C222.289,580.604 221.92,581.381 221.541,582.167 C215.475,594.742 206.675,609.652 195.36,620.187 C166.41,647.137 136.32,625.647 115.36,659.187 C95.03,691.707 88.34,718.257 115.36,745.487 C158.29,788.747 2262.57,723.427 2309.36,762.487 C2313.64,766.058 2317.154,770.267 2320.027,774.902 C2320.745,776.06 2319.084,772.827 2319.724,774.035" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Monitoring-to-Governance"/><polygon points="2322.063,778.455,2321.388,768.629,2319.724,774.035,2314.317,772.371,2322.063,778.455" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="116.36" y="686.904" fill="#000" font-size="13" textLength="134.856">«provides evidence»</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0038" id="lnk52" data-source-line="79" data-link-type="dependency"><path d="M997.874,260.367 C994.722,260.94 991.581,261.497 988.449,262.039 C982.186,263.121 975.964,264.139 969.781,265.096 C957.416,267.01 945.21,268.68 933.156,270.13 C909.049,273.029 885.553,275.049 862.621,276.38 C816.755,279.042 773.143,278.952 731.398,277.65 C647.907,275.046 571.885,267.593 500.248,267.609 C356.973,267.642 231.235,297.552 98.36,455.887 C15.59,554.517 6,648.217 90.36,745.487 C108.89,766.847 125.15,752.427 153.36,754.487 C168.29,755.577 2297.85,752.917 2309.36,762.487 C2313.648,766.049 2317.168,770.251 2320.044,774.882 C2320.763,776.039 2319.099,772.806 2319.74,774.014" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAM-to-Governance"/><polygon points="2322.083,778.431,2321.399,768.606,2319.74,774.014,2314.332,772.355,2322.083,778.431" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="99.36" y="561.604" fill="#000" font-size="13" textLength="115.965">«access controls»</text></g><g class="link" data-entity-1="ent0019" data-entity-2="ent0038" id="lnk53" data-source-line="80" data-link-type="dependency"><path d="M2300.494,626.833 C2300.612,627.831 2300.73,628.836 2300.85,629.848 C2301.806,637.942 2302.813,646.461 2303.854,655.264 C2305.934,672.87 2308.149,691.611 2310.364,710.352 C2312.578,729.093 2314.793,747.833 2316.873,765.438 C2317.394,769.839 2317.318,769.204 2317.82,773.445" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Data-to-Governance"/><polygon points="2318.406,778.411,2321.323,769.004,2317.82,773.445,2313.378,769.942,2318.406,778.411" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2315.36" y="686.904" fill="#000" font-size="13" textLength="116.016">«data protection»</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0038" id="lnk54" data-source-line="81" data-link-type="dependency"><path d="M2688.47,269.434 C2691.325,273.08 2694.002,276.757 2696.504,280.465 C2701.508,287.882 2705.815,295.419 2709.465,303.063 C2716.763,318.35 2721.431,334.062 2723.784,350.075 C2728.491,382.101 2723.938,415.333 2712.653,448.788 C2690.084,515.697 2640.588,583.495 2584.385,644.316 C2528.183,705.136 2465.274,758.979 2415.879,797.977 C2391.182,817.476 2369.864,833.263 2354.451,844.356 C2350.598,847.129 2347.114,849.609 2344.039,851.78 C2342.501,852.865 2341.066,853.874 2339.737,854.803 C2339.073,855.268 2338.436,855.712 2337.825,856.137 C2337.52,856.35 2337.222,856.557 2336.931,856.759 C2336.785,856.86 2340.749,854.11 2340.607,854.208" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Network-to-Governance"/><polygon points="2336.499,857.059,2346.174,855.214,2340.607,854.208,2341.612,848.641,2336.499,857.059" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2710.36" y="561.604" fill="#000" font-size="13" textLength="124.954">«network controls»</text></g><?plantuml-src RLN1Zjis4BthAzWr43I7jT9iqgP1i80hovj5xCImdGH8iIZ6qaGcJ942INcnAVenHG-B_aAl_h4EQL6GhCW7aJDFCuypR-WVkCn4dIFRMLkPrt6iuNvSSBkhjxL1dIbfKTfnfifumVSxuEATXWDQ4vVxN6NcZwekHLo2iQXZkyCIJPpZLwY5ZGKlTdRi055akHN85Yf7eHYbcyZZtu8RP3yk8LCMpLDsoPPAMn0iuJdantyKMsDHQnL5Pizb1HfALa6sXmBNze6YQSmio4BW4F0RlGgjQfadIYZDHhENxlSTeD8vwWPqvPyeQdpiulk4BjYVKSHOYtgFzbxfFNl2ReqIOBcI5mmC2_PHUZLxFflILuoUtpyjaxlJQbrlBpNcQDZo-DzMy0pCqAFv0VBMSKlzq18jkm6Bz_0Gy9ZLcji7TaE7hWBu_IIP-_LVFRwtERNKWP-mIPQXCPxjxMH1PPhDhj9dWQapVIGLjCbflr82k_kb8jwyDSsHfE19Su453fCdggngYovtLRaZj-KAdb7wQlOo_JMGI9FdTs6rRe-h3_pug0pBWUAuCCT7Qb3Z_e82SgKvi8zw2nA6BAPWWIYihT9klzGamQnbuhsZMPA-I9D0OpLjaryrYtUBO4eqhwmgD7obd5Yo5LQgDe7EPhwEtsuso_MGnq99JXouB5n1wfnRJw1Z7gNJz9VPpu568bITVmQRxUuwXescmMmCY-E_LdUaD5T5M6uq5piAx-RFvN8b6dAQ72WORBauIIIXAu3BcZQUMi_hzF8g_IcGMz3Kyyl9bz0lay49IkE3x2sb-qR1832TyXAbeQ83lMsebXlTkcesAz9rXRhNtTNoGxpQV1WIlr47cWsG6NhQ9Ud2RJpjZc-KFgDnR4dFRvRJK4jYfvs-NONyh8CyFaBZxPMCzbuqdfY3JqbnpQmHgp3wu_5rg-lNxCsRIgi3TsCjJu3hwnxK2y_XkBz8q93V3TbvcEn4r33myzj1jH66a2X4wE7ebdVEhg-ZFeSeK587Y0mJ92KNo7_ia3qnEEpMDo-cczdL--4iy03k149fNCnEKWVjzAjNDtGlidQEV0OzdPU5ynEmfNk6p9szQaV_h1TduAPXtRXHxppdFIg1azQvDCousyfJ7dpGjg6XOHYftN3wD_Ld_1y0?></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:2851px;height:1064px;background:#1B1B1B;" width="2851px" height="1064px" viewBox="0 0 2851 1064" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.8beta1?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><rect x="0" y="0" width="2851" height="1064" fill="#1B1B1B" style="stroke:none;"/><g class="title" data-source-line="3"><text x="1213.664" y="22.995" fill="#FFF" font-size="14" textLength="416.985" font-weight="700">Modelo de Análise (Pacotes) - Portal Cidadão Seguro</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro" id="ent0001" data-source-line="9"><rect x="19.36" y="44.297" width="2700" height="1005.78" fill="#F5F5F5" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="22.36" y="59.292" fill="#FFF" font-size="14" textLength="177.188" font-weight="700">Portal Cidadão Seguro</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Network" id="ent0002" data-source-line="11"><rect x="2134.36" y="95.297" width="553" height="311.59" fill="#E3F2FD" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="2137.36" y="110.292" fill="#FFF" font-size="14" textLength="157.11" font-weight="700">Network &amp; Isolation</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.IAM" id="ent0009" data-source-line="20"><rect x="999.36" y="95.297" width="356" height="311.59" fill="#FFF3E0" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1002.36" y="110.292" fill="#FFF" font-size="14" textLength="137.553" font-weight="700">Identity &amp; Access</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Compute" id="ent0014" data-source-line="27"><rect x="1395.36" y="274.597" width="445" height="329.59" fill="#E8F5E9" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1398.36" y="289.592" fill="#FFF" font-size="14" textLength="181.911" font-weight="700">Compute &amp; Application</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Data" id="ent0019" data-source-line="34"><rect x="1880.36" y="471.887" width="420" height="257.6" fill="#FCE4EC" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1883.36" y="486.882" fill="#FFF" font-size="14" textLength="208.646" font-weight="700">Data &amp; Storage Protection</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Monitoring" id="ent0025" data-source-line="42"><rect x="223.36" y="471.887" width="473" height="257.6" fill="#EDE7F6" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="226.36" y="486.882" fill="#FFF" font-size="14" textLength="150.589" font-weight="700">Monitoring &amp; Audit</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Availability" id="ent0031" data-source-line="50"><rect x="736.36" y="471.887" width="619" height="257.6" fill="#FFF8E1" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="739.36" y="486.882" fill="#FFF" font-size="14" textLength="192.548" font-weight="700">Availability &amp; Continuity</text></g><g class="cluster" data-qualified-name="Portal Cidad.o Seguro.Governance" id="ent0038" data-source-line="59"><rect x="1948.36" y="778.487" width="388" height="239.59" fill="#E0F2F1" style="stroke:#333;stroke-width:1;" rx="2.5" ry="2.5"/><text x="1951.36" y="793.482" fill="#FFF" font-size="14" textLength="207.074" font-weight="700">Governance &amp; Compliance</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.VPC" id="ent0003" data-source-line="12"><rect x="2177.46" y="157.297" width="67.795" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2225.255" y="162.297" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2223.255" y="164.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2223.255" y="168.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2192.46" y="190.292" fill="#FFF" font-size="14" textLength="27.795">VPC</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Sub-redes P.blicas" id="ent0004" data-source-line="13"><rect x="2279.93" y="157.297" width="172.863" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2432.793" y="162.297" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2430.793" y="164.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2430.793" y="168.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2294.93" y="190.292" fill="#FFF" font-size="14" textLength="132.863">Sub-redes Públicas</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Sub-redes Privadas" id="ent0005" data-source-line="14"><rect x="2487.85" y="157.297" width="175.023" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2642.873" y="162.297" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2640.873" y="164.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2640.873" y="168.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2502.85" y="190.292" fill="#FFF" font-size="14" textLength="135.023">Sub-redes Privadas</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Internet Gateway" id="ent0006" data-source-line="15"><rect x="2188.29" y="336.597" width="162.131" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2330.421" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2328.421" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2328.421" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2203.29" y="369.592" fill="#FFF" font-size="14" textLength="122.131">Internet Gateway</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.Security Groups" id="ent0007" data-source-line="16"><rect x="2385.28" y="336.597" width="152.164" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2517.444" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2515.444" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2515.444" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2400.28" y="369.592" fill="#FFF" font-size="14" textLength="112.164">Security Groups</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Network.NACLs" id="ent0008" data-source-line="17"><rect x="2572.9" y="336.597" width="84.919" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2637.819" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2635.819" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2635.819" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2587.9" y="369.592" fill="#FFF" font-size="14" textLength="44.919">NACLs</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.IAM Users" id="ent0010" data-source-line="21"><rect x="1058.64" y="157.297" width="109.439" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1148.079" y="162.297" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1146.079" y="164.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1146.079" y="168.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1073.64" y="190.292" fill="#FFF" font-size="14" textLength="69.439">IAM Users</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.IAM Roles" id="ent0011" data-source-line="22"><rect x="1203.2" y="157.297" width="108.325" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1291.525" y="162.297" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1289.525" y="164.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1289.525" y="168.297" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1218.2" y="190.292" fill="#FFF" font-size="14" textLength="68.325">IAM Roles</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.IAM Policies" id="ent0012" data-source-line="23"><rect x="1023.1" y="336.597" width="122.517" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1125.617" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1123.617" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1123.617" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1038.1" y="369.592" fill="#FFF" font-size="14" textLength="82.517">IAM Policies</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.IAM.Least Privilege" id="ent0013" data-source-line="24"><rect x="1181.11" y="336.597" width="142.491" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1303.601" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1301.601" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1301.601" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1196.11" y="369.592" fill="#FFF" font-size="14" textLength="102.491">Least Privilege</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.EC2" id="ent0015" data-source-line="28"><rect x="1485.6" y="336.597" width="67.528" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1533.128" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1531.128" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1531.128" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1500.6" y="369.592" fill="#FFF" font-size="14" textLength="27.528">EC2</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.ECS" id="ent0016" data-source-line="29"><rect x="1588.61" y="336.597" width="67.508" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1636.118" y="341.597" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1634.118" y="343.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1634.118" y="347.597" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1603.61" y="369.592" fill="#FFF" font-size="14" textLength="27.508">ECS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.Servi.os da Aplica..o" id="ent0017" data-source-line="30"><rect x="1427" y="533.887" width="192.715" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1599.715" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1597.715" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1597.715" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1442" y="566.882" fill="#FFF" font-size="14" textLength="152.715">Serviços da Aplicação</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Compute.Zeladoria Urbana" id="ent0018" data-source-line="31"><rect x="1654.5" y="533.887" width="161.721" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1796.221" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1794.221" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1794.221" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1669.5" y="566.882" fill="#FFF" font-size="14" textLength="121.721">Zeladoria Urbana</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.RDS" id="ent0020" data-source-line="35"><rect x="1976.66" y="533.887" width="69.395" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2026.055" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2024.055" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2024.055" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1991.66" y="566.882" fill="#FFF" font-size="14" textLength="29.395">RDS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.S3" id="ent0021" data-source-line="36"><rect x="2081.46" y="533.887" width="57.794" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2119.254" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2117.254" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2117.254" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2096.46" y="566.882" fill="#FFF" font-size="14" textLength="17.794">S3</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.KMS" id="ent0022" data-source-line="37"><rect x="2174.29" y="533.887" width="70.146" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2224.436" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2222.436" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2222.436" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2189.29" y="566.882" fill="#FFF" font-size="14" textLength="30.146">KMS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.Criptografia em Repouso" id="ent0023" data-source-line="38"><rect x="1904.03" y="659.187" width="214.658" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2098.688" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2096.688" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2096.688" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1919.03" y="692.182" fill="#FFF" font-size="14" textLength="174.658">Criptografia em Repouso</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Data.TLS.HTTPS" id="ent0024" data-source-line="39"><rect x="2153.9" y="659.187" width="114.915" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2248.815" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2246.815" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2246.815" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2168.9" y="692.182" fill="#FFF" font-size="14" textLength="74.915">TLS/HTTPS</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.CloudWatch" id="ent0026" data-source-line="43"><rect x="267.12" y="533.887" width="124.472" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="371.592" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="369.592" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="369.592" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="282.12" y="566.882" fill="#FFF" font-size="14" textLength="84.472">CloudWatch</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.CloudTrail" id="ent0027" data-source-line="44"><rect x="427.03" y="533.887" width="110.656" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="517.686" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="515.686" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="515.686" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="442.03" y="566.882" fill="#FFF" font-size="14" textLength="70.656">CloudTrail</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.M.tricas" id="ent0028" data-source-line="45"><rect x="572.66" y="533.887" width="99.397" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="652.057" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="650.057" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="650.057" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="587.66" y="566.882" fill="#FFF" font-size="14" textLength="59.397">Métricas</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.Logs" id="ent0029" data-source-line="46"><rect x="293.09" y="659.187" width="72.546" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="345.636" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="343.636" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="343.636" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="308.09" y="692.182" fill="#FFF" font-size="14" textLength="32.546">Logs</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Monitoring.Trilhas de Auditoria" id="ent0030" data-source-line="47"><rect x="400.99" y="659.187" width="176.739" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="557.729" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="555.729" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="555.729" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="415.99" y="692.182" fill="#FFF" font-size="14" textLength="136.739">Trilhas de Auditoria</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Multi-AZ" id="ent0032" data-source-line="51"><rect x="760.14" y="533.887" width="98.44" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="838.58" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="836.58" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="836.58" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="775.14" y="566.882" fill="#FFF" font-size="14" textLength="58.44">Multi-AZ</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Escalabilidade Horizontal" id="ent0033" data-source-line="52"><rect x="893.19" y="533.887" width="216.34" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1089.53" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1087.53" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1087.53" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="908.19" y="566.882" fill="#FFF" font-size="14" textLength="176.34">Escalabilidade Horizontal</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Dimensionamento" id="ent0034" data-source-line="53"><rect x="1144.27" y="533.887" width="168.174" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1292.444" y="538.887" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1290.444" y="540.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1290.444" y="544.887" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1159.27" y="566.882" fill="#FFF" font-size="14" textLength="128.174">Dimensionamento</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Backup" id="ent0035" data-source-line="54"><rect x="763.49" y="659.187" width="91.748" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="835.238" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="833.238" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="833.238" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="778.49" y="692.182" fill="#FFF" font-size="14" textLength="51.748">Backup</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.Recupera..o" id="ent0036" data-source-line="55"><rect x="890.57" y="659.187" width="131.588" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1002.158" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1000.158" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1000.158" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="905.57" y="692.182" fill="#FFF" font-size="14" textLength="91.588">Recuperação</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Availability.RPO.RTO" id="ent0037" data-source-line="56"><rect x="1056.76" y="659.187" width="103.205" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="1139.965" y="664.187" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1137.965" y="666.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="1137.965" y="670.187" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1071.76" y="692.182" fill="#FFF" font-size="14" textLength="63.205">RPO/RTO</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.LGPD" id="ent0039" data-source-line="60"><rect x="1972.42" y="840.487" width="77.871" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2030.291" y="845.487" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2028.291" y="847.487" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2028.291" y="851.487" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1987.42" y="873.482" fill="#FFF" font-size="14" textLength="37.871">LGPD</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.Controles de Seguran.a" id="ent0040" data-source-line="61"><rect x="2085.38" y="840.487" width="207.966" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2273.346" y="845.487" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2271.346" y="847.487" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2271.346" y="851.487" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2100.38" y="873.482" fill="#FFF" font-size="14" textLength="167.966">Controles de Segurança</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.Auditoria" id="ent0041" data-source-line="62"><rect x="1972.61" y="947.777" width="103.506" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2056.116" y="952.777" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2054.116" y="954.777" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2054.116" y="958.777" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="1987.61" y="980.772" fill="#FFF" font-size="14" textLength="63.506">Auditoria</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.Governance.Prote..o de Dados" id="ent0042" data-source-line="63"><rect x="2111.25" y="947.777" width="172.214" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="2263.464" y="952.777" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2261.464" y="954.777" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="2261.464" y="958.777" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="2126.25" y="980.772" fill="#FFF" font-size="14" textLength="132.214">Proteção de Dados</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0014" id="lnk43" data-source-line="67" data-link-type="dependency"><path d="M2134.059,182.354 C2133.823,182.38 2133.583,182.406 2133.337,182.433 C2132.846,182.487 2132.336,182.543 2131.806,182.601 C2129.689,182.834 2127.267,183.1 2124.554,183.398 C2113.699,184.589 2098.177,186.29 2078.813,188.404 C2040.084,192.633 1985.984,198.518 1923.11,205.297 C1797.362,218.854 1636.52,235.987 1493.36,250.597 C1484.25,251.527 1417.78,252.067 1411.36,258.597 C1407.509,262.516 1404.484,266.986 1402.141,271.814 C1401.848,272.417 1401.566,273.026 1401.294,273.64 C1401.158,273.947 1402.97,269.65 1402.84,269.959" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Network-to-Compute"/><polygon points="1400.894,274.565,1408.081,267.831,1402.84,269.959,1400.711,264.718,1400.894,274.565" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1654.36" y="246.664" fill="#FFF" font-size="13" textLength="128.711">«provides network»</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0019" id="lnk44" data-source-line="68" data-link-type="dependency"><path d="M2134.278,190.544 C2134.155,190.69 2134.03,190.838 2133.904,190.988 C2133.401,191.587 2132.881,192.211 2132.346,192.858 C2131.278,194.152 2130.15,195.541 2128.978,197.015 C2126.634,199.964 2124.112,203.256 2121.522,206.824 C2111.165,221.097 2099.735,239.787 2094.36,258.597 C2074.3,328.807 2044.16,369.867 2094.36,422.887 C2105.53,434.687 2224.77,426.307 2240.36,430.887 C2261.94,437.227 2272.28,436.917 2284.36,455.887 C2287.31,460.522 2289.655,465.532 2291.5,470.756 C2291.615,471.083 2290.121,466.675 2290.232,467.003" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Network-to-Data"/><polygon points="2291.84,471.738,2292.734,461.93,2290.232,467.003,2285.159,464.502,2291.84,471.738" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2095.36" y="364.304" fill="#FFF" font-size="13" textLength="65.692">«isolates»</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0014" id="lnk45" data-source-line="69" data-link-type="dependency"><path d="M1355.424,206.977 C1355.501,207.222 1355.579,207.467 1355.657,207.714 C1355.969,208.7 1356.287,209.708 1356.611,210.736 C1361.804,227.174 1368.588,248.652 1375.371,270.127 C1382.154,291.602 1388.937,313.074 1394.125,329.503 C1394.45,330.53 1394.768,331.537 1395.079,332.523 C1395.157,332.77 1393.729,328.247 1393.806,328.491" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAM-to-Compute"/><polygon points="1395.312,333.259,1396.415,323.472,1393.806,328.491,1388.787,325.881,1395.312,333.259" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1369.36" y="246.664" fill="#FFF" font-size="13" textLength="115.965">«controls access»</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0019" id="lnk46" data-source-line="70" data-link-type="dependency"><path d="M1355.516,181.853 C1356.478,181.904 1357.521,181.959 1358.641,182.019 C1360.88,182.14 1363.431,182.28 1366.271,182.44 C1377.633,183.082 1393.633,184.049 1412.949,185.385 C1451.579,188.056 1503.468,192.201 1558.013,198.167 C1667.103,210.099 1786.82,229.317 1832.36,258.597 C1906.07,305.987 1864.72,380.397 1941.36,422.887 C1969.75,438.627 2205.41,414.387 2233.36,430.887 C2240.91,435.347 2236.2,442.827 2243.36,447.887 C2258.51,458.617 2271.99,442.037 2284.36,455.887 C2288.02,459.986 2290.9,464.592 2293.138,469.519 C2293.418,470.135 2293.687,470.756 2293.947,471.381 C2294.012,471.538 2292.195,467.062 2292.259,467.219" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAM-to-Data"/><polygon points="2294.14,471.851,2294.46,462.008,2292.259,467.219,2287.048,465.018,2294.14,471.851" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1942.36" y="364.304" fill="#FFF" font-size="13" textLength="115.965">«controls access»</text></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0019" id="lnk47" data-source-line="72" data-link-type="dependency"><path d="M1844.072,430.118 C1866.177,430.059 1887.957,429.992 1909.08,429.925 C1951.326,429.793 1990.943,429.665 2025.267,429.617 C2093.914,429.521 2141.385,429.744 2146.36,430.887 C2163.6,434.857 2165.26,443.347 2182.36,447.887 C2193.35,450.807 2276.32,447.857 2284.36,455.887 C2288.248,459.769 2291.299,464.213 2293.662,469.02 C2293.958,469.621 2294.242,470.228 2294.517,470.84 C2294.654,471.146 2292.823,466.855 2292.955,467.164" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Compute-to-Data"/><polygon points="2294.92,471.762,2295.061,461.914,2292.955,467.164,2287.705,465.058,2294.92,471.762" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2183.36" y="443.954" fill="#FFF" font-size="13" textLength="45.69">«uses»</text></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0025" id="lnk48" data-source-line="73" data-link-type="dependency"><path d="M1395.22,372.971 C1395.099,373.139 1394.977,373.309 1394.854,373.479 C1393.867,374.842 1392.803,376.281 1391.664,377.779 C1389.387,380.774 1386.813,384.002 1383.976,387.326 C1372.627,400.619 1357.06,415.432 1339.36,422.887 C1324,429.367 1056.03,430.407 1039.36,430.887 C951.8,433.447 318.21,399.277 251.36,455.887 C247.098,459.497 243.581,463.735 240.692,468.392 C240.331,468.974 239.979,469.562 239.637,470.157 C239.466,470.454 239.298,470.753 239.132,471.054 C239.049,471.204 241.351,466.96 241.269,467.111" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Compute-to-Monitoring"/><polygon points="238.884,471.505,246.692,465.503,241.269,467.111,239.661,461.687,238.884,471.505" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1040.36" y="443.954" fill="#FFF" font-size="13" textLength="112.296">«generates logs»</text></g><g class="link" data-entity-1="ent0019" data-entity-2="ent0031" id="lnk49" data-source-line="75" data-link-type="dependency"><path d="M2300.397,520.836 C2300.433,520.529 2300.467,520.222 2300.501,519.913 C2300.568,519.296 2300.633,518.676 2300.693,518.052 C2300.815,516.804 2300.922,515.544 2301.013,514.273 C2302.465,493.944 2299.745,471.037 2284.36,456.827 C2248.73,423.927 1453.89,433.527 1411.36,456.827 C1389.275,468.932 1373.705,492.259 1363.456,513.363 C1360.894,518.639 1358.664,523.776 1356.749,528.564 C1356.27,529.761 1357.597,526.266 1357.157,527.416" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Data-to-Availability"/><polygon points="1355.371,532.086,1362.322,525.109,1357.157,527.416,1354.85,522.251,1355.371,532.086" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1865.36" y="443.954" fill="#FFF" font-size="13" textLength="124.846">«backup/recovery»</text></g><g class="link" data-entity-1="ent0031" data-entity-2="ent0019" id="lnk56" data-source-line="84" data-link-type="dependency"><path d="M1355.371,532.086 C1355.811,530.936 1356.27,529.761 1356.749,528.564 C1358.664,523.776 1360.894,518.639 1363.456,513.363 C1373.705,492.259 1389.275,468.932 1411.36,456.827 C1453.89,433.527 2248.73,423.927 2284.36,456.827 C2299.745,471.037 2302.465,493.944 2301.013,514.273 C2300.922,515.544 2300.815,516.804 2300.693,518.052 C2300.633,518.676 2300.568,519.296 2300.501,519.913 C2300.467,520.222 2301.005,515.562 2300.97,515.869" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Availability-to-Data"/><polygon points="2300.397,520.836,2305.402,512.354,2300.97,515.869,2297.455,511.437,2300.397,520.836" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1996.36" y="443.954" fill="#FFF" font-size="13" textLength="148.935">«protects persistence»</text></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0031" id="lnk50" data-source-line="76" data-link-type="dependency"><path d="M1395.191,372.892 C1395.07,373.059 1394.947,373.228 1394.824,373.397 C1393.834,374.753 1392.766,376.185 1391.625,377.676 C1389.341,380.657 1386.762,383.873 1383.92,387.187 C1372.553,400.442 1356.985,415.262 1339.36,422.887 C1321.6,430.577 1178.73,416.897 1165.36,430.887 C1160.14,436.357 1160.15,442.417 1165.36,447.887 C1177.86,461.017 1314.68,443.987 1328.36,455.887 C1332.565,459.547 1336.023,463.823 1338.854,468.507 C1339.208,469.092 1339.552,469.684 1339.886,470.282 C1340.053,470.581 1340.218,470.882 1340.381,471.184 C1340.462,471.334 1338.208,467.064 1338.288,467.216" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Compute-to-Availability"/><polygon points="1340.623,471.637,1339.958,461.811,1338.288,467.216,1332.883,465.546,1340.623,471.637" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1166.36" y="443.954" fill="#FFF" font-size="13" textLength="61.509">«scaling»</text></g><g class="link" data-entity-1="ent0031" data-entity-2="ent0014" id="lnk55" data-source-line="83" data-link-type="dependency"><path d="M1339.829,471.784 C1339.673,471.475 1339.514,471.168 1339.354,470.862 C1339.033,470.249 1338.703,469.642 1338.364,469.04 C1335.65,464.228 1332.353,459.778 1328.36,455.887 C1311.53,439.487 1248.67,465.937 1279.36,430.887 C1288.22,420.767 1327.26,428.757 1339.36,422.887 C1356.64,414.507 1372.195,399.664 1383.643,386.586 C1386.504,383.316 1389.11,380.156 1391.421,377.236 C1392.576,375.775 1393.658,374.375 1394.662,373.05 C1394.788,372.884 1394.912,372.72 1395.035,372.557 C1395.097,372.475 1392.153,376.39 1392.214,376.309" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Availability-to-Compute"/><polygon points="1395.219,372.313,1386.613,377.102,1392.214,376.309,1393.007,381.91,1395.219,372.313" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="1280.36" y="443.954" fill="#FFF" font-size="13" textLength="130.774">«maintains service»</text></g><g class="link" data-entity-1="ent0025" data-entity-2="ent0038" id="lnk51" data-source-line="78" data-link-type="dependency"><path d="M223.305,578.415 C223.262,578.509 223.218,578.603 223.175,578.697 C223.002,579.075 222.825,579.455 222.647,579.838 C222.289,580.604 221.92,581.381 221.541,582.167 C215.475,594.742 206.675,609.652 195.36,620.187 C166.41,647.137 136.32,625.647 115.36,659.187 C95.03,691.707 88.34,718.257 115.36,745.487 C158.29,788.747 2262.57,723.427 2309.36,762.487 C2313.64,766.058 2317.154,770.267 2320.027,774.902 C2320.745,776.06 2319.084,772.827 2319.724,774.035" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Monitoring-to-Governance"/><polygon points="2322.063,778.455,2321.388,768.629,2319.724,774.035,2314.317,772.371,2322.063,778.455" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="116.36" y="686.904" fill="#FFF" font-size="13" textLength="134.856">«provides evidence»</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0038" id="lnk52" data-source-line="79" data-link-type="dependency"><path d="M997.874,260.367 C994.722,260.94 991.581,261.497 988.449,262.039 C982.186,263.121 975.964,264.139 969.781,265.096 C957.416,267.01 945.21,268.68 933.156,270.13 C909.049,273.029 885.553,275.049 862.621,276.38 C816.755,279.042 773.143,278.952 731.398,277.65 C647.907,275.046 571.885,267.593 500.248,267.609 C356.973,267.642 231.235,297.552 98.36,455.887 C15.59,554.517 6,648.217 90.36,745.487 C108.89,766.847 125.15,752.427 153.36,754.487 C168.29,755.577 2297.85,752.917 2309.36,762.487 C2313.648,766.049 2317.168,770.251 2320.044,774.882 C2320.763,776.039 2319.099,772.806 2319.74,774.014" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAM-to-Governance"/><polygon points="2322.083,778.431,2321.399,768.606,2319.74,774.014,2314.332,772.355,2322.083,778.431" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="99.36" y="561.604" fill="#FFF" font-size="13" textLength="115.965">«access controls»</text></g><g class="link" data-entity-1="ent0019" data-entity-2="ent0038" id="lnk53" data-source-line="80" data-link-type="dependency"><path d="M2300.494,626.833 C2300.612,627.831 2300.73,628.836 2300.85,629.848 C2301.806,637.942 2302.813,646.461 2303.854,655.264 C2305.934,672.87 2308.149,691.611 2310.364,710.352 C2312.578,729.093 2314.793,747.833 2316.873,765.438 C2317.394,769.839 2317.318,769.204 2317.82,773.445" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Data-to-Governance"/><polygon points="2318.406,778.411,2321.323,769.004,2317.82,773.445,2313.378,769.942,2318.406,778.411" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2315.36" y="686.904" fill="#FFF" font-size="13" textLength="116.016">«data protection»</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0038" id="lnk54" data-source-line="81" data-link-type="dependency"><path d="M2688.47,269.434 C2691.325,273.08 2694.002,276.757 2696.504,280.465 C2701.508,287.882 2705.815,295.419 2709.465,303.063 C2716.763,318.35 2721.431,334.062 2723.784,350.075 C2728.491,382.101 2723.938,415.333 2712.653,448.788 C2690.084,515.697 2640.588,583.495 2584.385,644.316 C2528.183,705.136 2465.274,758.979 2415.879,797.977 C2391.182,817.476 2369.864,833.263 2354.451,844.356 C2350.598,847.129 2347.114,849.609 2344.039,851.78 C2342.501,852.865 2341.066,853.874 2339.737,854.803 C2339.073,855.268 2338.436,855.712 2337.825,856.137 C2337.52,856.35 2337.222,856.557 2336.931,856.759 C2336.785,856.86 2340.749,854.11 2340.607,854.208" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Network-to-Governance"/><polygon points="2336.499,857.059,2346.174,855.214,2340.607,854.208,2341.612,848.641,2336.499,857.059" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="2710.36" y="561.604" fill="#FFF" font-size="13" textLength="124.954">«network controls»</text></g><?plantuml-src RLN1Zjis4BthAzWr43I7jT9iqgP1i80hovj5xCImdGH8iIZ6qaGcJ942INcnAVenHG-B_aAl_h4EQL6GhCW7aJDFCuypR-WVkCn4dIFRMLkPrt6iuNvSSBkhjxL1dIbfKTfnfifumVSxuEATXWDQ4vVxN6NcZwekHLo2iQXZkyCIJPpZLwY5ZNFG-x7pHv7bLY1Rg1o5OfHj8ez_2swG_RY4J5aqJzabMofjGR24vv0V_r5iZKMjLHIPFPSLQ2XP1TaU2bpR1ugcCRCW2u53m6_qAhIgPPueeJGRpLwwttU0IkUe6z2LVwAeyR6BxnEwO7z64MCjwZtQUwNtx0cxDKg0vKfUC30is4VfrUpvR4fVCNf-_xHCxawhTRszr9YZOSlZVrl1Cp13Z-O7o5l7BRL3IxJi1YpUmqF0OrPhRX_O3Hsw2k3tasJkrt_r-Dxcr547Vi8cMOR6UBQtamMLQJQxIfy5fixqaKJG9gVzIWdixfUAUFFMD4TIWYVD1HOuJ9weigejkjnLvOxSbYjuHkchsSlqrq0YJPxVXTMwFQu-yEEZCYm7YkF271-fGOtx2mh8bUR0FkejI1Yoc885eh2sIhlzKfC4ivQ9zuvcIVeYJGADrRHDVjKitYs2AT6yighGy9LoOibMMAdQ13gR-Jf-kzairqCU2oKvSU2oS0MfSsuzWOvvb4xJNsO_1ng9K7N-6Mosk-iODfhciZ4iZlzQtP7IN1LXkT5Sx2Yycp-NovLeo6boe62mvU8aaOHk02vhsdXgFQ_Jowlqfq1kGKFFBoTVGhzC1YSeZG-ojvJk6mM3m7JAIvI6YWxqjg5QRdJhgjciIDSLwbvtLyiFyMhpOKZyHXreDa1cw6cNf0ktyRGxlb7wZCQn9Js_MKv3BOcTTlfs5VAp3lBu28stLpBQUz5uOWu-9SKriqQimkYFnzUjhb-pDsyghGxSZRKy0QwlUr0lF8VZ_Y91GtutPETXiXDHmy3FRmVLHXX2eX2XXwDBtZcxlexw7A90IHqWCaoGb5mW_x53ziJWi5lVl9XkPbVlXxF00xWJ2ALnCJj97RJJhrxTqBt8sZdo6VHqNXREJy2MxXaoT_Qg7VspNfo1cuPruqQzyvptg0HEMkVICEDkAqzvy47RXeQ6OQHsm-dFr9_nVm00?></g></svg></div></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
