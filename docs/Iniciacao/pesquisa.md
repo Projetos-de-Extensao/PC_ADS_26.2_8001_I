@@ -1,345 +1,214 @@
----
-id: documento de visão
-title: Documento de visão
----
-
-# Documentos
-### **1. Documento de visão**
-
-- Tema: GovTech – "Portal Cidadão Seguro"
-- Data: 2026.2
-- Stakeholder: Caio Domingues - Keanu Santos - Eric Lerer - Gabriel Meireles
+# Documento de Visão (v1.0)
+## Portal Cidadão Seguro
+### Projeto de Cloud - Fase de Inception
 
 ---
 
-### **1.2 - Introdução**
+### 1. Introdução
 
-- O propósito deste documento é definir a visão do produto Portal Cidadão Seguro, uma plataforma GovTech destinada ao atendimento e disponibilização de serviços públicos digitais para milhões de cidadãos.
+Este documento descreve as necessidades de negócio, restrições e requisitos de infraestrutura da plataforma Portal Cidadão Seguro, além de orientar o planejamento arquitetural da solução na nuvem AWS.
 
-O sistema será responsável pelo processamento e armazenamento de informações sensíveis, exigindo uma infraestrutura em nuvem altamente segura, escalável e auditável. O principal objetivo da solução é garantir a confidencialidade, integridade e disponibilidade dos dados, minimizando os riscos de vazamentos, acessos não autorizados e ataques à infraestrutura.
+O Portal Cidadão Seguro é uma plataforma GovTech destinada à disponibilização de serviços públicos digitais, com foco na segurança, disponibilidade, escalabilidade e auditabilidade das informações tratadas pela solução.
 
-A plataforma será projetada utilizando serviços da Amazon Web Services (AWS), adotando mecanismos de isolamento de rede, controle granular de acesso, criptografia, monitoramento centralizado e trilhas completas de auditoria.
+#### 1.1. Propósito
 
-- Terminologias aplicadas
-VPC (Virtual Private Cloud): ambiente de rede isolado utilizado para proteger os recursos da aplicação.
-Security Groups: mecanismos de controle de tráfego associados aos recursos da AWS, funcionando de maneira stateful.
-NACLs (Network Access Control Lists): regras de controle de tráfego aplicadas às sub-redes, funcionando de maneira stateless.
-IAM (Identity and Access Management): gerenciamento de identidades, usuários, funções e permissões de acesso aos recursos da AWS.
-CloudWatch: serviço utilizado para monitoramento, coleta e análise de logs e métricas.
-KMS (Key Management Service): gerenciamento de chaves criptográficas utilizadas para proteger dados.
-LGPD: legislação brasileira que estabelece regras para tratamento e proteção de dados pessoais.
-RPO (Recovery Point Objective): quantidade máxima de dados que pode ser perdida após uma falha.
-RTO (Recovery Time Objective): tempo máximo aceitável para recuperação do sistema após uma indisponibilidade
+Definir a visão de escopo e arquitetura lógica e física para a implantação da plataforma **Portal Cidadão Seguro** na infraestrutura de nuvem AWS, contemplando os requisitos de segurança, disponibilidade, escalabilidade, monitoramento, auditoria e proteção dos dados tratados pela plataforma.
 
----
+#### 1.2. Escopo
 
-## **2.0 - Solução**
+O escopo deste projeto de cloud engloba os seguintes componentes e serviços AWS:
 
+1. **Portal Cidadão Seguro:** plataforma destinada à disponibilização de serviços públicos digitais aos cidadãos.
 
-O problema é:	A necessidade de disponibilizar serviços públicos digitais capazes de armazenar e processar dados sensíveis de milhões de cidadãos com elevado nível de segurança.
-Que afeta:	Cidadãos, servidores públicos, gestores e equipes de tecnologia responsáveis pela operação da plataforma.
-Cujo impacto é:	Vazamento de dados pessoais, acessos indevidos, indisponibilidade dos serviços públicos, perda de confiança da população e possíveis consequências legais relacionadas à LGPD.
-Uma boa solução seria:	Uma plataforma GovTech hospedada em uma arquitetura AWS segura, isolada e escalável, utilizando VPC, Security Groups, NACLs, IAM, criptografia, CloudWatch e mecanismos completos de auditoria.
+2. **Módulo de Zeladoria Urbana:** serviço do Portal destinado ao registro e acompanhamento de solicitações relacionadas à manutenção e infraestrutura urbana, inspirado no conceito de centrais de atendimento e zeladoria como o 1746.
 
-O Portal Cidadão Seguro busca substituir ou complementar sistemas públicos legados por uma infraestrutura moderna em nuvem, permitindo maior controle sobre os acessos, monitoramento contínuo e capacidade de expansão conforme o número de usuários.
+3. **Infraestrutura de Rede e Segurança:** isolamento lógico dos recursos por meio de Amazon VPC, sub-redes públicas e privadas, Security Groups, NACLs e gerenciamento de acesso via IAM.
 
----
+4. **Computação:** execução dos serviços da aplicação por meio de Amazon EC2 / ECS.
 
-## **3.0 - Mapeamento de Steakeholders**
+5. **Persistência de Dados:** armazenamento das informações estruturadas da plataforma por meio do Amazon RDS.
 
-- Cidadãos
+6. **Armazenamento de Arquivos:** utilização do Amazon S3 para armazenamento de imagens, documentos e outros arquivos enviados pelos usuários.
 
-São os principais usuários da plataforma. Esperam que seus dados pessoais sejam tratados com segurança e que os serviços públicos digitais estejam disponíveis de forma confiável.
+7. **Monitoramento e Auditoria:** utilização do Amazon CloudWatch para monitoramento e centralização de logs e do AWS CloudTrail para registro das atividades realizadas no ambiente.
 
-Gestores Públicos
+8. **Criptografia e Proteção de Dados:** utilização do AWS KMS e dos mecanismos de criptografia da AWS para proteção dos dados em trânsito e em repouso.
 
-Necessitam de indicadores sobre disponibilidade, utilização da plataforma, incidentes de segurança e cumprimento dos requisitos de governança.
+9. **Disponibilidade e Escalabilidade:** utilização de mecanismos de alta disponibilidade, múltiplas Availability Zones e dimensionamento dos recursos conforme a demanda.
 
-Equipe de TI
+10. **Continuidade de Negócio:** utilização de mecanismos de backup e recuperação compatíveis com os objetivos de RPO e RTO definidos para a solução.
 
-Responsável pela administração da infraestrutura, configuração dos serviços AWS, gerenciamento de acessos, monitoramento, manutenção e resposta a incidentes.
+#### 1.3. Definições, Acrônimos e Abreviações
 
-Equipe de Segurança da Informação
-
-Responsável por garantir que os controles de segurança estejam adequadamente configurados, acompanhando tentativas de acesso indevido, vulnerabilidades e eventos suspeitos.
-
-Responsáveis pela Governança e Compliance
-
-Precisam garantir que o tratamento dos dados esteja de acordo com as políticas internas e com os requisitos da LGPD, mantendo registros que permitam auditorias.
+* **API:** Application Programming Interface
+* **AWS:** Amazon Web Services
+* **VPC:** Virtual Private Cloud (Rede Virtual Privada)
+* **RDS:** Relational Database Service (Banco de Dados Relacional Gerenciado)
+* **S3:** Simple Storage Service (Serviço de Armazenamento de Objetos)
+* **IAM:** Identity and Access Management (Gerenciamento de Identidades e Acessos)
+* **NACL:** Network Access Control List (Lista de Controle de Acesso à Rede)
+* **SLA:** Service Level Agreement (Acordo de Nível de Serviço)
+* **RPO:** Recovery Point Objective (Objetivo de Ponto de Recuperação)
+* **RTO:** Recovery Time Objective (Objetivo de Tempo de Recuperação)
+* **LGPD:** Lei Geral de Proteção de Dados
 
 ---
 
+### 2. Posicionamento
 
-## **4.0 - Visão Geral da Solução**
+#### 2.1. Oportunidade de Negócio
 
-- O Portal Cidadão Seguro será implementado utilizando uma arquitetura baseada em nuvem na AWS, priorizando segurança, isolamento e escalabilidade.
+A digitalização dos serviços públicos cria a necessidade de plataformas capazes de disponibilizar serviços à população de forma acessível, segura e confiável.
 
-A infraestrutura será organizada dentro de uma Amazon VPC, dividindo os recursos em sub-redes públicas e privadas. Os componentes que armazenam ou processam dados sensíveis permanecerão em sub-redes privadas, sem exposição direta à internet.
+O Portal Cidadão Seguro propõe uma infraestrutura em nuvem capaz de suportar serviços públicos digitais, oferecendo uma base arquitetural que permita a evolução da plataforma conforme o aumento da quantidade de usuários e serviços disponibilizados.
 
-O controle do tráfego será realizado por meio de Security Groups e NACLs, permitindo estabelecer regras específicas para comunicação entre os diferentes componentes da infraestrutura.
+Como aplicação inicial, o projeto contará com o módulo de **Zeladoria Urbana**, permitindo que cidadãos registrem problemas encontrados no espaço público e acompanhem o andamento das solicitações.
 
-O acesso aos recursos AWS será controlado pelo IAM, utilizando o princípio do menor privilégio, de modo que cada usuário, serviço ou aplicação tenha somente as permissões necessárias para executar suas funções.
+#### 2.2. Descrição do Problema
 
-Os eventos e logs relevantes serão centralizados no Amazon CloudWatch, possibilitando o monitoramento da infraestrutura e a identificação de comportamentos suspeitos.
+| **O problema de...** | A necessidade de disponibilizar serviços públicos digitais capazes de receber, armazenar e processar informações dos cidadãos com segurança e disponibilidade. |
+|---|---|
+| **Afeta...** | Cidadãos, servidores públicos, gestores e equipes responsáveis pela operação e manutenção da plataforma. |
+| **Cujo impacto é...** | Dificuldade de acesso aos serviços públicos, indisponibilidade dos sistemas, acessos indevidos, perda de rastreabilidade das operações e riscos relacionados ao tratamento inadequado de dados pessoais. |
+| **Uma solução bem-sucedida incluiria...** | Uma plataforma GovTech hospedada em uma infraestrutura AWS segura, escalável e auditável, oferecendo serviços digitais aos cidadãos, inicialmente com um módulo de solicitação e acompanhamento de serviços de zeladoria urbana. |
 
-Dados sensíveis serão protegidos por criptografia em trânsito e em repouso, utilizando mecanismos como TLS/HTTPS e AWS KMS.
+#### 2.3. Posicionamento do Produto
 
-Além disso, a solução deverá manter trilhas de auditoria, permitindo identificar quem acessou determinado recurso, quando o acesso ocorreu e qual ação foi executada.
+Para cidadãos que necessitam utilizar serviços públicos digitais, o **Portal Cidadão Seguro** é uma plataforma GovTech que centraliza serviços públicos digitais em uma infraestrutura segura e escalável na AWS.
 
+O módulo inicial de **Zeladoria Urbana** permitirá o registro, consulta, atualização, cancelamento e acompanhamento de solicitações relacionadas a problemas de manutenção e infraestrutura urbana.
 
----
-
-
-## **5.0 - Recursos Tecnológicos da Arquitetura AWS**
-
-- 
-Amazon VPC	Isolamento da infraestrutura	Cria uma rede virtual isolada, permitindo controlar como os recursos se comunicam e reduzindo a exposição da aplicação.
-Security Groups	Controle de tráfego	Controlam o tráfego de entrada e saída dos recursos de forma stateful, permitindo restringir as comunicações entre os componentes.
-NACLs	Controle das sub-redes	Funcionam como uma camada adicional de segurança, permitindo regras stateless de entrada e saída nas sub-redes.
-IAM	Controle de identidade e acesso	Permite aplicar permissões granulares e o princípio do menor privilégio aos usuários e serviços.
-Amazon CloudWatch	Monitoramento e logs	Centraliza métricas e logs, auxiliando na identificação de falhas, comportamentos anormais e incidentes de segurança.
-AWS CloudTrail	Auditoria	Registra chamadas de API e ações realizadas no ambiente AWS, fornecendo evidências para auditoria e investigação.
-AWS KMS	Criptografia	Gerencia chaves criptográficas utilizadas na proteção dos dados armazenados.
-Amazon RDS	Banco de dados relacional	Armazena informações estruturadas da plataforma, utilizando recursos de segurança, backup e alta disponibilidade.
-Amazon S3	Armazenamento de arquivos	Armazena documentos e outros arquivos de forma escalável, com controle de acesso e criptografia.
-Amazon EC2 / ECS	Computação	Executa os serviços da aplicação de forma controlada e escalável.
-
+Diferentemente de soluções isoladas ou sistemas legados, o Portal Cidadão Seguro será sustentado por uma arquitetura em nuvem que prioriza segurança, disponibilidade, escalabilidade, monitoramento e auditabilidade.
 
 ---
 
+### 3. Descrição dos Stakeholders e Usuários
 
-## **6.0 - Segurança da Informação**
-
-- A segurança é o principal requisito arquitetural do Portal Cidadão Seguro.
-
-A infraestrutura deverá adotar uma estratégia de defesa em profundidade, utilizando diferentes camadas de proteção.
-
-Isolamento de Rede
-
-A infraestrutura será criada dentro de uma VPC, utilizando sub-redes privadas para os componentes que manipulam dados sensíveis.
-
-Os bancos de dados não deverão possuir acesso direto à internet pública.
-
-Security Groups
-
-Os Security Groups serão configurados permitindo somente as portas e origens necessárias para a comunicação entre os componentes.
-
-Por exemplo, o banco de dados deverá aceitar conexões somente dos serviços da aplicação que realmente necessitam acessá-lo.
-
-NACLs
-
-As NACLs serão utilizadas como uma camada adicional de controle de tráfego nas sub-redes, permitindo bloquear determinados tipos de comunicação antes que o tráfego alcance os recursos.
-
-IAM
-
-O IAM será configurado seguindo o princípio do menor privilégio.
-
-Cada usuário ou serviço deverá possuir somente as permissões necessárias para executar suas atividades, reduzindo o impacto de possíveis comprometimentos de credenciais.
-
-Criptografia
-
-Os dados sensíveis deverão ser protegidos:
-
-Em trânsito: utilizando HTTPS/TLS;
-Em repouso: utilizando mecanismos de criptografia da AWS;
-Chaves criptográficas: administradas pelo AWS KMS.
-Auditoria
-
-Todas as ações relevantes deverão ser registradas para permitir rastreamento e investigação.
-
-A solução utilizará AWS CloudTrail para registrar atividades na conta AWS e CloudWatch para monitoramento e centralização de logs.
-
+| **Stakeholder (Perfil)** | **Necessidade Primária** | **Expectativa na Nuvem (AWS)** |
+|---|---|---|
+| **Cidadãos** | Utilizar os serviços públicos digitais e realizar solicitações de zeladoria urbana | Plataforma disponível e responsiva para criação, consulta, atualização e acompanhamento das solicitações |
+| **Servidores Públicos** | Analisar solicitações, assumir atendimentos e atualizar o status das solicitações | Acesso confiável às solicitações e aos dados necessários para o atendimento |
+| **Gestores Públicos** | Acompanhar indicadores de utilização, disponibilidade e segurança da plataforma | Informações consolidadas sobre o funcionamento da plataforma e seus serviços |
+| **Equipe de TI** | Administrar a infraestrutura, acessos, monitoramento e manutenção dos recursos AWS | Infraestrutura disponível, monitorada e administrável |
+| **Profissionais de Segurança da Informação** | Garantir a proteção dos recursos e dados da plataforma | Controle de acesso, criptografia, monitoramento e auditoria dos recursos |
+| **Responsáveis por Governança e Compliance** | Garantir conformidade com políticas internas e requisitos de proteção de dados | Rastreabilidade das operações e informações necessárias para auditorias e conformidade com a LGPD |
 
 ---
 
+### 4. Visão Geral do Produto/Solução
 
-## **7.0 - Compliance e LGPD**
+#### 4.1. Perspectiva do Produto
 
-- A segurança é o principal requisito arquitetural do Portal Cidadão Seguro.
+O Portal Cidadão Seguro operará como uma plataforma GovTech hospedada na infraestrutura de nuvem AWS.
 
-A infraestrutura deverá adotar uma estratégia de defesa em profundidade, utilizando diferentes camadas de proteção.
+A aplicação disponibilizará serviços públicos digitais por meio de uma interface acessível aos cidadãos. O primeiro serviço implementado será o módulo de **Zeladoria Urbana**, responsável pelo gerenciamento das solicitações de problemas relacionados à infraestrutura e manutenção urbana.
 
-Isolamento de Rede
+A aplicação será executada nos recursos de computação definidos pela arquitetura AWS e utilizará serviços gerenciados para persistência de dados, armazenamento de arquivos, segurança, monitoramento e auditoria.
 
-A infraestrutura será criada dentro de uma VPC, utilizando sub-redes privadas para os componentes que manipulam dados sensíveis.
+#### 4.2. Módulos Principais
 
-Os bancos de dados não deverão possuir acesso direto à internet pública.
+* **Portal:** reúne os serviços digitais destinados aos cidadãos.
 
-Security Groups
+* **Zeladoria Urbana:** aplicação para registro e acompanhamento de solicitações de serviços de zeladoria urbana.
 
-Os Security Groups serão configurados permitindo somente as portas e origens necessárias para a comunicação entre os componentes.
+#### 4.3. Funcionalidades Principais
 
-Por exemplo, o banco de dados deverá aceitar conexões somente dos serviços da aplicação que realmente necessitam acessá-lo.
+* **Cadastro e autenticação de usuários:** gerenciamento do acesso dos cidadãos e demais usuários autorizados.
 
-NACLs
+* **Criação de solicitação de zeladoria:** permite ao cidadão registrar um problema encontrado no espaço público, informando sua descrição, categoria e localização.
 
-As NACLs serão utilizadas como uma camada adicional de controle de tráfego nas sub-redes, permitindo bloquear determinados tipos de comunicação antes que o tráfego alcance os recursos.
+* **Anexação de imagens:** permite associar imagens ou outros arquivos à solicitação.
 
-IAM
+* **Consulta de solicitações:** permite visualizar as solicitações registradas pelo usuário.
 
-O IAM será configurado seguindo o princípio do menor privilégio.
+* **Atualização de solicitação:** permite alterar informações da solicitação enquanto sua situação permitir.
 
-Cada usuário ou serviço deverá possuir somente as permissões necessárias para executar suas atividades, reduzindo o impacto de possíveis comprometimentos de credenciais.
+* **Cancelamento de solicitação:** permite cancelar solicitações ainda elegíveis para cancelamento.
 
-Criptografia
+* **Acompanhamento de status:** permite ao cidadão acompanhar o andamento da solicitação.
 
-Os dados sensíveis deverão ser protegidos:
+* **Gestão de solicitações:** permite aos servidores públicos consultar solicitações, assumir atendimentos e atualizar seus status.
 
-Em trânsito: utilizando HTTPS/TLS;
-Em repouso: utilizando mecanismos de criptografia da AWS;
-Chaves criptográficas: administradas pelo AWS KMS.
-Auditoria
+* **Monitoramento da infraestrutura:** permite às equipes responsáveis acompanhar métricas, logs e eventos relevantes da plataforma.
 
-Todas as ações relevantes deverão ser registradas para permitir rastreamento e investigação.
+* **Auditoria:** mantém registros das ações relevantes realizadas no ambiente para permitir rastreamento e investigação.
 
-A solução utilizará AWS CloudTrail para registrar atividades na conta AWS e CloudWatch para monitoramento e centralização de logs.
+#### 4.4. Suposições e Dependências
 
+* **Suposições:** a equipe possui acesso a uma conta AWS apropriada para o projeto e conhecimento dos serviços necessários para configuração da infraestrutura.
 
----
+* **Suposições:** os cidadãos utilizarão a plataforma por meio de conexão com a internet.
 
-## **8.0 - Escalabilidade e Disponibilidade**
+* **Suposições:** as solicitações de zeladoria poderão conter dados pessoais e imagens relacionadas ao problema informado.
 
-- Como a plataforma será utilizada potencialmente por milhões de cidadãos, a infraestrutura deverá suportar variações significativas na quantidade de acessos.
+* **Dependências:** disponibilidade dos serviços AWS utilizados pela solução.
 
-A arquitetura deverá utilizar mecanismos de escalabilidade horizontal e distribuição de carga para evitar que um único componente se torne um ponto de falha.
-
-A utilização de múltiplas Availability Zones (Multi-AZ) permitirá aumentar a disponibilidade da solução e reduzir o impacto de falhas em uma única zona.
-
-O dimensionamento automático dos recursos poderá ser utilizado para aumentar a capacidade durante períodos de alta demanda e reduzi-la quando a utilização estiver baixa.
+* **Dependências:** definição dos recursos AWS compatíveis com o orçamento e o prazo acadêmico.
 
 ---
 
+### 5. Recursos do Produto (Arquitetura AWS)
 
-## **9.0 - Atributos de Qualidade**
+Para implementar a visão proposta, a arquitetura AWS utilizará os seguintes recursos:
 
-- Segurança
-
-A segurança é o principal atributo de qualidade do sistema. O ambiente deverá possuir múltiplas camadas de proteção, controle granular de acesso, criptografia e auditoria.
-
-Disponibilidade
-
-A infraestrutura deverá ser projetada para manter os serviços disponíveis mesmo diante da falha de componentes individuais, utilizando arquitetura Multi-AZ quando aplicável.
-
-Performance
-
-A plataforma deverá apresentar tempo de resposta adequado mesmo durante períodos de elevada quantidade de acessos simultâneos.
-
-Escalabilidade
-
-A infraestrutura deverá ser capaz de aumentar ou reduzir sua capacidade conforme a demanda, permitindo atender milhões de usuários sem necessidade de dimensionamento manual constante.
-
-Auditabilidade
-
-Todas as ações relevantes deverão possuir registros suficientes para identificar usuários, serviços, horários e operações realizadas.
-
-Conformidade
-
-A solução deverá ser projetada considerando os requisitos de proteção de dados e segurança estabelecidos pela LGPD.
+| **Serviço AWS** | **Papel na Arquitetura** | **Justificativa Técnica (Por que usar?)** |
+|---|---|---|
+| **Amazon VPC** | Isolamento de rede | Cria uma rede virtual isolada para organização dos recursos e controle da comunicação entre os componentes. |
+| **Security Groups** | Controle de tráfego dos recursos | Restringem as conexões de entrada e saída dos recursos conforme as necessidades da aplicação. |
+| **NACLs** | Controle das sub-redes | Fornecem uma camada adicional de controle de tráfego aplicada às sub-redes. |
+| **IAM** | Controle de identidade e acesso | Permite gerenciar permissões de usuários, serviços e aplicações utilizando o princípio do menor privilégio. |
+| **Amazon EC2 / ECS** | Computação | Executa os serviços do Portal Cidadão Seguro e do módulo de Zeladoria Urbana. |
+| **Amazon RDS (PostgreSQL)** | Banco de dados relacional | Armazena os dados estruturados da plataforma, incluindo informações de usuários e solicitações. |
+| **Amazon S3** | Armazenamento de arquivos | Armazena imagens, documentos e demais arquivos associados às solicitações. |
+| **Amazon CloudWatch** | Monitoramento e logs | Centraliza métricas e logs para acompanhamento da infraestrutura e identificação de falhas ou comportamentos anormais. |
+| **AWS CloudTrail** | Auditoria | Registra chamadas de API e ações realizadas no ambiente AWS para rastreamento e investigação. |
+| **AWS KMS** | Criptografia | Gerencia chaves criptográficas utilizadas na proteção dos dados armazenados. |
 
 ---
 
-## **10.0 - Continuidade de Negócio**
+### 6. Restrições do Projeto
 
-- A plataforma deverá possuir mecanismos de backup e recuperação capazes de reduzir os impactos causados por falhas, indisponibilidade ou incidentes de segurança.
+* **Orçamentária:** A infraestrutura deverá respeitar o orçamento definido para o projeto acadêmico.
 
-Como objetivos iniciais da solução, são definidos:
+* **Prazo:** A implementação deverá respeitar o cronograma estabelecido pela disciplina.
 
-RPO: até 15 minutos;
-RTO: até 1 hora.
+* **Tecnológica:** A infraestrutura deverá utilizar a plataforma Amazon Web Services (AWS).
 
-Os valores deverão ser validados durante a implementação, considerando os serviços AWS escolhidos, os custos e os requisitos reais do sistema.
+* **Segurança:** A arquitetura deverá utilizar VPC, Security Groups, NACLs e IAM conforme definido para o projeto.
 
----
+* **Monitoramento:** A infraestrutura deverá utilizar Amazon CloudWatch para monitoramento e gerenciamento de logs.
 
-## **11.0 - Restrições do Projeto**
+* **Compliance:** A arquitetura deverá considerar os requisitos aplicáveis da LGPD.
 
-- Orçamento: a infraestrutura deverá respeitar o orçamento definido para o projeto acadêmico.
-Prazo Acadêmico: o desenvolvimento deverá ser concluído dentro do cronograma estabelecido pela disciplina.
-Stack: utilização da AWS como plataforma de infraestrutura.
-Segurança: utilização obrigatória de VPC, Security Groups, NACLs e IAM.
-Monitoramento: utilização de CloudWatch para monitoramento e gerenciamento dos logs.
-Compliance: a arquitetura deverá considerar os requisitos da LGPD.
-Equipe: o desenvolvimento e a configuração da infraestrutura serão realizados pela equipe do projeto.
+* **Proteção de dados:** Informações pessoais e demais dados sensíveis tratados pela plataforma deverão possuir mecanismos adequados de proteção.
 
-
-
+* **Equipe:** O desenvolvimento e a configuração da infraestrutura serão realizados pela equipe do projeto.
 
 ---
 
+### 7. Atributos de Qualidade (SLAs E SLOs)
 
+* **Segurança:** A infraestrutura deverá possuir múltiplas camadas de proteção, controle de acesso, criptografia e mecanismos de auditoria.
 
+* **Disponibilidade:** A arquitetura deverá utilizar mecanismos que reduzam o impacto de falhas de componentes individuais, incluindo Multi-AZ quando aplicável.
 
-## **12.0 - Benefícios Esperados**
-- Com a implementação do Portal Cidadão Seguro, espera-se:
+* **Performance:** A plataforma deverá apresentar tempo de resposta adequado para as operações realizadas pelos cidadãos e servidores públicos, inclusive durante períodos de maior demanda.
 
-Reduzir o risco de vazamento de dados dos cidadãos;
-Restringir acessos não autorizados aos recursos da plataforma;
-Garantir maior rastreabilidade das ações realizadas;
-Facilitar auditorias de segurança e compliance;
-Aumentar a disponibilidade dos serviços públicos digitais;
-Permitir escalabilidade para milhões de usuários;
-Centralizar o monitoramento da infraestrutura;
-Criar uma arquitetura preparada para evolução futura.
+* **Escalabilidade:** A infraestrutura deverá permitir ampliação da capacidade conforme o crescimento da quantidade de usuários e solicitações.
 
+* **Auditabilidade:** As operações relevantes deverão possuir registros suficientes para identificar usuários, serviços, horários e ações realizadas.
 
+* **Conformidade:** A solução deverá considerar os requisitos de proteção de dados e segurança estabelecidos pela LGPD.
 
-
----
-
-
-## **13.0 - Requisitos Não Funcionais - Portal Cidadão Seguro (GovTech)**
-
-Com base no documento de visão fornecido para o **Portal Cidadão Seguro**, os requisitos não funcionais (RNFs) foram estruturados e categorizados de acordo com os atributos de qualidade, segurança e restrições descritos no projeto:
-
-## 1. Segurança
-* **RNF01 - Isolamento de Rede:** A infraestrutura de nuvem deve ser implantada inteiramente dentro de uma Amazon VPC, segregando recursos em sub-redes públicas e privadas. Componentes que manipulam dados sensíveis e bancos de dados (como o Amazon RDS) devem residir exclusivamente em sub-redes privadas, sem acesso direto à internet pública.
-* **RNF02 - Controle de Tráfego por Camadas:** O tráfego de rede deve ser controlado em múltiplos níveis utilizando **Security Groups** (comportamento *stateful*) para restringir a comunicação entre os recursos e serviços da aplicação, e **Network Access Control Lists (NACLs)** (*stateless*) como camada adicional de inspeção e bloqueio nas sub-redes.
-* **RNF03 - Princípio do Menor Privilégio (IAM):** O acesso a todos los recursos da AWS deve ser gerenciado via IAM, aplicando obrigatoriamente o princípio do menor privilégio para usuários, serviços e aplicações, concedendo apenas as permissões estritamente necessárias para a execução de suas funções.
-* **RNF04 - Criptografia de Dados:** Todos os dados sensíveis dos cidadãos devem ser protegidos obrigatoriamente **em trânsito** (utilizando protocolos HTTPS/TLS) e **em repouso** (utilizando mecanismos de criptografia gerenciados pelo **AWS KMS**).
-
-## 2. Confiabilidade e Disponibilidade
-* **RNF05 - Alta Disponibilidade (Multi-AZ):** A arquitetura da aplicação e do banco de dados deve ser distribuída em múltiplas Zonas de Disponibilidade (Multi-AZ) na AWS, garantindo a continuidade dos serviços públicos digitais mesmo em caso de falha de um componente ou zona individual.
-* **RNF06 - Recuperação de Desastres (Disaster Recovery):** O sistema deve atender às metas de continuidade de negócio estabelecidas:
-  * **RPO (Recovery Point Objective):** Máximo de 15 minutos de perda tolerável de dados.
-  * **RTO (Recovery Time Objective):** Tempo máximo de recuperação e restabelecimento do sistema fixado em até 1 hora.
-
-## 3. Escalabilidade e Desempenho
-* **RNF07 - Escalabilidade Horizontal:** A infraestrutura deve suportar variações expressivas na volumetria de acessos simultâneos de milhões de cidadãos, utilizando recursos de dimensionamento automático (*Auto Scaling*) e balanceamento de carga para evitar pontos únicos de falha.
-* **RNF08 - Tempo de Resposta:** A plataforma deve manter tempos de resposta adequados e estáveis mesmo sob picos de alta demanda e tráfego elevado na rede.
-
-## 4. Auditabilidade e Monitoramento
-* **RNF09 - Centralização de Logs e Métricas:** Todas as métricas de infraestrutura, eventos e logs de aplicação devem ser centralizados e monitorados em tempo real por meio do **Amazon CloudWatch**, permitindo a detecção rápida de comportamentos anormais ou incidentes de segurança.
-* **RNF10 - Trilha de Auditoria:** O sistema deve registrar de forma imutável e centralizada todas as chamadas de API, acessos administrativos e operações relevantes na conta AWS utilizando o **AWS CloudTrail**, garantindo evidências completas para auditorias forenses e de segurança.
-
-## 5. Conformidade (Compliance)
-* **RNF11 - Aderência à LGPD:** A arquitetura, o tratamento, o armazenamento e o ciclo de vida dos dados pessoais tratados pela plataforma devem estar em total conformidade com as diretrizes e exigências da Lei Geral de Proteção de Dados (LGPD).
-
-## 6. Restrições Tecnológicas
-* **RNF12 - Provedor de Nuvem Obrigatório:** Toda a infraestrutura, processamento e armazenamento do Portal Cidadão Seguro devem ser hospedados e executados exclusivamente na plataforma de nuvem da **Amazon Web Services (AWS)**, utilizando os serviços especificados na arquitetura base (VPC, IAM, RDS, S3, EC2/ECS, CloudWatch, CloudTrail, KMS, NACLs e Security Groups).
-
-
-
+* **Continuidade de Negócio:**
+  * **RPO (Recovery Point Objective):** máximo de **15 minutos** de perda de dados.
+  * **RTO (Recovery Time Objective):** tempo máximo de recuperação de **1 hora**.
 
 ---
 
+### 8. Aprovação e Histórico de Versões
 
-
-## **14.0 - Histórico de Versões**
-
-- 02/09/2026
-1.0
-Criação do Documento de Visão para o projeto Portal Cidadão Seguro.
-
-
----
-
-
-
-
-
-
-
-
-
-
-
+| **Versão** | **Data** | **Descrição da Alteração** | **Autor(es)** |
+|---|---|---|---|
+| 1.0 | 02/09/2026 | Elaboração inicial do Documento de Visão do Portal Cidadão Seguro. | Equipe do projeto |
+| 1.1 | 17/09/2026 | Inclusão do módulo de Zeladoria Urbana e adequação da visão ao modelo do projeto de Cloud. | Equipe do projeto |
