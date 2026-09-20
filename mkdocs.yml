@@ -8,11 +8,13 @@ nav:
   - Home: index.md
   - Iniciação: 
       - Index: Iniciacao/index.md
-      - Pesquisa: Iniciacao/pesquisa.md
+      - Documento de Visão: Iniciacao/pesquisa.md
+      - Requisitos Suplementares: Iniciacao/req_suplementares.md
 
   - Elaboração:
       - Index: Elaboracao/index.md
-      - Requisitos: Elaboracao/levreq.md
+      - Casos de Uso Arquiteturais: Elaboracao/casos_de_uso_arquiteturais.md
+      - Modelo de Análise (Pacotes/Subsistemas): Elaboracao/modelo_de_analise-pacotes_subsistemas.md
 
   - Construção:
       - Index: Construcao/index.md
