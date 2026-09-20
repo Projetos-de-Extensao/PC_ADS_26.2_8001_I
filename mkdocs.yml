@@ -16,13 +16,6 @@ nav:
       - Casos de Uso Arquiteturais: Elaboracao/casos_de_uso_arquiteturais.md
       - Modelo de Análise (Pacotes/Subsistemas): Elaboracao/modelo_de_analise-pacotes_subsistemas.md
 
-  - Construção:
-      - Index: Construcao/index.md
-      - Github Workflows: Construcao/github_workflows.md
-      - GitHub Projects: Construcao/github_projects.md
-      - CodeSpace: Construcao/codespace.md
-  - Transição:
-      - Index: Transicao/index.md
 
   - Bibliografia: Disciplina/Bibliografia.md
 
