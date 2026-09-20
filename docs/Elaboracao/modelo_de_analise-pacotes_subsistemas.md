@@ -86,7 +86,7 @@ O módulo **Zeladoria Urbana** representa o serviço funcional do portal que per
 
 ## 2.1. Diagrama de Pacotes (PlantUML)
 
-```plantuml
+```puml
 @startuml
 
 title Modelo de Análise (Pacotes) - Portal Cidadão Seguro
@@ -173,3 +173,4 @@ Availability ..> Compute : <<maintains service>>
 Availability ..> Data : <<protects persistence>>
 
 @enduml
+```
