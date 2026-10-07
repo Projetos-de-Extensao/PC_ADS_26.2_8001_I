@@ -13,7 +13,7 @@ hide:
             PBE_26.1_8001_I
         </div>
         <div class="card-content">
-            <p class="contributors">Bruno, Christian, Gianluca, Micael, Marcos Paulo e Maurício</p>
+            <p class="contributors">Caio Domingues - Keanu Santos - Bernardo Meireles - Eric Lerer</p>
             <a href="https://github.com/Projetos-de-Extensao/PBE_26.1_8001_I" class="button primary-btn">
                 <span class="octicon-arrow-right-24:"></span> Ver Repositório
             </a>
