@@ -1,0 +1,1530 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../modelo_de_analise-pacotes_subsistemas/">
+      
+      
+        <link rel="next" href="../../Disciplina/Bibliografia/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Modelo de Análise (Dimensionamento BD) - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-de-analise-dimensionamento-de-banco-de-dados-rds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelo de Análise (Dimensionamento BD)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/req_suplementares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_de_analise-pacotes_subsistemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Pacotes/Subsistemas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Dimensionamento BD)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Dimensionamento BD)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#portal-cidadao-seguro-arquitetura-em-nuvem-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Cidadão Seguro — Arquitetura em Nuvem AWS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="modelo-de-analise-dimensionamento-de-banco-de-dados-rds">Modelo de Análise — Dimensionamento de Banco de Dados (RDS)<a class="headerlink" href="#modelo-de-analise-dimensionamento-de-banco-de-dados-rds" title="Permanent link">&para;</a></h1>
+<h2 id="portal-cidadao-seguro-arquitetura-em-nuvem-aws">Portal Cidadão Seguro — Arquitetura em Nuvem AWS<a class="headerlink" href="#portal-cidadao-seguro-arquitetura-em-nuvem-aws" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Informação</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projeto</td>
+<td>Portal Cidadão Seguro — Plataforma GovTech</td>
+</tr>
+<tr>
+<td>Documento</td>
+<td>Modelo de Análise (Classes de Análise) — Dimensionamento de Banco de Dados (RDS)</td>
+</tr>
+<tr>
+<td>Versão</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Em Desenvolvimento</td>
+</tr>
+<tr>
+<td>Disciplina</td>
+<td>Projeto de Cloud</td>
+</tr>
+<tr>
+<td>Fase RUP/UP</td>
+<td>Elaboration</td>
+</tr>
+<tr>
+<td>Banco de dados</td>
+<td>Amazon RDS for PostgreSQL</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="1-introducao">1. Introdução<a class="headerlink" href="#1-introducao" title="Permanent link">&para;</a></h1>
+<h2 id="11-proposito">1.1. Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h2>
+<p>Este documento apresenta o modelo de análise utilizado para o dimensionamento do banco de dados relacional do <strong>Portal Cidadão Seguro</strong>, utilizando o <strong>Amazon RDS for PostgreSQL</strong>.</p>
+<p>O dimensionamento considera um cenário de implantação para <strong>um único município do Estado do Rio de Janeiro</strong>, com o Portal funcionando como uma plataforma que reúne diferentes serviços públicos digitais. No cenário inicial, a <strong>Zeladoria Urbana</strong> é o serviço analisado, mantendo-se a arquitetura preparada para a inclusão de outros serviços.</p>
+<p>O objetivo é relacionar o workload esperado aos requisitos de persistência, disponibilidade, segurança, continuidade e escalabilidade, transformando esses requisitos em uma configuração inicial de RDS documentada e justificável.</p>
+<h2 id="12-escopo">1.2. Escopo<a class="headerlink" href="#12-escopo" title="Permanent link">&para;</a></h2>
+<p>O dimensionamento considera:</p>
+<ul>
+<li>aproximadamente <strong>1.000.000 de usuários</strong> como capacidade de projeto;</li>
+<li>aproximadamente <strong>52.000 acessos diários</strong> ao Portal;</li>
+<li><strong>20%</strong> desses acessos utilizando a Zeladoria Urbana;</li>
+<li><strong>5%</strong> dos acessos à Zeladoria gerando uma nova solicitação;</li>
+<li>média de <strong>4 registros históricos por solicitação durante seu ciclo de vida</strong>;</li>
+<li>persistência de dados transacionais no RDS;</li>
+<li>armazenamento de imagens e documentos no Amazon S3, mantendo no RDS apenas metadados e referências;</li>
+<li>PostgreSQL em Amazon RDS;</li>
+<li>implantação Multi-AZ;</li>
+<li>backup automático e PITR;</li>
+<li>criptografia, rede privada e controle de acesso por Security Group;</li>
+<li>limite operacional de <strong>100 conexões</strong>;</li>
+<li>storage inicial de <strong>50 GiB</strong>, com Auto Scaling proposto até <strong>200 GiB</strong>.</li>
+</ul>
+<h2 id="13-fora-do-escopo">1.3. Fora do escopo<a class="headerlink" href="#13-fora-do-escopo" title="Permanent link">&para;</a></h2>
+<p>Não fazem parte do dimensionamento inicial:</p>
+<ul>
+<li>armazenamento dos arquivos físicos no RDS;</li>
+<li>banco NoSQL;</li>
+<li>dimensionamento para todo o Estado do Rio de Janeiro;</li>
+<li>Read Replica como componente obrigatório da primeira versão;</li>
+<li>quantidade definitiva de EC2/ECS;</li>
+<li>custos de serviços que não fazem parte da configuração inicial do RDS.</li>
+</ul>
+<hr />
+<h1 id="2-premissas-de-dimensionamento">2. Premissas de Dimensionamento<a class="headerlink" href="#2-premissas-de-dimensionamento" title="Permanent link">&para;</a></h1>
+<h2 id="21-referencias-de-escala">2.1. Referências de escala<a class="headerlink" href="#21-referencias-de-escala" title="Permanent link">&para;</a></h2>
+<p>A Prefeitura do Rio registrou <strong>1 milhão de usuários cadastrados no Carioca Digital em 2020</strong>. Para este projeto, esse valor é utilizado como referência para definir a capacidade de projeto de usuários do Portal. </p>
+<p>Para a carga diária, o grupo adotou <strong>52.000 acessos/dia</strong>, obtidos a partir da referência de aproximadamente 19 milhões de sessões anuais e da divisão por 365 dias. Esse valor é tratado neste documento como <strong>premissa de projeto</strong>, e não como distribuição observada minuto a minuto.</p>
+<blockquote>
+<p><strong>Nota de consistência:</strong> o material do IplanRio de 2024 também apresenta uma média aproximada de 70 mil sessões por dia. O presente dimensionamento mantém os <strong>52.000 acessos/dia</strong> como cenário adotado pelo grupo para manter a mesma base de cálculo já utilizada no trabalho.</p>
+</blockquote>
+<h2 id="22-premissas-funcionais-para-o-workload">2.2. Premissas funcionais para o workload<a class="headerlink" href="#22-premissas-funcionais-para-o-workload" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Premissa</th>
+<th style="text-align: right;">Valor</th>
+<th>Classificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuários de projeto</td>
+<td style="text-align: right;">1.000.000</td>
+<td>Referência de escala</td>
+</tr>
+<tr>
+<td>Acessos ao Portal</td>
+<td style="text-align: right;">52.000/dia</td>
+<td>Premissa derivada</td>
+</tr>
+<tr>
+<td>Uso da Zeladoria</td>
+<td style="text-align: right;">20%</td>
+<td>Premissa de projeto</td>
+</tr>
+<tr>
+<td>Acessos à Zeladoria</td>
+<td style="text-align: right;">10.400/dia</td>
+<td>Derivado</td>
+</tr>
+<tr>
+<td>Acessos da Zeladoria que geram solicitação</td>
+<td style="text-align: right;">5%</td>
+<td>Premissa de projeto</td>
+</tr>
+<tr>
+<td>Novas solicitações</td>
+<td style="text-align: right;">520/dia</td>
+<td>Derivado</td>
+</tr>
+<tr>
+<td>Históricos por solicitação</td>
+<td style="text-align: right;">4</td>
+<td>Premissa de projeto</td>
+</tr>
+<tr>
+<td>Fator de pico</td>
+<td style="text-align: right;">10×</td>
+<td>Margem de projeto</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-premissas-de-persistencia">2.3. Premissas de persistência<a class="headerlink" href="#23-premissas-de-persistencia" title="Permanent link">&para;</a></h2>
+<p>O banco deverá armazenar os dados estruturados do Portal, incluindo usuários, catálogo de serviços, categorias, solicitações, histórico e metadados de anexos.</p>
+<p>Os arquivos físicos, como imagens e documentos, serão direcionados ao <strong>Amazon S3</strong>. O banco manterá somente a referência necessária para localizar e controlar esses arquivos.</p>
+<hr />
+<h1 id="3-visao-geral-do-dimensionamento">3. Visão Geral do Dimensionamento<a class="headerlink" href="#3-visao-geral-do-dimensionamento" title="Permanent link">&para;</a></h1>
+<h2 id="31-carga-do-portal">3.1. Carga do Portal<a class="headerlink" href="#31-carga-do-portal" title="Permanent link">&para;</a></h2>
+<p>Como o Portal reúne serviços, a carga inicial não deve ser considerada apenas pela utilização da Zeladoria. O carregamento da interface pode consultar o catálogo de serviços disponíveis.</p>
+<p>Assim, foi adotada a premissa de uma consulta ao catálogo por acesso, resultando em uma carga comum a todos os usuários do Portal.</p>
+<h2 id="32-carga-da-zeladoria-urbana">3.2. Carga da Zeladoria Urbana<a class="headerlink" href="#32-carga-da-zeladoria-urbana" title="Permanent link">&para;</a></h2>
+<p>A Zeladoria representa 20% dos acessos do Portal no cenário-base.</p>
+<p>O acesso ao serviço pode consultar, de forma simplificada:</p>
+<ul>
+<li>categorias disponíveis;</li>
+<li>solicitações do usuário;</li>
+<li>metadados dos anexos.</li>
+</ul>
+<p>Essas consultas são utilizadas na <strong>memória de cálculo separada</strong>, conforme a estrutura solicitada para a disciplina.</p>
+<h2 id="33-natureza-do-workload">3.3. Natureza do workload<a class="headerlink" href="#33-natureza-do-workload" title="Permanent link">&para;</a></h2>
+<p>O workload projetado é predominantemente de <strong>leitura</strong>, enquanto a carga de escrita é menor e está relacionada principalmente à criação e atualização das solicitações.</p>
+<p>Isso influencia a decisão de começar com uma única instância Multi-AZ e deixar a Read Replica como mecanismo de evolução, caso o monitoramento demonstre necessidade de ampliar a capacidade de leitura.</p>
+<hr />
+<h1 id="4-dados-persistidos">4. Dados Persistidos<a class="headerlink" href="#4-dados-persistidos" title="Permanent link">&para;</a></h1>
+<h2 id="41-entidades-principais">4.1. Entidades principais<a class="headerlink" href="#41-entidades-principais" title="Permanent link">&para;</a></h2>
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
+<p>Dados cadastrais dos cidadãos e servidores:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>id
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>name
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>email
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>cpf
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>user_type
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>created_at
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>updated_at
+</span></code></pre></div>
+<h3 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
+<p>Catálogo de serviços disponíveis no Portal:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>id
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>name
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>description
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>active
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>created_at
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>updated_at
+</span></code></pre></div>
+<h3 id="category">Category<a class="headerlink" href="#category" title="Permanent link">&para;</a></h3>
+<p>Categorias vinculadas aos serviços:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>id
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>service_id
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>name
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>description
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>active
+</span></code></pre></div>
+<h3 id="solicitacao">Solicitacao<a class="headerlink" href="#solicitacao" title="Permanent link">&para;</a></h3>
+<p>Dados da solicitação realizada pelo cidadão:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>id
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>protocol
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>user_id
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>service_id
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>category_id
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>description
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>status
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>latitude
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>longitude
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>address
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>created_at
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>updated_at
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>closed_at
+</span></code></pre></div>
+<h3 id="solicitacaohistorico">SolicitacaoHistorico<a class="headerlink" href="#solicitacaohistorico" title="Permanent link">&para;</a></h3>
+<p>Rastreabilidade das alterações da solicitação:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>id
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>solicitacao_id
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>status
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>changed_by
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>comment
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>created_at
+</span></code></pre></div>
+<h3 id="attachment">Attachment<a class="headerlink" href="#attachment" title="Permanent link">&para;</a></h3>
+<p>Metadados dos arquivos associados à solicitação:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>id
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>solicitacao_id
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>file_name
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>file_key
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>content_type
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>file_size
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>created_at
+</span></code></pre></div>
+<h2 id="42-separacao-entre-rds-e-s3">4.2. Separação entre RDS e S3<a class="headerlink" href="#42-separacao-entre-rds-e-s3" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>RDS
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── User
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>├── Service
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>├── Category
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>├── Solicitacao
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>├── SolicitacaoHistorico
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>└── Attachment
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>       └── file_key
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>S3
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>└── Imagens / documentos / arquivos
+</span></code></pre></div>
+<p>A decisão mantém o RDS concentrado nos dados transacionais e evita que arquivos grandes aumentem desnecessariamente o banco relacional.</p>
+<hr />
+<h1 id="5-classes-de-analise-do-rds">5. Classes de Análise do RDS<a class="headerlink" href="#5-classes-de-analise-do-rds" title="Permanent link">&para;</a></h1>
+<h2 id="51-databaseinstance">5.1. DatabaseInstance<a class="headerlink" href="#51-databaseinstance" title="Permanent link">&para;</a></h2>
+<p><strong>Responsabilidade:</strong> representar a instância principal do PostgreSQL, sua capacidade, storage, disponibilidade e segurança.</p>
+<h3 id="configuracao-inicial-proposta">Configuração inicial proposta<a class="headerlink" href="#configuracao-inicial-proposta" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engine</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>Classe</td>
+<td><code>db.t4g.medium</code></td>
+</tr>
+<tr>
+<td>vCPU</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Memória</td>
+<td>4 GiB</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>50 GiB gp3</td>
+</tr>
+<tr>
+<td>Auto Scaling</td>
+<td>Até 200 GiB</td>
+</tr>
+<tr>
+<td>Multi-AZ</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Max connections</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Criptografia</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Proteção contra exclusão acidental</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Monitoramento</td>
+<td>CloudWatch</td>
+</tr>
+</tbody>
+</table>
+<h2 id="52-backuppolicy">5.2. BackupPolicy<a class="headerlink" href="#52-backuppolicy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backup automático</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Retenção</td>
+<td>30 dias</td>
+</tr>
+<tr>
+<td>PITR</td>
+<td>Habilitado</td>
+</tr>
+<tr>
+<td>RPO</td>
+<td>≤ 15 min</td>
+</tr>
+<tr>
+<td>RTO</td>
+<td>≤ 1 h</td>
+</tr>
+</tbody>
+</table>
+<h2 id="53-parametergroup">5.3. ParameterGroup<a class="headerlink" href="#53-parametergroup" title="Permanent link">&para;</a></h2>
+<p>O Parameter Group centraliza as configurações específicas do PostgreSQL.</p>
+<p>A única configuração definida no primeiro dimensionamento é:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>max_connections = 100
+</span></code></pre></div>
+<p>Os demais parâmetros permanecem no padrão até que testes da aplicação forneçam evidências para ajustes adicionais.</p>
+<h2 id="54-securitygroup">5.4. SecurityGroup<a class="headerlink" href="#54-securitygroup" title="Permanent link">&para;</a></h2>
+<p>Regra proposta:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TCP 5432
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Origem: Security Group da aplicação
+</span></code></pre></div>
+<p>O banco não deve aceitar conexões diretamente da Internet.</p>
+<h2 id="55-subnetgroup">5.5. SubnetGroup<a class="headerlink" href="#55-subnetgroup" title="Permanent link">&para;</a></h2>
+<p>O RDS será implantado em sub-redes privadas distribuídas em múltiplas Availability Zones:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Private Subnet A → AZ A
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Private Subnet B → AZ B
+</span></code></pre></div>
+<h2 id="56-readreplica">5.6. ReadReplica<a class="headerlink" href="#56-readreplica" title="Permanent link">&para;</a></h2>
+<p>A Read Replica não fará parte da implantação inicial.</p>
+<p>Ela será considerada como mecanismo de evolução quando métricas demonstrarem pressão de leitura ou quando houver necessidade de separar consultas analíticas do workload transacional.</p>
+<hr />
+<h1 id="6-diagrama-de-classes-de-analise">6. Diagrama de Classes de Análise<a class="headerlink" href="#6-diagrama-de-classes-de-analise" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>@startuml
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>title Modelo de Análise — Classes RDS Portal Cidadão Seguro
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>skinparam classAttributeIconSize 0
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>package &quot;Banco de Dados&quot; {
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  class &quot;DatabaseInstance&quot; as DB {
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    - engine: PostgreSQL
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    - instanceClass: db.t4g.medium
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    - vCPU: 2
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    - memory: 4 GiB
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    - storageSize: 50 GiB
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    - storageType: gp3
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    - multiAZ: true
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    - maxConnections: 100
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    - encryption: true
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    + failover()
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>    + getEndpoint()
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    + scaleStorage()
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    + getMetrics()
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>  }
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>  class &quot;BackupPolicy&quot; as BP {
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>    - frequency: Daily
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    - retentionDays: 30
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    - pitrEnabled: true
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>    - rpo: &lt;= 15 min
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>    - rto: &lt;= 1 hour
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>    + executeBackup()
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>    + restoreToPointInTime()
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>  }
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>  class &quot;ParameterGroup&quot; as PG {
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>    - family: PostgreSQL
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>    - maxConnections: 100
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>    + applyParameters()
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>    + validateParameters()
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>  }
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>  class &quot;SecurityGroup&quot; as SG {
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>    - name: SG-RDS
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>    - inboundPort: 5432
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>    - inboundSource: SG-Application
+</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>    + validateRules()
+</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>  }
+</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>
+</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>  class &quot;SubnetGroup&quot; as SubG {
+</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>    - subnetA: Private-A
+</span><span id="__span-10-49"><a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a>    - subnetB: Private-B
+</span><span id="__span-10-50"><a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>    - multiAZ: true
+</span><span id="__span-10-51"><a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>    + validateMultiAZ()
+</span><span id="__span-10-52"><a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>  }
+</span><span id="__span-10-53"><a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a>
+</span><span id="__span-10-54"><a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>  class &quot;ReadReplica&quot; as RR {
+</span><span id="__span-10-55"><a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>    - status: Optional
+</span><span id="__span-10-56"><a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a>    - role: ReadOnly
+</span><span id="__span-10-57"><a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a>    + getEndpoint()
+</span><span id="__span-10-58"><a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a>    + promote()
+</span><span id="__span-10-59"><a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a>  }
+</span><span id="__span-10-60"><a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a>
+</span><span id="__span-10-61"><a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a>  DB &quot;1&quot; -- &quot;1&quot; BP : usa
+</span><span id="__span-10-62"><a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a>  DB &quot;1&quot; -- &quot;1&quot; PG : usa
+</span><span id="__span-10-63"><a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a>  DB &quot;1&quot; -- &quot;1&quot; SG : protegido por
+</span><span id="__span-10-64"><a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a>  DB &quot;1&quot; -- &quot;1&quot; SubG : implantado em
+</span><span id="__span-10-65"><a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a>  DB &quot;1&quot; -- &quot;0..*&quot; RR : pode possuir
+</span><span id="__span-10-66"><a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a>}
+</span><span id="__span-10-67"><a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a>
+</span><span id="__span-10-68"><a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h1 id="7-matriz-de-rastreabilidade">7. Matriz de Rastreabilidade<a class="headerlink" href="#7-matriz-de-rastreabilidade" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Requisito / Objetivo</th>
+<th>Caso de Uso</th>
+<th>Classe de Análise</th>
+<th>Serviço AWS</th>
+<th>Configuração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Persistência</td>
+<td>UC-ARQ-009</td>
+<td>DatabaseInstance</td>
+<td>RDS PostgreSQL</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>Alta disponibilidade</td>
+<td>UC-ARQ-008</td>
+<td>DatabaseInstance</td>
+<td>RDS</td>
+<td>Multi-AZ</td>
+</tr>
+<tr>
+<td>RPO ≤ 15 min</td>
+<td>UC-ARQ-013</td>
+<td>BackupPolicy</td>
+<td>RDS</td>
+<td>PITR</td>
+</tr>
+<tr>
+<td>RTO ≤ 1 h</td>
+<td>UC-ARQ-013</td>
+<td>DatabaseInstance</td>
+<td>RDS</td>
+<td>Failover</td>
+</tr>
+<tr>
+<td>Criptografia</td>
+<td>UC-ARQ-006</td>
+<td>DatabaseInstance</td>
+<td>RDS/KMS</td>
+<td>Encryption</td>
+</tr>
+<tr>
+<td>Controle de acesso</td>
+<td>UC-ARQ-003</td>
+<td>SecurityGroup</td>
+<td>VPC/SG</td>
+<td>Porta 5432 restrita</td>
+</tr>
+<tr>
+<td>Isolamento</td>
+<td>UC-ARQ-001</td>
+<td>SubnetGroup</td>
+<td>VPC</td>
+<td>Private Subnets</td>
+</tr>
+<tr>
+<td>Monitoramento</td>
+<td>UC-ARQ-011</td>
+<td>DatabaseInstance</td>
+<td>CloudWatch</td>
+<td>Métricas/Logs</td>
+</tr>
+<tr>
+<td>Escalabilidade de leitura</td>
+<td>UC-ARQ-008</td>
+<td>ReadReplica</td>
+<td>RDS</td>
+<td>Evolução futura</td>
+</tr>
+<tr>
+<td>Armazenamento de arquivos</td>
+<td>UC-ARQ-010</td>
+<td>—</td>
+<td>S3</td>
+<td>Arquivos fora do RDS</td>
+</tr>
+<tr>
+<td>LGPD</td>
+<td>UC-ARQ-014</td>
+<td>DatabaseInstance / BackupPolicy</td>
+<td>RDS/KMS</td>
+<td>Proteção e auditoria</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="8-justificativas-tecnicas">8. Justificativas Técnicas<a class="headerlink" href="#8-justificativas-tecnicas" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Decisão</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td>Adequado ao modelo relacional e às relações entre usuários, serviços, categorias e solicitações.</td>
+</tr>
+<tr>
+<td>Amazon RDS</td>
+<td>Serviço gerenciado, reduzindo a administração direta do servidor de banco.</td>
+</tr>
+<tr>
+<td><code>db.t4g.medium</code></td>
+<td>Capacidade inicial compatível com o workload projetado e com possibilidade de escalabilidade vertical.</td>
+</tr>
+<tr>
+<td>50 GiB</td>
+<td>O cálculo bruto de dados estruturados é baixo; o volume inicial fornece margem para índices, overhead, crescimento e novos serviços.</td>
+</tr>
+<tr>
+<td>gp3</td>
+<td>O workload estimado de IOPS é muito inferior ao baseline adotado para o storage, evitando provisionamento adicional inicial.</td>
+</tr>
+<tr>
+<td>Auto Scaling até 200 GiB</td>
+<td>Permite crescimento sem necessidade de superdimensionar o volume inicial.</td>
+</tr>
+<tr>
+<td>Multi-AZ</td>
+<td>Atende ao requisito de alta disponibilidade e reduz o impacto de falhas da infraestrutura.</td>
+</tr>
+<tr>
+<td>Private Subnets</td>
+<td>Impedem exposição direta do banco à Internet.</td>
+</tr>
+<tr>
+<td>Security Group restritivo</td>
+<td>Permite acesso somente à camada autorizada da aplicação.</td>
+</tr>
+<tr>
+<td>KMS</td>
+<td>Protege os dados armazenados por criptografia.</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>Protege os dados durante a comunicação com o banco.</td>
+</tr>
+<tr>
+<td>Backup + PITR</td>
+<td>Atendem à estratégia de recuperação e aos objetivos de RPO/RTO.</td>
+</tr>
+<tr>
+<td><code>max_connections = 100</code></td>
+<td>Limite operacional inicial com margem para concorrência e crescimento.</td>
+</tr>
+<tr>
+<td>Sem Read Replica inicialmente</td>
+<td>A carga estimada ainda não demonstra necessidade de escalar horizontalmente as leituras.</td>
+</tr>
+<tr>
+<td>S3 para arquivos</td>
+<td>Evita aumentar o armazenamento transacional do PostgreSQL com arquivos grandes.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="9-trade-offs">9. Trade-offs<a class="headerlink" href="#9-trade-offs" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Decisão</th>
+<th>Alternativa</th>
+<th>Vantagem</th>
+<th>Desvantagem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>db.t4g.medium</code></td>
+<td>Instância maior</td>
+<td>Menor custo inicial</td>
+<td>Menor margem de CPU/RAM</td>
+</tr>
+<tr>
+<td>Multi-AZ</td>
+<td>Single-AZ</td>
+<td>Alta disponibilidade</td>
+<td>Maior custo</td>
+</tr>
+<tr>
+<td>50 GiB</td>
+<td>Storage maior</td>
+<td>Evita superdimensionamento</td>
+<td>Pode exigir expansão futura</td>
+</tr>
+<tr>
+<td>gp3</td>
+<td>Storage mais performático</td>
+<td>Melhor relação custo/desempenho</td>
+<td>Menor desempenho máximo</td>
+</tr>
+<tr>
+<td>Sem Read Replica</td>
+<td>Read Replica</td>
+<td>Menor custo inicial</td>
+<td>Leituras continuam na instância principal</td>
+</tr>
+<tr>
+<td>S3 para arquivos</td>
+<td>RDS para arquivos</td>
+<td>Banco menor e responsabilidades separadas</td>
+<td>Exige integração com S3</td>
+</tr>
+<tr>
+<td>100 conexões</td>
+<td>Limite menor</td>
+<td>Maior margem para crescimento</td>
+<td>Mais concorrência potencial sobre o banco</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="10-riscos-e-mitigacoes">10. Riscos e Mitigações<a class="headerlink" href="#10-riscos-e-mitigacoes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Risco</th>
+<th>Probabilidade</th>
+<th>Impacto</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crescimento acima do previsto</td>
+<td>Média</td>
+<td>Alto</td>
+<td>Auto Scaling de storage e monitoramento</td>
+</tr>
+<tr>
+<td>Carga de leitura maior</td>
+<td>Média</td>
+<td>Médio/Alto</td>
+<td>Monitoramento e Read Replica se necessária</td>
+</tr>
+<tr>
+<td>Esgotamento de conexões</td>
+<td>Média</td>
+<td>Alto</td>
+<td><code>max_connections=100</code> e controle do pool</td>
+</tr>
+<tr>
+<td>Falha da AZ primária</td>
+<td>Baixa</td>
+<td>Alto</td>
+<td>Multi-AZ</td>
+</tr>
+<tr>
+<td>Perda de dados</td>
+<td>Baixa</td>
+<td>Crítico</td>
+<td>Backup + PITR</td>
+</tr>
+<tr>
+<td>Dados expostos</td>
+<td>Baixa</td>
+<td>Crítico</td>
+<td>Private Subnets + SG + KMS/TLS</td>
+</tr>
+<tr>
+<td>Custo acima do previsto</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Pricing Calculator e acompanhamento de custos</td>
+</tr>
+<tr>
+<td>Inclusão de novos serviços</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Arquitetura modular e escalável</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="11-entregaveis-separados">11. Entregáveis Separados<a class="headerlink" href="#11-entregaveis-separados" title="Permanent link">&para;</a></h1>
+<h2 id="111-memoria-de-calculo-xlsx">11.1. Memória de Cálculo — XLSX<a class="headerlink" href="#111-memoria-de-calculo-xlsx" title="Permanent link">&para;</a></h2>
+<p>A <strong>memória de cálculo detalhada não faz parte deste Markdown</strong>. Ela deve ser entregue separadamente em planilha.</p>
+<p><strong>Arquivo:</strong> <a href="../Memoria_Calculo_RDS_Portal_Cidadao_Seguro.xlsx"><code>dimensionamento_rds_portal_cidadao_seguro_memoria.xlsx</code></a></p>
+<p>A planilha contém:</p>
+<ul>
+<li>premissas;</li>
+<li>workload;</li>
+<li>carga do Portal;</li>
+<li>carga da Zeladoria;</li>
+<li>escritas;</li>
+<li>crescimento dos dados;</li>
+<li>storage;</li>
+<li>CPU/memória/conexões;</li>
+<li>IOPS;</li>
+<li>disponibilidade;</li>
+<li>fontes e referências.</li>
+</ul>
+<h2 id="112-estimativa-de-custo-print-da-aws-pricing-calculator">11.2. Estimativa de Custo — Print da AWS Pricing Calculator<a class="headerlink" href="#112-estimativa-de-custo-print-da-aws-pricing-calculator" title="Permanent link">&para;</a></h2>
+<p>A <strong>estimativa de custo também é um entregável separado</strong> e deve ser comprovada pelo print da AWS Pricing Calculator.</p>
+<p>Configuração utilizada:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Amazon RDS for PostgreSQL
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Classe: db.t4g.medium
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Multi-AZ
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Storage: 50 GiB gp3
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Backup: retenção de 30 dias
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Read Replica: não utilizada inicialmente
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>RDS Proxy: não utilizado
+</span></code></pre></div>
+<p>Resultado obtido na calculadora:</p>
+<blockquote>
+<p><strong>US$ 110,42/mês</strong></p>
+</blockquote>
+<p><strong>Evidência:</strong> inserir o print da tela da AWS Pricing Calculator no trabalho/anexo.</p>
+<hr />
+<h1 id="12-checklist-da-entrega">12. Checklist da Entrega<a class="headerlink" href="#12-checklist-da-entrega" title="Permanent link">&para;</a></h1>
+<p>O modelo de referência solicita cinco itens principais: diagrama de classes, atributos e relacionamentos, memória de cálculo, justificativas técnicas e estimativa de custo.</p>
+<h3 id="diagrama-de-classes-plantuml">Diagrama de Classes (PlantUML)<a class="headerlink" href="#diagrama-de-classes-plantuml" title="Permanent link">&para;</a></h3>
+<p><strong>Atendido neste documento.</strong></p>
+<h3 id="atributos-e-relacionamentos">Atributos e Relacionamentos<a class="headerlink" href="#atributos-e-relacionamentos" title="Permanent link">&para;</a></h3>
+<p><strong>Atendidos neste documento e no diagrama.</strong></p>
+<h3 id="memoria-de-calculo">Memória de Cálculo<a class="headerlink" href="#memoria-de-calculo" title="Permanent link">&para;</a></h3>
+<p><strong>Entregue separadamente em XLSX.</strong></p>
+<h3 id="justificativas-tecnicas">Justificativas Técnicas<a class="headerlink" href="#justificativas-tecnicas" title="Permanent link">&para;</a></h3>
+<p><strong>Atendidas neste documento.</strong></p>
+<h3 id="estimativa-de-custo">Estimativa de Custo<a class="headerlink" href="#estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<p><strong>Entregue separadamente por meio do print da AWS Pricing Calculator.</strong></p>
+<hr />
+<h1 id="13-consideracoes-finais">13. Considerações Finais<a class="headerlink" href="#13-consideracoes-finais" title="Permanent link">&para;</a></h1>
+<p>O dimensionamento foi construído para um cenário de <strong>um município</strong>, considerando aproximadamente <strong>52.000 acessos diários ao Portal</strong> e uma utilização inicial de <strong>20% da Zeladoria Urbana</strong>.</p>
+<p>A arquitetura proposta é predominantemente orientada a leitura, com carga de escrita significativamente menor. O RDS inicial utiliza PostgreSQL em <strong>Multi-AZ</strong>, armazenamento <strong>gp3</strong>, <strong>50 GiB</strong> iniciais, Auto Scaling até <strong>200 GiB</strong>, limite de <strong>100 conexões</strong>, backup automático e PITR.</p>
+<p>A Read Replica permanece como mecanismo de evolução e deverá ser adicionada somente caso as métricas do ambiente demonstrem necessidade.</p>
+<p>O custo estimado pela AWS Pricing Calculator foi de <strong>US$ 110,42 por mês</strong>, conforme print a ser anexado ao trabalho.</p>
+<hr />
+<h1 id="14-referencias">14. Referências<a class="headerlink" href="#14-referencias" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Prefeitura do Rio — Portal Carioca Digital atinge a marca de um milhão de usuários cadastrados (2020):
+  https://prefeitura.rio/iplanrio/portal-carioca-digital-atinge-a-marca-de-um-milhao-de-usuarios-cadastrados/</li>
+<li>IplanRio — Principais Entregas 2024:
+  https://iplanrio.prefeitura.rio/wp-content/uploads/sites/43/2024/12/Principais-Entregas-IplanRio-2024.pdf</li>
+<li>Documentos do projeto Portal Cidadão Seguro: Documento de Visão, Requisitos Suplementares, Casos de Uso Arquiteturais e Modelo de Análise (Pacotes/Subsistemas).</li>
+<li>Modelo de referência da disciplina: Dimensionamento RDS / SwiftTrack IoT.</li>
+<li>AWS Pricing Calculator: https://calculator.aws/</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
