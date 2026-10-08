@@ -15,6 +15,7 @@ nav:
       - Index: Elaboracao/index.md
       - Casos de Uso Arquiteturais: Elaboracao/casos_de_uso_arquiteturais.md
       - Modelo de Análise (Pacotes/Subsistemas): Elaboracao/modelo_de_analise-pacotes_subsistemas.md
+      - Modelo de Análise (Dimensionamento BD): Elaboracao/dimensionamento_db.md
 
 
   - Bibliografia: Disciplina/Bibliografia.md
