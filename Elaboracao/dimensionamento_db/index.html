@@ -1481,26 +1481,13 @@
 </blockquote>
 <p><strong>Evidência:</strong> inserir o print da tela da AWS Pricing Calculator no trabalho/anexo.</p>
 <hr />
-<h1 id="12-checklist-da-entrega">12. Checklist da Entrega<a class="headerlink" href="#12-checklist-da-entrega" title="Permanent link">&para;</a></h1>
-<p>O modelo de referência solicita cinco itens principais: diagrama de classes, atributos e relacionamentos, memória de cálculo, justificativas técnicas e estimativa de custo.</p>
-<h3 id="diagrama-de-classes-plantuml">Diagrama de Classes (PlantUML)<a class="headerlink" href="#diagrama-de-classes-plantuml" title="Permanent link">&para;</a></h3>
-<p><strong>Atendido neste documento.</strong></p>
-<h3 id="atributos-e-relacionamentos">Atributos e Relacionamentos<a class="headerlink" href="#atributos-e-relacionamentos" title="Permanent link">&para;</a></h3>
-<p><strong>Atendidos neste documento e no diagrama.</strong></p>
-<h3 id="memoria-de-calculo">Memória de Cálculo<a class="headerlink" href="#memoria-de-calculo" title="Permanent link">&para;</a></h3>
-<p><strong>Entregue separadamente em XLSX.</strong></p>
-<h3 id="justificativas-tecnicas">Justificativas Técnicas<a class="headerlink" href="#justificativas-tecnicas" title="Permanent link">&para;</a></h3>
-<p><strong>Atendidas neste documento.</strong></p>
-<h3 id="estimativa-de-custo">Estimativa de Custo<a class="headerlink" href="#estimativa-de-custo" title="Permanent link">&para;</a></h3>
-<p><strong>Entregue separadamente por meio do print da AWS Pricing Calculator.</strong></p>
-<hr />
-<h1 id="13-consideracoes-finais">13. Considerações Finais<a class="headerlink" href="#13-consideracoes-finais" title="Permanent link">&para;</a></h1>
+<h1 id="12-consideracoes-finais">12. Considerações Finais<a class="headerlink" href="#12-consideracoes-finais" title="Permanent link">&para;</a></h1>
 <p>O dimensionamento foi construído para um cenário de <strong>um município</strong>, considerando aproximadamente <strong>52.000 acessos diários ao Portal</strong> e uma utilização inicial de <strong>20% da Zeladoria Urbana</strong>.</p>
 <p>A arquitetura proposta é predominantemente orientada a leitura, com carga de escrita significativamente menor. O RDS inicial utiliza PostgreSQL em <strong>Multi-AZ</strong>, armazenamento <strong>gp3</strong>, <strong>50 GiB</strong> iniciais, Auto Scaling até <strong>200 GiB</strong>, limite de <strong>100 conexões</strong>, backup automático e PITR.</p>
 <p>A Read Replica permanece como mecanismo de evolução e deverá ser adicionada somente caso as métricas do ambiente demonstrem necessidade.</p>
 <p>O custo estimado pela AWS Pricing Calculator foi de <strong>US$ 110,42 por mês</strong>, conforme print a ser anexado ao trabalho.</p>
 <hr />
-<h1 id="14-referencias">14. Referências<a class="headerlink" href="#14-referencias" title="Permanent link">&para;</a></h1>
+<h1 id="13-referencias">13. Referências<a class="headerlink" href="#13-referencias" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Prefeitura do Rio — Portal Carioca Digital atinge a marca de um milhão de usuários cadastrados (2020):
   https://prefeitura.rio/iplanrio/portal-carioca-digital-atinge-a-marca-de-um-milhao-de-usuarios-cadastrados/</li>

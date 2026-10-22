@@ -2944,19 +2944,7 @@
 </tbody>
 </table>
 <hr />
-<h1 id="14-checklist-de-entrega">14. CHECKLIST DE ENTREGA<a class="headerlink" href="#14-checklist-de-entrega" title="Permanent link">&para;</a></h1>
-<p>Os itens abaixo correspondem aos elementos esperados no modelo de referência para o dimensionamento EC2.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Diagrama de classes PlantUML:</strong> <code>ComputeInstance</code>, <code>AutoScalingGroup</code>, <code>LoadBalancer</code>, <code>TargetGroup</code>, <code>LaunchTemplate</code> e <code>ScalingPolicy</code>.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Atributos e relacionamentos:</strong> configuração, responsabilidades e multiplicidades registradas nas classes.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Memória de cálculo:</strong> acessos, workload, TPS estimado, CPU, memória, número de instâncias e custo preliminar.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Justificativas técnicas:</strong> escolha de EC2, ALB, ASG, sub-redes privadas, TLS, monitoramento e scaling.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Estimativa de custo validada:</strong> substituir ou confirmar os valores preliminares na AWS Pricing Calculator.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Evidência da calculadora:</strong> inserir print/exportação com os parâmetros e custo mensal final.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Teste de carga:</strong> necessário para validar os pressupostos de CPU, memória, throughput, latência e scaling.</li>
-</ul>
-<hr />
-<h1 id="15-fontes-de-preco-e-documentacao-aws">15. FONTES DE PREÇO E DOCUMENTAÇÃO AWS<a class="headerlink" href="#15-fontes-de-preco-e-documentacao-aws" title="Permanent link">&para;</a></h1>
+<h1 id="14-fontes-de-preco-e-documentacao-aws">14. FONTES DE PREÇO E DOCUMENTAÇÃO AWS<a class="headerlink" href="#14-fontes-de-preco-e-documentacao-aws" title="Permanent link">&para;</a></h1>
 <p>Preços públicos e capacidades consultados em 21/10/2026. A estimativa é indicativa e deve ser conferida na calculadora antes da entrega final.</p>
 <ol>
 <li><strong>EC2 T3 — especificações e tarifa On-Demand:</strong> https://aws.amazon.com/ec2/instance-types/t3/ — apresenta, para <code>us-east-1</code>, <code>t3.medium</code> com 2 vCPU, 4 GiB e preço publicado de referência de US$ 0,0418/h para Linux/Unix.</li>
@@ -2967,7 +2955,6 @@
 <li><strong>AWS Pricing Calculator:</strong> https://calculator.aws/ — ferramenta recomendada para a estimativa final da arquitetura.</li>
 <li><strong>SSM Agent em AMIs:</strong> https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html — lista Amazon Linux 2023 entre as AMIs que normalmente incluem o agente pré-instalado.</li>
 </ol>
-<p><strong>Fim do documento.</strong></p>
 
 
 
