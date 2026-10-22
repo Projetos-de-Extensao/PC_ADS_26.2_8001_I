@@ -1,0 +1,2910 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../dimensionamento_ec2/">
+      
+      
+        <link rel="next" href="../../Disciplina/Bibliografia/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Modelo de Design (Consolidacão Arquitetural) - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-de-design-diagramas-de-sequenciacomunicacao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelo de Design (Consolidacão Arquitetural)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/req_suplementares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_de_analise-pacotes_subsistemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Pacotes/Subsistemas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimensionamento_db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Dimensionamento BD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimensionamento_ec2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Modelo de computação)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modelo de Design (Consolidacão Arquitetural)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Design (Consolidacão Arquitetural)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#consolidacao-da-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      CONSOLIDAÇÃO DA ARQUITETURA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CONSOLIDAÇÃO DA ARQUITETURA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#portal-cidadao-seguro-plataforma-govtech-de-servicos-publicos-digitais" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORTAL CIDADÃO SEGURO — PLATAFORMA GOVTECH DE SERVIÇOS PÚBLICOS DIGITAIS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#informacoes-do-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informações do Documento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="modelo-de-design-diagramas-de-sequenciacomunicacao">MODELO DE DESIGN (DIAGRAMAS DE SEQUÊNCIA/COMUNICAÇÃO)<a class="headerlink" href="#modelo-de-design-diagramas-de-sequenciacomunicacao" title="Permanent link">&para;</a></h1>
+<h2 id="consolidacao-da-arquitetura">CONSOLIDAÇÃO DA ARQUITETURA<a class="headerlink" href="#consolidacao-da-arquitetura" title="Permanent link">&para;</a></h2>
+<h3 id="portal-cidadao-seguro-plataforma-govtech-de-servicos-publicos-digitais">PORTAL CIDADÃO SEGURO — PLATAFORMA GOVTECH DE SERVIÇOS PÚBLICOS DIGITAIS<a class="headerlink" href="#portal-cidadao-seguro-plataforma-govtech-de-servicos-publicos-digitais" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="informacoes-do-documento">Informações do Documento<a class="headerlink" href="#informacoes-do-documento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Informação do Documento</strong></th>
+<th style="text-align: left;"><strong>Valor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Projeto</strong></td>
+<td style="text-align: left;">Portal Cidadão Seguro — Plataforma GovTech</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documento</strong></td>
+<td style="text-align: left;">Modelo de Design (Diagramas de Sequência/Comunicação) — Consolidação da Arquitetura</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Versão</strong></td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Data</strong></td>
+<td style="text-align: left;">21/10/2026</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Status</strong></td>
+<td style="text-align: left;">Em Desenvolvimento</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Responsável</strong></td>
+<td style="text-align: left;">Caio Domingues — Keanu Santos — Eric Lerer — Gabriel Meireles</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disciplina</strong></td>
+<td style="text-align: left;">Projeto de Cloud — Semana 7</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fase RUP/UP</strong></td>
+<td style="text-align: left;">Elaboration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="1-introducao">1. INTRODUÇÃO<a class="headerlink" href="#1-introducao" title="Permanent link">&para;</a></h1>
+<h2 id="11-proposito">1.1. Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h2>
+<p>Este documento apresenta o <strong>Modelo de Design (Diagramas de Sequência/Comunicação)</strong> para a consolidação da arquitetura do <strong>Portal Cidadão Seguro</strong> na AWS. O objetivo é representar as interações entre usuários, camada de aplicação, banco de dados, armazenamento de arquivos e serviços operacionais da AWS nos fluxos críticos do sistema.</p>
+<p>O documento consolida as decisões e premissas estabelecidas nos artefatos anteriores: rede e segurança, modelo de análise por pacotes, dimensionamento do RDS e dimensionamento de computação. Os diagramas servem como referência para a implementação e ajudam a verificar se os componentes propostos conseguem colaborar para atender aos requisitos de segurança, disponibilidade, escalabilidade, persistência, monitoramento e proteção de dados.</p>
+<p>O modelo é derivado dos seguintes artefatos:</p>
+<ul>
+<li><strong>Documento de Visão — Portal Cidadão Seguro</strong>: propósito, escopo e funcionalidades do Portal e do módulo Zeladoria Urbana.</li>
+<li><strong>Documento de Requisitos Suplementares — Portal Cidadão Seguro</strong>: disponibilidade, escalabilidade, segurança, monitoramento, auditoria, continuidade e LGPD.</li>
+<li><strong>Casos de Uso Arquiteturais — Portal Cidadão Seguro</strong>: UC-ARQ-001 a UC-ARQ-014.</li>
+<li><strong>Modelo de Análise (Pacotes/Subsistemas) — Portal Cidadão Seguro</strong>: responsabilidades de rede, computação, persistência, armazenamento, monitoramento e governança.</li>
+<li><strong>Modelo de Análise (Classes) — RDS</strong>: PostgreSQL, Multi-AZ, backup/PITR, segurança e armazenamento.</li>
+<li><strong>Modelo de Análise (Classes) — Computação (EC2)</strong>: ALB, EC2, Auto Scaling Group, Target Group, Launch Template e Scaling Policy.</li>
+</ul>
+<h2 id="12-escopo">1.2. Escopo<a class="headerlink" href="#12-escopo" title="Permanent link">&para;</a></h2>
+<p>O documento apresenta seis fluxos de interação relacionados ao uso do Portal e à operação da arquitetura:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>Fluxo</strong></th>
+<th style="text-align: left;"><strong>Descrição</strong></th>
+<th style="text-align: left;"><strong>Prioridade</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Carregamento do Portal e catálogo de serviços</td>
+<td style="text-align: left;">O cidadão acessa o Portal e a aplicação consulta os serviços ativos para apresentar o catálogo.</td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Autenticação e identificação do usuário</td>
+<td style="text-align: left;">O usuário envia suas credenciais e a aplicação valida a identidade e o perfil de acesso. O provedor/mecanismo exato de autenticação ainda precisa ser definido.</td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Criação de solicitação de Zeladoria Urbana</td>
+<td style="text-align: left;">O cidadão envia uma solicitação; a aplicação valida os dados e grava a solicitação e seu evento inicial no RDS.</td>
+<td style="text-align: left;">Crítica</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Consulta e acompanhamento de solicitação</td>
+<td style="text-align: left;">O cidadão consulta o andamento ou o servidor público atualiza o status; as alterações ficam registradas no histórico de negócio.</td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Upload de imagem/anexo</td>
+<td style="text-align: left;">A aplicação valida o arquivo, armazena o arquivo físico no S3 e registra os metadados no RDS.</td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Falha e failover do RDS Multi-AZ</td>
+<td style="text-align: left;">Diante de falha na zona primária, o RDS realiza o failover gerenciado e a aplicação restabelece as conexões.</td>
+<td style="text-align: left;">Alta</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fluxos transversais:</strong> CloudWatch é utilizado para métricas e logs de operação; CloudTrail registra atividades e chamadas de API da infraestrutura AWS. Esses recursos não substituem o histórico funcional de solicitações, que é mantido pela aplicação no RDS.</p>
+<p><strong>Fora do escopo deste documento:</strong> pipeline de CI/CD, Cognito, Redis, API Gateway, CloudFront, SNS e ECS/Fargate como implementação efetivamente escolhida. Esses componentes não foram confirmados como parte da arquitetura atual do Portal e, portanto, não são tratados como decisões aprovadas aqui. O ALB é mantido como <strong>componente proposto</strong> no documento de dimensionamento de computação para distribuir tráfego às instâncias EC2 e permitir health checks.</p>
+<h2 id="13-definicoes-e-siglas">1.3. Definições e siglas<a class="headerlink" href="#13-definicoes-e-siglas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Sigla</strong></th>
+<th style="text-align: left;"><strong>Definição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>UML</strong></td>
+<td style="text-align: left;">Unified Modeling Language</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ALB</strong></td>
+<td style="text-align: left;">Application Load Balancer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ASG</strong></td>
+<td style="text-align: left;">Auto Scaling Group</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EC2</strong></td>
+<td style="text-align: left;">Elastic Compute Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RDS</strong></td>
+<td style="text-align: left;">Relational Database Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>S3</strong></td>
+<td style="text-align: left;">Simple Storage Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VPC</strong></td>
+<td style="text-align: left;">Virtual Private Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AZ</strong></td>
+<td style="text-align: left;">Availability Zone</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IAM</strong></td>
+<td style="text-align: left;">Identity and Access Management</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KMS</strong></td>
+<td style="text-align: left;">Key Management Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TLS</strong></td>
+<td style="text-align: left;">Transport Layer Security</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RPO</strong></td>
+<td style="text-align: left;">Recovery Point Objective — perda máxima de dados aceitável após falha</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RTO</strong></td>
+<td style="text-align: left;">Recovery Time Objective — tempo máximo desejado para recuperação</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RPS</strong></td>
+<td style="text-align: left;">Requisições/operações por segundo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PITR</strong></td>
+<td style="text-align: left;">Point-In-Time Recovery</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LGPD</strong></td>
+<td style="text-align: left;">Lei Geral de Proteção de Dados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SG</strong></td>
+<td style="text-align: left;">Security Group</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NACL</strong></td>
+<td style="text-align: left;">Network Access Control List</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14-referencias">1.4. Referências<a class="headerlink" href="#14-referencias" title="Permanent link">&para;</a></h2>
+<h3 id="artefatos-do-projeto">Artefatos do projeto<a class="headerlink" href="#artefatos-do-projeto" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>pesquisa(2).md</code> — Documento de Visão do Portal Cidadão Seguro.</li>
+<li><code>req_suplementares.md</code> — Requisitos Suplementares do Portal Cidadão Seguro.</li>
+<li><code>casos_de_uso_arquiteturais(2).md</code> — Casos de Uso Arquiteturais.</li>
+<li><code>modelo_de_analise-pacotes_subsistemas(3).md</code> — Modelo de Análise (Pacotes/Subsistemas).</li>
+<li><code>dimensionamento_rds_portal_cidadao_seguro.md</code> — Dimensionamento do RDS.</li>
+<li><code>dimensionamento_computacao_ec2_portal_cidadao_seguro.md</code> — Dimensionamento de Computação (EC2).</li>
+<li><code>consolida_arqui.md</code> e <code>seq_com.md</code> — referências de estrutura para consolidação da arquitetura e diagramas.</li>
+</ul>
+<h3 id="referencias-tecnicas">Referências técnicas<a class="headerlink" href="#referencias-tecnicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>AWS Well-Architected Framework.</li>
+<li>Documentação oficial do Amazon EC2, Elastic Load Balancing, Amazon RDS, Amazon S3, AWS KMS, Amazon CloudWatch e AWS CloudTrail.</li>
+<li>UML Distilled — Martin Fowler.</li>
+</ul>
+<hr />
+<h1 id="2-visao-geral-dos-fluxos-criticos">2. VISÃO GERAL DOS FLUXOS CRÍTICOS<a class="headerlink" href="#2-visao-geral-dos-fluxos-criticos" title="Permanent link">&para;</a></h1>
+<h2 id="21-mapa-de-fluxos">2.1. Mapa de fluxos<a class="headerlink" href="#21-mapa-de-fluxos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Fluxo</strong></th>
+<th style="text-align: left;"><strong>Descrição</strong></th>
+<th style="text-align: left;"><strong>Ator</strong></th>
+<th style="text-align: left;"><strong>Componentes principais</strong></th>
+<th style="text-align: left;"><strong>Prioridade</strong></th>
+<th style="text-align: left;"><strong>Requisitos relacionados</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Fluxo 1</strong></td>
+<td style="text-align: left;">Carregamento do Portal e catálogo</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">ALB, Target Group, EC2/Django, RDS, CloudWatch</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Disponibilidade, desempenho, persistência</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fluxo 2</strong></td>
+<td style="text-align: left;">Autenticação e identificação</td>
+<td style="text-align: left;">Cidadão/servidor público</td>
+<td style="text-align: left;">ALB, EC2/Django, mecanismo de autenticação a definir, dados de usuário quando aplicável</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Controle de acesso, proteção de dados, menor privilégio</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fluxo 3</strong></td>
+<td style="text-align: left;">Criação de solicitação</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">ALB, Target Group, EC2/Django, RDS, CloudWatch</td>
+<td style="text-align: left;">Crítica</td>
+<td style="text-align: left;">Persistência, integridade, rastreabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fluxo 4</strong></td>
+<td style="text-align: left;">Consulta e acompanhamento</td>
+<td style="text-align: left;">Cidadão/servidor público</td>
+<td style="text-align: left;">ALB, EC2/Django, RDS, CloudWatch</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Autorização, histórico, auditabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fluxo 5</strong></td>
+<td style="text-align: left;">Upload de imagem/anexo</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">ALB, EC2/Django, IAM Role, S3, RDS, KMS</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Armazenamento, criptografia, proteção de dados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fluxo 6</strong></td>
+<td style="text-align: left;">Failover do RDS Multi-AZ</td>
+<td style="text-align: left;">Sistema AWS/aplicação</td>
+<td style="text-align: left;">RDS Primary, RDS Standby, endpoint RDS, EC2, CloudWatch</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Continuidade, RPO ≤ 15 min, RTO ≤ 1 h</td>
+</tr>
+</tbody>
+</table>
+<h3 id="premissas-de-carga-utilizadas-nos-diagramas">Premissas de carga utilizadas nos diagramas<a class="headerlink" href="#premissas-de-carga-utilizadas-nos-diagramas" title="Permanent link">&para;</a></h3>
+<p>O dimensionamento anterior adotou como referência aproximadamente <strong>52.000 acessos/dia</strong> ao Portal, com <strong>20% dos acessos</strong> utilizando a Zeladoria Urbana. A memória de workload representa a carga com uma consulta comum ao catálogo por acesso e três operações adicionais por acesso à Zeladoria, totalizando aproximadamente <strong>83.200 operações modeladas/dia</strong>, <strong>0,96 operação/s em média</strong> e <strong>cerca de 10 operações/s no pico estimado</strong> usando fator de 10×.</p>
+<p>Esses números são <strong>premissas de dimensionamento</strong>, não métricas observadas de produção. O número real de requisições HTTP e consultas SQL deverá ser verificado quando os endpoints e a implementação estiverem disponíveis.</p>
+<h3 id="componentes-arquiteturais-considerados">Componentes arquiteturais considerados<a class="headerlink" href="#componentes-arquiteturais-considerados" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Entrada pública proposta:</strong> ALB com listener HTTPS e redirecionamento de HTTP para HTTPS.</li>
+<li><strong>Camada de aplicação:</strong> duas instâncias EC2 <code>t3.medium</code> como capacidade inicial, distribuídas entre duas Availability Zones, gerenciadas pelo Auto Scaling Group (mínimo 2, desejado 2, máximo inicial 4).</li>
+<li><strong>Servidor da aplicação:</strong> Django REST Framework, Nginx e Gunicorn.</li>
+<li><strong>Persistência:</strong> Amazon RDS for PostgreSQL <code>db.t4g.medium</code>, Multi-AZ, 50 GiB gp3, Auto Scaling de storage até 200 GiB, backup/PITR e limite operacional planejado de 100 conexões.</li>
+<li><strong>Arquivos:</strong> Amazon S3 para imagens/documentos; o RDS guarda somente os metadados e a referência (<code>file_key</code>).</li>
+<li><strong>Segurança:</strong> VPC, sub-redes públicas/privadas, Security Groups, IAM Role, criptografia com KMS e TLS.</li>
+<li><strong>Operação:</strong> CloudWatch para métricas/logs e CloudTrail para auditoria das atividades no ambiente AWS.</li>
+</ul>
+<h2 id="22-diagrama-de-contexto-geral">2.2. Diagrama de contexto geral<a class="headerlink" href="#22-diagrama-de-contexto-geral" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@startuml
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>title Diagrama de Contexto Geral — Portal Cidadão Seguro
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>skinparam componentBackgroundColor #E3F2FD
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>skinparam actorBackgroundColor #FFF3E0
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>skinparam packageStyle rectangle
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>actor &quot;Cidadão&quot; as Citizen
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>actor &quot;Servidor Público&quot; as Clerk
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>actor &quot;Administrador de Cloud&quot; as Admin
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>rectangle &quot;Portal Cidadão Seguro — AWS&quot; {
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  component &quot;Application Load Balancer\n(HTTPS :443)&quot; as ALB
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  component &quot;Target Group\nHTTP :80 /health/&quot; as TG
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  package &quot;VPC&quot; {
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    component &quot;EC2 API A\nDjango + Nginx + Gunicorn&quot; as EC2A
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    component &quot;EC2 API B\nDjango + Nginx + Gunicorn&quot; as EC2B
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    component &quot;Auto Scaling Group&quot; as ASG
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    database &quot;Amazon RDS PostgreSQL\nMulti-AZ&quot; as RDS
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    folder &quot;Amazon S3\nImagens e anexos&quot; as S3
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  }
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  component &quot;IAM Role\nPermissões da aplicação&quot; as IAMRole
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  component &quot;AWS KMS\nCriptografia&quot; as KMS
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  component &quot;Amazon CloudWatch\nMétricas e logs&quot; as CW
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  component &quot;AWS CloudTrail\nAuditoria AWS&quot; as CT
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>}
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>Citizen --&gt; ALB : Acesso ao Portal
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>Clerk --&gt; ALB : Gestão de solicitações
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>ALB --&gt; TG : Encaminhamento
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>TG --&gt; EC2A : Destino saudável
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>TG --&gt; EC2B : Destino saudável
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>ASG --&gt; EC2A : Gerencia
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>ASG --&gt; EC2B : Gerencia
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>EC2A --&gt; RDS : SQL / TCP 5432
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>EC2B --&gt; RDS : SQL / TCP 5432
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>EC2A --&gt; S3 : Upload / leitura autorizada
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>EC2B --&gt; S3 : Upload / leitura autorizada
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>EC2A --&gt; IAMRole : Assume role
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>EC2B --&gt; IAMRole : Assume role
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>S3 --&gt; KMS : Criptografia configurada
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>RDS --&gt; KMS : Criptografia em repouso
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>EC2A --&gt; CW : Logs e métricas
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>EC2B --&gt; CW : Logs e métricas
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>RDS --&gt; CW : Métricas e eventos
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>ALB --&gt; CW : Métricas
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>Admin --&gt; CW : Consulta de métricas/logs
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>Admin --&gt; CT : Consulta de eventos de auditoria
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>note bottom of ALB
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>O ALB é uma proposta da camada de computação
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>para balancear e verificar a saúde das instâncias.
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>end note
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>note bottom of CT
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>CloudTrail registra atividades da infraestrutura AWS.
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>O histórico de negócio das solicitações fica na aplicação/RDS.
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>end note
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h1 id="3-especificacao-dos-fluxos">3. ESPECIFICAÇÃO DOS FLUXOS<a class="headerlink" href="#3-especificacao-dos-fluxos" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="31-fluxo-1-carregamento-do-portal-e-catalogo-de-servicos">3.1. FLUXO 1: CARREGAMENTO DO PORTAL E CATÁLOGO DE SERVIÇOS<a class="headerlink" href="#31-fluxo-1-carregamento-do-portal-e-catalogo-de-servicos" title="Permanent link">&para;</a></h2>
+<h3 id="311-descricao">3.1.1. Descrição<a class="headerlink" href="#311-descricao" title="Permanent link">&para;</a></h3>
+<p>O cidadão acessa o Portal Cidadão Seguro pelo navegador. A requisição HTTPS chega ao ALB proposto, que a encaminha pelo Target Group a uma instância saudável da API Django. A aplicação consulta no RDS os serviços ativos para construir ou retornar o catálogo do Portal. A resposta é devolvida ao cidadão.</p>
+<p>O catálogo é uma responsabilidade comum da plataforma: mesmo quando o usuário não abre a Zeladoria Urbana, o Portal pode precisar consultar quais serviços estão disponíveis. A hipótese de uma consulta ao catálogo por acesso foi utilizada na memória de workload e deve ser validada pela implementação.</p>
+<h3 id="312-requisitos-atendidos">3.1.2. Requisitos atendidos<a class="headerlink" href="#312-requisitos-atendidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+<th style="text-align: left;"><strong>Valor / comportamento</strong></th>
+<th style="text-align: left;"><strong>Fonte</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Disponibilização dos serviços</td>
+<td style="text-align: left;">Catálogo de serviços ativos do Portal</td>
+<td style="text-align: left;">Documento de Visão</td>
+</tr>
+<tr>
+<td style="text-align: left;">Execução da aplicação</td>
+<td style="text-align: left;">EC2 em sub-redes privadas, atrás do ALB proposto</td>
+<td style="text-align: left;">Dimensionamento de Computação</td>
+</tr>
+<tr>
+<td style="text-align: left;">Persistência estruturada</td>
+<td style="text-align: left;">RDS PostgreSQL</td>
+<td style="text-align: left;">Documento de Visão / Modelo RDS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Monitoramento</td>
+<td style="text-align: left;">Logs e métricas da aplicação e infraestrutura no CloudWatch</td>
+<td style="text-align: left;">Requisitos Suplementares</td>
+</tr>
+<tr>
+<td style="text-align: left;">Segurança de transporte</td>
+<td style="text-align: left;">HTTPS na entrada pública</td>
+<td style="text-align: left;">Requisitos de segurança</td>
+</tr>
+</tbody>
+</table>
+<h3 id="313-diagrama-de-sequencia">3.1.3. Diagrama de sequência<a class="headerlink" href="#313-diagrama-de-sequencia" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@startuml
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>title Fluxo 1 — Carregamento do Portal e Catálogo
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>actor &quot;Cidadão&quot; as Citizen
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>participant &quot;Target Group&quot; as TG
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>participant &quot;EC2 / Django API&quot; as API
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>database &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>participant &quot;CloudWatch&quot; as CW
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Citizen -&gt; ALB: GET / (HTTPS)
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>activate ALB
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>ALB -&gt; TG: Encaminhar requisição
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>TG -&gt; API: GET / (HTTP :80 para Nginx)
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>activate API
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>API -&gt; API: Validar rota e preparar resposta
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>API -&gt; RDS: SELECT serviços ativos
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>activate RDS
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>RDS --&gt; API: Lista de serviços
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>deactivate RDS
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>API -&gt; CW: Registrar duração/status da requisição
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>API --&gt; ALB: HTTP 200 + catálogo
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>deactivate API
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>ALB --&gt; Citizen: HTTP 200 + resposta do Portal
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>deactivate ALB
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>alt Falha na consulta ao banco
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>  API -&gt; CW: Registrar erro
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  API --&gt; ALB: HTTP 5xx
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>  ALB --&gt; Citizen: Resposta de erro controlada
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>end
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>@enduml
+</span></code></pre></div>
+<h3 id="314-diagrama-de-comunicacao">3.1.4. Diagrama de comunicação<a class="headerlink" href="#314-diagrama-de-comunicacao" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@startuml
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>title Fluxo 1 — Comunicação: Catálogo de Serviços
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>left to right direction
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>object &quot;Cidadão&quot; as Citizen
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>object &quot;ALB&quot; as ALB
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>object &quot;Target Group&quot; as TG
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>object &quot;EC2 / Django API&quot; as API
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>object &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>object &quot;CloudWatch&quot; as CW
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Citizen --&gt; ALB : 1: GET / (HTTPS)
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>ALB --&gt; TG : 2: Encaminhar requisição
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>TG --&gt; API : 3: Selecionar destino saudável
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>API --&gt; RDS : 4: Consultar serviços ativos
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>RDS --&gt; API : 5: Retornar catálogo
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>API --&gt; CW : 6: Registrar status/duração
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>API --&gt; ALB : 7: HTTP 200 + catálogo
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>ALB --&gt; Citizen : 8: Exibir Portal
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>@enduml
+</span></code></pre></div>
+<h3 id="315-tabela-de-mensagens">3.1.5. Tabela de mensagens<a class="headerlink" href="#315-tabela-de-mensagens" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>De</strong></th>
+<th style="text-align: left;"><strong>Para</strong></th>
+<th style="text-align: left;"><strong>Mensagem</strong></th>
+<th style="text-align: left;"><strong>Protocolo</strong></th>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">GET <code>/</code></td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Entrada segura</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">Target Group</td>
+<td style="text-align: left;">Encaminhar requisição</td>
+<td style="text-align: left;">HTTP interno</td>
+<td style="text-align: left;">Distribuição de tráfego</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Target Group</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Entregar requisição à instância saudável</td>
+<td style="text-align: left;">HTTP :80</td>
+<td style="text-align: left;">Health check</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Consultar serviços ativos</td>
+<td style="text-align: left;">SQL / TCP 5432</td>
+<td style="text-align: left;">Persistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Retornar catálogo</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Integridade dos dados</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Registrar status/duração</td>
+<td style="text-align: left;">Logs/métricas</td>
+<td style="text-align: left;">Observabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">HTTP 200 + catálogo</td>
+<td style="text-align: left;">HTTP interno</td>
+<td style="text-align: left;">Resposta</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">Exibir resposta do Portal</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Disponibilidade</td>
+</tr>
+</tbody>
+</table>
+<h3 id="316-riscos-e-mitigacoes">3.1.6. Riscos e mitigações<a class="headerlink" href="#316-riscos-e-mitigacoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Risco</strong></th>
+<th style="text-align: left;"><strong>Probabilidade</strong></th>
+<th style="text-align: left;"><strong>Impacto</strong></th>
+<th style="text-align: left;"><strong>Mitigação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">RDS indisponível ou lento</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Multi-AZ, alarmes no CloudWatch e tratamento controlado de erro.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Falha de uma instância EC2</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Health check do Target Group e substituição pelo ASG.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Catálogo consultado repetidamente</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Avaliar cache da aplicação somente se métricas demonstrarem benefício; cache não faz parte da arquitetura atual.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Volume real de requisições superior à hipótese</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio/Alto</td>
+<td style="text-align: left;">Validar workload por teste de carga e métricas após a implementação.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="32-fluxo-2-autenticacao-e-identificacao-do-usuario">3.2. FLUXO 2: AUTENTICAÇÃO E IDENTIFICAÇÃO DO USUÁRIO<a class="headerlink" href="#32-fluxo-2-autenticacao-e-identificacao-do-usuario" title="Permanent link">&para;</a></h2>
+<h3 id="321-descricao">3.2.1. Descrição<a class="headerlink" href="#321-descricao" title="Permanent link">&para;</a></h3>
+<p>O cidadão ou servidor público envia suas credenciais pela interface do Portal. O pedido percorre o ALB e chega à aplicação Django, que encaminha a validação ao mecanismo de autenticação configurado para a solução. Após a autenticação, a aplicação utiliza a identidade e o tipo de usuário para aplicar as regras de autorização às operações disponíveis.</p>
+<p><strong>Ponto pendente:</strong> os documentos arquiteturais atuais não definem de forma conclusiva o provedor de identidade nem o formato de sessão/token. Por isso, o diagrama representa o fluxo lógico da autenticação, sem pressupor Amazon Cognito, JWT ou outro mecanismo como decisão já aprovada. Se a autenticação for gerenciada pela própria aplicação, a consulta ao RDS poderá fornecer os dados de usuário e perfil necessários; se for adotado um provedor externo, essa interação deverá ser ajustada.</p>
+<p>O IAM da AWS não substitui a autenticação dos cidadãos no Portal: IAM trata de permissões sobre recursos AWS.</p>
+<h3 id="322-requisitos-atendidos">3.2.2. Requisitos atendidos<a class="headerlink" href="#322-requisitos-atendidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+<th style="text-align: left;"><strong>Valor / comportamento</strong></th>
+<th style="text-align: left;"><strong>Fonte</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Autenticação de usuários</td>
+<td style="text-align: left;">Identificar o usuário antes de permitir operações protegidas</td>
+<td style="text-align: left;">Funcionalidades do Portal</td>
+</tr>
+<tr>
+<td style="text-align: left;">Separação por perfil</td>
+<td style="text-align: left;">Diferenciar cidadão e servidor público</td>
+<td style="text-align: left;">Modelo funcional do Portal</td>
+</tr>
+<tr>
+<td style="text-align: left;">Menor privilégio AWS</td>
+<td style="text-align: left;">Aplicação utiliza apenas roles/permissões necessárias para acessar recursos</td>
+<td style="text-align: left;">UC-ARQ-005 / Requisitos Suplementares</td>
+</tr>
+<tr>
+<td style="text-align: left;">Proteção de dados</td>
+<td style="text-align: left;">Credenciais e respostas trafegam por HTTPS</td>
+<td style="text-align: left;">Requisitos de segurança</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rastreabilidade</td>
+<td style="text-align: left;">Registrar eventos técnicos relevantes; alterações funcionais ficam no histórico da aplicação</td>
+<td style="text-align: left;">Requisitos de auditoria</td>
+</tr>
+</tbody>
+</table>
+<h3 id="323-diagrama-de-sequencia">3.2.3. Diagrama de sequência<a class="headerlink" href="#323-diagrama-de-sequencia" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@startuml
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>title Fluxo 2 — Autenticação e Identificação
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>actor &quot;Cidadão / Servidor&quot; as User
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>participant &quot;EC2 / Django API&quot; as API
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>participant &quot;Módulo de Autenticação\n(a definir)&quot; as Auth
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>database &quot;RDS / Perfil de Usuário\n(se aplicável)&quot; as RDS
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>participant &quot;CloudWatch&quot; as CW
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>User -&gt; ALB: POST /auth/login (HTTPS)
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>activate ALB
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>ALB -&gt; API: Encaminhar credenciais pela conexão interna
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>activate API
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>API -&gt; Auth: Validar credenciais
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>activate Auth
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>opt Autenticação gerenciada pela aplicação
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  Auth -&gt; RDS: Consultar identidade/perfil
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>  activate RDS
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>  RDS --&gt; Auth: Dados de usuário e perfil
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>  deactivate RDS
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>end
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>alt Credenciais válidas
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>  Auth --&gt; API: Identidade autenticada
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>  API -&gt; API: Aplicar perfil e política de acesso
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>  API -&gt; CW: Registrar resultado sem expor segredo
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>  API --&gt; ALB: HTTP 200 + resultado de autenticação
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>  ALB --&gt; User: Resposta autenticada
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>else Credenciais inválidas
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>  Auth --&gt; API: Falha de autenticação
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>  API -&gt; CW: Registrar falha sem gravar senha/token
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>  API --&gt; ALB: HTTP 401 Unauthorized
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>  ALB --&gt; User: Acesso negado
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>end
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>deactivate Auth
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>deactivate API
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>deactivate ALB
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>@enduml
+</span></code></pre></div>
+<h3 id="324-diagrama-de-comunicacao">3.2.4. Diagrama de comunicação<a class="headerlink" href="#324-diagrama-de-comunicacao" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>@startuml
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>title Fluxo 2 — Comunicação: Autenticação
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>left to right direction
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>object &quot;Cidadão / Servidor&quot; as User
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>object &quot;ALB&quot; as ALB
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>object &quot;EC2 / Django API&quot; as API
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>object &quot;Módulo de Autenticação\n(a definir)&quot; as Auth
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>object &quot;RDS / Perfil (se aplicável)&quot; as RDS
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>object &quot;CloudWatch&quot; as CW
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>User --&gt; ALB : 1: POST /auth/login
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>ALB --&gt; API : 2: Encaminhar requisição
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>API --&gt; Auth : 3: Validar credenciais
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Auth --&gt; RDS : 4: Consultar identidade/perfil (opcional)
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>RDS --&gt; Auth : 5: Retornar perfil
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>Auth --&gt; API : 6: Resultado da validação
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>API --&gt; CW : 7: Registrar evento seguro
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>API --&gt; ALB : 8: HTTP 200 ou 401
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>ALB --&gt; User : 9: Resultado
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>@enduml
+</span></code></pre></div>
+<h3 id="325-tabela-de-mensagens">3.2.5. Tabela de mensagens<a class="headerlink" href="#325-tabela-de-mensagens" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>De</strong></th>
+<th style="text-align: left;"><strong>Para</strong></th>
+<th style="text-align: left;"><strong>Mensagem</strong></th>
+<th style="text-align: left;"><strong>Protocolo</strong></th>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Usuário</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">POST <code>/auth/login</code></td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Comunicação segura</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Encaminhar requisição</td>
+<td style="text-align: left;">HTTP interno</td>
+<td style="text-align: left;">Execução da aplicação</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Módulo de Autenticação</td>
+<td style="text-align: left;">Validar credenciais</td>
+<td style="text-align: left;">Interface interna</td>
+<td style="text-align: left;">Autenticação</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Módulo de Autenticação</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Consultar identidade/perfil, se aplicável</td>
+<td style="text-align: left;">SQL / TCP 5432</td>
+<td style="text-align: left;">Dados de usuário</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Módulo de Autenticação</td>
+<td style="text-align: left;">Retornar perfil</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Identificação</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Módulo de Autenticação</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Resultado da validação</td>
+<td style="text-align: left;">Interface interna</td>
+<td style="text-align: left;">Autorização</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Registrar resultado sem segredos</td>
+<td style="text-align: left;">Logs</td>
+<td style="text-align: left;">Observabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Django/ALB</td>
+<td style="text-align: left;">Usuário</td>
+<td style="text-align: left;">HTTP 200 ou 401</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Resultado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="326-riscos-e-mitigacoes">3.2.6. Riscos e mitigações<a class="headerlink" href="#326-riscos-e-mitigacoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Risco</strong></th>
+<th style="text-align: left;"><strong>Probabilidade</strong></th>
+<th style="text-align: left;"><strong>Impacto</strong></th>
+<th style="text-align: left;"><strong>Mitigação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Mecanismo de autenticação não definido</td>
+<td style="text-align: left;">Alta nesta fase</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Definir provedor, sessão/token, expiração e recuperação de credenciais antes da implementação final.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vazamento de senha ou token em logs</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Crítico</td>
+<td style="text-align: left;">Não registrar credenciais, senhas, tokens completos ou dados sensíveis nos logs.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Autorização inadequada entre cidadão e servidor</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Aplicar autorização no backend para cada operação e validar o papel do usuário.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Confusão entre IAM AWS e login do cidadão</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Documentar IAM como controle de acesso aos recursos AWS, separado da identidade funcional do Portal.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="33-fluxo-3-criacao-de-solicitacao-de-zeladoria-urbana">3.3. FLUXO 3: CRIAÇÃO DE SOLICITAÇÃO DE ZELADORIA URBANA<a class="headerlink" href="#33-fluxo-3-criacao-de-solicitacao-de-zeladoria-urbana" title="Permanent link">&para;</a></h2>
+<h3 id="331-descricao">3.3.1. Descrição<a class="headerlink" href="#331-descricao" title="Permanent link">&para;</a></h3>
+<p>O cidadão autenticado preenche os dados de uma solicitação de manutenção urbana, por exemplo descrição, categoria e localização. A requisição chega ao ALB e é encaminhada a uma instância saudável da API Django. A aplicação valida a entrada, verifica se a categoria está ativa e vinculada ao serviço correto, e grava a solicitação no RDS.</p>
+<p>A criação e o evento inicial do histórico devem ser persistidos em uma transação lógica única, evitando que uma solicitação exista sem o respectivo registro inicial de rastreabilidade. O upload da imagem é tratado separadamente no Fluxo 5; o RDS guarda apenas a referência e os metadados do anexo.</p>
+<h3 id="332-requisitos-atendidos">3.3.2. Requisitos atendidos<a class="headerlink" href="#332-requisitos-atendidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+<th style="text-align: left;"><strong>Valor / comportamento</strong></th>
+<th style="text-align: left;"><strong>Fonte</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Registro de solicitação</td>
+<td style="text-align: left;">Descrição, categoria e localização</td>
+<td style="text-align: left;">Documento de Visão / Zeladoria Urbana</td>
+</tr>
+<tr>
+<td style="text-align: left;">Integridade transacional</td>
+<td style="text-align: left;">Solicitação e histórico inicial são gravados de forma consistente</td>
+<td style="text-align: left;">Modelo de dados proposto</td>
+</tr>
+<tr>
+<td style="text-align: left;">Persistência</td>
+<td style="text-align: left;">RDS PostgreSQL privado</td>
+<td style="text-align: left;">UC-ARQ-009</td>
+</tr>
+<tr>
+<td style="text-align: left;">Segurança</td>
+<td style="text-align: left;">Só o backend autorizado acessa o RDS</td>
+<td style="text-align: left;">UC-ARQ-003 / UC-ARQ-005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Carga de escrita</td>
+<td style="text-align: left;">Aproximadamente 520 novas solicitações/dia no cenário assumido</td>
+<td style="text-align: left;">Memória de cálculo do Portal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="333-diagrama-de-sequencia">3.3.3. Diagrama de sequência<a class="headerlink" href="#333-diagrama-de-sequencia" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>@startuml
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>title Fluxo 3 — Criar Solicitação de Zeladoria
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>actor &quot;Cidadão&quot; as Citizen
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>participant &quot;EC2 / Django API&quot; as API
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>database &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>participant &quot;CloudWatch&quot; as CW
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Citizen -&gt; ALB: POST /api/solicitacoes\n{descricao, categoria, localizacao}
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>activate ALB
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>ALB -&gt; API: Encaminhar requisição HTTPS validada
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>activate API
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>API -&gt; API: Validar identidade, campos e permissões
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>API -&gt; RDS: Consultar categoria/serviço ativo
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>activate RDS
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>RDS --&gt; API: Categoria válida
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>deactivate RDS
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>API -&gt; RDS: BEGIN TRANSACTION
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>activate RDS
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>API -&gt; RDS: INSERT Solicitacao\n(status inicial = RECEBIDA)
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>RDS --&gt; API: ID / protocolo
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>API -&gt; RDS: INSERT SolicitacaoHistorico\n(evento de criação)
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>RDS --&gt; API: Histórico criado
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>API -&gt; RDS: COMMIT
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>RDS --&gt; API: Transação confirmada
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>deactivate RDS
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>API -&gt; CW: Registrar status e duração
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>API --&gt; ALB: HTTP 201 + protocolo
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>deactivate API
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>ALB --&gt; Citizen: Confirmação de criação
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>deactivate ALB
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>alt Dados inválidos ou categoria inativa
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>  API --&gt; ALB: HTTP 400
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>  ALB --&gt; Citizen: Corrigir dados enviados
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>else Falha ao persistir
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>  API -&gt; RDS: ROLLBACK
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>  API -&gt; CW: Registrar erro de persistência
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>  API --&gt; ALB: HTTP 5xx controlado
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>  ALB --&gt; Citizen: Falha temporária
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>end
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>@enduml
+</span></code></pre></div>
+<h3 id="334-diagrama-de-comunicacao">3.3.4. Diagrama de comunicação<a class="headerlink" href="#334-diagrama-de-comunicacao" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>@startuml
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>title Fluxo 3 — Comunicação: Criar Solicitação
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>left to right direction
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>object &quot;Cidadão&quot; as Citizen
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>object &quot;ALB&quot; as ALB
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>object &quot;EC2 / Django API&quot; as API
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>object &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>object &quot;CloudWatch&quot; as CW
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Citizen --&gt; ALB : 1: POST /api/solicitacoes
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>ALB --&gt; API : 2: Encaminhar
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>API --&gt; API : 3: Validar entrada/permissão
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>API --&gt; RDS : 4: Validar categoria
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>RDS --&gt; API : 5: Categoria válida
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>API --&gt; RDS : 6: BEGIN + INSERT Solicitação
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>API --&gt; RDS : 7: INSERT Histórico + COMMIT
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>RDS --&gt; API : 8: Protocolo/confirmado
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>API --&gt; CW : 9: Registrar status/duração
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>API --&gt; ALB : 10: HTTP 201
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>ALB --&gt; Citizen : 11: Protocolo
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>@enduml
+</span></code></pre></div>
+<h3 id="335-tabela-de-mensagens">3.3.5. Tabela de mensagens<a class="headerlink" href="#335-tabela-de-mensagens" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>De</strong></th>
+<th style="text-align: left;"><strong>Para</strong></th>
+<th style="text-align: left;"><strong>Mensagem</strong></th>
+<th style="text-align: left;"><strong>Protocolo</strong></th>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">POST <code>/api/solicitacoes</code></td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Criação de solicitação</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Encaminhar ao backend</td>
+<td style="text-align: left;">HTTP interno</td>
+<td style="text-align: left;">Computação</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Validar dados, identidade e autorização</td>
+<td style="text-align: left;">Interno</td>
+<td style="text-align: left;">Integridade e segurança</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Validar categoria/serviço</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Consistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Retornar validação</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Consistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Criar solicitação e histórico inicial</td>
+<td style="text-align: left;">SQL/Transação</td>
+<td style="text-align: left;">Rastreabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Confirmar transação e retornar protocolo</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Persistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Registrar resultado e duração</td>
+<td style="text-align: left;">Logs/métricas</td>
+<td style="text-align: left;">Monitoramento</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Django/ALB</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">HTTP 201 + protocolo</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Confirmação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="336-riscos-e-mitigacoes">3.3.6. Riscos e mitigações<a class="headerlink" href="#336-riscos-e-mitigacoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Risco</strong></th>
+<th style="text-align: left;"><strong>Probabilidade</strong></th>
+<th style="text-align: left;"><strong>Impacto</strong></th>
+<th style="text-align: left;"><strong>Mitigação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Solicitação sem histórico inicial</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Criar solicitação e histórico na mesma transação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Categoria inválida ou inativa</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Validar categoria e relação com o serviço antes da gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Repetição de POST por timeout</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Considerar chave de idempotência ou mecanismo equivalente na API para evitar solicitações duplicadas.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Falha de conexão com RDS</td>
+<td style="text-align: left;">Baixa/Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Tratamento de erros, timeouts e retry controlado apenas quando seguro.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Acesso indevido a dados de cidadão</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Crítico</td>
+<td style="text-align: left;">Autorização no backend e restrições de acesso ao banco por Security Group.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="34-fluxo-4-consulta-e-acompanhamento-de-solicitacao">3.4. FLUXO 4: CONSULTA E ACOMPANHAMENTO DE SOLICITAÇÃO<a class="headerlink" href="#34-fluxo-4-consulta-e-acompanhamento-de-solicitacao" title="Permanent link">&para;</a></h2>
+<h3 id="341-descricao">3.4.1. Descrição<a class="headerlink" href="#341-descricao" title="Permanent link">&para;</a></h3>
+<p>O cidadão consulta o status e o histórico de uma solicitação própria. A aplicação valida a identidade e a autorização, consulta os dados de <code>Solicitacao</code> e <code>SolicitacaoHistorico</code> no RDS e retorna o andamento.</p>
+<p>Quando um servidor público autorizado atualiza o status, a aplicação altera o status atual e registra um novo evento de histórico na mesma transação. O histórico de negócio é mantido no RDS; CloudTrail registra ações na infraestrutura AWS e não substitui esse histórico.</p>
+<h3 id="342-requisitos-atendidos">3.4.2. Requisitos atendidos<a class="headerlink" href="#342-requisitos-atendidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+<th style="text-align: left;"><strong>Valor / comportamento</strong></th>
+<th style="text-align: left;"><strong>Fonte</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Acompanhamento</td>
+<td style="text-align: left;">Cidadão consulta o status das próprias solicitações</td>
+<td style="text-align: left;">Documento de Visão</td>
+</tr>
+<tr>
+<td style="text-align: left;">Atualização de status</td>
+<td style="text-align: left;">Servidor autorizado atualiza o estado da solicitação</td>
+<td style="text-align: left;">Funcionalidades da Zeladoria</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rastreabilidade</td>
+<td style="text-align: left;">Eventos registrados em <code>SolicitacaoHistorico</code></td>
+<td style="text-align: left;">Requisitos de auditabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;">Proteção de dados</td>
+<td style="text-align: left;">O backend impede acesso a solicitações de outros cidadãos sem autorização</td>
+<td style="text-align: left;">Requisitos de segurança/LGPD</td>
+</tr>
+<tr>
+<td style="text-align: left;">Persistência</td>
+<td style="text-align: left;">Dados e histórico no RDS PostgreSQL</td>
+<td style="text-align: left;">Modelo RDS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="343-diagrama-de-sequencia">3.4.3. Diagrama de sequência<a class="headerlink" href="#343-diagrama-de-sequencia" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@startuml
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>title Fluxo 4 — Consultar e Atualizar Solicitação
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>actor &quot;Cidadão&quot; as Citizen
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>actor &quot;Servidor Público&quot; as Clerk
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>participant &quot;EC2 / Django API&quot; as API
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>database &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>participant &quot;CloudWatch&quot; as CW
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>alt Cidadão consulta solicitação
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  Citizen -&gt; ALB: GET /api/solicitacoes/{id}
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  activate ALB
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  ALB -&gt; API: Encaminhar consulta
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>  activate API
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>  API -&gt; API: Verificar identidade e titularidade
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>  API -&gt; RDS: SELECT solicitação + histórico\n+ metadados de anexos
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>  activate RDS
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>  RDS --&gt; API: Dados autorizados
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>  deactivate RDS
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>  API --&gt; ALB: HTTP 200 + status/histórico
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>  ALB --&gt; Citizen: Exibir acompanhamento
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>  deactivate API
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>  deactivate ALB
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>else Servidor atualiza status
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>  Clerk -&gt; ALB: PATCH /api/solicitacoes/{id}/status
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>  activate ALB
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>  ALB -&gt; API: Encaminhar atualização
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>  activate API
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>  API -&gt; API: Validar perfil de servidor e permissão
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>  API -&gt; RDS: BEGIN TRANSACTION
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>  activate RDS
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>  API -&gt; RDS: UPDATE Solicitacao.status
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>  RDS --&gt; API: Status atualizado
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>  API -&gt; RDS: INSERT SolicitacaoHistorico
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>  RDS --&gt; API: Evento registrado
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>  API -&gt; RDS: COMMIT
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>  RDS --&gt; API: Confirmação
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>  deactivate RDS
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>  API -&gt; CW: Registrar resultado da operação
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>  API --&gt; ALB: HTTP 200 + novo status
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>  ALB --&gt; Clerk: Confirmação
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>  deactivate API
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>  deactivate ALB
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>end
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>@enduml
+</span></code></pre></div>
+<h3 id="344-diagrama-de-comunicacao">3.4.4. Diagrama de comunicação<a class="headerlink" href="#344-diagrama-de-comunicacao" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>@startuml
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>title Fluxo 4 — Comunicação: Acompanhamento de Solicitação
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>left to right direction
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>object &quot;Cidadão / Servidor Público&quot; as Actor
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>object &quot;ALB&quot; as ALB
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>object &quot;EC2 / Django API&quot; as API
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>object &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>object &quot;CloudWatch&quot; as CW
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Actor --&gt; ALB : 1: GET status ou PATCH status
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>ALB --&gt; API : 2: Encaminhar
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>API --&gt; API : 3: Validar perfil/escopo
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>API --&gt; RDS : 4: Consultar ou iniciar atualização
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>RDS --&gt; API : 5: Retornar dados/atualização
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>API --&gt; RDS : 6: Inserir histórico e COMMIT (PATCH)
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>RDS --&gt; API : 7: Confirmar operação
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>API --&gt; CW : 8: Registrar resultado
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>API --&gt; ALB : 9: HTTP 200 ou erro controlado
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>ALB --&gt; Actor : 10: Resultado
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>@enduml
+</span></code></pre></div>
+<h3 id="345-tabela-de-mensagens">3.4.5. Tabela de mensagens<a class="headerlink" href="#345-tabela-de-mensagens" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>De</strong></th>
+<th style="text-align: left;"><strong>Para</strong></th>
+<th style="text-align: left;"><strong>Mensagem</strong></th>
+<th style="text-align: left;"><strong>Protocolo</strong></th>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Cidadão/Servidor</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">GET ou PATCH da solicitação</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Consulta/atualização</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Encaminhar requisição</td>
+<td style="text-align: left;">HTTP interno</td>
+<td style="text-align: left;">Computação</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Validar perfil, titularidade e permissão</td>
+<td style="text-align: left;">Interno</td>
+<td style="text-align: left;">Segurança/LGPD</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Consultar solicitação/histórico ou iniciar atualização</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Persistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Retornar dados/resultado</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;">Integridade</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Registrar novo histórico na atualização</td>
+<td style="text-align: left;">SQL/Transação</td>
+<td style="text-align: left;">Auditabilidade funcional</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Registrar resultado sem dados sensíveis desnecessários</td>
+<td style="text-align: left;">Logs</td>
+<td style="text-align: left;">Monitoramento</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Django/ALB</td>
+<td style="text-align: left;">Usuário</td>
+<td style="text-align: left;">HTTP 200 ou erro controlado</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Retorno</td>
+</tr>
+</tbody>
+</table>
+<h3 id="346-riscos-e-mitigacoes">3.4.6. Riscos e mitigações<a class="headerlink" href="#346-riscos-e-mitigacoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Risco</strong></th>
+<th style="text-align: left;"><strong>Probabilidade</strong></th>
+<th style="text-align: left;"><strong>Impacto</strong></th>
+<th style="text-align: left;"><strong>Mitigação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Cidadão consultar solicitação de outra pessoa</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Crítico</td>
+<td style="text-align: left;">Validar titularidade e permissão no backend em cada consulta.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Atualização sem registro de histórico</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Atualizar o status e gravar o histórico na mesma transação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Servidor sem permissão alterar estado</td>
+<td style="text-align: left;">Baixa/Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Aplicar autorização por perfil e registrar o responsável pela mudança.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Logs conterem dados pessoais desnecessários</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Minimizar dados registrados e aplicar controles de retenção/acesso aos logs.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="35-fluxo-5-upload-de-imagem-ou-anexo-para-s3">3.5. FLUXO 5: UPLOAD DE IMAGEM OU ANEXO PARA S3<a class="headerlink" href="#35-fluxo-5-upload-de-imagem-ou-anexo-para-s3" title="Permanent link">&para;</a></h2>
+<h3 id="351-descricao">3.5.1. Descrição<a class="headerlink" href="#351-descricao" title="Permanent link">&para;</a></h3>
+<p>O cidadão envia uma imagem ou documento associado à solicitação. O ALB encaminha o pedido à API Django, que verifica a autorização do usuário, o vínculo com a solicitação e as características permitidas do arquivo.</p>
+<p>A aplicação envia o arquivo físico ao Amazon S3 utilizando a IAM Role da instância, com política de acesso restrita e criptografia configurada. Após o armazenamento do objeto, a aplicação grava no RDS os metadados do anexo — nome, tipo, tamanho e chave do objeto (<code>file_key</code>). O banco não armazena o conteúdo binário da imagem.</p>
+<p>Este fluxo representa a opção arquitetural de upload mediado pela API. A alternativa de upload direto com URL pré-assinada não é adotada como decisão neste documento.</p>
+<h3 id="352-requisitos-atendidos">3.5.2. Requisitos atendidos<a class="headerlink" href="#352-requisitos-atendidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+<th style="text-align: left;"><strong>Valor / comportamento</strong></th>
+<th style="text-align: left;"><strong>Fonte</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Anexos da Zeladoria</td>
+<td style="text-align: left;">Imagens/documentos associados à solicitação</td>
+<td style="text-align: left;">Documento de Visão</td>
+</tr>
+<tr>
+<td style="text-align: left;">Separação de responsabilidades</td>
+<td style="text-align: left;">Arquivo físico no S3; metadados no RDS</td>
+<td style="text-align: left;">Arquitetura do Portal</td>
+</tr>
+<tr>
+<td style="text-align: left;">Criptografia</td>
+<td style="text-align: left;">S3 com criptografia configurada e KMS conforme política</td>
+<td style="text-align: left;">UC-ARQ-006 / UC-ARQ-010</td>
+</tr>
+<tr>
+<td style="text-align: left;">Menor privilégio</td>
+<td style="text-align: left;">Instância acessa apenas buckets/ações necessárias</td>
+<td style="text-align: left;">UC-ARQ-005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Integridade</td>
+<td style="text-align: left;">Metadados vinculados à solicitação</td>
+<td style="text-align: left;">Modelo de dados proposto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="353-diagrama-de-sequencia">3.5.3. Diagrama de sequência<a class="headerlink" href="#353-diagrama-de-sequencia" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>@startuml
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>title Fluxo 5 — Upload de Imagem/Anexo
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>actor &quot;Cidadão&quot; as Citizen
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>participant &quot;EC2 / Django API&quot; as API
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>participant &quot;IAM Role da aplicação&quot; as IAM
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>collections &quot;Amazon S3&quot; as S3
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>database &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>participant &quot;CloudWatch&quot; as CW
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>Citizen -&gt; ALB: POST /api/solicitacoes/{id}/anexos\n(multipart/form-data)
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>activate ALB
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>ALB -&gt; API: Encaminhar arquivo e contexto
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>activate API
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>API -&gt; API: Validar usuário, solicitação,\ntipo e tamanho do arquivo
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>API -&gt; IAM: Obter credenciais temporárias da role
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>IAM --&gt; API: Credenciais autorizadas
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>API -&gt; S3: PUT Object\n(chave do anexo)
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>activate S3
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>S3 --&gt; API: Upload confirmado
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>deactivate S3
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>API -&gt; RDS: INSERT Attachment\n(solicitacao_id, file_key, metadados)
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>activate RDS
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>RDS --&gt; API: Metadados persistidos
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>deactivate RDS
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>API -&gt; CW: Registrar resultado sem conteúdo do arquivo
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>API --&gt; ALB: HTTP 201 + identificador do anexo
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>deactivate API
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>ALB --&gt; Citizen: Confirmação do upload
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a>deactivate ALB
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>alt Falha ao gravar metadados após upload
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>  API -&gt; S3: Remover objeto órfão ou programar reconciliação
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>  S3 --&gt; API: Resultado da limpeza
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>  API -&gt; CW: Registrar falha e ação de recuperação
+</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a>else Arquivo inválido
+</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a>  API --&gt; ALB: HTTP 400
+</span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a>  ALB --&gt; Citizen: Tipo/tamanho não permitido
+</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a>end
+</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a>@enduml
+</span></code></pre></div>
+<h3 id="354-diagrama-de-comunicacao">3.5.4. Diagrama de comunicação<a class="headerlink" href="#354-diagrama-de-comunicacao" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>@startuml
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>title Fluxo 5 — Comunicação: Upload para S3
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>left to right direction
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>object &quot;Cidadão&quot; as Citizen
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>object &quot;ALB&quot; as ALB
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>object &quot;EC2 / Django API&quot; as API
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>object &quot;IAM Role&quot; as IAM
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>object &quot;Amazon S3&quot; as S3
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>object &quot;RDS PostgreSQL&quot; as RDS
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>object &quot;CloudWatch&quot; as CW
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>Citizen --&gt; ALB : 1: POST arquivo/anexo
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>ALB --&gt; API : 2: Encaminhar upload
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>API --&gt; API : 3: Validar acesso/arquivo
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>API --&gt; IAM : 4: Obter credenciais temporárias
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>IAM --&gt; API : 5: Permissão da role
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>API --&gt; S3 : 6: PUT Object
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>S3 --&gt; API : 7: Upload confirmado
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>API --&gt; RDS : 8: INSERT metadados/file_key
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>RDS --&gt; API : 9: Metadados persistidos
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>API --&gt; CW : 10: Registrar resultado
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>API --&gt; ALB : 11: HTTP 201
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>ALB --&gt; Citizen : 12: Confirmação
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>@enduml
+</span></code></pre></div>
+<h3 id="355-tabela-de-mensagens">3.5.5. Tabela de mensagens<a class="headerlink" href="#355-tabela-de-mensagens" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>De</strong></th>
+<th style="text-align: left;"><strong>Para</strong></th>
+<th style="text-align: left;"><strong>Mensagem</strong></th>
+<th style="text-align: left;"><strong>Protocolo</strong></th>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">POST do arquivo</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Upload seguro</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">ALB</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Encaminhar arquivo</td>
+<td style="text-align: left;">HTTP interno</td>
+<td style="text-align: left;">Computação</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Validar titularidade, tipo e tamanho</td>
+<td style="text-align: left;">Interno</td>
+<td style="text-align: left;">Segurança</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">IAM Role</td>
+<td style="text-align: left;">Obter credenciais temporárias autorizadas</td>
+<td style="text-align: left;">Credenciais de role</td>
+<td style="text-align: left;">Menor privilégio</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">PUT Object</td>
+<td style="text-align: left;">HTTPS/AWS SDK</td>
+<td style="text-align: left;">Armazenamento de arquivos</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">Confirmar upload</td>
+<td style="text-align: left;">AWS SDK</td>
+<td style="text-align: left;">Integridade</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Gravar metadados e <code>file_key</code></td>
+<td style="text-align: left;">SQL / TCP 5432</td>
+<td style="text-align: left;">Persistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Django</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Registrar resultado técnico</td>
+<td style="text-align: left;">Logs</td>
+<td style="text-align: left;">Monitoramento</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Django/ALB</td>
+<td style="text-align: left;">Cidadão</td>
+<td style="text-align: left;">HTTP 201 / erro controlado</td>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Retorno</td>
+</tr>
+</tbody>
+</table>
+<h3 id="356-riscos-e-mitigacoes">3.5.6. Riscos e mitigações<a class="headerlink" href="#356-riscos-e-mitigacoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Risco</strong></th>
+<th style="text-align: left;"><strong>Probabilidade</strong></th>
+<th style="text-align: left;"><strong>Impacto</strong></th>
+<th style="text-align: left;"><strong>Mitigação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Upload de tipo de arquivo perigoso</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Validar extensão, MIME type, tamanho e, se aplicável, conteúdo do arquivo no backend.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Objeto criado sem metadado no RDS</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Implementar compensação/limpeza de objetos órfãos e rotina de reconciliação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Acesso indevido a imagens</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Crítico</td>
+<td style="text-align: left;">Bloquear acesso público ao bucket, restringir IAM e autorizar cada solicitação no backend.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exposição de dados sensíveis em logs</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Não registrar o conteúdo do arquivo nem URLs/credenciais sensíveis.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Crescimento excessivo do banco</td>
+<td style="text-align: left;">Baixa</td>
+<td style="text-align: left;">Médio</td>
+<td style="text-align: left;">Guardar no RDS somente metadados; armazenar arquivos físicos no S3.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="36-fluxo-6-failover-do-rds-multi-az">3.6. FLUXO 6: FAILOVER DO RDS MULTI-AZ<a class="headerlink" href="#36-fluxo-6-failover-do-rds-multi-az" title="Permanent link">&para;</a></h2>
+<h3 id="361-descricao">3.6.1. Descrição<a class="headerlink" href="#361-descricao" title="Permanent link">&para;</a></h3>
+<p>A aplicação acessa o RDS PostgreSQL por meio do endpoint estável do serviço. Em uma falha que acione o mecanismo Multi-AZ, o RDS executa o failover gerenciado para a instância standby em outra Availability Zone. O endpoint do banco passa a apontar para a instância que assume o papel de primária.</p>
+<p>A aplicação deve tolerar a interrupção momentânea, descartar conexões quebradas e restabelecer suas conexões ao endpoint do RDS. Chamadas que falharem durante a transição devem ser tratadas com timeouts e retries controlados, evitando repetir operações de escrita que não sejam idempotentes.</p>
+<p>O projeto define <strong>RPO ≤ 15 minutos</strong> e <strong>RTO ≤ 1 hora</strong> como metas da plataforma. O Multi-AZ ajuda na recuperação de falhas de infraestrutura, mas o cumprimento dos objetivos deve ser verificado por teste ponta a ponta. PITR/restore é um mecanismo diferente, utilizado para cenários de perda lógica ou recuperação de dados, e não é o mesmo processo que o failover automático.</p>
+<h3 id="362-requisitos-atendidos">3.6.2. Requisitos atendidos<a class="headerlink" href="#362-requisitos-atendidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+<th style="text-align: left;"><strong>Valor / comportamento</strong></th>
+<th style="text-align: left;"><strong>Fonte</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Alta disponibilidade</td>
+<td style="text-align: left;">Instância primária e standby Multi-AZ</td>
+<td style="text-align: left;">Documento de RDS / Requisitos Suplementares</td>
+</tr>
+<tr>
+<td style="text-align: left;">RPO</td>
+<td style="text-align: left;">≤ 15 minutos</td>
+<td style="text-align: left;">Requisitos Suplementares</td>
+</tr>
+<tr>
+<td style="text-align: left;">RTO</td>
+<td style="text-align: left;">≤ 1 hora</td>
+<td style="text-align: left;">Requisitos Suplementares</td>
+</tr>
+<tr>
+<td style="text-align: left;">Recuperação da aplicação</td>
+<td style="text-align: left;">Reconexão ao endpoint do RDS após failover</td>
+<td style="text-align: left;">Modelo de Computação/RDS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Observabilidade</td>
+<td style="text-align: left;">Métricas, eventos e alarmes no CloudWatch</td>
+<td style="text-align: left;">UC-ARQ-011</td>
+</tr>
+</tbody>
+</table>
+<h3 id="363-diagrama-de-sequencia">3.6.3. Diagrama de sequência<a class="headerlink" href="#363-diagrama-de-sequencia" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>@startuml
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>title Fluxo 6 — Failover do RDS Multi-AZ
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>participant &quot;EC2 / Django API&quot; as API
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>database &quot;RDS Primary\nAZ A&quot; as Primary
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>database &quot;RDS Standby\nAZ B&quot; as Standby
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>participant &quot;Endpoint RDS / DNS&quot; as DNS
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>participant &quot;CloudWatch&quot; as CW
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>== Operação normal ==
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>API -&gt; DNS: Resolver endpoint do RDS
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>DNS --&gt; API: Endereço atual
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>API -&gt; Primary: Consulta/transação SQL
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>Primary --&gt; API: Resultado
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>== Falha na AZ primária ==
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>Primary -&gt; CW: Emitir métricas/eventos de falha
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>CW -&gt; CW: Atualizar métricas/alarme
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>Primary -&gt; Standby: Failover gerenciado pelo RDS
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>activate Standby
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>Standby -&gt; Standby: Assumir papel de primária
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>Standby -&gt; DNS: Atualizar resolução do endpoint
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>DNS --&gt; Standby: Endpoint atualizado
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>Standby --&gt; API: Banco disponível no endpoint
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>deactivate Standby
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>== Reconexão da aplicação ==
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>API -&gt; API: Invalidar conexão quebrada
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>API -&gt; DNS: Resolver novamente endpoint
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>DNS --&gt; API: Endereço da nova primária
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>API -&gt; Standby: Reconectar e repetir operação segura
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>Standby --&gt; API: Resultado
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>API -&gt; CW: Registrar interrupção e reconexão
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>@enduml
+</span></code></pre></div>
+<h3 id="364-diagrama-de-comunicacao">3.6.4. Diagrama de comunicação<a class="headerlink" href="#364-diagrama-de-comunicacao" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>@startuml
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>title Fluxo 6 — Comunicação: Failover RDS Multi-AZ
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>left to right direction
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>object &quot;EC2 / Django API&quot; as API
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>object &quot;RDS Primary AZ A&quot; as Primary
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>object &quot;RDS Standby AZ B&quot; as Standby
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>object &quot;Endpoint RDS / DNS&quot; as DNS
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>object &quot;CloudWatch&quot; as CW
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>API --&gt; Primary : 1: Executar SQL
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Primary --&gt; API : 2: Resultado normal
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Primary --&gt; CW : 3: Métricas/evento de falha
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>Primary --&gt; Standby : 4: Failover gerenciado pelo RDS
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>Standby --&gt; DNS : 5: Endpoint passa a resolver para nova primária
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>DNS --&gt; API : 6: Nova resolução ao reconectar
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>API --&gt; Standby : 7: Reabrir conexão
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>Standby --&gt; API : 8: Retomar operação segura
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>API --&gt; CW : 9: Registrar recuperação
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>@enduml
+</span></code></pre></div>
+<h3 id="365-tabela-de-mensagens">3.6.5. Tabela de mensagens<a class="headerlink" href="#365-tabela-de-mensagens" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>De</strong></th>
+<th style="text-align: left;"><strong>Para</strong></th>
+<th style="text-align: left;"><strong>Mensagem</strong></th>
+<th style="text-align: left;"><strong>Protocolo</strong></th>
+<th style="text-align: left;"><strong>Requisito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Endpoint RDS</td>
+<td style="text-align: left;">Resolver endpoint</td>
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">Conectividade</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">RDS Primary</td>
+<td style="text-align: left;">Executar operação SQL</td>
+<td style="text-align: left;">PostgreSQL/TCP 5432</td>
+<td style="text-align: left;">Persistência</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">RDS/serviço AWS</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Métricas/eventos de falha</td>
+<td style="text-align: left;">Integração AWS</td>
+<td style="text-align: left;">Observabilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">RDS</td>
+<td style="text-align: left;">Standby</td>
+<td style="text-align: left;">Failover gerenciado</td>
+<td style="text-align: left;">Mecanismo interno RDS</td>
+<td style="text-align: left;">Alta disponibilidade</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">RDS/Endpoint</td>
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">Atualizar endpoint após promoção</td>
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">Reconexão</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Endpoint RDS</td>
+<td style="text-align: left;">Resolver endpoint novamente</td>
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">Recuperação</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">Nova primária</td>
+<td style="text-align: left;">Restabelecer conexão e operação segura</td>
+<td style="text-align: left;">PostgreSQL/TCP 5432</td>
+<td style="text-align: left;">RTO</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">EC2/Django</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Registrar erro e recuperação</td>
+<td style="text-align: left;">Logs/métricas</td>
+<td style="text-align: left;">Operação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="366-riscos-e-mitigacoes">3.6.6. Riscos e mitigações<a class="headerlink" href="#366-riscos-e-mitigacoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Risco</strong></th>
+<th style="text-align: left;"><strong>Probabilidade</strong></th>
+<th style="text-align: left;"><strong>Impacto</strong></th>
+<th style="text-align: left;"><strong>Mitigação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Conexões antigas permanecerem abertas</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Configurar timeout, tratamento de conexão e reconexão da aplicação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Retry repetir uma escrita já confirmada</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Usar idempotência para operações críticas e revisar o resultado antes de repetir.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Failover ultrapassar o objetivo de RTO</td>
+<td style="text-align: left;">Baixa/Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Realizar teste de recuperação e medir o tempo ponta a ponta.</td>
+</tr>
+<tr>
+<td style="text-align: left;">RPO não ser validado</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Testar a estratégia de backup/PITR e documentar resultados de recuperação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Confundir Multi-AZ com backup</td>
+<td style="text-align: left;">Média</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Documentar failover e PITR como mecanismos distintos; manter backup e testes de restauração.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="4-diagrama-de-classes-consolidado">4. DIAGRAMA DE CLASSES CONSOLIDADO<a class="headerlink" href="#4-diagrama-de-classes-consolidado" title="Permanent link">&para;</a></h1>
+<p>O diagrama representa as classes de análise da infraestrutura planejada para o Portal. Os componentes que ainda dependem de implementação — por exemplo, o mecanismo específico de autenticação — permanecem descritos como pontos pendentes e não aparecem como serviços AWS escolhidos.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>@startuml
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>title Modelo de Design Consolidado — Portal Cidadão Seguro
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>skinparam classBackgroundColor #F5F5F5
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>skinparam packageStyle rectangle
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>package &quot;Rede e Segurança&quot; {
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  class &quot;VPC&quot; as VPC {
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    - cidr: CIDR do projeto
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>  }
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>  class &quot;Subnet&quot; as Subnet {
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    - type: Public/Private
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    - availabilityZone: AZ
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>  }
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>  class &quot;SecurityGroup&quot; as SG {
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>    - name: SG-ALB / SG-EC2-API / SG-RDS
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    - rules: Regras restritivas
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>  }
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>  class &quot;IAMRole&quot; as IAM {
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    - name: Portal-EC2-Role
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>    - permissions: Least Privilege
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>  }
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>  class &quot;KMSKey&quot; as KMS {
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>    - purpose: Encryption at Rest
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>  }
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>  VPC &quot;1&quot; -- &quot;2..*&quot; Subnet
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>}
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>package &quot;Computação&quot; {
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>  class &quot;LoadBalancer&quot; as ALB {
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>    - type: Application
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>    - scheme: internet-facing
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>    - listeners: HTTP 80 / HTTPS 443
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>  }
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>  class &quot;TargetGroup&quot; as TG {
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>    - protocol: HTTP
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>    - port: 80
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>    - healthCheckPath: /health/
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>  }
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>  class &quot;ComputeInstance&quot; as EC2 {
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>    - instanceType: t3.medium
+</span><span id="__span-13-49"><a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a>    - application: Django/Nginx/Gunicorn
+</span><span id="__span-13-50"><a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>    - publicIp: false
+</span><span id="__span-13-51"><a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a>    - ebs: 20 GiB gp3
+</span><span id="__span-13-52"><a id="__codelineno-13-52" name="__codelineno-13-52" href="#__codelineno-13-52"></a>  }
+</span><span id="__span-13-53"><a id="__codelineno-13-53" name="__codelineno-13-53" href="#__codelineno-13-53"></a>
+</span><span id="__span-13-54"><a id="__codelineno-13-54" name="__codelineno-13-54" href="#__codelineno-13-54"></a>  class &quot;AutoScalingGroup&quot; as ASG {
+</span><span id="__span-13-55"><a id="__codelineno-13-55" name="__codelineno-13-55" href="#__codelineno-13-55"></a>    - minSize: 2
+</span><span id="__span-13-56"><a id="__codelineno-13-56" name="__codelineno-13-56" href="#__codelineno-13-56"></a>    - desiredCapacity: 2
+</span><span id="__span-13-57"><a id="__codelineno-13-57" name="__codelineno-13-57" href="#__codelineno-13-57"></a>    - maxSize: 4
+</span><span id="__span-13-58"><a id="__codelineno-13-58" name="__codelineno-13-58" href="#__codelineno-13-58"></a>  }
+</span><span id="__span-13-59"><a id="__codelineno-13-59" name="__codelineno-13-59" href="#__codelineno-13-59"></a>
+</span><span id="__span-13-60"><a id="__codelineno-13-60" name="__codelineno-13-60" href="#__codelineno-13-60"></a>  class &quot;LaunchTemplate&quot; as LT {
+</span><span id="__span-13-61"><a id="__codelineno-13-61" name="__codelineno-13-61" href="#__codelineno-13-61"></a>    - ami: Amazon Linux 2023
+</span><span id="__span-13-62"><a id="__codelineno-13-62" name="__codelineno-13-62" href="#__codelineno-13-62"></a>    - instanceType: t3.medium
+</span><span id="__span-13-63"><a id="__codelineno-13-63" name="__codelineno-13-63" href="#__codelineno-13-63"></a>    - metadata: IMDSv2
+</span><span id="__span-13-64"><a id="__codelineno-13-64" name="__codelineno-13-64" href="#__codelineno-13-64"></a>  }
+</span><span id="__span-13-65"><a id="__codelineno-13-65" name="__codelineno-13-65" href="#__codelineno-13-65"></a>
+</span><span id="__span-13-66"><a id="__codelineno-13-66" name="__codelineno-13-66" href="#__codelineno-13-66"></a>  class &quot;ScalingPolicy&quot; as SP {
+</span><span id="__span-13-67"><a id="__codelineno-13-67" name="__codelineno-13-67" href="#__codelineno-13-67"></a>    - metric: CPUUtilization
+</span><span id="__span-13-68"><a id="__codelineno-13-68" name="__codelineno-13-68" href="#__codelineno-13-68"></a>    - scaleOut: &gt; 70%
+</span><span id="__span-13-69"><a id="__codelineno-13-69" name="__codelineno-13-69" href="#__codelineno-13-69"></a>    - scaleIn: &lt; 30%
+</span><span id="__span-13-70"><a id="__codelineno-13-70" name="__codelineno-13-70" href="#__codelineno-13-70"></a>  }
+</span><span id="__span-13-71"><a id="__codelineno-13-71" name="__codelineno-13-71" href="#__codelineno-13-71"></a>
+</span><span id="__span-13-72"><a id="__codelineno-13-72" name="__codelineno-13-72" href="#__codelineno-13-72"></a>  ALB &quot;1&quot; -- &quot;1&quot; TG : encaminha
+</span><span id="__span-13-73"><a id="__codelineno-13-73" name="__codelineno-13-73" href="#__codelineno-13-73"></a>  TG &quot;1&quot; -- &quot;2..4&quot; EC2 : registra destinos
+</span><span id="__span-13-74"><a id="__codelineno-13-74" name="__codelineno-13-74" href="#__codelineno-13-74"></a>  ASG &quot;1&quot; -- &quot;2..4&quot; EC2 : gerencia
+</span><span id="__span-13-75"><a id="__codelineno-13-75" name="__codelineno-13-75" href="#__codelineno-13-75"></a>  ASG &quot;1&quot; -- &quot;1&quot; LT : usa
+</span><span id="__span-13-76"><a id="__codelineno-13-76" name="__codelineno-13-76" href="#__codelineno-13-76"></a>  ASG &quot;1&quot; -- &quot;1..*&quot; SP : aplica
+</span><span id="__span-13-77"><a id="__codelineno-13-77" name="__codelineno-13-77" href="#__codelineno-13-77"></a>}
+</span><span id="__span-13-78"><a id="__codelineno-13-78" name="__codelineno-13-78" href="#__codelineno-13-78"></a>
+</span><span id="__span-13-79"><a id="__codelineno-13-79" name="__codelineno-13-79" href="#__codelineno-13-79"></a>package &quot;Persistência&quot; {
+</span><span id="__span-13-80"><a id="__codelineno-13-80" name="__codelineno-13-80" href="#__codelineno-13-80"></a>  class &quot;DatabaseInstance&quot; as RDS {
+</span><span id="__span-13-81"><a id="__codelineno-13-81" name="__codelineno-13-81" href="#__codelineno-13-81"></a>    - engine: PostgreSQL
+</span><span id="__span-13-82"><a id="__codelineno-13-82" name="__codelineno-13-82" href="#__codelineno-13-82"></a>    - instanceClass: db.t4g.medium
+</span><span id="__span-13-83"><a id="__codelineno-13-83" name="__codelineno-13-83" href="#__codelineno-13-83"></a>    - multiAZ: true
+</span><span id="__span-13-84"><a id="__codelineno-13-84" name="__codelineno-13-84" href="#__codelineno-13-84"></a>    - storage: 50 GiB gp3
+</span><span id="__span-13-85"><a id="__codelineno-13-85" name="__codelineno-13-85" href="#__codelineno-13-85"></a>    - autoScalingMax: 200 GiB
+</span><span id="__span-13-86"><a id="__codelineno-13-86" name="__codelineno-13-86" href="#__codelineno-13-86"></a>    - maxConnections: 100
+</span><span id="__span-13-87"><a id="__codelineno-13-87" name="__codelineno-13-87" href="#__codelineno-13-87"></a>  }
+</span><span id="__span-13-88"><a id="__codelineno-13-88" name="__codelineno-13-88" href="#__codelineno-13-88"></a>
+</span><span id="__span-13-89"><a id="__codelineno-13-89" name="__codelineno-13-89" href="#__codelineno-13-89"></a>  class &quot;BackupPolicy&quot; as BP {
+</span><span id="__span-13-90"><a id="__codelineno-13-90" name="__codelineno-13-90" href="#__codelineno-13-90"></a>    - retentionDays: 30
+</span><span id="__span-13-91"><a id="__codelineno-13-91" name="__codelineno-13-91" href="#__codelineno-13-91"></a>    - pitrEnabled: true
+</span><span id="__span-13-92"><a id="__codelineno-13-92" name="__codelineno-13-92" href="#__codelineno-13-92"></a>    - rpo: &lt;= 15 min
+</span><span id="__span-13-93"><a id="__codelineno-13-93" name="__codelineno-13-93" href="#__codelineno-13-93"></a>    - rto: &lt;= 1 hour
+</span><span id="__span-13-94"><a id="__codelineno-13-94" name="__codelineno-13-94" href="#__codelineno-13-94"></a>  }
+</span><span id="__span-13-95"><a id="__codelineno-13-95" name="__codelineno-13-95" href="#__codelineno-13-95"></a>
+</span><span id="__span-13-96"><a id="__codelineno-13-96" name="__codelineno-13-96" href="#__codelineno-13-96"></a>  RDS &quot;1&quot; -- &quot;1&quot; BP : usa
+</span><span id="__span-13-97"><a id="__codelineno-13-97" name="__codelineno-13-97" href="#__codelineno-13-97"></a>}
+</span><span id="__span-13-98"><a id="__codelineno-13-98" name="__codelineno-13-98" href="#__codelineno-13-98"></a>
+</span><span id="__span-13-99"><a id="__codelineno-13-99" name="__codelineno-13-99" href="#__codelineno-13-99"></a>package &quot;Arquivos&quot; {
+</span><span id="__span-13-100"><a id="__codelineno-13-100" name="__codelineno-13-100" href="#__codelineno-13-100"></a>  class &quot;StorageBucket&quot; as S3 {
+</span><span id="__span-13-101"><a id="__codelineno-13-101" name="__codelineno-13-101" href="#__codelineno-13-101"></a>    - purpose: Imagens e anexos
+</span><span id="__span-13-102"><a id="__codelineno-13-102" name="__codelineno-13-102" href="#__codelineno-13-102"></a>    - publicAccess: blocked
+</span><span id="__span-13-103"><a id="__codelineno-13-103" name="__codelineno-13-103" href="#__codelineno-13-103"></a>    - encryption: configured
+</span><span id="__span-13-104"><a id="__codelineno-13-104" name="__codelineno-13-104" href="#__codelineno-13-104"></a>  }
+</span><span id="__span-13-105"><a id="__codelineno-13-105" name="__codelineno-13-105" href="#__codelineno-13-105"></a>}
+</span><span id="__span-13-106"><a id="__codelineno-13-106" name="__codelineno-13-106" href="#__codelineno-13-106"></a>
+</span><span id="__span-13-107"><a id="__codelineno-13-107" name="__codelineno-13-107" href="#__codelineno-13-107"></a>package &quot;Monitoramento e Auditoria&quot; {
+</span><span id="__span-13-108"><a id="__codelineno-13-108" name="__codelineno-13-108" href="#__codelineno-13-108"></a>  class &quot;CloudWatch&quot; as CW {
+</span><span id="__span-13-109"><a id="__codelineno-13-109" name="__codelineno-13-109" href="#__codelineno-13-109"></a>    - purpose: Metrics, Logs, Alarms
+</span><span id="__span-13-110"><a id="__codelineno-13-110" name="__codelineno-13-110" href="#__codelineno-13-110"></a>  }
+</span><span id="__span-13-111"><a id="__codelineno-13-111" name="__codelineno-13-111" href="#__codelineno-13-111"></a>
+</span><span id="__span-13-112"><a id="__codelineno-13-112" name="__codelineno-13-112" href="#__codelineno-13-112"></a>  class &quot;CloudTrail&quot; as CT {
+</span><span id="__span-13-113"><a id="__codelineno-13-113" name="__codelineno-13-113" href="#__codelineno-13-113"></a>    - purpose: AWS API / Activity Audit
+</span><span id="__span-13-114"><a id="__codelineno-13-114" name="__codelineno-13-114" href="#__codelineno-13-114"></a>  }
+</span><span id="__span-13-115"><a id="__codelineno-13-115" name="__codelineno-13-115" href="#__codelineno-13-115"></a>}
+</span><span id="__span-13-116"><a id="__codelineno-13-116" name="__codelineno-13-116" href="#__codelineno-13-116"></a>
+</span><span id="__span-13-117"><a id="__codelineno-13-117" name="__codelineno-13-117" href="#__codelineno-13-117"></a>EC2 --&gt; RDS : SQL / TCP 5432
+</span><span id="__span-13-118"><a id="__codelineno-13-118" name="__codelineno-13-118" href="#__codelineno-13-118"></a>EC2 --&gt; S3 : Upload / acesso autorizado
+</span><span id="__span-13-119"><a id="__codelineno-13-119" name="__codelineno-13-119" href="#__codelineno-13-119"></a>EC2 --&gt; IAM : assume role
+</span><span id="__span-13-120"><a id="__codelineno-13-120" name="__codelineno-13-120" href="#__codelineno-13-120"></a>EC2 --&gt; SG : protegido por
+</span><span id="__span-13-121"><a id="__codelineno-13-121" name="__codelineno-13-121" href="#__codelineno-13-121"></a>ALB --&gt; SG : protegido por
+</span><span id="__span-13-122"><a id="__codelineno-13-122" name="__codelineno-13-122" href="#__codelineno-13-122"></a>RDS --&gt; SG : protegido por
+</span><span id="__span-13-123"><a id="__codelineno-13-123" name="__codelineno-13-123" href="#__codelineno-13-123"></a>RDS --&gt; KMS : criptografia
+</span><span id="__span-13-124"><a id="__codelineno-13-124" name="__codelineno-13-124" href="#__codelineno-13-124"></a>S3 --&gt; KMS : criptografia configurada
+</span><span id="__span-13-125"><a id="__codelineno-13-125" name="__codelineno-13-125" href="#__codelineno-13-125"></a>EC2 --&gt; CW : logs e métricas
+</span><span id="__span-13-126"><a id="__codelineno-13-126" name="__codelineno-13-126" href="#__codelineno-13-126"></a>RDS --&gt; CW : métricas e eventos
+</span><span id="__span-13-127"><a id="__codelineno-13-127" name="__codelineno-13-127" href="#__codelineno-13-127"></a>ALB --&gt; CW : métricas
+</span><span id="__span-13-128"><a id="__codelineno-13-128" name="__codelineno-13-128" href="#__codelineno-13-128"></a>VPC ..&gt; CT : atividades da infraestrutura auditadas
+</span><span id="__span-13-129"><a id="__codelineno-13-129" name="__codelineno-13-129" href="#__codelineno-13-129"></a>
+</span><span id="__span-13-130"><a id="__codelineno-13-130" name="__codelineno-13-130" href="#__codelineno-13-130"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h1 id="5-matriz-de-rastreamento-consolidada">5. MATRIZ DE RASTREAMENTO CONSOLIDADA<a class="headerlink" href="#5-matriz-de-rastreamento-consolidada" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Fluxo</strong></th>
+<th style="text-align: left;"><strong>Requisito / objetivo</strong></th>
+<th style="text-align: left;"><strong>Caso de uso arquitetural</strong></th>
+<th style="text-align: left;"><strong>Pacote (Semana 4)</strong></th>
+<th style="text-align: left;"><strong>Classe</strong></th>
+<th style="text-align: left;"><strong>Serviços AWS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Fluxo 1 — Catálogo</td>
+<td style="text-align: left;">Disponibilização da plataforma e persistência</td>
+<td style="text-align: left;">UC-ARQ-007 / UC-ARQ-009</td>
+<td style="text-align: left;">Compute &amp; Application / Data &amp; Storage Protection</td>
+<td style="text-align: left;"><code>ComputeInstance</code>, <code>DatabaseInstance</code></td>
+<td style="text-align: left;">ALB, EC2, RDS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluxo 2 — Autenticação</td>
+<td style="text-align: left;">Identificação, autorização e menor privilégio AWS</td>
+<td style="text-align: left;">UC-ARQ-005 (para acesso aos recursos AWS); autenticação funcional ainda a definir</td>
+<td style="text-align: left;">Identity &amp; Access / Compute &amp; Application</td>
+<td style="text-align: left;"><code>IAMRole</code>, <code>ComputeInstance</code></td>
+<td style="text-align: left;">IAM, EC2, RDS se aplicável</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluxo 3 — Criação</td>
+<td style="text-align: left;">Persistência íntegra de solicitações</td>
+<td style="text-align: left;">UC-ARQ-007 / UC-ARQ-009</td>
+<td style="text-align: left;">Compute &amp; Application / Data &amp; Storage Protection</td>
+<td style="text-align: left;"><code>ComputeInstance</code>, <code>DatabaseInstance</code></td>
+<td style="text-align: left;">ALB, EC2, RDS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluxo 4 — Acompanhamento</td>
+<td style="text-align: left;">Autorização, status e rastreabilidade</td>
+<td style="text-align: left;">UC-ARQ-007 / UC-ARQ-009</td>
+<td style="text-align: left;">Compute &amp; Application / Data &amp; Storage Protection</td>
+<td style="text-align: left;"><code>ComputeInstance</code>, <code>DatabaseInstance</code></td>
+<td style="text-align: left;">ALB, EC2, RDS, CloudWatch</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluxo 5 — Upload</td>
+<td style="text-align: left;">Armazenamento de arquivos, criptografia e acesso autorizado</td>
+<td style="text-align: left;">UC-ARQ-005 / UC-ARQ-006 / UC-ARQ-010</td>
+<td style="text-align: left;">Identity &amp; Access / Data &amp; Storage Protection</td>
+<td style="text-align: left;"><code>ComputeInstance</code>, <code>StorageBucket</code>, <code>KMSKey</code></td>
+<td style="text-align: left;">EC2, IAM, S3, KMS, RDS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluxo 6 — Failover</td>
+<td style="text-align: left;">Disponibilidade, continuidade, RPO e RTO</td>
+<td style="text-align: left;">UC-ARQ-008 / UC-ARQ-009 / UC-ARQ-013</td>
+<td style="text-align: left;">Availability &amp; Continuity / Data &amp; Storage Protection</td>
+<td style="text-align: left;"><code>DatabaseInstance</code>, <code>BackupPolicy</code></td>
+<td style="text-align: left;">RDS Multi-AZ, CloudWatch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="controles-transversais">Controles transversais<a class="headerlink" href="#controles-transversais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Controle</strong></th>
+<th style="text-align: left;"><strong>Caso de uso</strong></th>
+<th style="text-align: left;"><strong>Serviço AWS</strong></th>
+<th style="text-align: left;"><strong>Observação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Métricas e logs</td>
+<td style="text-align: left;">UC-ARQ-011</td>
+<td style="text-align: left;">CloudWatch</td>
+<td style="text-align: left;">Observa API, EC2, ALB e RDS conforme as integrações configuradas.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Auditoria de ações AWS</td>
+<td style="text-align: left;">UC-ARQ-012</td>
+<td style="text-align: left;">CloudTrail</td>
+<td style="text-align: left;">Registra atividades da conta e chamadas de API AWS.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Proteção de dados</td>
+<td style="text-align: left;">UC-ARQ-006</td>
+<td style="text-align: left;">KMS / TLS</td>
+<td style="text-align: left;">Criptografia em repouso e em trânsito, conforme configuração.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Conformidade</td>
+<td style="text-align: left;">UC-ARQ-014</td>
+<td style="text-align: left;">Controles da arquitetura</td>
+<td style="text-align: left;">Verificação dos requisitos de segurança e LGPD.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observação sobre a rastreabilidade:</strong> UC-ARQ-005 trata das identidades e permissões na AWS; esse caso de uso não define, sozinho, como cidadãos realizam login no Portal. O mecanismo de autenticação funcional precisa ser escolhido na implementação.</p>
+<hr />
+<h1 id="6-consideracoes-finais">6. CONSIDERAÇÕES FINAIS<a class="headerlink" href="#6-consideracoes-finais" title="Permanent link">&para;</a></h1>
+<h2 id="61-licoes-aprendidas">6.1. Lições aprendidas<a class="headerlink" href="#61-licoes-aprendidas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Os <strong>diagramas de sequência</strong> mostram a ordem temporal das interações entre usuários e componentes técnicos.</li>
+<li>Os <strong>diagramas de comunicação</strong> apresentam as mesmas interações com foco nas relações entre os participantes.</li>
+<li>Os fluxos selecionados cobrem as ações centrais da Zeladoria Urbana, desde a consulta ao catálogo até a criação, o acompanhamento e o envio de anexos.</li>
+<li>O RDS é responsável pelos dados estruturados e pelo histórico funcional; o S3 é responsável pelos arquivos físicos.</li>
+<li>Multi-AZ, backup/PITR e a reconexão da aplicação são partes complementares da estratégia de continuidade e precisam ser testados.</li>
+<li>CloudWatch e CloudTrail têm propósitos diferentes: monitoramento operacional e auditoria da infraestrutura AWS, respectivamente.</li>
+<li>O ALB faz parte da arquitetura de computação <strong>proposta</strong> para distribuir o tráfego entre instâncias EC2 e permitir health checks; não deve ser descrito como um serviço já implantado.</li>
+<li>O workload (52.000 acessos/dia, 20% para Zeladoria, 83.200 operações modeladas/dia e pico aproximado de 10 operações/s) é uma estimativa de projeto, não uma medição de produção.</li>
+<li>O mecanismo específico de autenticação, sessão/token e recuperação de credenciais ainda deve ser formalizado para que o Fluxo 2 seja convertido em uma especificação de implementação.</li>
+</ul>
+<h2 id="62-proximos-passos">6.2. Próximos passos<a class="headerlink" href="#62-proximos-passos" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Definir o mecanismo de autenticação e autorização funcional do Portal.</li>
+<li>Implementar ou confirmar os endpoints necessários, especialmente <code>/health/</code>, consulta ao catálogo, criação e consulta de solicitações e upload de anexos.</li>
+<li>Validar os diagramas contra a aplicação Django e a infraestrutura real.</li>
+<li>Executar teste de carga para revisar o fator de pico e observar CPU, memória, latência e conexões.</li>
+<li>Confirmar as políticas de acesso privado ao S3, criptografia com KMS e logs.</li>
+<li>Testar failover do RDS e restauração por PITR, registrando o tempo de recuperação observado.</li>
+<li>Revalidar a estimativa de custo na AWS Pricing Calculator após fechar a configuração real de ALB, EC2, tráfego e monitoramento.</li>
+<li>Consolidar os diagramas com os documentos de RDS, EC2, rede e requisitos suplementares.</li>
+</ol>
+<hr />
+<h1 id="7-aprovacoes">7. APROVAÇÕES<a class="headerlink" href="#7-aprovacoes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Função</strong></th>
+<th style="text-align: left;"><strong>Nome</strong></th>
+<th style="text-align: left;"><strong>Data</strong></th>
+<th style="text-align: left;"><strong>Assinatura</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Arquiteto de Soluções</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Arquiteto de Design</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Professor Responsável</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Coordenador do Curso</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="8-historico-de-versoes">8. HISTÓRICO DE VERSÕES<a class="headerlink" href="#8-historico-de-versoes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Versão</strong></th>
+<th style="text-align: left;"><strong>Data</strong></th>
+<th style="text-align: left;"><strong>Autor</strong></th>
+<th style="text-align: left;"><strong>Descrição das alterações</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">21/10/2026</td>
+<td style="text-align: left;">Equipe do projeto</td>
+<td style="text-align: left;">Criação inicial do modelo de design do Portal Cidadão Seguro.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">21/10/2026</td>
+<td style="text-align: left;">Equipe do projeto</td>
+<td style="text-align: left;">Consolidação dos fluxos, diagramas de sequência/comunicação, matriz de rastreabilidade e riscos.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>FIM DO DOCUMENTO</strong></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

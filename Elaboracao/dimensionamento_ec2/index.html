@@ -1,0 +1,3264 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../dimensionamento_db/">
+      
+      
+        <link rel="next" href="../con_arq/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Modelo de Análise (Modelo de computação) - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-de-analise-classes-de-analise" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelo de Análise (Modelo de computação)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/req_suplementares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_de_analise-pacotes_subsistemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Pacotes/Subsistemas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimensionamento_db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Dimensionamento BD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Modelo de computação)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (Modelo de computação)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dimensionamento-de-computacao-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DIMENSIONAMENTO DE COMPUTAÇÃO (EC2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portal-cidadao-seguro-plataforma-govtech-de-servicos-publicos-digitais" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORTAL CIDADÃO SEGURO — PLATAFORMA GOVTECH DE SERVIÇOS PÚBLICOS DIGITAIS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../con_arq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Design (Consolidacão Arquitetural)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="modelo-de-analise-classes-de-analise">MODELO DE ANÁLISE (CLASSES DE ANÁLISE)<a class="headerlink" href="#modelo-de-analise-classes-de-analise" title="Permanent link">&para;</a></h1>
+<h2 id="dimensionamento-de-computacao-ec2">DIMENSIONAMENTO DE COMPUTAÇÃO (EC2)<a class="headerlink" href="#dimensionamento-de-computacao-ec2" title="Permanent link">&para;</a></h2>
+<h2 id="portal-cidadao-seguro-plataforma-govtech-de-servicos-publicos-digitais">PORTAL CIDADÃO SEGURO — PLATAFORMA GOVTECH DE SERVIÇOS PÚBLICOS DIGITAIS<a class="headerlink" href="#portal-cidadao-seguro-plataforma-govtech-de-servicos-publicos-digitais" title="Permanent link">&para;</a></h2>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Informação do Documento</strong></th>
+<th style="text-align: left;"><strong>Valor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Projeto</strong></td>
+<td style="text-align: left;">Portal Cidadão Seguro — Plataforma GovTech</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documento</strong></td>
+<td style="text-align: left;">Modelo de Análise (Classes de Análise) — Dimensionamento de Computação (EC2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Versão</strong></td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Data</strong></td>
+<td style="text-align: left;">21/10/2026</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Status</strong></td>
+<td style="text-align: left;">Em Desenvolvimento</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Responsável</strong></td>
+<td style="text-align: left;">Equipe do Projeto Portal Cidadão Seguro</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disciplina</strong></td>
+<td style="text-align: left;">Projeto de Cloud — Semana 6</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fase RUP/UP</strong></td>
+<td style="text-align: left;">Elaboration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="1-introducao">1. INTRODUÇÃO<a class="headerlink" href="#1-introducao" title="Permanent link">&para;</a></h1>
+<h2 id="11-proposito">1.1. Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h2>
+<p>Este documento apresenta o <strong>Modelo de Análise (Classes de Análise)</strong> para o dimensionamento da camada de computação <strong>Amazon EC2</strong> do Portal Cidadão Seguro na AWS. O documento descreve as classes de análise que representam a execução da API, o escalonamento horizontal, a distribuição de tráfego, o registro de instâncias, os templates de lançamento e as políticas de escala.</p>
+<p>O dimensionamento utiliza as premissas de carga já estabelecidas para o Portal, mas distingue valores de referência, hipóteses de projeto e configurações propostas. As capacidades finais deverão ser validadas com teste de carga, pois ainda não há benchmark real da API em produção.</p>
+<p>O modelo é derivado dos seguintes artefatos:</p>
+<ul>
+<li>Documento de Visão — Portal Cidadão Seguro;</li>
+<li>Documento de Requisitos Suplementares — Portal Cidadão Seguro;</li>
+<li>Casos de Uso Arquiteturais — Portal Cidadão Seguro;</li>
+<li>Modelo de Análise (Pacotes/Subsistemas) — Portal Cidadão Seguro;</li>
+<li>Modelo de Análise (Classes) — Dimensionamento de RDS — Portal Cidadão Seguro.</li>
+</ul>
+<h2 id="12-escopo">1.2. Escopo<a class="headerlink" href="#12-escopo" title="Permanent link">&para;</a></h2>
+<p>O documento abrange a camada de computação da API da plataforma, considerando:</p>
+<ul>
+<li><strong>Instância de computação</strong> (<code>ComputeInstance</code>) para executar a API Django REST Framework;</li>
+<li><strong>Auto Scaling Group</strong> (<code>AutoScalingGroup</code>) para administrar a quantidade de instâncias EC2;</li>
+<li><strong>Application Load Balancer</strong> (<code>LoadBalancer</code>) para distribuir o tráfego;</li>
+<li><strong>Target Group</strong> (<code>TargetGroup</code>) para registrar e verificar a saúde das instâncias;</li>
+<li><strong>Launch Template</strong> (<code>LaunchTemplate</code>) para padronizar as instâncias;</li>
+<li><strong>Políticas de escalonamento</strong> (<code>ScalingPolicy</code>) para reagir a aumentos de utilização;</li>
+<li>cálculo preliminar de CPU, memória, número de instâncias e armazenamento EBS;</li>
+<li>estimativa inicial de custos e comparação de alternativas;</li>
+<li>mecanismos de monitoramento, implantação e recuperação da camada de aplicação.</li>
+</ul>
+<p>O cenário de projeto é um único município do Estado do Rio de Janeiro. O Portal é a plataforma comum; a Zeladoria Urbana é o primeiro serviço considerado, sem impedir a inclusão de outros serviços futuramente.</p>
+<p><strong>Fora do escopo:</strong> dimensionamento do RDS (documento separado), dimensionamento do S3, NAT Gateway, camada de rede detalhada, ECS/Fargate, CI/CD definitivo e dimensionamento para todos os municípios do Estado.</p>
+<h2 id="13-definicoes-e-siglas">1.3. Definições e siglas<a class="headerlink" href="#13-definicoes-e-siglas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sigla</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EC2</strong></td>
+<td>Amazon Elastic Compute Cloud — máquinas virtuais na AWS.</td>
+</tr>
+<tr>
+<td><strong>ALB</strong></td>
+<td>Application Load Balancer — balanceador de carga na camada HTTP/HTTPS.</td>
+</tr>
+<tr>
+<td><strong>ASG</strong></td>
+<td>Auto Scaling Group — grupo que mantém e ajusta a quantidade de instâncias EC2.</td>
+</tr>
+<tr>
+<td><strong>AMI</strong></td>
+<td>Amazon Machine Image — imagem usada para criar instâncias.</td>
+</tr>
+<tr>
+<td><strong>EBS</strong></td>
+<td>Elastic Block Store — armazenamento em bloco anexado às instâncias.</td>
+</tr>
+<tr>
+<td><strong>TPS / RPS</strong></td>
+<td>Transações ou requisições processadas por segundo. Neste documento, o valor representa operações HTTP/API estimadas, não uma medição real.</td>
+</tr>
+<tr>
+<td><strong>AZ</strong></td>
+<td>Availability Zone — zona de disponibilidade da AWS.</td>
+</tr>
+<tr>
+<td><strong>SG</strong></td>
+<td>Security Group — conjunto de regras de tráfego de rede.</td>
+</tr>
+<tr>
+<td><strong>SSM</strong></td>
+<td>AWS Systems Manager — gerenciamento e acesso administrativo às instâncias.</td>
+</tr>
+<tr>
+<td><strong>RPO</strong></td>
+<td>Recovery Point Objective — perda máxima de dados aceitável.</td>
+</tr>
+<tr>
+<td><strong>RTO</strong></td>
+<td>Recovery Time Objective — tempo máximo desejado para recuperação.</td>
+</tr>
+<tr>
+<td><strong>PITR</strong></td>
+<td>Point-in-Time Recovery — recuperação do banco para um ponto no tempo.</td>
+</tr>
+<tr>
+<td><strong>LGPD</strong></td>
+<td>Lei Geral de Proteção de Dados.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14-referencias">1.4. Referências<a class="headerlink" href="#14-referencias" title="Permanent link">&para;</a></h2>
+<h3 id="artefatos-do-projeto">Artefatos do projeto<a class="headerlink" href="#artefatos-do-projeto" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Documento de Visão — Portal Cidadão Seguro.</li>
+<li>Documento de Requisitos Suplementares — Portal Cidadão Seguro.</li>
+<li>Casos de Uso Arquiteturais — Portal Cidadão Seguro.</li>
+<li>Modelo de Análise (Pacotes/Subsistemas) — Portal Cidadão Seguro.</li>
+<li>Modelo de Análise (Classes) — Dimensionamento de RDS — Portal Cidadão Seguro.</li>
+<li>Modelo de Análise (Classes de Análise) — Dimensionamento de Computação (EC2), SwiftTrack IoT — utilizado como referência de estrutura, não como fonte dos valores de carga.</li>
+</ul>
+<h3 id="referencias-tecnicas-e-precos-aws">Referências técnicas e preços AWS<a class="headerlink" href="#referencias-tecnicas-e-precos-aws" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Amazon EC2 T3 — https://aws.amazon.com/ec2/instance-types/t3/</li>
+<li>Preços On-Demand do Amazon EC2 — https://aws.amazon.com/ec2/pricing/on-demand/</li>
+<li>Preços do Amazon EBS — https://aws.amazon.com/ebs/pricing/</li>
+<li>Preços do Elastic Load Balancing — https://aws.amazon.com/elasticloadbalancing/pricing/</li>
+<li>Preços do AWS Auto Scaling — https://aws.amazon.com/autoscaling/pricing/</li>
+<li>Preços da Amazon VPC / IPv4 público — https://aws.amazon.com/vpc/pricing/</li>
+<li>AWS Pricing Calculator — https://calculator.aws/</li>
+</ul>
+<hr />
+<h1 id="2-visao-geral-do-dimensionamento">2. VISÃO GERAL DO DIMENSIONAMENTO<a class="headerlink" href="#2-visao-geral-do-dimensionamento" title="Permanent link">&para;</a></h1>
+<h2 id="21-requisitos-e-premissas-que-impactam-o-dimensionamento">2.1. Requisitos e premissas que impactam o dimensionamento<a class="headerlink" href="#21-requisitos-e-premissas-que-impactam-o-dimensionamento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requisito / premissa</th>
+<th style="text-align: right;">Valor adotado</th>
+<th>Fonte / observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Escopo geográfico</td>
+<td style="text-align: right;">1 município</td>
+<td>Limite definido para o projeto.</td>
+</tr>
+<tr>
+<td>Usuários de referência</td>
+<td style="text-align: right;">Até 1.000.000</td>
+<td>Capacidade de projeto baseada na referência de alcance/usuários discutida para o portal; não significa que todos estarão ativos simultaneamente.</td>
+</tr>
+<tr>
+<td>Acessos diários ao Portal</td>
+<td style="text-align: right;">52.000/dia</td>
+<td>Valor de referência adotado no dimensionamento anterior.</td>
+</tr>
+<tr>
+<td>Média de acessos</td>
+<td style="text-align: right;">0,60/s</td>
+<td>52.000 / 86.400. É média diária, não tráfego uniforme.</td>
+</tr>
+<tr>
+<td>Percentual dos acessos à Zeladoria</td>
+<td style="text-align: right;">20%</td>
+<td>Premissa de projeto.</td>
+</tr>
+<tr>
+<td>Acessos diários à Zeladoria</td>
+<td style="text-align: right;">10.400/dia</td>
+<td>52.000 × 20%.</td>
+</tr>
+<tr>
+<td>Operações HTTP/API modeladas</td>
+<td style="text-align: right;">83.200/dia</td>
+<td>1 operação comum do catálogo por acesso ao Portal + 3 operações adicionais por acesso à Zeladoria.</td>
+</tr>
+<tr>
+<td>Média de operações HTTP/API</td>
+<td style="text-align: right;">0,96/s</td>
+<td>83.200 / 86.400. Estimativa lógica, não telemetria medida da API.</td>
+</tr>
+<tr>
+<td>Fator de pico</td>
+<td style="text-align: right;">10×</td>
+<td>Margem de projeto para representar períodos de maior demanda.</td>
+</tr>
+<tr>
+<td>Carga de pico modelada</td>
+<td style="text-align: right;">Aproximadamente 10 RPS</td>
+<td>0,96 × 10 = 9,6 RPS, arredondado. Precisa ser validado por teste.</td>
+</tr>
+<tr>
+<td>CPU por operação</td>
+<td style="text-align: right;">5 ms</td>
+<td>Hipótese preliminar de cálculo, não medição da aplicação.</td>
+</tr>
+<tr>
+<td>Processos de aplicação</td>
+<td style="text-align: right;">4 workers Gunicorn por instância</td>
+<td>Configuração inicial para teste; ajustar após medir RAM/latência.</td>
+</tr>
+<tr>
+<td>Memória estimada por worker</td>
+<td style="text-align: right;">150 MiB</td>
+<td>Hipótese preliminar a validar.</td>
+</tr>
+<tr>
+<td>Instâncias mínimas/desejadas</td>
+<td style="text-align: right;">2</td>
+<td>Uma por Availability Zone para reduzir ponto único de falha.</td>
+</tr>
+<tr>
+<td>Instâncias máximas do ASG</td>
+<td style="text-align: right;">4</td>
+<td>Margem de expansão inicial; não é garantia de suportar qualquer pico sem teste.</td>
+</tr>
+<tr>
+<td>Meta numérica de latência</td>
+<td style="text-align: right;">Não definida nos requisitos</td>
+<td>Definir SLO de API e validar com teste de carga. Não se copia o limite de 200 ms do SwiftTrack.</td>
+</tr>
+<tr>
+<td>SLA numérico de aplicação</td>
+<td style="text-align: right;">Não definido formalmente</td>
+<td>A arquitetura procura reduzir pontos únicos de falha; não se afirma um SLA contratual.</td>
+</tr>
+<tr>
+<td>RPO / RTO</td>
+<td style="text-align: right;">≤ 15 min / ≤ 1 h</td>
+<td>Metas da plataforma; RPO depende principalmente do RDS/backup e RTO deve ser validado de ponta a ponta.</td>
+</tr>
+<tr>
+<td>Região de referência</td>
+<td style="text-align: right;">US East (N. Virginia), <code>us-east-1</code></td>
+<td>Mantida consistente com o dimensionamento RDS anterior.</td>
+</tr>
+<tr>
+<td>Orçamento total do projeto</td>
+<td style="text-align: right;">Não definido neste documento</td>
+<td>Não herdar o orçamento do SwiftTrack.</td>
+</tr>
+<tr>
+<td>Orçamento alocado para EC2</td>
+<td style="text-align: right;">A definir</td>
+<td>Comparar com a AWS Pricing Calculator e o orçamento do projeto.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observacao-importante-sobre-a-carga">Observação importante sobre a carga<a class="headerlink" href="#observacao-importante-sobre-a-carga" title="Permanent link">&para;</a></h3>
+<p>Os 52.000 valores diários representam acessos/sessões usados como referência. Não equivalem automaticamente a requisições HTTP nem a operações SQL. Para permitir o cálculo acadêmico, este documento adota uma aproximação: uma chamada comum para consultar o catálogo do Portal por acesso e três chamadas adicionais por acesso à Zeladoria. Esse modelo precisa ser substituído por métricas reais ou refinado quando os endpoints da aplicação estiverem definidos.</p>
+<h2 id="22-arquitetura-de-computacao-proposta">2.2. Arquitetura de computação proposta<a class="headerlink" href="#22-arquitetura-de-computacao-proposta" title="Permanent link">&para;</a></h2>
+<p>A proposta utiliza um <strong>único Application Load Balancer regional</strong> associado a duas sub-redes públicas, com as instâncias EC2 em sub-redes privadas distribuídas por duas Availability Zones. O Auto Scaling Group mantém duas instâncias como capacidade base e pode crescer até quatro.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@startuml
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>title Arquitetura de Computação — Portal Cidadão Seguro
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>skinparam nodeBackgroundColor #F5F5F5
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>skinparam componentBackgroundColor #E3F2FD
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>actor &quot;Cidadão / Cliente&quot; as Client
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>node &quot;AWS Region: us-east-1&quot; {
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  node &quot;VPC do Portal Cidadão Seguro&quot; {
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    node &quot;Sub-redes Públicas (AZ A e AZ B)&quot; {
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      component &quot;Application Load Balancer\nHTTPS :443&quot; as ALB
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    }
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    node &quot;Private Subnet A / AZ A&quot; {
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>      component &quot;EC2 API A\nt3.medium&quot; as EC2A {
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        file &quot;Django REST Framework&quot;
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        file &quot;Gunicorn&quot;
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        file &quot;Nginx&quot;
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        file &quot;EBS gp3 20 GiB&quot;
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>      }
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    }
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    node &quot;Private Subnet B / AZ B&quot; {
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>      component &quot;EC2 API B\nt3.medium&quot; as EC2B {
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        file &quot;Django REST Framework&quot;
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        file &quot;Gunicorn&quot;
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        file &quot;Nginx&quot;
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        file &quot;EBS gp3 20 GiB&quot;
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>      }
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    }
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    component &quot;Target Group\nHTTP :80\nHealth check /health/&quot; as TG
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    component &quot;Auto Scaling Group\nMin 2 | Desired 2 | Max 4&quot; as ASG
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    component &quot;Launch Template\nAmazon Linux 2023 x86_64\nt3.medium&quot; as LT
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>  }
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>}
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>Client --&gt; ALB : HTTPS
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>ALB --&gt; TG : encaminha requisições
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>TG --&gt; EC2A : HTTP :80
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>TG --&gt; EC2B : HTTP :80
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>ASG --&gt; EC2A : gerencia
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>ASG --&gt; EC2B : gerencia
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>ASG --&gt; LT : usa configuração
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>note right of EC2A
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>Sem IP público.
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>Nginx recebe tráfego do ALB
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a> e encaminha para Gunicorn
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>localmente (porta 8000).
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>end note
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>@enduml
+</span></code></pre></div>
+<h3 id="fluxo-de-rede">Fluxo de rede<a class="headerlink" href="#fluxo-de-rede" title="Permanent link">&para;</a></h3>
+<ul>
+<li>O ALB é o ponto de entrada público, escutando HTTPS na porta 443; HTTP na porta 80 deve redirecionar para HTTPS.</li>
+<li>O ALB encaminha tráfego HTTP pela VPC para a porta 80 do Nginx nas instâncias EC2.</li>
+<li>O Nginx encaminha as solicitações para Gunicorn/Django localmente, por exemplo na porta 8000.</li>
+<li>O Security Group das instâncias permite entrada na porta 80 somente a partir do Security Group do ALB.</li>
+<li>As instâncias não recebem IP público e não aceitam SSH aberto à Internet. O acesso administrativo deve preferir AWS Systems Manager Session Manager.</li>
+<li>A API acessa o RDS pela porta 5432 por regra restrita entre Security Groups; acesso a imagens ocorre pelo S3 conforme o papel IAM da aplicação.</li>
+<li>A saída das sub-redes privadas para atualizações ou serviços externos depende da solução de rede/egress do projeto, tratada no documento de rede, e não está incluída no custo desta camada.</li>
+</ul>
+<h2 id="23-matriz-de-rastreabilidade">2.3. Matriz de rastreabilidade<a class="headerlink" href="#23-matriz-de-rastreabilidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requisito / objetivo</th>
+<th>Pacote (Semana 4)</th>
+<th>Classe de análise</th>
+<th>Serviço AWS</th>
+<th>Configuração proposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Execução da API</td>
+<td>Compute &amp; Application</td>
+<td><code>ComputeInstance</code></td>
+<td>EC2</td>
+<td><code>t3.medium</code>, Linux, sub-rede privada</td>
+</tr>
+<tr>
+<td>Continuidade diante de falha de instância</td>
+<td>Availability &amp; Continuity</td>
+<td><code>AutoScalingGroup</code></td>
+<td>EC2 Auto Scaling</td>
+<td>Mínimo de 2 instâncias em AZs distintas</td>
+</tr>
+<tr>
+<td>Distribuição de tráfego</td>
+<td>Network &amp; Isolation / Compute &amp; Application</td>
+<td><code>LoadBalancer</code></td>
+<td>ALB</td>
+<td>Um ALB em duas sub-redes públicas</td>
+</tr>
+<tr>
+<td>Registro e verificação de saúde</td>
+<td>Compute &amp; Application</td>
+<td><code>TargetGroup</code></td>
+<td>Elastic Load Balancing</td>
+<td>Health check <code>/health/</code></td>
+</tr>
+<tr>
+<td>Padronização da implantação</td>
+<td>Compute &amp; Application</td>
+<td><code>LaunchTemplate</code></td>
+<td>EC2</td>
+<td>AMI, tipo, SG, IAM e volume padronizados</td>
+</tr>
+<tr>
+<td>Escalabilidade horizontal</td>
+<td>Availability &amp; Continuity</td>
+<td><code>ScalingPolicy</code></td>
+<td>Auto Scaling / CloudWatch</td>
+<td>Escala por CPU; min 2 e max 4</td>
+</tr>
+<tr>
+<td>Acesso restrito à aplicação</td>
+<td>Network &amp; Isolation / Identity &amp; Access</td>
+<td><code>ComputeInstance</code></td>
+<td>Security Group / IAM</td>
+<td>Sem IP público; privilégio mínimo</td>
+</tr>
+<tr>
+<td>TLS na entrada pública</td>
+<td>Data &amp; Storage Protection</td>
+<td><code>LoadBalancer</code></td>
+<td>ALB / ACM</td>
+<td>Certificado TLS no listener 443</td>
+</tr>
+<tr>
+<td>Métricas de infraestrutura e aplicação</td>
+<td>Monitoring &amp; Audit</td>
+<td><code>ComputeInstance</code> / <code>ScalingPolicy</code></td>
+<td>CloudWatch</td>
+<td>CPU, rede, status, logs e alarmes</td>
+</tr>
+<tr>
+<td>Persistência de dados</td>
+<td>Data &amp; Storage Protection</td>
+<td><code>ComputeInstance</code></td>
+<td>RDS PostgreSQL</td>
+<td>Acesso privado ao RDS existente no desenho do projeto</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="3-especificacao-das-classes-de-analise">3. ESPECIFICAÇÃO DAS CLASSES DE ANÁLISE<a class="headerlink" href="#3-especificacao-das-classes-de-analise" title="Permanent link">&para;</a></h1>
+<h2 id="31-classe-computeinstance">3.1. CLASSE: COMPUTEINSTANCE<a class="headerlink" href="#31-classe-computeinstance" title="Permanent link">&para;</a></h2>
+<h3 id="311-responsabilidade">3.1.1. Responsabilidade<a class="headerlink" href="#311-responsabilidade" title="Permanent link">&para;</a></h3>
+<p>Representar uma instância EC2 que executa a API do Portal Cidadão Seguro, incluindo Django REST Framework, Gunicorn e Nginx. A instância fornece a capacidade computacional para atender às requisições encaminhadas pelo ALB.</p>
+<h3 id="312-atributos">3.1.2. Atributos<a class="headerlink" href="#312-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Valor proposto</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>instanceType</code></td>
+<td>String</td>
+<td><code>t3.medium</code></td>
+<td>2 vCPU e 4 GiB de memória; memória adicional em relação a <code>t3.small</code> favorece a execução de processos Python. A capacidade final será validada por teste.</td>
+</tr>
+<tr>
+<td><code>ami</code></td>
+<td>String</td>
+<td>Amazon Linux 2023, x86_64</td>
+<td>AMI Linux da AWS com suporte ao Systems Manager Agent; o ID da AMI será resolvido na região durante a implantação.</td>
+</tr>
+<tr>
+<td><code>vpcId</code></td>
+<td>String</td>
+<td>VPC do Portal</td>
+<td>Mantém a instância dentro da rede isolada definida pelo projeto.</td>
+</tr>
+<tr>
+<td><code>subnetId</code></td>
+<td>String</td>
+<td>Private Subnet A ou B</td>
+<td>Evita exposição direta da instância à Internet.</td>
+</tr>
+<tr>
+<td><code>securityGroup</code></td>
+<td>SecurityGroup</td>
+<td><code>SG-EC2-API</code></td>
+<td>Permite entrada HTTP somente do SG do ALB e saída restrita aos destinos necessários.</td>
+</tr>
+<tr>
+<td><code>iamRole</code></td>
+<td>String</td>
+<td><code>Portal-EC2-Role</code></td>
+<td>Permissões mínimas para CloudWatch, Systems Manager e acesso à aplicação aos serviços AWS necessários, como S3.</td>
+</tr>
+<tr>
+<td><code>ebsVolume</code></td>
+<td>String</td>
+<td>20 GiB gp3</td>
+<td>Volume raiz para o sistema operacional, dependências e artefato da aplicação; arquivos enviados pelos usuários ficam no S3.</td>
+</tr>
+<tr>
+<td><code>userData</code></td>
+<td>String</td>
+<td>Bootstrap de inicialização</td>
+<td>Configura ambiente e inicia a aplicação; segredos não devem ser gravados no script.</td>
+</tr>
+<tr>
+<td><code>privateIp</code></td>
+<td>String</td>
+<td>Dinâmico na sub-rede</td>
+<td>O IP é atribuído dentro da VPC e não deve ser fixado no documento.</td>
+</tr>
+<tr>
+<td><code>publicIp</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>O acesso público passa pelo ALB.</td>
+</tr>
+<tr>
+<td><code>monitoring</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Usa métricas e registros de monitoramento; CloudWatch Agent pode ser configurado para métricas do sistema operacional.</td>
+</tr>
+<tr>
+<td><code>ebsOptimized</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Mantém a configuração de EBS otimizada, de acordo com o suporte do tipo escolhido.</td>
+</tr>
+<tr>
+<td><code>detailedMonitoring</code></td>
+<td>Boolean</td>
+<td><code>false</code> inicialmente</td>
+<td>O monitoramento básico é o ponto de partida; monitoramento detalhado pode ser ativado se a frequência de um minuto for necessária.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="313-responsabilidades-metodos">3.1.3. Responsabilidades (métodos)<a class="headerlink" href="#313-responsabilidades-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Responsabilidade</th>
+<th>Descrição</th>
+<th>Retorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start()</code></td>
+<td>Inicia a instância.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>stop()</code></td>
+<td>Para a instância, quando apropriado fora da operação gerenciada pelo ASG.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>terminate()</code></td>
+<td>Encerra a instância; normalmente a operação é gerenciada pelo ASG.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>getMetrics()</code></td>
+<td>Obtém métricas de CPU, rede, estado e métricas adicionais instaladas.</td>
+<td><code>Metrics</code></td>
+</tr>
+<tr>
+<td><code>applyUserData()</code></td>
+<td>Executa o bootstrap definido no Launch Template.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>attachToTargetGroup(group)</code></td>
+<td>Registra a instância no Target Group, via integração do ASG.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>getPrivateIp()</code></td>
+<td>Retorna o endereço privado da instância.</td>
+<td><code>String</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="314-relacionamentos">3.1.4. Relacionamentos<a class="headerlink" href="#314-relacionamentos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Multiplicidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AutoScalingGroup</code> → <code>ComputeInstance</code></td>
+<td>1 : 2..4</td>
+<td>O grupo mantém duas instâncias como base e pode escalar até quatro.</td>
+</tr>
+<tr>
+<td><code>LaunchTemplate</code> → <code>ComputeInstance</code></td>
+<td>1 : 0..*</td>
+<td>O template fornece a configuração para cada nova instância.</td>
+</tr>
+<tr>
+<td><code>SecurityGroup</code> → <code>ComputeInstance</code></td>
+<td>1 : 1..*</td>
+<td>O SG restringe o tráfego de rede das instâncias.</td>
+</tr>
+<tr>
+<td><code>TargetGroup</code> → <code>ComputeInstance</code></td>
+<td>1 : 2..4</td>
+<td>O Target Group registra instâncias saudáveis para receber tráfego.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="315-justificativa-do-dimensionamento">3.1.5. Justificativa do dimensionamento<a class="headerlink" href="#315-justificativa-do-dimensionamento" title="Permanent link">&para;</a></h3>
+<p>Os números abaixo são hipóteses de cálculo, não resultados de benchmark da API.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Cálculo</th>
+<th style="text-align: right;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operações de API no pico</td>
+<td>83.200/dia ÷ 86.400 × fator 10</td>
+<td style="text-align: right;">~9,6 RPS, arredondado para 10 RPS</td>
+</tr>
+<tr>
+<td>CPU estimada por requisição</td>
+<td>Premissa para cálculo</td>
+<td style="text-align: right;">5 ms</td>
+</tr>
+<tr>
+<td>CPU bruta no pico</td>
+<td>9,6 requisições/s × 0,005 s CPU</td>
+<td style="text-align: right;">0,048 vCPU equivalente</td>
+</tr>
+<tr>
+<td>CPU com fator de segurança 4×</td>
+<td>0,048 × 4</td>
+<td style="text-align: right;">0,192, aproximadamente 0,2 vCPU equivalente</td>
+</tr>
+<tr>
+<td>Memória por worker</td>
+<td>Premissa de planejamento</td>
+<td style="text-align: right;">150 MiB</td>
+</tr>
+<tr>
+<td>Workers por instância</td>
+<td>Configuração inicial proposta</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Memória dos workers por instância</td>
+<td>4 × 150 MiB</td>
+<td style="text-align: right;">~600 MiB</td>
+</tr>
+<tr>
+<td>SO, Nginx e agentes</td>
+<td>Estimativa de planejamento</td>
+<td style="text-align: right;">~1,4 GiB</td>
+</tr>
+<tr>
+<td>Cache, overhead e reserva operacional</td>
+<td>Estimativa de planejamento</td>
+<td style="text-align: right;">~1,0 GiB</td>
+</tr>
+<tr>
+<td>Memória total estimada por instância</td>
+<td>0,6 + 1,4 + 1,0 GiB, aproximadamente</td>
+<td style="text-align: right;">~3,0 GiB</td>
+</tr>
+<tr>
+<td>Instância proposta</td>
+<td>2 vCPU e 4 GiB</td>
+<td style="text-align: right;"><code>t3.medium</code></td>
+</tr>
+<tr>
+<td>Carga de pico por instância com 2 instâncias saudáveis</td>
+<td>9,6 ÷ 2</td>
+<td style="text-align: right;">~4,8 RPS por instância, apenas como distribuição estimada</td>
+</tr>
+<tr>
+<td>Instâncias base</td>
+<td>Requisito de redundância entre AZs</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Instâncias em pico</td>
+<td>Capacidade máxima inicial configurada no ASG</td>
+<td style="text-align: right;">4; a capacidade real deve ser verificada em teste</td>
+</tr>
+</tbody>
+</table>
+<p>A quantidade de vCPU calculada é pequena; a escolha de <code>t3.medium</code> considera também a memória de processo, a margem operacional e a necessidade de manter uma instância restante apta a atender a API se a outra ficar indisponível. Não se afirma que <code>t3.medium</code> suporta um RPS máximo específico sem benchmark.</p>
+<h3 id="316-estimativa-de-custo">3.1.6. Estimativa de custo<a class="headerlink" href="#316-estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<p>A estimativa preliminar usa preços públicos de referência para <code>us-east-1</code>, Linux/Unix On-Demand, 730 horas mensais e dois volumes gp3 de 20 GiB. O valor final deverá ser conferido na AWS Pricing Calculator.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th style="text-align: right;">Custo mensal estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC2</td>
+<td>2 × <code>t3.medium</code> × US$ 0,0418/h × 730 h</td>
+<td style="text-align: right;">US$ 61,03</td>
+</tr>
+<tr>
+<td>EBS</td>
+<td>2 × 20 GiB gp3 × US$ 0,08/GiB-mês</td>
+<td style="text-align: right;">US$ 3,20</td>
+</tr>
+<tr>
+<td>ALB — tarifa horária</td>
+<td>1 × US$ 0,0225/h × 730 h</td>
+<td style="text-align: right;">US$ 16,43</td>
+</tr>
+<tr>
+<td>ALB — LCU</td>
+<td>Hipótese de 1 LCU média × US$ 0,008/h × 730 h</td>
+<td style="text-align: right;">US$ 5,84</td>
+</tr>
+<tr>
+<td>IPv4 público do ALB</td>
+<td>Hipótese mínima de 2 endereços × US$ 0,005/h × 730 h</td>
+<td style="text-align: right;">US$ 7,30</td>
+</tr>
+<tr>
+<td><strong>Subtotal preliminar da camada de computação</strong></td>
+<td>2 EC2 + volumes + ALB e hipóteses de LCU/IPv4</td>
+<td style="text-align: right;"><strong>US$ 93,80/mês</strong></td>
+</tr>
+</tbody>
+</table>
+<p>O valor acima <strong>não é uma cotação final da calculadora</strong>. Não inclui transferência de dados para a Internet, ingestão/armazenamento de logs, custo de NAT Gateway/egress da rede, créditos de CPU adicionais de instâncias T3 caso ocorram, impostos ou custos de outros serviços. O LCU e a quantidade de IPv4 devem ser confirmados na calculadora. Auto Scaling, Launch Template, Target Group e políticas de escala não possuem uma tarifa direta própria; os recursos consumidos e CloudWatch podem ser cobrados. A AWS informa que o preço On-Demand é cobrado pelo tempo da instância e que o Auto Scaling não cobra uma taxa adicional pelo grupo em si.</p>
+<hr />
+<h2 id="32-classe-autoscalinggroup">3.2. CLASSE: AUTOSCALINGGROUP<a class="headerlink" href="#32-classe-autoscalinggroup" title="Permanent link">&para;</a></h2>
+<h3 id="321-responsabilidade">3.2.1. Responsabilidade<a class="headerlink" href="#321-responsabilidade" title="Permanent link">&para;</a></h3>
+<p>Manter a quantidade desejada de instâncias EC2, substituir instâncias não saudáveis e permitir escala horizontal quando a demanda ou a utilização dos recursos aumentar.</p>
+<h3 id="322-atributos">3.2.2. Atributos<a class="headerlink" href="#322-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Valor proposto</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td><code>pcs-asg-api</code></td>
+<td>Nome do grupo de computação do Portal.</td>
+</tr>
+<tr>
+<td><code>minSize</code></td>
+<td>Integer</td>
+<td>2</td>
+<td>Mantém capacidade em duas AZs.</td>
+</tr>
+<tr>
+<td><code>maxSize</code></td>
+<td>Integer</td>
+<td>4</td>
+<td>Permite adicionar até duas instâncias além da base, mantendo o custo limitado na primeira versão.</td>
+</tr>
+<tr>
+<td><code>desiredCapacity</code></td>
+<td>Integer</td>
+<td>2</td>
+<td>Capacidade inicial, uma instância por AZ.</td>
+</tr>
+<tr>
+<td><code>healthCheckType</code></td>
+<td>String</td>
+<td><code>ELB</code></td>
+<td>Considera o estado reportado pelo Target Group/ALB.</td>
+</tr>
+<tr>
+<td><code>healthCheckGracePeriod</code></td>
+<td>Integer</td>
+<td>300 segundos</td>
+<td>Dá tempo para a aplicação iniciar antes de tratar a instância como não saudável.</td>
+</tr>
+<tr>
+<td><code>defaultCooldown</code></td>
+<td>Integer</td>
+<td>300 segundos</td>
+<td>Reduz oscilações durante alterações de capacidade.</td>
+</tr>
+<tr>
+<td><code>availabilityZones</code></td>
+<td>List<String></td>
+<td>Duas AZs em <code>us-east-1</code></td>
+<td>Distribuição entre zonas.</td>
+</tr>
+<tr>
+<td><code>launchTemplate</code></td>
+<td>LaunchTemplate</td>
+<td><code>pcs-lt-api</code></td>
+<td>Define tipo de instância, AMI, volume, SG e IAM role.</td>
+</tr>
+<tr>
+<td><code>targetGroupArns</code></td>
+<td>List<String></td>
+<td>Target Group da API</td>
+<td>Registra instâncias no ALB.</td>
+</tr>
+<tr>
+<td><code>scalingPolicies</code></td>
+<td>List<ScalingPolicy></td>
+<td>Scale-out e scale-in</td>
+<td>Ajusta a capacidade de acordo com CPU média.</td>
+</tr>
+<tr>
+<td><code>terminationPolicies</code></td>
+<td>List<String></td>
+<td>Política padrão do ASG</td>
+<td>Seleção gerenciada da instância a remover durante scale-in.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="323-responsabilidades-metodos">3.2.3. Responsabilidades (métodos)<a class="headerlink" href="#323-responsabilidades-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Responsabilidade</th>
+<th>Descrição</th>
+<th>Retorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scaleOut()</code></td>
+<td>Aumenta o número de instâncias até <code>maxSize</code>.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>scaleIn()</code></td>
+<td>Diminui o número de instâncias sem ultrapassar <code>minSize</code>.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>updateDesiredCapacity(capacity)</code></td>
+<td>Atualiza a capacidade desejada.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>getInstances()</code></td>
+<td>Retorna as instâncias registradas no grupo.</td>
+<td><code>List&lt;ComputeInstance&gt;</code></td>
+</tr>
+<tr>
+<td><code>attachToTargetGroup(group)</code></td>
+<td>Integra o grupo com o Target Group.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>applyScalingPolicy(policy)</code></td>
+<td>Associa uma política de escalonamento.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>getHealthStatus()</code></td>
+<td>Retorna a condição das instâncias.</td>
+<td><code>HealthStatus</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="324-relacionamentos">3.2.4. Relacionamentos<a class="headerlink" href="#324-relacionamentos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Multiplicidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AutoScalingGroup</code> → <code>ComputeInstance</code></td>
+<td>1 : 2..4</td>
+<td>Mantém entre duas e quatro instâncias.</td>
+</tr>
+<tr>
+<td><code>AutoScalingGroup</code> → <code>LaunchTemplate</code></td>
+<td>1 : 1</td>
+<td>Usa um template versionado.</td>
+</tr>
+<tr>
+<td><code>AutoScalingGroup</code> → <code>ScalingPolicy</code></td>
+<td>1 : 2</td>
+<td>Associa política de expansão e de redução.</td>
+</tr>
+<tr>
+<td><code>AutoScalingGroup</code> → <code>TargetGroup</code></td>
+<td>1 : 1</td>
+<td>Registra as instâncias no Target Group da API.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="325-justificativa-do-dimensionamento">3.2.5. Justificativa do dimensionamento<a class="headerlink" href="#325-justificativa-do-dimensionamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Cálculo / critério</th>
+<th style="text-align: right;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capacidade base</td>
+<td>Uma instância por AZ</td>
+<td style="text-align: right;">2 instâncias</td>
+</tr>
+<tr>
+<td>Capacidade desejada inicial</td>
+<td>Carga estimada baixa e requisito de redundância</td>
+<td style="text-align: right;">2 instâncias</td>
+</tr>
+<tr>
+<td>Capacidade máxima inicial</td>
+<td>Margem de crescimento para a primeira versão</td>
+<td style="text-align: right;">4 instâncias</td>
+</tr>
+<tr>
+<td>Carga de pico estimada</td>
+<td>Workload lógico com fator 10×</td>
+<td style="text-align: right;">~10 RPS no total</td>
+</tr>
+<tr>
+<td>Capacidade por instância</td>
+<td>Não medida; carga distribuída teoricamente por instância</td>
+<td style="text-align: right;">~4,8 RPS com 2 instâncias saudáveis</td>
+</tr>
+<tr>
+<td>Scale-out</td>
+<td>CPU média &gt; 70% em 2 períodos de 5 minutos</td>
+<td style="text-align: right;">Adicionar 1 instância</td>
+</tr>
+<tr>
+<td>Scale-in</td>
+<td>CPU média &lt; 30% em 3 períodos de 5 minutos</td>
+<td style="text-align: right;">Remover 1 instância, respeitando mínimo 2</td>
+</tr>
+<tr>
+<td>Tempo de inicialização</td>
+<td>Estimativa operacional</td>
+<td style="text-align: right;">Validar no ambiente; grace period inicial de 300 s</td>
+</tr>
+</tbody>
+</table>
+<p>O limite máximo de quatro instâncias é uma decisão inicial de contenção de custo e expansão gradual, não uma garantia matemática de suportar uma carga 10 vezes maior. O número máximo deverá ser revisto após testes de estresse e observação das métricas.</p>
+<h3 id="326-estimativa-de-custo">3.2.6. Estimativa de custo<a class="headerlink" href="#326-estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<p>O AWS Auto Scaling não tem tarifa adicional para o grupo em si. O custo cresce quando ele inicia mais instâncias, volumes EBS e métricas/alertas associados.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th style="text-align: right;">Custo mensal estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capacidade base</td>
+<td>2 × <code>t3.medium</code></td>
+<td style="text-align: right;">Incluída no subtotal EC2: US$ 61,03</td>
+</tr>
+<tr>
+<td>Instâncias adicionais</td>
+<td>Até 2 instâncias adicionais em períodos de pico</td>
+<td style="text-align: right;">Variável conforme horas utilizadas</td>
+</tr>
+<tr>
+<td>Política de escala / ASG</td>
+<td>Recurso de gerenciamento</td>
+<td style="text-align: right;">US$ 0,00 de tarifa direta; CloudWatch pode gerar cobrança</td>
+</tr>
+</tbody>
+</table>
+<p>Como ilustração, duas instâncias extras executadas durante 10% de um mês de 730 horas acrescentariam cerca de <strong>US$ 6,10 em computação</strong>, antes de EBS, IPv4, métricas, tráfego e outros custos aplicáveis.</p>
+<hr />
+<h2 id="33-classe-loadbalancer">3.3. CLASSE: LOADBALANCER<a class="headerlink" href="#33-classe-loadbalancer" title="Permanent link">&para;</a></h2>
+<h3 id="331-responsabilidade">3.3.1. Responsabilidade<a class="headerlink" href="#331-responsabilidade" title="Permanent link">&para;</a></h3>
+<p>Distribuir o tráfego HTTP/HTTPS de entrada entre instâncias saudáveis da API, fornecer um ponto de entrada estável e terminar TLS no listener HTTPS.</p>
+<h3 id="332-atributos">3.3.2. Atributos<a class="headerlink" href="#332-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Valor proposto</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td><code>pcs-alb-api</code></td>
+<td>Nome do balanceador.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>String</td>
+<td><code>Application</code></td>
+<td>Adequado a tráfego HTTP/HTTPS e roteamento na camada de aplicação.</td>
+</tr>
+<tr>
+<td><code>scheme</code></td>
+<td>String</td>
+<td><code>internet-facing</code></td>
+<td>O portal é acessado publicamente.</td>
+</tr>
+<tr>
+<td><code>securityGroup</code></td>
+<td>SecurityGroup</td>
+<td><code>SG-ALB</code></td>
+<td>Permite HTTPS e redirecionamento de HTTP para HTTPS.</td>
+</tr>
+<tr>
+<td><code>subnets</code></td>
+<td>List<String></td>
+<td>Duas sub-redes públicas em AZs distintas</td>
+<td>O ALB precisa estar associado a sub-redes de mais de uma AZ para a arquitetura proposta.</td>
+</tr>
+<tr>
+<td><code>listeners</code></td>
+<td>List<Listener></td>
+<td>80 → redirect 443; 443 → Target Group HTTP:80</td>
+<td>Redireciona tráfego não criptografado para HTTPS.</td>
+</tr>
+<tr>
+<td><code>certificate</code></td>
+<td>String</td>
+<td>Certificado público ACM</td>
+<td>O domínio definitivo deve ser configurado antes da emissão do certificado.</td>
+</tr>
+<tr>
+<td><code>idleTimeout</code></td>
+<td>Integer</td>
+<td>60 s</td>
+<td>Valor inicial, revisável conforme comportamento da API.</td>
+</tr>
+<tr>
+<td><code>deletionProtection</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Evita exclusão acidental do recurso.</td>
+</tr>
+<tr>
+<td><code>accessLogs</code></td>
+<td>Boolean</td>
+<td><code>true</code> como proposta</td>
+<td>Logs de acesso podem ajudar na análise operacional; bucket, retenção e proteção devem ser definidos.</td>
+</tr>
+<tr>
+<td><code>dnsName</code></td>
+<td>String</td>
+<td>Atribuído pela AWS</td>
+<td>O DNS final será o endpoint do ALB ou domínio configurado posteriormente.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="333-responsabilidades-metodos">3.3.3. Responsabilidades (métodos)<a class="headerlink" href="#333-responsabilidades-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Responsabilidade</th>
+<th>Descrição</th>
+<th>Retorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addListener(listener)</code></td>
+<td>Adiciona listener.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>removeListener(listener)</code></td>
+<td>Remove listener.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>getDnsName()</code></td>
+<td>Retorna o DNS do ALB.</td>
+<td><code>String</code></td>
+</tr>
+<tr>
+<td><code>healthCheck()</code></td>
+<td>Consulta saúde dos destinos por meio do Target Group.</td>
+<td><code>HealthStatus</code></td>
+</tr>
+<tr>
+<td><code>terminateSsl()</code></td>
+<td>Gerencia a terminação TLS no listener HTTPS.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>redirectHttpToHttps()</code></td>
+<td>Redireciona solicitações da porta 80 para a 443.</td>
+<td><code>void</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="334-relacionamentos">3.3.4. Relacionamentos<a class="headerlink" href="#334-relacionamentos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Multiplicidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LoadBalancer</code> → <code>TargetGroup</code></td>
+<td>1 : 1</td>
+<td>Encaminha o tráfego da API ao Target Group definido.</td>
+</tr>
+<tr>
+<td><code>LoadBalancer</code> → <code>SecurityGroup</code></td>
+<td>1 : 1</td>
+<td>O SG do ALB controla os acessos públicos.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="335-justificativa-do-dimensionamento">3.3.5. Justificativa do dimensionamento<a class="headerlink" href="#335-justificativa-do-dimensionamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Critério</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tráfego de entrada</td>
+<td>~10 RPS de pico modelado</td>
+<td>Baixo em termos absolutos, mas sem benchmark real</td>
+</tr>
+<tr>
+<td>Tipo</td>
+<td>API HTTP/HTTPS com health checks</td>
+<td>ALB</td>
+</tr>
+<tr>
+<td>Zonas</td>
+<td>Duas AZs</td>
+<td>Reduz dependência de uma única zona</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>HTTPS na entrada e redirecionamento de HTTP</td>
+<td>Certificado ACM</td>
+</tr>
+<tr>
+<td>Capacidade efetiva</td>
+<td>Depende de conexões, bytes processados e regras</td>
+<td>Validar pela AWS Pricing Calculator e métricas reais</td>
+</tr>
+</tbody>
+</table>
+<p>Não é adotado um limite arbitrário de TPS máximo do ALB. A cobrança e a capacidade dependem de dimensões como conexões, bytes processados e avaliações de regras.</p>
+<h3 id="336-estimativa-de-custo">3.3.6. Estimativa de custo<a class="headerlink" href="#336-estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th style="text-align: right;">Custo mensal estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALB</td>
+<td>1 × US$ 0,0225/h × 730 h</td>
+<td style="text-align: right;">US$ 16,43</td>
+</tr>
+<tr>
+<td>LCU</td>
+<td>Hipótese inicial de 1 LCU média × US$ 0,008/h × 730 h</td>
+<td style="text-align: right;">US$ 5,84</td>
+</tr>
+<tr>
+<td>IPv4 público</td>
+<td>Hipótese mínima de 2 endereços × US$ 0,005/h × 730 h</td>
+<td style="text-align: right;">US$ 7,30</td>
+</tr>
+<tr>
+<td>Certificado público ACM</td>
+<td>Certificado público emitido pelo ACM</td>
+<td style="text-align: right;">US$ 0,00 de emissão, sujeito aos detalhes do serviço</td>
+</tr>
+<tr>
+<td><strong>Subtotal ALB sob essas hipóteses</strong></td>
+<td>Sujeito a validação da calculadora</td>
+<td style="text-align: right;"><strong>US$ 29,57</strong></td>
+</tr>
+</tbody>
+</table>
+<p>As linhas de LCU e IPv4 são premissas de orçamento inicial. O número real de LCU e endereços públicos pode variar com o tráfego e com o dimensionamento do balanceador.</p>
+<hr />
+<h2 id="34-classe-targetgroup">3.4. CLASSE: TARGETGROUP<a class="headerlink" href="#34-classe-targetgroup" title="Permanent link">&para;</a></h2>
+<h3 id="341-responsabilidade">3.4.1. Responsabilidade<a class="headerlink" href="#341-responsabilidade" title="Permanent link">&para;</a></h3>
+<p>Agrupar as instâncias EC2 que recebem tráfego do ALB, executar verificações de saúde e retirar temporariamente do balanceamento destinos que não estejam saudáveis.</p>
+<h3 id="342-atributos">3.4.2. Atributos<a class="headerlink" href="#342-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Valor proposto</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td><code>pcs-tg-api</code></td>
+<td>Nome do Target Group.</td>
+</tr>
+<tr>
+<td><code>protocol</code></td>
+<td>String</td>
+<td><code>HTTP</code></td>
+<td>Tráfego interno da VPC do ALB para Nginx.</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>Integer</td>
+<td>80</td>
+<td>Porta do Nginx nas instâncias.</td>
+</tr>
+<tr>
+<td><code>vpcId</code></td>
+<td>String</td>
+<td>VPC do Portal</td>
+<td>O Target Group referencia a VPC da aplicação.</td>
+</tr>
+<tr>
+<td><code>healthCheckPath</code></td>
+<td>String</td>
+<td><code>/health/</code></td>
+<td>Endpoint técnico que deve retornar HTTP 200 quando a aplicação estiver pronta.</td>
+</tr>
+<tr>
+<td><code>healthCheckInterval</code></td>
+<td>Integer</td>
+<td>30 s</td>
+<td>Frequência inicial de health check.</td>
+</tr>
+<tr>
+<td><code>healthCheckTimeout</code></td>
+<td>Integer</td>
+<td>5 s</td>
+<td>Tempo máximo de espera por resposta.</td>
+</tr>
+<tr>
+<td><code>healthyThreshold</code></td>
+<td>Integer</td>
+<td>2</td>
+<td>Duas verificações bem-sucedidas para validar saúde.</td>
+</tr>
+<tr>
+<td><code>unhealthyThreshold</code></td>
+<td>Integer</td>
+<td>3</td>
+<td>Três falhas para marcar o destino como não saudável.</td>
+</tr>
+<tr>
+<td><code>stickiness</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>A API deve preferir sessões stateless; não há requisito de afinidade descrito.</td>
+</tr>
+<tr>
+<td><code>deregistrationDelay</code></td>
+<td>Integer</td>
+<td>30 s</td>
+<td>Permite drenagem inicial de conexões durante a remoção.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="343-responsabilidades-metodos">3.4.3. Responsabilidades (métodos)<a class="headerlink" href="#343-responsabilidades-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Responsabilidade</th>
+<th>Descrição</th>
+<th>Retorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registerInstance(instance)</code></td>
+<td>Registra um destino EC2.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>deregisterInstance(instance)</code></td>
+<td>Remove um destino do grupo.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>healthCheck()</code></td>
+<td>Verifica a saúde dos destinos.</td>
+<td><code>HealthStatus</code></td>
+</tr>
+<tr>
+<td><code>getHealthyInstances()</code></td>
+<td>Retorna destinos saudáveis.</td>
+<td><code>List&lt;ComputeInstance&gt;</code></td>
+</tr>
+<tr>
+<td><code>getUnhealthyInstances()</code></td>
+<td>Retorna destinos não saudáveis.</td>
+<td><code>List&lt;ComputeInstance&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="344-relacionamentos">3.4.4. Relacionamentos<a class="headerlink" href="#344-relacionamentos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Multiplicidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TargetGroup</code> → <code>ComputeInstance</code></td>
+<td>1 : 2..4</td>
+<td>Registra as instâncias saudáveis do ASG.</td>
+</tr>
+<tr>
+<td><code>TargetGroup</code> → <code>LoadBalancer</code></td>
+<td>1 : 1</td>
+<td>Recebe tráfego encaminhado pelo ALB.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="345-justificativa-do-dimensionamento">3.4.5. Justificativa do dimensionamento<a class="headerlink" href="#345-justificativa-do-dimensionamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">Valor</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Health check</td>
+<td style="text-align: right;"><code>/health/</code></td>
+<td>Exige endpoint técnico da aplicação a ser implementado.</td>
+</tr>
+<tr>
+<td>Intervalo</td>
+<td style="text-align: right;">30 s</td>
+<td>Valor inicial que equilibra rapidez de detecção e frequência de verificações.</td>
+</tr>
+<tr>
+<td>Timeout</td>
+<td style="text-align: right;">5 s</td>
+<td>Adequado como configuração inicial; rever com tempos reais de resposta.</td>
+</tr>
+<tr>
+<td>Healthy threshold</td>
+<td style="text-align: right;">2</td>
+<td>Evita registrar a instância após uma única resposta positiva.</td>
+</tr>
+<tr>
+<td>Unhealthy threshold</td>
+<td style="text-align: right;">3</td>
+<td>Evita remover o destino com uma falha isolada.</td>
+</tr>
+<tr>
+<td>Deregistration delay</td>
+<td style="text-align: right;">30 s</td>
+<td>Tempo inicial para drenar solicitações antes de encerrar uma instância.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="346-estimativa-de-custo">3.4.6. Estimativa de custo<a class="headerlink" href="#346-estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th style="text-align: right;">Custo mensal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target Group</td>
+<td>HTTP/80</td>
+<td style="text-align: right;">US$ 0,00 de tarifa direta pelo Target Group</td>
+</tr>
+</tbody>
+</table>
+<p>O custo de tráfego é contabilizado pela utilização do ALB/LCU e recursos relacionados, não por uma cobrança isolada de cada destino registrado.</p>
+<hr />
+<h2 id="35-classe-launchtemplate">3.5. CLASSE: LAUNCHTEMPLATE<a class="headerlink" href="#35-classe-launchtemplate" title="Permanent link">&para;</a></h2>
+<h3 id="351-responsabilidade">3.5.1. Responsabilidade<a class="headerlink" href="#351-responsabilidade" title="Permanent link">&para;</a></h3>
+<p>Definir uma configuração padronizada e versionada para instâncias EC2 novas ou substituídas, incluindo AMI, tipo de instância, Security Groups, IAM role, volume EBS e script de inicialização.</p>
+<h3 id="352-atributos">3.5.2. Atributos<a class="headerlink" href="#352-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Valor proposto</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td><code>pcs-lt-api</code></td>
+<td>Identifica o template da API.</td>
+</tr>
+<tr>
+<td><code>ami</code></td>
+<td>String</td>
+<td>Amazon Linux 2023 x86_64</td>
+<td>Base Linux gerenciada pela AWS; o AMI ID é regional e deve ser resolvido no deploy.</td>
+</tr>
+<tr>
+<td><code>instanceType</code></td>
+<td>String</td>
+<td><code>t3.medium</code></td>
+<td>Mesmo tipo previsto para a capacidade base.</td>
+</tr>
+<tr>
+<td><code>securityGroups</code></td>
+<td>List<String></td>
+<td><code>SG-EC2-API</code></td>
+<td>Restringe o tráfego às origens/destinos necessários.</td>
+</tr>
+<tr>
+<td><code>iamRole</code></td>
+<td>String</td>
+<td><code>Portal-EC2-Role</code></td>
+<td>Permissões de menor privilégio para SSM, métricas e serviços utilizados pela API.</td>
+</tr>
+<tr>
+<td><code>userData</code></td>
+<td>String</td>
+<td>Script de bootstrap versionado</td>
+<td>Instala/configura dependências necessárias ou inicia o artefato preparado; não contém segredos.</td>
+</tr>
+<tr>
+<td><code>ebsOptimized</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Mantém configuração otimizada conforme suporte do tipo.</td>
+</tr>
+<tr>
+<td><code>monitoring</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Habilita monitoramento de infraestrutura.</td>
+</tr>
+<tr>
+<td><code>keyName</code></td>
+<td>String</td>
+<td>Não definido; preferir SSM</td>
+<td>Evita depender de chave SSH pública como método administrativo padrão.</td>
+</tr>
+<tr>
+<td><code>blockDeviceMappings</code></td>
+<td>List<Mapping></td>
+<td>20 GiB gp3</td>
+<td>Armazenamento do sistema e aplicação; sem arquivos de usuários locais.</td>
+</tr>
+<tr>
+<td><code>metadataOptions</code></td>
+<td>String</td>
+<td>IMDSv2 obrigatório</td>
+<td>Reduz exposição indevida do serviço de metadados.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="353-responsabilidades-metodos">3.5.3. Responsabilidades (métodos)<a class="headerlink" href="#353-responsabilidades-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Responsabilidade</th>
+<th>Descrição</th>
+<th>Retorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>createVersion()</code></td>
+<td>Cria uma versão do Launch Template.</td>
+<td><code>LaunchTemplateVersion</code></td>
+</tr>
+<tr>
+<td><code>getLatestVersion()</code></td>
+<td>Obtém a versão mais recente.</td>
+<td><code>LaunchTemplateVersion</code></td>
+</tr>
+<tr>
+<td><code>setDefaultVersion(version)</code></td>
+<td>Define a versão padrão utilizada pelo ASG.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>validateConfiguration()</code></td>
+<td>Valida AMI, tipo, SG, IAM e volumes.</td>
+<td><code>Boolean</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="354-relacionamentos">3.5.4. Relacionamentos<a class="headerlink" href="#354-relacionamentos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Multiplicidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LaunchTemplate</code> → <code>AutoScalingGroup</code></td>
+<td>1 : 1..*</td>
+<td>Um template pode ser utilizado por um ou mais grupos.</td>
+</tr>
+<tr>
+<td><code>LaunchTemplate</code> → <code>ComputeInstance</code></td>
+<td>1 : 0..*</td>
+<td>Cada lançamento utiliza a configuração do template.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="355-justificativa-do-dimensionamento">3.5.5. Justificativa do dimensionamento<a class="headerlink" href="#355-justificativa-do-dimensionamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AMI</td>
+<td>Amazon Linux 2023 x86_64</td>
+<td>Integração com o ecossistema AWS e compatibilidade ampla.</td>
+</tr>
+<tr>
+<td>Instance Type</td>
+<td><code>t3.medium</code></td>
+<td>2 vCPU e 4 GiB, proposto para API Python com margem de memória.</td>
+</tr>
+<tr>
+<td>Security Group</td>
+<td><code>SG-EC2-API</code></td>
+<td>Entrada apenas do ALB; sem porta de aplicação aberta à Internet.</td>
+</tr>
+<tr>
+<td>IAM Role</td>
+<td><code>Portal-EC2-Role</code></td>
+<td>Evita credenciais AWS estáticas dentro da aplicação.</td>
+</tr>
+<tr>
+<td>User Data</td>
+<td>Bootstrap controlado</td>
+<td>Padroniza o início; deve ser idempotente e não carregar segredos.</td>
+</tr>
+<tr>
+<td>EBS</td>
+<td>20 GiB gp3</td>
+<td>Sistema operacional, aplicação e dependências; uploads vão para S3.</td>
+</tr>
+<tr>
+<td>Metadados</td>
+<td>IMDSv2</td>
+<td>Reduz risco de abuso do endpoint de metadados.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="356-estimativa-de-custo">3.5.6. Estimativa de custo<a class="headerlink" href="#356-estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th style="text-align: right;">Custo mensal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Launch Template</td>
+<td>Recurso de configuração</td>
+<td style="text-align: right;">US$ 0,00 de tarifa direta</td>
+</tr>
+</tbody>
+</table>
+<p>O custo é gerado pelas instâncias, volumes, transferência de dados, monitoramento e demais recursos lançados conforme o template.</p>
+<hr />
+<h2 id="36-classe-scalingpolicy">3.6. CLASSE: SCALINGPOLICY<a class="headerlink" href="#36-classe-scalingpolicy" title="Permanent link">&para;</a></h2>
+<h3 id="361-responsabilidade">3.6.1. Responsabilidade<a class="headerlink" href="#361-responsabilidade" title="Permanent link">&para;</a></h3>
+<p>Definir as regras que aumentam ou reduzem a capacidade do ASG com base em métricas de uso, priorizando CPU como métrica inicial de decisão. As políticas são preliminares e devem ser ajustadas após observar o comportamento real da aplicação.</p>
+<h3 id="362-atributos">3.6.2. Atributos<a class="headerlink" href="#362-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Valor proposto</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td><code>pcs-scale-out</code> / <code>pcs-scale-in</code></td>
+<td>Duas políticas separadas.</td>
+</tr>
+<tr>
+<td><code>metric</code></td>
+<td>String</td>
+<td><code>CPUUtilization</code></td>
+<td>Métrica padrão disponível para EC2.</td>
+</tr>
+<tr>
+<td><code>threshold</code></td>
+<td>Double</td>
+<td>70% para scale-out; 30% para scale-in</td>
+<td>Margem inicial, sujeita a ajuste pelos testes.</td>
+</tr>
+<tr>
+<td><code>adjustmentType</code></td>
+<td>String</td>
+<td><code>ChangeInCapacity</code></td>
+<td>Alteração gradual do número de instâncias.</td>
+</tr>
+<tr>
+<td><code>adjustmentValue</code></td>
+<td>Integer</td>
+<td>+1 / -1</td>
+<td>Aumenta ou reduz uma instância por avaliação, respeitando limites.</td>
+</tr>
+<tr>
+<td><code>cooldown</code></td>
+<td>Integer</td>
+<td>300 s</td>
+<td>Reduz decisões repetidas em intervalos curtos.</td>
+</tr>
+<tr>
+<td><code>evaluationPeriods</code></td>
+<td>Integer</td>
+<td>2 para scale-out; 3 para scale-in</td>
+<td>Scale-in é mais conservador para evitar flutuação.</td>
+</tr>
+<tr>
+<td><code>statistic</code></td>
+<td>String</td>
+<td><code>Average</code></td>
+<td>Avalia a média da métrica do grupo.</td>
+</tr>
+<tr>
+<td><code>namespace</code></td>
+<td>String</td>
+<td><code>AWS/EC2</code></td>
+<td>Namespace da métrica de CPU de EC2.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="363-responsabilidades-metodos">3.6.3. Responsabilidades (métodos)<a class="headerlink" href="#363-responsabilidades-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Responsabilidade</th>
+<th>Descrição</th>
+<th>Retorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>execute()</code></td>
+<td>Executa a regra de escala conforme a métrica e o limite.</td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><code>validate()</code></td>
+<td>Valida limites, períodos e ajuste da política.</td>
+<td><code>Boolean</code></td>
+</tr>
+<tr>
+<td><code>getMetricValue()</code></td>
+<td>Obtém o valor atual da métrica.</td>
+<td><code>Double</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="364-relacionamentos">3.6.4. Relacionamentos<a class="headerlink" href="#364-relacionamentos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Multiplicidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ScalingPolicy</code> → <code>AutoScalingGroup</code></td>
+<td>2 : 1</td>
+<td>As duas políticas controlam o mesmo ASG: expansão e redução.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="365-justificativa-do-dimensionamento">3.6.5. Justificativa do dimensionamento<a class="headerlink" href="#365-justificativa-do-dimensionamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Cálculo / critério</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Métrica</td>
+<td>CPU média do grupo</td>
+<td><code>CPUUtilization</code></td>
+</tr>
+<tr>
+<td>Scale-out</td>
+<td>CPU média &gt;70% em 2 períodos de 5 min</td>
+<td>+1 instância</td>
+</tr>
+<tr>
+<td>Scale-in</td>
+<td>CPU média &lt;30% em 3 períodos de 5 min</td>
+<td>-1 instância</td>
+</tr>
+<tr>
+<td>Cooldown</td>
+<td>Configuração inicial</td>
+<td>300 s</td>
+</tr>
+<tr>
+<td>Capacidade mínima</td>
+<td>Necessidade de disponibilidade em 2 AZs</td>
+<td>2 instâncias</td>
+</tr>
+<tr>
+<td>Capacidade máxima</td>
+<td>Limite inicial para crescimento</td>
+<td>4 instâncias</td>
+</tr>
+<tr>
+<td>Capacidade de pico</td>
+<td>Não há benchmark por instância</td>
+<td>Validar por teste de carga; não afirmar TPS máximo teórico</td>
+</tr>
+</tbody>
+</table>
+<p>As métricas de memória não estão disponíveis por padrão como métrica nativa de EC2; caso a política passe a usar RAM, será necessário configurar agente e métricas no CloudWatch, considerando possíveis custos adicionais.</p>
+<h3 id="366-estimativa-de-custo">3.6.6. Estimativa de custo<a class="headerlink" href="#366-estimativa-de-custo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Configuração</th>
+<th style="text-align: right;">Custo mensal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scaling Policies</td>
+<td>Duas políticas</td>
+<td style="text-align: right;">US$ 0,00 de tarifa direta; alarmes/métricas CloudWatch podem ser cobrados</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="4-diagrama-de-classes-plantuml">4. DIAGRAMA DE CLASSES (PLANTUML)<a class="headerlink" href="#4-diagrama-de-classes-plantuml" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@startuml
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>title Modelo de Análise (Classes) — Computação Portal Cidadão Seguro
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>skinparam classAttributeIconSize 0
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>skinparam classBackgroundColor #F5F5F5
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>package &quot;Computação&quot; {
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  class &quot;ComputeInstance&quot; as CI {
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    - instanceType: t3.medium
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    - ami: Amazon Linux 2023 x86_64
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    - subnetId: Private Subnet A/B
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    - securityGroup: SG-EC2-API
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    - iamRole: Portal-EC2-Role
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    - ebsVolume: 20 GiB gp3
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    - publicIp: false
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    - detailedMonitoring: false
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    + start(): void
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    + stop(): void
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    + terminate(): void
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    + getMetrics(): Metrics
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    + applyUserData(): void
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    + attachToTargetGroup(group): void
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    + getPrivateIp(): String
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>  }
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>  class &quot;AutoScalingGroup&quot; as ASG {
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    - name: pcs-asg-api
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    - minSize: 2
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    - maxSize: 4
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    - desiredCapacity: 2
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    - healthCheckType: ELB
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    - healthCheckGracePeriod: 300
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    - defaultCooldown: 300
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    - availabilityZones: 2
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    + scaleOut(): void
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    + scaleIn(): void
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    + updateDesiredCapacity(capacity): void
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    + getInstances(): List&lt;ComputeInstance&gt;
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    + applyScalingPolicy(policy): void
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    + getHealthStatus(): HealthStatus
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>  }
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>  class &quot;LoadBalancer&quot; as LB {
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    - name: pcs-alb-api
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>    - type: Application
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>    - scheme: internet-facing
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>    - listeners: 80 redirect / 443 HTTPS
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>    - certificate: ACM
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>    - deletionProtection: true
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>    - accessLogs: true
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>    + getDnsName(): String
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>    + healthCheck(): HealthStatus
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>    + redirectHttpToHttps(): void
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>  }
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>  class &quot;TargetGroup&quot; as TG {
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>    - name: pcs-tg-api
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>    - protocol: HTTP
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>    - port: 80
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>    - healthCheckPath: /health/
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>    - healthCheckInterval: 30
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>    - healthCheckTimeout: 5
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>    - healthyThreshold: 2
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>    - unhealthyThreshold: 3
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>    + registerInstance(instance): void
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>    + deregisterInstance(instance): void
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>    + healthCheck(): HealthStatus
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>  }
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>  class &quot;LaunchTemplate&quot; as LT {
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>    - name: pcs-lt-api
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>    - ami: Amazon Linux 2023 x86_64
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>    - instanceType: t3.medium
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>    - securityGroups: SG-EC2-API
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>    - iamRole: Portal-EC2-Role
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>    - blockDevice: 20 GiB gp3
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>    - metadataOptions: IMDSv2
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>    + createVersion(): LaunchTemplateVersion
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>    + getLatestVersion(): LaunchTemplateVersion
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>    + validateConfiguration(): Boolean
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a>  }
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a>  class &quot;ScalingPolicy&quot; as SP {
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>    - metric: CPUUtilization
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>    - thresholdOut: 70%
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>    - thresholdIn: 30%
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>    - adjustmentOut: +1
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>    - adjustmentIn: -1
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a>    - cooldown: 300
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>    + execute(): void
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a>    + validate(): Boolean
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>  }
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>  ASG &quot;1&quot; -- &quot;2..4&quot; CI : gerencia
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a>  ASG &quot;1&quot; -- &quot;1&quot; LT : usa
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>  LT &quot;1&quot; -- &quot;0..*&quot; CI : cria
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a>  LB &quot;1&quot; -- &quot;1&quot; TG : encaminha para
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>  TG &quot;1&quot; -- &quot;2..4&quot; CI : registra
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a>  ASG &quot;1&quot; -- &quot;2&quot; SP : aplica
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>}
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h1 id="5-diagrama-de-sequencia-auto-scaling-scale-out">5. DIAGRAMA DE SEQUÊNCIA — AUTO SCALING (SCALE OUT)<a class="headerlink" href="#5-diagrama-de-sequencia-auto-scaling-scale-out" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@startuml
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>title Auto Scaling (Scale Out) — Portal Cidadão Seguro
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>actor &quot;CloudWatch&quot; as CW
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>participant &quot;Auto Scaling Group&quot; as ASG
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>participant &quot;Launch Template&quot; as LT
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>participant &quot;Nova EC2&quot; as EC2
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>participant &quot;Target Group&quot; as TG
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>CW -&gt; CW: CPU média &gt; 70%\npor 2 períodos de 5 min
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>CW -&gt; ASG: Aciona política de scale-out
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>activate ASG
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>ASG -&gt; LT: Solicita nova instância
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>LT --&gt; ASG: Configuração versionada
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>ASG -&gt; EC2: Lançar instância t3.medium
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>activate EC2
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>EC2 -&gt; EC2: Executa bootstrap\ne inicia Nginx/Gunicorn/Django
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>ASG -&gt; TG: Registra instância
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>TG -&gt; EC2: Health check /health/
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>EC2 --&gt; TG: HTTP 200
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>TG --&gt; ALB: Destino marcado como saudável
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>ASG -&gt; CW: Publica capacidade atualizada
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>deactivate EC2
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>deactivate ASG
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>@enduml
+</span></code></pre></div>
+<p><strong>Interpretação:</strong> o escalonamento não aumenta capacidade instantaneamente. A nova instância precisa iniciar e passar pelo health check antes de receber tráfego. O tempo real depende do bootstrap, do deploy e da inicialização da aplicação.</p>
+<hr />
+<h1 id="6-diagrama-de-sequencia-falha-de-instancia-e-redirecionamento">6. DIAGRAMA DE SEQUÊNCIA — FALHA DE INSTÂNCIA E REDIRECIONAMENTO<a class="headerlink" href="#6-diagrama-de-sequencia-falha-de-instancia-e-redirecionamento" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@startuml
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>title Falha de Instância — Portal Cidadão Seguro
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>actor &quot;Cliente&quot; as Client
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>participant &quot;ALB&quot; as ALB
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>participant &quot;Target Group&quot; as TG
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>participant &quot;EC2 A&quot; as EC2A
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>participant &quot;EC2 B&quot; as EC2B
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>participant &quot;Auto Scaling Group&quot; as ASG
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Client -&gt; ALB: HTTPS request
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>ALB -&gt; TG: Encaminha solicitação
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>TG -&gt; EC2A: HTTP request
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>EC2A --&gt; TG: Resposta
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>TG --&gt; ALB: Resposta
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>ALB --&gt; Client: Resposta HTTP
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>== Falha da EC2 A ==
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>TG -&gt; EC2A: Health check /health/
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>EC2A --&gt; TG: Timeout/erro
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>TG -&gt; TG: Marca EC2 A como unhealthy
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>== Continuidade ==
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>Client -&gt; ALB: Nova HTTPS request
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>ALB -&gt; TG: Encaminha para destino saudável
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>TG -&gt; EC2B: HTTP request
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>EC2B --&gt; TG: Resposta
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>TG --&gt; ALB: Resposta
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>ALB --&gt; Client: Resposta HTTP
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>== Substituição ==
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>ASG -&gt; ASG: Detecta instância não saudável
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>ASG -&gt; ASG: Substitui EC2 A conforme desired capacity
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>ASG -&gt; TG: Registra substituta após lançamento
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>@enduml
+</span></code></pre></div>
+<p><strong>Interpretação:</strong> o ALB deixa de encaminhar novas requisições à instância não saudável; o ASG tenta manter a capacidade desejada substituindo a instância. O objetivo é reduzir o impacto de uma falha isolada, não prometer ausência total de interrupção.</p>
+<hr />
+<h1 id="7-diagrama-de-atividades-atualizacao-da-aplicacao">7. DIAGRAMA DE ATIVIDADES — ATUALIZAÇÃO DA APLICAÇÃO<a class="headerlink" href="#7-diagrama-de-atividades-atualizacao-da-aplicacao" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>@startuml
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>title Atualização da API via Launch Template — Portal Cidadão Seguro
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>start
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>:Equipe prepara nova versão da aplicação;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>:Validar build e testes;
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>:Publicar artefato/imagem de aplicação;
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>:Atualizar versão do Launch Template,\nquando houver mudança de AMI/configuração;
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>:Iniciar atualização controlada do ASG;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>:Iniciar instância nova com a configuração atual;
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>:Executar bootstrap e iniciar Django/Gunicorn/Nginx;
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>:Executar health check /health/;
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>if (Instância saudável?) then (Sim)
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  :Registrar no Target Group;
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  :Aguardar drenagem de conexões antigas;
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  :Remover instância antiga conforme política de atualização;
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  :Verificar métricas e erros;
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  stop
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>else (Não)
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>  :Não encaminhar tráfego para a instância;
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>  :Interromper atualização e restaurar versão estável;
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>  :Registrar incidente;
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>  stop
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>endif
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>@enduml
+</span></code></pre></div>
+<p>O projeto ainda não define uma ferramenta específica de CI/CD. O diagrama descreve um fluxo de atualização conceitual, sem afirmar uso obrigatório de CodePipeline ou CodeBuild.</p>
+<hr />
+<h1 id="8-memoria-de-calculo">8. MEMÓRIA DE CÁLCULO<a class="headerlink" href="#8-memoria-de-calculo" title="Permanent link">&para;</a></h1>
+<h2 id="81-calculo-de-carga-de-api">8.1. Cálculo de carga de API<a class="headerlink" href="#81-calculo-de-carga-de-api" title="Permanent link">&para;</a></h2>
+<h3 id="carga-media-do-portal">Carga média do Portal<a class="headerlink" href="#carga-media-do-portal" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Segundos por dia = 24 × 60 × 60 = 86.400
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Acessos médios/s = 52.000 / 86.400 ≈ 0,60
+</span></code></pre></div>
+<h3 id="acessos-a-zeladoria">Acessos à Zeladoria<a class="headerlink" href="#acessos-a-zeladoria" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>52.000 × 20% = 10.400 acessos/dia
+</span></code></pre></div>
+<h3 id="operacoes-modeladas">Operações modeladas<a class="headerlink" href="#operacoes-modeladas" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Consulta comum ao catálogo:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>52.000 acessos/dia × 1 chamada = 52.000 operações/dia
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Chamadas adicionais da Zeladoria:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>10.400 acessos/dia × 3 chamadas = 31.200 operações/dia
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Total:
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>52.000 + 31.200 = 83.200 operações/dia
+</span></code></pre></div>
+<h3 id="media-e-pico">Média e pico<a class="headerlink" href="#media-e-pico" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Média = 83.200 / 86.400 ≈ 0,96 operação/s
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Pico de projeto = 0,96 × 10 ≈ 9,6 operações/s
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Valor arredondado para a memória = 10 RPS
+</span></code></pre></div>
+<p>O fator de pico de 10× é uma premissa de planejamento, não uma medição de distribuição horária dos acessos.</p>
+<h2 id="82-calculo-preliminar-de-cpu-e-memoria">8.2. Cálculo preliminar de CPU e memória<a class="headerlink" href="#82-calculo-preliminar-de-cpu-e-memoria" title="Permanent link">&para;</a></h2>
+<h3 id="cpu">CPU<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Pico de projeto = 9,6 requisições/s
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>CPU por requisição = 5 ms = 0,005 s (hipótese)
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>CPU bruta = 9,6 × 0,005 = 0,048 segundos de CPU por segundo
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>CPU equivalente = ~0,048 vCPU
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Margem de segurança = 4×
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>CPU de planejamento = 0,048 × 4 = 0,192 ≈ 0,2 vCPU
+</span></code></pre></div>
+<p>A conta serve como aproximação para a entrega acadêmica. O tempo de CPU de cada requisição não foi medido; o valor real depende de serialização, autenticação, consultas, lógica de negócio, concorrência e bibliotecas.</p>
+<h3 id="memoria">Memória<a class="headerlink" href="#memoria" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">Hipótese por instância</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sistema operacional e agentes</td>
+<td style="text-align: right;">~0,8 GiB</td>
+</tr>
+<tr>
+<td>Nginx e sobrecarga fixa da aplicação</td>
+<td style="text-align: right;">~0,6 GiB</td>
+</tr>
+<tr>
+<td>4 workers Gunicorn × 150 MiB</td>
+<td style="text-align: right;">~0,6 GiB</td>
+</tr>
+<tr>
+<td>Reserva para cache, overhead e variação</td>
+<td style="text-align: right;">~1,0 GiB</td>
+</tr>
+<tr>
+<td><strong>Memória de planejamento</strong></td>
+<td style="text-align: right;"><strong>~3,0 GiB</strong></td>
+</tr>
+<tr>
+<td><strong>Memória da <code>t3.medium</code></strong></td>
+<td style="text-align: right;"><strong>4 GiB</strong></td>
+</tr>
+</tbody>
+</table>
+<p>A memória por worker é estimada e deve ser conferida com métricas de RSS após executar a aplicação. A memória não cresce de forma linear com cada requisição HTTP; processos e workers mantêm estruturas compartilhadas/individuais.</p>
+<h2 id="83-calculo-do-numero-de-instancias">8.3. Cálculo do número de instâncias<a class="headerlink" href="#83-calculo-do-numero-de-instancias" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Fórmula / critério</th>
+<th style="text-align: right;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instâncias base</td>
+<td>Uma em cada AZ</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Carga de pico modelada</td>
+<td>9,6 RPS no total</td>
+<td style="text-align: right;">~10 RPS</td>
+</tr>
+<tr>
+<td>Carga distribuída estimada</td>
+<td>9,6 / 2</td>
+<td style="text-align: right;">~4,8 RPS por instância</td>
+</tr>
+<tr>
+<td>Instâncias desejadas</td>
+<td>Capacidade inicial + redundância</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Instâncias máximas</td>
+<td>Limite inicial do projeto</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<p>A carga por instância representa somente a distribuição esperada do workload. <strong>Não representa o limite máximo medido de uma instância.</strong> A capacidade efetiva deve ser determinada com teste de carga, observando latência, erros, CPU, memória, conexões com o RDS e créditos de CPU das instâncias T3.</p>
+<h2 id="84-calculo-de-disponibilidade-e-recuperacao">8.4. Cálculo de disponibilidade e recuperação<a class="headerlink" href="#84-calculo-de-disponibilidade-e-recuperacao" title="Permanent link">&para;</a></h2>
+<p>O documento de requisitos do Portal define metas de RPO e RTO para a plataforma, mas não fixa um SLA contratual numérico específico para a camada EC2.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Decisão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redução de ponto único de falha</td>
+<td>Duas instâncias em AZs diferentes</td>
+</tr>
+<tr>
+<td>Distribuição do tráfego</td>
+<td>ALB com destinos saudáveis</td>
+</tr>
+<tr>
+<td>Substituição de instância</td>
+<td>ASG com health check do ELB</td>
+</tr>
+<tr>
+<td>RPO ≤ 15 min</td>
+<td>Meta da plataforma, atendida principalmente pela estratégia do RDS/backup</td>
+</tr>
+<tr>
+<td>RTO ≤ 1 h</td>
+<td>Meta da plataforma; precisa ser testada junto com banco, rede e aplicação</td>
+</tr>
+<tr>
+<td>SLA percentual</td>
+<td>Não declarado neste documento; não inferir 99,95% a partir do modelo SwiftTrack</td>
+</tr>
+</tbody>
+</table>
+<h2 id="85-estimativa-de-custo-da-camada-ec2">8.5. Estimativa de custo da camada EC2<a class="headerlink" href="#85-estimativa-de-custo-da-camada-ec2" title="Permanent link">&para;</a></h2>
+<h3 id="premissas-para-o-calculo-preliminar">Premissas para o cálculo preliminar<a class="headerlink" href="#premissas-para-o-calculo-preliminar" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Região: US East (N. Virginia), <code>us-east-1</code>.</li>
+<li>730 horas por mês.</li>
+<li>Duas instâncias <code>t3.medium</code> Linux/Unix On-Demand em funcionamento contínuo.</li>
+<li>Um volume gp3 de 20 GiB por instância.</li>
+<li>Um ALB com hipótese inicial de 1 LCU média e dois endereços IPv4 públicos.</li>
+<li>Sem contar tráfego de saída, NAT Gateway, logs adicionais, impostos nem créditos de CPU extraordinários.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Cálculo</th>
+<th style="text-align: right;">Custo/mês estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC2</td>
+<td>2 × US$ 0,0418/h × 730 h</td>
+<td style="text-align: right;">US$ 61,03</td>
+</tr>
+<tr>
+<td>EBS gp3</td>
+<td>2 × 20 GiB × US$ 0,08/GiB-mês</td>
+<td style="text-align: right;">US$ 3,20</td>
+</tr>
+<tr>
+<td>ALB — horas</td>
+<td>US$ 0,0225/h × 730 h</td>
+<td style="text-align: right;">US$ 16,43</td>
+</tr>
+<tr>
+<td>ALB — LCU</td>
+<td>1 LCU média × US$ 0,008/h × 730 h</td>
+<td style="text-align: right;">US$ 5,84</td>
+</tr>
+<tr>
+<td>IPv4 público do ALB</td>
+<td>2 × US$ 0,005/h × 730 h</td>
+<td style="text-align: right;">US$ 7,30</td>
+</tr>
+<tr>
+<td>ASG, Launch Template, Target Group</td>
+<td>Sem tarifa direta para os objetos em si</td>
+<td style="text-align: right;">US$ 0,00</td>
+</tr>
+<tr>
+<td><strong>Total preliminar</strong></td>
+<td>Soma das linhas</td>
+<td style="text-align: right;"><strong>US$ 93,80/mês</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="limitacoes-do-valor">Limitações do valor<a class="headerlink" href="#limitacoes-do-valor" title="Permanent link">&para;</a></h3>
+<p>O custo de <strong>US$ 93,80/mês é uma aproximação baseada em preços públicos de referência</strong>, e não o resultado final da AWS Pricing Calculator. O custo real pode variar por LCU, quantidade efetiva de IPv4 gerenciados pelo ALB, volume de dados transferidos, ingestão e retenção de logs, monitoramento, tráfego externo, NAT Gateway e configuração final. Para a entrega, recomenda-se configurar essa arquitetura na AWS Pricing Calculator, capturar a tela de resultados e substituir o valor preliminar pelo total da calculadora.</p>
+<p>O custo do RDS — estimado separadamente em <strong>US$ 110,42/mês</strong> no documento de dimensionamento do banco — não está incluído neste subtotal da camada de computação.</p>
+<hr />
+<h1 id="9-trade-offs-documentados">9. TRADE-OFFS DOCUMENTADOS<a class="headerlink" href="#9-trade-offs-documentados" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Decisão</th>
+<th>Alternativa</th>
+<th>Vantagens da escolha</th>
+<th>Desvantagens / impacto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t3.medium</code></td>
+<td><code>t3.small</code></td>
+<td>4 GiB RAM oferecem maior margem para processos Python/Gunicorn.</td>
+<td>Custo maior por instância; confirmar se a margem é necessária pelos testes.</td>
+</tr>
+<tr>
+<td>Duas instâncias base</td>
+<td>Uma instância fixa</td>
+<td>Reduz dependência de uma única máquina e permite distribuir por AZs.</td>
+<td>Paga duas instâncias em operação normal.</td>
+</tr>
+<tr>
+<td>ASG max 4</td>
+<td>Capacidade fixa de 2</td>
+<td>Permite reação gradual a crescimento ou picos imprevistos.</td>
+<td>Scale-out leva tempo e instâncias extras aumentam custo.</td>
+</tr>
+<tr>
+<td>ALB</td>
+<td>Acesso direto à EC2</td>
+<td>Distribuição de tráfego, health checks, TLS e endpoint público estável.</td>
+<td>Custo horário, LCU e IPv4 público.</td>
+</tr>
+<tr>
+<td>EC2 em sub-rede privada</td>
+<td>EC2 pública</td>
+<td>Reduz exposição direta; tráfego público passa pelo ALB.</td>
+<td>Requer solução de egress/gerência de pacotes por rede privada.</td>
+</tr>
+<tr>
+<td>Amazon Linux 2023</td>
+<td>AMI customizada</td>
+<td>Base AWS e integração com ferramentas de gerenciamento.</td>
+<td>Exige validar dependências e script de instalação da aplicação.</td>
+</tr>
+<tr>
+<td>20 GiB gp3 por instância</td>
+<td>Volume raiz maior</td>
+<td>Espaço inicial para SO, código e dependências; arquivos vão para S3.</td>
+<td>Precisará crescer se logs/artefatos forem mantidos localmente indevidamente.</td>
+</tr>
+<tr>
+<td>Scale por CPU</td>
+<td>Scale baseado em memória ou requisições</td>
+<td>Métrica inicial simples e disponível.</td>
+<td>CPU pode não detectar todos os gargalos; complementar com latência, memória e métricas do ALB.</td>
+</tr>
+<tr>
+<td>Sem custo de reserva no primeiro cálculo</td>
+<td>Savings Plans/Reserved Instances</td>
+<td>On-Demand mantém flexibilidade acadêmica.</td>
+<td>Pode custar mais num ambiente estável de longo prazo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="10-riscos-e-mitigacoes">10. RISCOS E MITIGAÇÕES<a class="headerlink" href="#10-riscos-e-mitigacoes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Risco</th>
+<th>Probabilidade</th>
+<th>Impacto</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A carga HTTP real difere da premissa de acessos</td>
+<td>Alta</td>
+<td>Alto</td>
+<td>Medir logs/métricas da API e realizar teste de carga; revisar chamadas por página.</td>
+</tr>
+<tr>
+<td>CPU por requisição foi estimada, não medida</td>
+<td>Alta</td>
+<td>Médio/Alto</td>
+<td>Benchmark da API e ajuste de tipo/quantidade de instâncias.</td>
+</tr>
+<tr>
+<td>Memória por worker diverge da hipótese</td>
+<td>Média</td>
+<td>Alto</td>
+<td>Monitorar memória com CloudWatch Agent e ajustar worker count/instância.</td>
+</tr>
+<tr>
+<td>Scale-out demora a iniciar novas instâncias</td>
+<td>Média</td>
+<td>Médio/Alto</td>
+<td>Pré-configurar AMI/artefato, ajustar grace period e testar tempo de inicialização.</td>
+</tr>
+<tr>
+<td>Falha de uma instância</td>
+<td>Média</td>
+<td>Alto</td>
+<td>ALB health checks e substituição pelo ASG.</td>
+</tr>
+<tr>
+<td>Falha de uma AZ</td>
+<td>Baixa/Média</td>
+<td>Alto</td>
+<td>Distribuir instâncias e sub-redes em duas AZs; validar capacidade remanescente.</td>
+</tr>
+<tr>
+<td>Esgotamento de conexões do RDS</td>
+<td>Média</td>
+<td>Alto</td>
+<td>Respeitar o <code>max_connections = 100</code> do modelo RDS e dimensionar pools da aplicação em conjunto.</td>
+</tr>
+<tr>
+<td>Instância T3 consome créditos de CPU além do esperado</td>
+<td>Baixa/Média</td>
+<td>Médio</td>
+<td>Monitorar CPU/CPU credits e reavaliar família/tamanho se houver uso contínuo elevado.</td>
+</tr>
+<tr>
+<td>Custo acima do previsto</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Validar AWS Pricing Calculator, configurar AWS Budgets e monitorar transferências/logs.</td>
+</tr>
+<tr>
+<td>Endpoint de health check inexistente ou dependente de serviço externo</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Implementar <code>/health/</code> e garantir retorno estável sem incluir dependências frágeis desnecessárias.</td>
+</tr>
+<tr>
+<td>Segredos em User Data ou imagem</td>
+<td>Baixa</td>
+<td>Crítico</td>
+<td>Não colocar segredos em User Data; usar IAM Role e um serviço apropriado de segredos/parâmetros.</td>
+</tr>
+<tr>
+<td>Acesso administrativo indevido</td>
+<td>Baixa</td>
+<td>Crítico</td>
+<td>Não liberar SSH público; preferir Systems Manager e permissões IAM mínimas.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="11-consideracoes-finais">11. CONSIDERAÇÕES FINAIS<a class="headerlink" href="#11-consideracoes-finais" title="Permanent link">&para;</a></h1>
+<p>O dimensionamento inicial da camada de computação foi elaborado para um cenário de um município, com aproximadamente 52.000 acessos diários ao Portal e uso inicial de 20% desses acessos pela Zeladoria Urbana. A aproximação de workload — uma chamada comum do catálogo do Portal e três chamadas adicionais por acesso à Zeladoria — resulta em cerca de 83.200 operações modeladas por dia, equivalentes a aproximadamente 0,96 operação por segundo em média e 9,6 operações por segundo no pico estimado com fator de 10×.</p>
+<p>A capacidade proposta usa duas instâncias EC2 <code>t3.medium</code> em sub-redes privadas de duas Availability Zones, um ALB público, Target Group com health check, Launch Template e ASG com capacidade entre duas e quatro instâncias. Essa configuração prioriza redundância básica e uma via de expansão sem afirmar uma capacidade máxima que ainda não foi comprovada por teste.</p>
+<p>A memória de cálculo de CPU e RAM usa premissas explícitas de 5 ms de CPU por requisição e 150 MiB por worker. Essas hipóteses devem ser validadas por teste de carga antes de uma implantação de produção. A escolha de instância e as políticas de escalonamento poderão ser ajustadas a partir de métricas reais.</p>
+<p>A estimativa pública preliminar da camada de computação é de aproximadamente <strong>US$ 93,80/mês</strong>, incluindo duas instâncias, EBS e uma hipótese inicial de custo do ALB/LCU/IPv4. O valor oficial da entrega deve ser atualizado com a AWS Pricing Calculator e evidenciado por print ou exportação. O custo do RDS permanece separado.</p>
+<hr />
+<h1 id="12-aprovacoes">12. APROVAÇÕES<a class="headerlink" href="#12-aprovacoes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Nome</th>
+<th>Data</th>
+<th>Assinatura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arquiteto de Soluções</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Arquiteto de Computação</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Professor Responsável</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Coordenador do Curso</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="13-historico-de-versoes">13. HISTÓRICO DE VERSÕES<a class="headerlink" href="#13-historico-de-versoes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Autor</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>21/10/2026</td>
+<td>Equipe do projeto</td>
+<td>Primeira versão adaptada ao Portal Cidadão Seguro.</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>21/10/2026</td>
+<td>Equipe do projeto</td>
+<td>Documento com classes de análise, diagramas, memória de cálculo, trade-offs e estimativa preliminar.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="14-checklist-de-entrega">14. CHECKLIST DE ENTREGA<a class="headerlink" href="#14-checklist-de-entrega" title="Permanent link">&para;</a></h1>
+<p>Os itens abaixo correspondem aos elementos esperados no modelo de referência para o dimensionamento EC2.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Diagrama de classes PlantUML:</strong> <code>ComputeInstance</code>, <code>AutoScalingGroup</code>, <code>LoadBalancer</code>, <code>TargetGroup</code>, <code>LaunchTemplate</code> e <code>ScalingPolicy</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Atributos e relacionamentos:</strong> configuração, responsabilidades e multiplicidades registradas nas classes.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Memória de cálculo:</strong> acessos, workload, TPS estimado, CPU, memória, número de instâncias e custo preliminar.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Justificativas técnicas:</strong> escolha de EC2, ALB, ASG, sub-redes privadas, TLS, monitoramento e scaling.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Estimativa de custo validada:</strong> substituir ou confirmar os valores preliminares na AWS Pricing Calculator.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Evidência da calculadora:</strong> inserir print/exportação com os parâmetros e custo mensal final.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Teste de carga:</strong> necessário para validar os pressupostos de CPU, memória, throughput, latência e scaling.</li>
+</ul>
+<hr />
+<h1 id="15-fontes-de-preco-e-documentacao-aws">15. FONTES DE PREÇO E DOCUMENTAÇÃO AWS<a class="headerlink" href="#15-fontes-de-preco-e-documentacao-aws" title="Permanent link">&para;</a></h1>
+<p>Preços públicos e capacidades consultados em 21/10/2026. A estimativa é indicativa e deve ser conferida na calculadora antes da entrega final.</p>
+<ol>
+<li><strong>EC2 T3 — especificações e tarifa On-Demand:</strong> https://aws.amazon.com/ec2/instance-types/t3/ — apresenta, para <code>us-east-1</code>, <code>t3.medium</code> com 2 vCPU, 4 GiB e preço publicado de referência de US$ 0,0418/h para Linux/Unix.</li>
+<li><strong>EBS gp3:</strong> https://aws.amazon.com/ebs/pricing/ — exemplo de preço de referência de US$ 0,08 por GiB-mês e baseline de 3.000 IOPS / 125 MB/s em regiões com essa tarifa.</li>
+<li><strong>Application Load Balancer:</strong> https://aws.amazon.com/elasticloadbalancing/pricing/ — tarifa horária e cobrança por LCU; a utilização final depende de conexões, bytes processados e avaliações de regras.</li>
+<li><strong>AWS Auto Scaling:</strong> https://aws.amazon.com/autoscaling/pricing/ — não há tarifa adicional pelo Auto Scaling Group em si; instâncias e monitoramento são cobrados de acordo com os recursos utilizados.</li>
+<li><strong>IPv4 público:</strong> https://aws.amazon.com/vpc/pricing/ — a AWS publica cobrança horária para IPv4 público em uso; a quantidade efetiva associada ao ALB precisa ser conferida na configuração.</li>
+<li><strong>AWS Pricing Calculator:</strong> https://calculator.aws/ — ferramenta recomendada para a estimativa final da arquitetura.</li>
+<li><strong>SSM Agent em AMIs:</strong> https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html — lista Amazon Linux 2023 entre as AMIs que normalmente incluem o agente pré-instalado.</li>
+</ol>
+<p><strong>Fim do documento.</strong></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
