@@ -1,47 +1,42 @@
+
 services:
   db:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${DB_NAME:?Defina DB_NAME no .env}
+      POSTGRES_USER: ${DB_USER:?Defina DB_USER no .env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no .env}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${DB_USER} -d ${DB_NAME}
       interval: 5s
       timeout: 5s
       retries: 10
-      start_period: 10s
+    ports:
+      - "127.0.0.1:5434:5432"
 
   web:
     build: .
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      SECRET_KEY: ${SECRET_KEY:?Defina SECRET_KEY no .env}
-      DEBUG: ${DEBUG:-False}
-      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
-      POSTGRES_DB: ${POSTGRES_DB:?Defina POSTGRES_DB no .env}
-      POSTGRES_USER: ${POSTGRES_USER:?Defina POSTGRES_USER no .env}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD no .env}
-      POSTGRES_HOST: db
-      POSTGRES_PORT: 5432
+      DB_HOST: db
+      DB_PORT: "5432"
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     ports:
       - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
-    healthcheck:
-      test:
-        - CMD
-        - python
-        - -c
-        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz/', timeout=3)"
-      interval: 15s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
 
 volumes:
   postgres_data:
