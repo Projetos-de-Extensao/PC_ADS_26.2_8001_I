@@ -32,17 +32,27 @@ Para protótipo acadêmico com baixa concorrência, avaliar uma instância de **
 4. Calcular custo mensal a partir da região, horas e preços oficiais vigentes; não assumir valor sem cotação.
 
 ## Diagrama PlantUML
+
 ```puml
 @startuml
 class ClienteHTTP
-class ServicoWeb { +GET /api/ }
-class PostgreSQL { +persistir() }
+
+class ServicoWeb {
+  +consultarAPI()
+}
+
+class PostgreSQL {
+  +persistir()
+}
+
 class VolumePersistente
+
 ClienteHTTP --> ServicoWeb
 ServicoWeb --> PostgreSQL
 PostgreSQL --> VolumePersistente
 @enduml
 ```
+
 
 ## Evidências pendentes
 Tipo EC2 escolhido, métricas, custo mensal calculado e captura de `docker stats`.
