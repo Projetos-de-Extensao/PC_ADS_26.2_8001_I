@@ -12,7 +12,7 @@ nav:
       - Index: Iniciacao/index.md
       - Documento de Visão: Iniciacao/dv.md
       - Requisitos Suplementares: Iniciacao/rs.md
-      - Pesquisa (documento anterior): Iniciacao/pesquisa.md
+      - Pesquisa: Iniciacao/pesquisa.md
 
   - Elaboração:
       - Index: Elaboracao/index.md
@@ -21,8 +21,8 @@ nav:
       - Dimensionamento de Computação: Elaboracao/dim_comp.md
       - Dimensionamento do Banco de Dados: Elaboracao/dimrbd.md
       - Sequência e Comunicação: Elaboracao/seq_com.md
-      - Casos de Uso (documento anterior): Elaboracao/casos_de_uso_arquiteturais.md
-      - Modelo de Análise (documento anterior): Elaboracao/modelo_de_analise-pacotes_subsistemas.md
+      - Casos de Uso: Elaboracao/casos_de_uso_arquiteturais.md
+      - Modelo de Análise: Elaboracao/modelo_de_analise-pacotes_subsistemas.md
 
   - Transição:
       - Estratégias de Deploy: Transicao/ativ_deploy.md
