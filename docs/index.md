@@ -1,10 +1,3 @@
-
----
-hide:
-  - navigation
-  - toc
----
-
 # PC_ADS_26.2_8001_I { style="display:none" }
 
 <div class="module-cards grid four-cols">
