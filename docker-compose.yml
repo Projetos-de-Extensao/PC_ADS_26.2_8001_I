@@ -18,7 +18,7 @@ services:
       timeout: 5s
       retries: 10
     ports:
-      - "127.0.0.1:5434:5432"
+      - "127.0.0.1:5432:5432"
 
   web:
     build: .
@@ -34,6 +34,8 @@ services:
              gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     ports:
       - "8000:8000"
+    volumes:
+      - ./src/media:/app/media
     depends_on:
       db:
         condition: service_healthy

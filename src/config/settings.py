@@ -50,8 +50,10 @@ DATABASES = {
 }
 AUTH_USER_MODEL="usuarios.Usuario"
 LANGUAGE_CODE="pt-br"; TIME_ZONE="America/Sao_Paulo"; USE_I18N=True; USE_TZ=True
-STATIC_URL="static/"; STATIC_ROOT=BASE_DIR/"staticfiles"
-MEDIA_URL="/media/"; MEDIA_ROOT=BASE_DIR/"media"
+STATIC_URL="static/"
+STATIC_ROOT=BASE_DIR / "staticfiles"
+MEDIA_URL="/media/"
+MEDIA_ROOT=BASE_DIR/"media"
 DEFAULT_AUTO_FIELD="django.db.models.BigAutoField"
 REST_FRAMEWORK={
  "DEFAULT_AUTHENTICATION_CLASSES":("rest_framework_simplejwt.authentication.JWTAuthentication","rest_framework.authentication.SessionAuthentication"),

@@ -2,7 +2,7 @@ from django.db import transaction
 from rest_framework import viewsets,status
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
-from rest_framework.parsers import MultiPartParser,FormParser
+from rest_framework.parsers import JSONParser,MultiPartParser,FormParser
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from .models import *
@@ -17,6 +17,7 @@ class UnidadeViewSet(viewsets.ModelViewSet):
     
 class SolicitacaoViewSet(viewsets.ModelViewSet):
     permission_classes=[SolicitacaoPermission]
+    parser_classes = [JSONParser, MultiPartParser, FormParser]
     http_method_names = ["get", "post", "put", "patch", "head", "options"]
     filterset_fields=["status","servico","unidade_atual"]; ordering_fields=["criado_em","atualizado_em","status"]; ordering=["-criado_em"]
 
