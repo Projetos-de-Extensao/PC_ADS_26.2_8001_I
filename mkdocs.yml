@@ -4,20 +4,31 @@ site_author: Jonh Carvalho
 site_name: PC_ADS_26.2_8001
 copyright: Copyright ©️ 2026, Jonh Carvalho
 
-nav: 
+
+nav:
   - Home: index.md
-  - Iniciação: 
+
+  - Iniciação:
       - Index: Iniciacao/index.md
-      - Documento de Visão: Iniciacao/pesquisa.md
-      - Requisitos Suplementares: Iniciacao/req_suplementares.md
+      - Documento de Visão: Iniciacao/dv.md
+      - Requisitos Suplementares: Iniciacao/rs.md
+      - Pesquisa (documento anterior): Iniciacao/pesquisa.md
 
   - Elaboração:
       - Index: Elaboracao/index.md
-      - Casos de Uso Arquiteturais: Elaboracao/casos_de_uso_arquiteturais.md
-      - Modelo de Análise (Pacotes/Subsistemas): Elaboracao/modelo_de_analise-pacotes_subsistemas.md
+      - Casos de Uso Arquiteturais: Elaboracao/cua.md
+      - Pacotes e Subsistemas: Elaboracao/maps.md
+      - Dimensionamento de Computação: Elaboracao/dim_comp.md
+      - Dimensionamento do Banco de Dados: Elaboracao/dimrbd.md
+      - Sequência e Comunicação: Elaboracao/seq_com.md
+      - Casos de Uso (documento anterior): Elaboracao/casos_de_uso_arquiteturais.md
+      - Modelo de Análise (documento anterior): Elaboracao/modelo_de_analise-pacotes_subsistemas.md
 
+  - Transição:
+      - Estratégias de Deploy: Transicao/ativ_deploy.md
 
   - Bibliografia: Disciplina/Bibliografia.md
+
 
 extra_css:
   - css/extra.css
