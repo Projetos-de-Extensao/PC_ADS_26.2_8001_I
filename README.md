@@ -38,6 +38,7 @@ docker compose exec web python manage.py createsuperuser
 ```
 
 Admin local: <http://localhost:8000/admin/>.
+Admin EC2: <http://3.12.84.130:8000/admin/>
 
 ## Deploy em EC2 Ubuntu
 
