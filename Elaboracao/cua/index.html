@@ -1,0 +1,1130 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../maps/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Casos de Uso Arquiteturais - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#casos-de-uso-arquiteturais" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Casos de Uso Arquiteturais
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Transicao/ativ_deploy/" class="md-tabs__link">
+          
+  
+    
+  
+  Transição
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/dv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/rs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pesquisa (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controle-do-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controle do documento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-de-uso-relevantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casos de uso relevantes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-casos-de-uso-plantuml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de casos de uso (PlantUML)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rastreabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rastreabilidade
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pacotes e Subsistemas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dim_comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionamento de Computação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimrbd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionamento do Banco de Dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seq_com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequência e Comunicação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_de_analise-pacotes_subsistemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Transição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Transição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Transicao/ativ_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estratégias de Deploy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="casos-de-uso-arquiteturais">Casos de Uso Arquiteturais<a class="headerlink" href="#casos-de-uso-arquiteturais" title="Permanent link">&para;</a></h1>
+<h2 id="controle-do-documento">Controle do documento<a class="headerlink" href="#controle-do-documento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Informação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projeto</td>
+<td>Portal Cidadão Seguro</td>
+</tr>
+<tr>
+<td>Versão</td>
+<td>2.0 — revisão documental AP2</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>11/11/2026</td>
+</tr>
+<tr>
+<td>Aprovação</td>
+<td>Pendente de validação pelo grupo</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Situação:</strong> este documento distingue arquitetura verificada no repositório de requisitos ainda não implementados ou não comprovados. Não constitui evidência de deploy em produção.</p>
+</blockquote>
+<h2 id="casos-de-uso-relevantes">Casos de uso relevantes<a class="headerlink" href="#casos-de-uso-relevantes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de uso</th>
+<th>Ator</th>
+<th>Relevância</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC-01</td>
+<td>Consultar status da API</td>
+<td>Cliente HTTP</td>
+<td>Verificar serviço Django</td>
+<td>Implementado em <code>/api/</code></td>
+</tr>
+<tr>
+<td>UC-02</td>
+<td>Criar solicitação cidadã</td>
+<td>Cidadão</td>
+<td>Exige modelos e validações</td>
+<td>Planejado; não encontrado</td>
+</tr>
+<tr>
+<td>UC-03</td>
+<td>Consultar solicitações por atributo JSONB</td>
+<td>Operador</td>
+<td>Exige JSONField, GIN e filtro</td>
+<td>Planejado; não encontrado</td>
+</tr>
+<tr>
+<td>UC-04</td>
+<td>Registrar operação transacional</td>
+<td>Operador</td>
+<td>Exige <code>transaction.atomic()</code> e rollback</td>
+<td>Planejado; não encontrado</td>
+</tr>
+<tr>
+<td>UC-05</td>
+<td>Publicar atualização</td>
+<td>Equipe de deploy</td>
+<td>Integra Git, Docker e banco</td>
+<td>Procedimento documentado; execução não comprovada</td>
+</tr>
+</tbody>
+</table>
+<h2 id="diagrama-de-casos-de-uso-plantuml">Diagrama de casos de uso (PlantUML)<a class="headerlink" href="#diagrama-de-casos-de-uso-plantuml" title="Permanent link">&para;</a></h2>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:496px;height:472px;background:#FFFFFF;" width="496px" height="472px" viewBox="0 0 496 472" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="cluster" data-qualified-name="Portal Cidad.o Seguro" id="ent0005" data-source-line="7"><rect x="171.52" y="7" width="310.53" height="451" fill="none" style="stroke:#181818;stroke-width:1;" rx="2.5" ry="2.5"/><text x="174.52" y="21.995" fill="#000" font-size="14" textLength="177.188" font-weight="700">Portal Cidadão Seguro</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC1" id="ent0006" data-source-line="8"><ellipse cx="326.786" cy="62.995" rx="93.626" ry="21.125" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="245.835" y="67.644" fill="#000" font-size="14" textLength="161.902">UC-01 Consultar status</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC2" id="ent0007" data-source-line="9"><ellipse cx="326.787" cy="147.997" rx="131.537" ry="28.707" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="204.878" y="152.646" fill="#000" font-size="14" textLength="243.817">UC-02 Criar solicitação (planejado)</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC3" id="ent0008" data-source-line="10"><ellipse cx="326.793" cy="237.997" rx="120.983" ry="26.597" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="216.068" y="242.645" fill="#000" font-size="14" textLength="221.45">UC-03 Filtrar JSONB (planejado)</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC4" id="ent0009" data-source-line="11"><ellipse cx="326.793" cy="330.003" rx="139.263" ry="30.253" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="196.763" y="334.651" fill="#000" font-size="14" textLength="260.06">UC-04 Operação atômica (planejado)</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC5" id="ent0010" data-source-line="12"><ellipse cx="326.791" cy="418.998" rx="105.391" ry="23.478" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="232.855" y="423.647" fill="#000" font-size="14" textLength="187.872">UC-05 Publicar atualização</text></g><g class="entity" data-qualified-name="C" id="ent0001" data-source-line="3"><ellipse cx="66.763" cy="20.35" rx="8" ry="8" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M66.763,28.35 L66.763,55.35 M53.763,36.35 L79.763,36.35 M66.763,55.35 L53.763,70.35 M66.763,55.35 L79.763,70.35" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="21.93" y="84.845" fill="#000" font-size="14" textLength="89.667">Cliente HTTP</text></g><g class="entity" data-qualified-name="U" id="ent0002" data-source-line="4"><ellipse cx="66.761" cy="131.35" rx="8" ry="8" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M66.761,139.35 L66.761,166.35 M53.761,147.35 L79.761,147.35 M66.761,166.35 L53.761,181.35 M66.761,166.35 L79.761,181.35" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="38.18" y="195.845" fill="#000" font-size="14" textLength="57.162">Cidadão</text></g><g class="entity" data-qualified-name="O" id="ent0003" data-source-line="5"><ellipse cx="66.761" cy="253.35" rx="8" ry="8" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M66.761,261.35 L66.761,288.35 M53.761,269.35 L79.761,269.35 M66.761,288.35 L53.761,303.35 M66.761,288.35 L79.761,303.35" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="33.73" y="317.845" fill="#000" font-size="14" textLength="66.063">Operador</text></g><g class="entity" data-qualified-name="D" id="ent0004" data-source-line="6"><ellipse cx="66.761" cy="389.35" rx="8" ry="8" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M66.761,397.35 L66.761,424.35 M53.761,405.35 L79.761,405.35 M66.761,424.35 L53.761,439.35 M66.761,424.35 L79.761,439.35" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="6" y="453.845" fill="#000" font-size="14" textLength="121.522">Equipe de deploy</text></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0006" id="lnk11" data-source-line="14" data-link-type="dependency"><path d="M111.82,52.22 C145.5,53.92 188.096,56.058 229.846,58.168" style="stroke:#181818;stroke-width:1;" fill="none" id="C-to-UC1"/><polygon points="234.84,58.42,226.053,53.971,229.846,58.168,225.65,61.961,234.84,58.42" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0007" id="lnk12" data-source-line="15" data-link-type="dependency"><path d="M95.37,159.61 C120.47,158.34 154.386,156.631 193.136,154.681" style="stroke:#181818;stroke-width:1;" fill="none" id="U-to-UC2"/><polygon points="198.13,154.43,188.94,150.887,193.136,154.681,189.342,158.877,198.13,154.43" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0008" id="lnk13" data-source-line="16" data-link-type="dependency"><path d="M100.18,277.35 C132.87,271.65 179.984,263.429 225.854,255.429" style="stroke:#181818;stroke-width:1;" fill="none" id="O-to-UC3"/><polygon points="230.78,254.57,221.227,252.176,225.854,255.429,222.601,260.057,230.78,254.57" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0009" id="lnk14" data-source-line="17" data-link-type="dependency"><path d="M100.18,288.9 C130.09,294.35 171.291,301.864 214.061,309.654" style="stroke:#181818;stroke-width:1;" fill="none" id="O-to-UC4"/><polygon points="218.98,310.55,210.842,305.002,214.061,309.654,209.409,312.873,218.98,310.55" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0004" data-entity-2="ent0010" id="lnk15" data-source-line="18" data-link-type="dependency"><path d="M127.93,419 C155.63,419 184.31,419 215.98,419" style="stroke:#181818;stroke-width:1;" fill="none" id="D-to-UC5"/><polygon points="220.98,419,211.98,415,215.98,419,211.98,423,220.98,419" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><?plantuml-src RK-xJiCm5Dtz5PTECBIchuM1WHI4G91AfJEwjTt4r8c3VGq2nDSmy0FyGNyC9qqxH9Ky71sVnpqdkXGcI0KvKUKlE7VuFiWqvM4Ll7B2bgHA6WXRy0UzoL6RUuTlYZmlDj8A_ro5ml02FId7ALU5ybogDGP3tEWifq4jO4Qj2SY2gocGsYb1sfOC1La7lSJesABWzkbftWFqa1n-j4Iv_R4DkzopQQKSIkiQDjsprwz1Lmfa_IfZFvhV6QkxiCoCWjxSEa83-r1Og2oucFt58AuLwADccVJFXv3OqiSDwC0JKl2x_cJO4OuWSReMMQE59jp-rh6dbS5IlSGBprhVgECRmuqsvABpRf4-NXrnZ3kE2JIZTmL8sxz22ppYctHyKvY7LJmkLiKTQFJdBgELJzatIw3Vlsp6BLiqOccBnWSqORCMJVy1?></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:496px;height:472px;background:#1B1B1B;" width="496px" height="472px" viewBox="0 0 496 472" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><rect x="0" y="0" width="496" height="472" fill="#1B1B1B" style="stroke:none;"/><g class="cluster" data-qualified-name="Portal Cidad.o Seguro" id="ent0005" data-source-line="7"><rect x="171.52" y="7" width="310.53" height="451" fill="none" style="stroke:#E7E7E7;stroke-width:1;" rx="2.5" ry="2.5"/><text x="174.52" y="21.995" fill="#FFF" font-size="14" textLength="177.188" font-weight="700">Portal Cidadão Seguro</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC1" id="ent0006" data-source-line="8"><ellipse cx="326.786" cy="62.995" rx="93.626" ry="21.125" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="245.835" y="67.644" fill="#FFF" font-size="14" textLength="161.902">UC-01 Consultar status</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC2" id="ent0007" data-source-line="9"><ellipse cx="326.787" cy="147.997" rx="131.537" ry="28.707" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="204.878" y="152.646" fill="#FFF" font-size="14" textLength="243.817">UC-02 Criar solicitação (planejado)</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC3" id="ent0008" data-source-line="10"><ellipse cx="326.793" cy="237.997" rx="120.983" ry="26.597" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="216.068" y="242.645" fill="#FFF" font-size="14" textLength="221.45">UC-03 Filtrar JSONB (planejado)</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC4" id="ent0009" data-source-line="11"><ellipse cx="326.793" cy="330.003" rx="139.263" ry="30.253" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="196.763" y="334.651" fill="#FFF" font-size="14" textLength="260.06">UC-04 Operação atômica (planejado)</text></g><g class="entity" data-qualified-name="Portal Cidad.o Seguro.UC5" id="ent0010" data-source-line="12"><ellipse cx="326.791" cy="418.998" rx="105.391" ry="23.478" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="232.855" y="423.647" fill="#FFF" font-size="14" textLength="187.872">UC-05 Publicar atualização</text></g><g class="entity" data-qualified-name="C" id="ent0001" data-source-line="3"><ellipse cx="66.763" cy="20.35" rx="8" ry="8" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M66.763,28.35 L66.763,55.35 M53.763,36.35 L79.763,36.35 M66.763,55.35 L53.763,70.35 M66.763,55.35 L79.763,70.35" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="21.93" y="84.845" fill="#FFF" font-size="14" textLength="89.667">Cliente HTTP</text></g><g class="entity" data-qualified-name="U" id="ent0002" data-source-line="4"><ellipse cx="66.761" cy="131.35" rx="8" ry="8" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M66.761,139.35 L66.761,166.35 M53.761,147.35 L79.761,147.35 M66.761,166.35 L53.761,181.35 M66.761,166.35 L79.761,181.35" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="38.18" y="195.845" fill="#FFF" font-size="14" textLength="57.162">Cidadão</text></g><g class="entity" data-qualified-name="O" id="ent0003" data-source-line="5"><ellipse cx="66.761" cy="253.35" rx="8" ry="8" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M66.761,261.35 L66.761,288.35 M53.761,269.35 L79.761,269.35 M66.761,288.35 L53.761,303.35 M66.761,288.35 L79.761,303.35" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="33.73" y="317.845" fill="#FFF" font-size="14" textLength="66.063">Operador</text></g><g class="entity" data-qualified-name="D" id="ent0004" data-source-line="6"><ellipse cx="66.761" cy="389.35" rx="8" ry="8" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M66.761,397.35 L66.761,424.35 M53.761,405.35 L79.761,405.35 M66.761,424.35 L53.761,439.35 M66.761,424.35 L79.761,439.35" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="6" y="453.845" fill="#FFF" font-size="14" textLength="121.522">Equipe de deploy</text></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0006" id="lnk11" data-source-line="14" data-link-type="dependency"><path d="M111.82,52.22 C145.5,53.92 188.096,56.058 229.846,58.168" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="C-to-UC1"/><polygon points="234.84,58.42,226.053,53.971,229.846,58.168,225.65,61.961,234.84,58.42" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0007" id="lnk12" data-source-line="15" data-link-type="dependency"><path d="M95.37,159.61 C120.47,158.34 154.386,156.631 193.136,154.681" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="U-to-UC2"/><polygon points="198.13,154.43,188.94,150.887,193.136,154.681,189.342,158.877,198.13,154.43" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0008" id="lnk13" data-source-line="16" data-link-type="dependency"><path d="M100.18,277.35 C132.87,271.65 179.984,263.429 225.854,255.429" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="O-to-UC3"/><polygon points="230.78,254.57,221.227,252.176,225.854,255.429,222.601,260.057,230.78,254.57" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0009" id="lnk14" data-source-line="17" data-link-type="dependency"><path d="M100.18,288.9 C130.09,294.35 171.291,301.864 214.061,309.654" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="O-to-UC4"/><polygon points="218.98,310.55,210.842,305.002,214.061,309.654,209.409,312.873,218.98,310.55" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0004" data-entity-2="ent0010" id="lnk15" data-source-line="18" data-link-type="dependency"><path d="M127.93,419 C155.63,419 184.31,419 215.98,419" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="D-to-UC5"/><polygon points="220.98,419,211.98,415,215.98,419,211.98,423,220.98,419" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><?plantuml-src RK-xJiCm5Dtz5PTECBIchuM1WHI4G91AfJEwjTt4r8c3VGq2nDSmy0FyGNyC9qqxH9Ky79rx7ZudkXGcI0KvKUKlE7VuFiWqvM4Ll7B2bgHA6WXRy0UzoL6RUuTlYZmlDj8A_ro5ml02FId7ALU5ybogDGP3NABR3EexCsfDG1QSpd82gPqIf6t9K91rq4kCZYKARf-UvZr03ydXeYNAxOzjsEMUJIlbK5hNiEcUlNuDkb8WwrSP-z5SPwpkmZ8p2dfpwmWDx4DXeRBWOlONWpXMe8-QPT8_7q9YInyde0DFIC7l-fDXHpY2nEbQP8qMcd3xMyUULWPBzH9_UDRwHXtV66wq8HUTTulqyUg8OznnJA0PlIj0sluLMk0HtwJZcy8yhEBdObNSWKP_xZ9Q-PHzimJw_SjctB958vQsQ7n04pPhqVGV?></g></svg></div></div>
+
+<h2 id="rastreabilidade">Rastreabilidade<a class="headerlink" href="#rastreabilidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Caso</th>
+<th>Componente</th>
+<th>Teste/evidência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B6</td>
+<td>UC-01</td>
+<td><code>config/urls.py</code></td>
+<td>GET <code>/api/</code>; acesso público pendente</td>
+</tr>
+<tr>
+<td>A2, A5</td>
+<td>UC-02</td>
+<td>App de domínio a implementar</td>
+<td>CRUD e testes pendentes</td>
+</tr>
+<tr>
+<td>A3, A5</td>
+<td>UC-03</td>
+<td>JSONField, índice GIN, filtro a implementar</td>
+<td>Teste de filtro pendente</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>UC-04</td>
+<td>Serviço transacional a implementar</td>
+<td>Teste de rollback pendente</td>
+</tr>
+<tr>
+<td>B2, B5</td>
+<td>UC-05</td>
+<td>Docker Compose e EC2</td>
+<td>Compose presente; logs da EC2 pendentes</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

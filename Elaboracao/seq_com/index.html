@@ -1,0 +1,1101 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../dimrbd/">
+      
+      
+        <link rel="next" href="../casos_de_uso_arquiteturais/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Sequência e Comunicação - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagramas-de-sequencia-e-comunicacao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sequência e Comunicação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Transicao/ativ_deploy/" class="md-tabs__link">
+          
+  
+    
+  
+  Transição
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/dv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/rs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pesquisa (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pacotes e Subsistemas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dim_comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionamento de Computação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimrbd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionamento do Banco de Dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sequência e Comunicação
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sequência e Comunicação
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controle-do-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controle do documento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-implementado-consulta-de-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxo implementado: consulta de status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-planejado-criacao-transacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxo planejado: criação transacional
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-planejado-consulta-jsonb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxo planejado: consulta JSONB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-deploy-descrito-no-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxo de deploy descrito no README
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matriz-de-rastreamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz de rastreamento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_de_analise-pacotes_subsistemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Transição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Transição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Transicao/ativ_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estratégias de Deploy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="diagramas-de-sequencia-e-comunicacao">Diagramas de Sequência e Comunicação<a class="headerlink" href="#diagramas-de-sequencia-e-comunicacao" title="Permanent link">&para;</a></h1>
+<h2 id="controle-do-documento">Controle do documento<a class="headerlink" href="#controle-do-documento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Informação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projeto</td>
+<td>Portal Cidadão Seguro</td>
+</tr>
+<tr>
+<td>Versão</td>
+<td>2.0 — revisão documental AP2</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>11/11/2026</td>
+</tr>
+<tr>
+<td>Aprovação</td>
+<td>Pendente de validação pelo grupo</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Situação:</strong> este documento distingue arquitetura verificada no repositório de requisitos ainda não implementados ou não comprovados. Não constitui evidência de deploy em produção.</p>
+</blockquote>
+<h2 id="fluxo-implementado-consulta-de-status">Fluxo implementado: consulta de status<a class="headerlink" href="#fluxo-implementado-consulta-de-status" title="Permanent link">&para;</a></h2>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="SEQUENCE" style="width:224px;height:249px;background:#FFFFFF;" width="224px" height="249px" viewBox="0 0 224 249" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g><title>Cliente</title><rect x="34.072" y="86.297" width="8" height="76.266" fill="#000" fill-opacity="0"/><line x1="37.572" y1="86.297" x2="37.572" y2="162.563" style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;"/></g><g><title>Django .api.</title><rect x="160.567" y="86.297" width="8" height="76.266" fill="#000" fill-opacity="0"/><line x1="164.067" y1="86.297" x2="164.067" y2="162.563" style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;"/></g><text x="10" y="82.995" fill="#000" font-size="14" textLength="49.144">Cliente</text><ellipse cx="37.572" cy="18.5" rx="8" ry="8" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;"/><path d="M37.572,26.5 L37.572,53.5 M24.572,34.5 L50.572,34.5 M37.572,53.5 L24.572,68.5 M37.572,53.5 L50.572,68.5" style="stroke:#181818;stroke-width:0.5;" fill="none"/><rect x="114.661" y="55" width="98.813" height="30.297" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="121.661" y="74.995" fill="#000" font-size="14" textLength="84.813">Django /api/</text><text x="10" y="175.558" fill="#000" font-size="14" textLength="49.144">Cliente</text><ellipse cx="37.572" cy="187.359" rx="8" ry="8" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;"/><path d="M37.572,195.359 L37.572,222.359 M24.572,203.359 L50.572,203.359 M37.572,222.359 L24.572,237.359 M37.572,222.359 L50.572,237.359" style="stroke:#181818;stroke-width:0.5;" fill="none"/><rect x="114.661" y="162.563" width="98.813" height="30.297" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="121.661" y="182.558" fill="#000" font-size="14" textLength="84.813">Django /api/</text><polygon points="152.067,111.43,162.067,115.43,152.067,119.43,156.067,115.43" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="37.572" y1="115.43" x2="158.067" y2="115.43" style="stroke:#181818;stroke-width:1;"/><text x="44.572" y="110.364" fill="#000" font-size="13" textLength="58.951">GET /api/</text><polygon points="48.572,140.563,38.572,144.563,48.572,148.563,44.572,144.563" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="42.572" y1="144.563" x2="163.067" y2="144.563" style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;"/><text x="54.572" y="139.497" fill="#000" font-size="13" textLength="102.496">JSON status=ok</text><?plantuml-src DSpBIWD148NX_Jn5cNsczWC911L9GX91zrBsbDELwHjTrVhwoQ0k_yF7UP3aGXiPl5dH0R7IJp-9-VRPbAlBoJXPxtB4ayoU91mhVRCfnddCJZzAYm4ZgN55ynnPSUGlQi4moEIjNq17pdA5no3tC-uALHCdXPB1wkbAQSg0L0HNG0gxrttt9s6zNH86U7b-_oNTqklx_ay6EBnTpg16rdIJvni0?></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="SEQUENCE" style="width:224px;height:249px;background:#1B1B1B;" width="224px" height="249px" viewBox="0 0 224 249" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><rect x="0" y="0" width="224" height="249" fill="#1B1B1B" style="stroke:none;"/><g><title>Cliente</title><rect x="34.072" y="86.297" width="8" height="76.266" fill="#000" fill-opacity="0"/><line x1="37.572" y1="86.297" x2="37.572" y2="162.563" style="stroke:#E7E7E7;stroke-width:0.5;stroke-dasharray:5,5;"/></g><g><title>Django .api.</title><rect x="160.567" y="86.297" width="8" height="76.266" fill="#000" fill-opacity="0"/><line x1="164.067" y1="86.297" x2="164.067" y2="162.563" style="stroke:#E7E7E7;stroke-width:0.5;stroke-dasharray:5,5;"/></g><text x="10" y="82.995" fill="#FFF" font-size="14" textLength="49.144">Cliente</text><ellipse cx="37.572" cy="18.5" rx="8" ry="8" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M37.572,26.5 L37.572,53.5 M24.572,34.5 L50.572,34.5 M37.572,53.5 L24.572,68.5 M37.572,53.5 L50.572,68.5" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><rect x="114.661" y="55" width="98.813" height="30.297" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="121.661" y="74.995" fill="#FFF" font-size="14" textLength="84.813">Django /api/</text><text x="10" y="175.558" fill="#FFF" font-size="14" textLength="49.144">Cliente</text><ellipse cx="37.572" cy="187.359" rx="8" ry="8" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M37.572,195.359 L37.572,222.359 M24.572,203.359 L50.572,203.359 M37.572,222.359 L24.572,237.359 M37.572,222.359 L50.572,237.359" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><rect x="114.661" y="162.563" width="98.813" height="30.297" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="121.661" y="182.558" fill="#FFF" font-size="14" textLength="84.813">Django /api/</text><polygon points="152.067,111.43,162.067,115.43,152.067,119.43,156.067,115.43" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="37.572" y1="115.43" x2="158.067" y2="115.43" style="stroke:#E7E7E7;stroke-width:1;"/><text x="44.572" y="110.364" fill="#FFF" font-size="13" textLength="58.951">GET /api/</text><polygon points="48.572,140.563,38.572,144.563,48.572,148.563,44.572,144.563" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="42.572" y1="144.563" x2="163.067" y2="144.563" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:2,2;"/><text x="54.572" y="139.497" fill="#FFF" font-size="13" textLength="102.496">JSON status=ok</text><?plantuml-src DOpBJiCm44Nt_eeX-sJsaLgf0eHArOTKzcYmXyR4Btd6xU-t4R0yvnxT9vziQ8vXKYqo8bQw3HUlK_jgmjNcf9nqi3dYtiyJ-R2hT6KLZBFBLZvBYm4ZYN95dJYoeEDlQa7HKPs7PJTaDLTu3lxnnQPGLMzzeQJGlVnGkcH0AXux887DQMl-IkZN2y88RwyVlubPk7_u_sI4z_Fn0AAaJLPvlWC0?></g></svg></div></div>
+
+<h2 id="fluxo-planejado-criacao-transacional">Fluxo planejado: criação transacional<a class="headerlink" href="#fluxo-planejado-criacao-transacional" title="Permanent link">&para;</a></h2>
+<p><strong>Não implementado no código enviado.</strong> O fluxo abaixo é uma especificação-alvo para A4, não uma comprovação.</p>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="SEQUENCE" style="width:447px;height:488px;background:#FFFFFF;" width="447px" height="488px" viewBox="0 0 447 488" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><rect x="30.031" y="214.828" width="378.886" height="162.469" fill="none" style="stroke:#000;stroke-width:1.5;"/><g><title>Operador</title><rect x="42.531" y="86.297" width="8" height="315" fill="#000" fill-opacity="0"/><line x1="46.031" y1="86.297" x2="46.031" y2="401.297" style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;"/></g><g><title>API DRF .planejada.</title><rect x="179.856" y="86.297" width="8" height="315" fill="#000" fill-opacity="0"/><line x1="183.356" y1="86.297" x2="183.356" y2="401.297" style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;"/></g><g><title>PostgreSQL</title><rect x="389.417" y="86.297" width="8" height="315" fill="#000" fill-opacity="0"/><line x1="392.917" y1="86.297" x2="392.917" y2="401.297" style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;"/></g><text x="10" y="82.995" fill="#000" font-size="14" textLength="66.063">Operador</text><ellipse cx="46.031" cy="18.5" rx="8" ry="8" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;"/><path d="M46.031,26.5 L46.031,53.5 M33.031,34.5 L59.031,34.5 M46.031,53.5 L33.031,68.5 M46.031,53.5 L59.031,68.5" style="stroke:#181818;stroke-width:0.5;" fill="none"/><rect x="106.701" y="55" width="153.31" height="30.297" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="113.701" y="74.995" fill="#000" font-size="14" textLength="139.31">API DRF (planejada)</text><text x="349.541" y="82.995" fill="#000" font-size="14" textLength="80.753">PostgreSQL</text><path d="M374.917,34 C374.917,24 392.917,24 392.917,24 C392.917,24 410.917,24 410.917,34 L410.917,60 C410.917,70 392.917,70 392.917,70 C392.917,70 374.917,70 374.917,60 L374.917,34" style="stroke:#181818;stroke-width:0.5;" fill="#E2E2F0"/><path d="M374.917,34 C374.917,44 392.917,44 392.917,44 C392.917,44 410.917,44 410.917,34" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="10" y="414.292" fill="#000" font-size="14" textLength="66.063">Operador</text><ellipse cx="46.031" cy="426.094" rx="8" ry="8" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;"/><path d="M46.031,434.094 L46.031,461.094 M33.031,442.094 L59.031,442.094 M46.031,461.094 L33.031,476.094 M46.031,461.094 L59.031,476.094" style="stroke:#181818;stroke-width:0.5;" fill="none"/><rect x="106.701" y="401.297" width="153.31" height="30.297" fill="#E2E2F0" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="113.701" y="421.292" fill="#000" font-size="14" textLength="139.31">API DRF (planejada)</text><text x="349.541" y="414.292" fill="#000" font-size="14" textLength="80.753">PostgreSQL</text><path d="M374.917,427.594 C374.917,417.594 392.917,417.594 392.917,417.594 C392.917,417.594 410.917,417.594 410.917,427.594 L410.917,453.594 C410.917,463.594 392.917,463.594 392.917,463.594 C392.917,463.594 374.917,463.594 374.917,453.594 L374.917,427.594" style="stroke:#181818;stroke-width:0.5;" fill="#E2E2F0"/><path d="M374.917,427.594 C374.917,437.594 392.917,437.594 392.917,437.594 C392.917,437.594 410.917,437.594 410.917,427.594" style="stroke:#181818;stroke-width:0.5;" fill="none"/><polygon points="171.356,111.43,181.356,115.43,171.356,119.43,175.356,115.43" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="46.031" y1="115.43" x2="177.356" y2="115.43" style="stroke:#181818;stroke-width:1;"/><text x="53.031" y="110.364" fill="#000" font-size="13" textLength="107.237">POST solicitação</text><polygon points="380.917,140.563,390.917,144.563,380.917,148.563,384.917,144.563" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="144.563" x2="386.917" y2="144.563" style="stroke:#181818;stroke-width:1;"/><text x="190.356" y="139.497" fill="#000" font-size="13" textLength="185.561">BEGIN / transaction.atomic()</text><polygon points="380.917,169.695,390.917,173.695,380.917,177.695,384.917,173.695" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="173.695" x2="386.917" y2="173.695" style="stroke:#181818;stroke-width:1;"/><text x="190.356" y="168.629" fill="#000" font-size="13" textLength="114.118">Inserir solicitação</text><polygon points="380.917,198.828,390.917,202.828,380.917,206.828,384.917,202.828" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="202.828" x2="386.917" y2="202.828" style="stroke:#181818;stroke-width:1;"/><text x="190.356" y="197.762" fill="#000" font-size="13" textLength="101.01">Inserir histórico</text><path d="M30.031,214.828 L94.474,214.828 L94.474,221.961 L84.474,231.961 L30.031,231.961 L30.031,214.828" style="stroke:#000;stroke-width:1.5;" fill="#EEE"/><rect x="30.031" y="214.828" width="378.886" height="162.469" fill="none" style="stroke:#000;stroke-width:1.5;"/><text x="45.031" y="227.895" fill="#000" font-size="13" textLength="19.443" font-weight="700">alt</text><text x="109.474" y="227.039" fill="#000" font-size="11" textLength="156.487" font-weight="700">[regra de negócio válida]</text><polygon points="380.917,259.094,390.917,263.094,380.917,267.094,384.917,263.094" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="263.094" x2="386.917" y2="263.094" style="stroke:#181818;stroke-width:1;"/><text x="190.356" y="258.028" fill="#000" font-size="13" textLength="53.517">COMMIT</text><polygon points="57.031,288.227,47.031,292.227,57.031,296.227,53.031,292.227" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="51.031" y1="292.227" x2="182.356" y2="292.227" style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;"/><text x="63.031" y="287.161" fill="#000" font-size="13" textLength="51.657">sucesso</text><line x1="30.031" y1="301.227" x2="408.917" y2="301.227" style="stroke:#000;stroke-width:1;stroke-dasharray:2,2;"/><text x="35.031" y="313.437" fill="#000" font-size="11" textLength="61.247" font-weight="700">[violação]</text><polygon points="380.917,336.164,390.917,340.164,380.917,344.164,384.917,340.164" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="340.164" x2="386.917" y2="340.164" style="stroke:#181818;stroke-width:1;"/><text x="190.356" y="335.098" fill="#000" font-size="13" textLength="69.164">ROLLBACK</text><polygon points="57.031,365.297,47.031,369.297,57.031,373.297,53.031,369.297" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="51.031" y1="369.297" x2="182.356" y2="369.297" style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;"/><text x="63.031" y="364.231" fill="#000" font-size="13" textLength="113.325">erro de validação</text><?plantuml-src VL1BJiCm4Dtx54DNxO9utmLIFu2YjgIqtQEfCoIcZXtPat0Un883z0Yv60wqY4g8xVlEcojjbMboWfAv3cCfFRucXUQosJU1l7AMoNAYN2LN-b2YDWkFBN6GrI5tAZpLJMLaXO79IowfeY1pUiR6i3IwA3df1G8LEmzPJHvpvqMDdhNIDLg6mMITmdnp1yFQeAKNp74q00mGSP4Zunu3mM3j0XUUje_BBt8-5USqkBxfjJ26TRRTGN0cHZDs7zsx4pqH-VaqqjFR-_G19B176-95sja4sLLQ3KSNmjJ6wTh_4tLMb3fmT_HQEO66mLFX4U8tBHNTKMa7RVTcT8u2VhjdsMgLxavO17-MZ24qYa9mWamStMfdJkKN_assN4udiyMV2UIzwqzeiI_-TfFDFm40?></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="SEQUENCE" style="width:447px;height:488px;background:#1B1B1B;" width="447px" height="488px" viewBox="0 0 447 488" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><rect x="0" y="0" width="447" height="488" fill="#1B1B1B" style="stroke:none;"/><rect x="30.031" y="214.828" width="378.886" height="162.469" fill="none" style="stroke:#FFF;stroke-width:1.5;"/><g><title>Operador</title><rect x="42.531" y="86.297" width="8" height="315" fill="#000" fill-opacity="0"/><line x1="46.031" y1="86.297" x2="46.031" y2="401.297" style="stroke:#E7E7E7;stroke-width:0.5;stroke-dasharray:5,5;"/></g><g><title>API DRF .planejada.</title><rect x="179.856" y="86.297" width="8" height="315" fill="#000" fill-opacity="0"/><line x1="183.356" y1="86.297" x2="183.356" y2="401.297" style="stroke:#E7E7E7;stroke-width:0.5;stroke-dasharray:5,5;"/></g><g><title>PostgreSQL</title><rect x="389.417" y="86.297" width="8" height="315" fill="#000" fill-opacity="0"/><line x1="392.917" y1="86.297" x2="392.917" y2="401.297" style="stroke:#E7E7E7;stroke-width:0.5;stroke-dasharray:5,5;"/></g><text x="10" y="82.995" fill="#FFF" font-size="14" textLength="66.063">Operador</text><ellipse cx="46.031" cy="18.5" rx="8" ry="8" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M46.031,26.5 L46.031,53.5 M33.031,34.5 L59.031,34.5 M46.031,53.5 L33.031,68.5 M46.031,53.5 L59.031,68.5" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><rect x="106.701" y="55" width="153.31" height="30.297" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="113.701" y="74.995" fill="#FFF" font-size="14" textLength="139.31">API DRF (planejada)</text><text x="349.541" y="82.995" fill="#FFF" font-size="14" textLength="80.753">PostgreSQL</text><path d="M374.917,34 C374.917,24 392.917,24 392.917,24 C392.917,24 410.917,24 410.917,34 L410.917,60 C410.917,70 392.917,70 392.917,70 C392.917,70 374.917,70 374.917,60 L374.917,34" style="stroke:#E7E7E7;stroke-width:0.5;" fill="#222"/><path d="M374.917,34 C374.917,44 392.917,44 392.917,44 C392.917,44 410.917,44 410.917,34" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="10" y="414.292" fill="#FFF" font-size="14" textLength="66.063">Operador</text><ellipse cx="46.031" cy="426.094" rx="8" ry="8" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M46.031,434.094 L46.031,461.094 M33.031,442.094 L59.031,442.094 M46.031,461.094 L33.031,476.094 M46.031,461.094 L59.031,476.094" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><rect x="106.701" y="401.297" width="153.31" height="30.297" fill="#222" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><text x="113.701" y="421.292" fill="#FFF" font-size="14" textLength="139.31">API DRF (planejada)</text><text x="349.541" y="414.292" fill="#FFF" font-size="14" textLength="80.753">PostgreSQL</text><path d="M374.917,427.594 C374.917,417.594 392.917,417.594 392.917,417.594 C392.917,417.594 410.917,417.594 410.917,427.594 L410.917,453.594 C410.917,463.594 392.917,463.594 392.917,463.594 C392.917,463.594 374.917,463.594 374.917,453.594 L374.917,427.594" style="stroke:#E7E7E7;stroke-width:0.5;" fill="#222"/><path d="M374.917,427.594 C374.917,437.594 392.917,437.594 392.917,437.594 C392.917,437.594 410.917,437.594 410.917,427.594" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><polygon points="171.356,111.43,181.356,115.43,171.356,119.43,175.356,115.43" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="46.031" y1="115.43" x2="177.356" y2="115.43" style="stroke:#E7E7E7;stroke-width:1;"/><text x="53.031" y="110.364" fill="#FFF" font-size="13" textLength="107.237">POST solicitação</text><polygon points="380.917,140.563,390.917,144.563,380.917,148.563,384.917,144.563" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="144.563" x2="386.917" y2="144.563" style="stroke:#E7E7E7;stroke-width:1;"/><text x="190.356" y="139.497" fill="#FFF" font-size="13" textLength="185.561">BEGIN / transaction.atomic()</text><polygon points="380.917,169.695,390.917,173.695,380.917,177.695,384.917,173.695" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="173.695" x2="386.917" y2="173.695" style="stroke:#E7E7E7;stroke-width:1;"/><text x="190.356" y="168.629" fill="#FFF" font-size="13" textLength="114.118">Inserir solicitação</text><polygon points="380.917,198.828,390.917,202.828,380.917,206.828,384.917,202.828" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="202.828" x2="386.917" y2="202.828" style="stroke:#E7E7E7;stroke-width:1;"/><text x="190.356" y="197.762" fill="#FFF" font-size="13" textLength="101.01">Inserir histórico</text><path d="M30.031,214.828 L94.474,214.828 L94.474,221.961 L84.474,231.961 L30.031,231.961 L30.031,214.828" style="stroke:#FFF;stroke-width:1.5;" fill="#555"/><rect x="30.031" y="214.828" width="378.886" height="162.469" fill="none" style="stroke:#FFF;stroke-width:1.5;"/><text x="45.031" y="227.895" fill="#FFF" font-size="13" textLength="19.443" font-weight="700">alt</text><text x="109.474" y="227.039" fill="#FFF" font-size="11" textLength="156.487" font-weight="700">[regra de negócio válida]</text><polygon points="380.917,259.094,390.917,263.094,380.917,267.094,384.917,263.094" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="263.094" x2="386.917" y2="263.094" style="stroke:#E7E7E7;stroke-width:1;"/><text x="190.356" y="258.028" fill="#FFF" font-size="13" textLength="53.517">COMMIT</text><polygon points="57.031,288.227,47.031,292.227,57.031,296.227,53.031,292.227" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="51.031" y1="292.227" x2="182.356" y2="292.227" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:2,2;"/><text x="63.031" y="287.161" fill="#FFF" font-size="13" textLength="51.657">sucesso</text><line x1="30.031" y1="301.227" x2="408.917" y2="301.227" style="stroke:#FFF;stroke-width:1;stroke-dasharray:2,2;"/><text x="35.031" y="313.437" fill="#FFF" font-size="11" textLength="61.247" font-weight="700">[violação]</text><polygon points="380.917,336.164,390.917,340.164,380.917,344.164,384.917,340.164" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="183.356" y1="340.164" x2="386.917" y2="340.164" style="stroke:#E7E7E7;stroke-width:1;"/><text x="190.356" y="335.098" fill="#FFF" font-size="13" textLength="69.164">ROLLBACK</text><polygon points="57.031,365.297,47.031,369.297,57.031,373.297,53.031,369.297" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><line x1="51.031" y1="369.297" x2="182.356" y2="369.297" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:2,2;"/><text x="63.031" y="364.231" fill="#FFF" font-size="13" textLength="113.325">erro de validação</text><?plantuml-src VL1BJW914DtFAKfMi93Uip3XeuO0Wi3U5DtbJ4jFzwIw1izZN7W0ZZ0NiqV1I6BSlc-zkh9UkzeG529L72Z5-DhFhHJrhex4EdWXBtqTIhMm-mAjcp4UIA8gzoRe-5JLfLCbHY5MKb19KHbwnjg9CiZxVijdg2KmB2jYD86p2bcijXLwWSvmDON9-WwwbKDFBsYmrm6CaF3CeE0E8q5d5QBaJ9l7-HSv6MNdDBY-QRKmWDLoiuKON8eMR3wQzv2rHE8deqIFRk-d3w1067rC5zdW-oYXjBhRkn1EVLfk-P-eiwAmKPeZMnqoT09CEIEaPthAcwEs0GxDcxC6C_Zj7YyNY-dsX2NmPya0Ogqfnf2HIwCFDhXJ-OL_lPpFHyFnxCy4OWxj2GTiYx_TvCqd?></g></svg></div></div>
+
+<h2 id="fluxo-planejado-consulta-jsonb">Fluxo planejado: consulta JSONB<a class="headerlink" href="#fluxo-planejado-consulta-jsonb" title="Permanent link">&para;</a></h2>
+<p>Cliente → endpoint DRF com filtro <code>atributos__chave</code> → consulta PostgreSQL JSONB → resposta JSON. Requer model, migration GIN, filtro e teste ainda não encontrados.</p>
+<h2 id="fluxo-de-deploy-descrito-no-readme">Fluxo de deploy descrito no README<a class="headerlink" href="#fluxo-de-deploy-descrito-no-readme" title="Permanent link">&para;</a></h2>
+<p>Windows → <code>git push</code> → EC2 <code>git pull</code> → <code>docker compose up -d --build</code> → migrations/collectstatic → teste HTTP. A execução real não foi comprovada no ZIP.</p>
+<h2 id="matriz-de-rastreamento">Matriz de rastreamento<a class="headerlink" href="#matriz-de-rastreamento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Fluxo</th>
+<th>Componente</th>
+<th>Teste/evidência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B6</td>
+<td>Status</td>
+<td><code>config/urls.py</code></td>
+<td>GET <code>/api/</code>; IP público pendente</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Criação transacional</td>
+<td>API e models a implementar</td>
+<td>Teste rollback pendente</td>
+</tr>
+<tr>
+<td>A3/A5</td>
+<td>Consulta JSONB</td>
+<td>Model e filtro a implementar</td>
+<td>Teste filtro pendente</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>Deploy</td>
+<td>Compose, EC2</td>
+<td>Logs/prints pendentes</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

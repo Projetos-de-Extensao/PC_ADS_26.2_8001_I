@@ -1,0 +1,1090 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jonh Carvalho">
+      
+      
+      
+        <link rel="prev" href="../cua/">
+      
+      
+        <link rel="next" href="../dim_comp/">
+      
+      
+      <link rel="icon" href="../../assets/ibmec_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Pacotes e Subsistemas - PC_ADS_26.2_8001</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-de-analise-pacotes-e-subsistemas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-header__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PC_ADS_26.2_8001
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pacotes e Subsistemas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Iniciacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Iniciação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Elaboração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Transicao/ativ_deploy/" class="md-tabs__link">
+          
+  
+    
+  
+  Transição
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-tabs__link">
+        
+  
+    
+  
+  Bibliografia
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PC_ADS_26.2_8001" class="md-nav__button md-logo" aria-label="PC_ADS_26.2_8001" data-md-component="logo">
+      
+  <img src="../../assets/Ibmec_logo.png" alt="logo">
+
+    </a>
+    PC_ADS_26.2_8001
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonh-carvalho/PC_ADS_26.2_8001" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Iniciacao/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Iniciação
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/dv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/rs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Suplementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Iniciacao/pesquisa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pesquisa (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Elaboração
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Elaboração
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso Arquiteturais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pacotes e Subsistemas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Pacotes e Subsistemas
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controle-do-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controle do documento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pacotes-reais-identificados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pacotes reais identificados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de componentes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependências
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matriz-de-rastreabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz de rastreabilidade
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dim_comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionamento de Computação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimrbd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionamento do Banco de Dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seq_com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequência e Comunicação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casos_de_uso_arquiteturais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_de_analise-pacotes_subsistemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de Análise (documento anterior)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Transição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Transição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Transicao/ativ_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estratégias de Deploy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disciplina/Bibliografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliografia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="modelo-de-analise-pacotes-e-subsistemas">Modelo de Análise — Pacotes e Subsistemas<a class="headerlink" href="#modelo-de-analise-pacotes-e-subsistemas" title="Permanent link">&para;</a></h1>
+<h2 id="controle-do-documento">Controle do documento<a class="headerlink" href="#controle-do-documento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Informação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projeto</td>
+<td>Portal Cidadão Seguro</td>
+</tr>
+<tr>
+<td>Versão</td>
+<td>2.0 — revisão documental AP2</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>11/11/2026</td>
+</tr>
+<tr>
+<td>Aprovação</td>
+<td>Pendente de validação pelo grupo</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Situação:</strong> este documento distingue arquitetura verificada no repositório de requisitos ainda não implementados ou não comprovados. Não constitui evidência de deploy em produção.</p>
+</blockquote>
+<h2 id="pacotes-reais-identificados">Pacotes reais identificados<a class="headerlink" href="#pacotes-reais-identificados" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>config/</code>: configurações, URLs e WSGI do Django.</li>
+<li>Django REST Framework: API HTTP; no código entregue, apenas endpoint de status.</li>
+<li><code>db</code>: serviço PostgreSQL 16 Alpine no Docker Compose.</li>
+<li><code>web</code>: serviço Django com Gunicorn, conforme README e configuração Docker.</li>
+<li><code>postgres_data</code>: volume nomeado para persistência do PostgreSQL.</li>
+<li>Segurança: variáveis de ambiente e <code>.env.example</code>; regras efetivas da EC2 ainda não comprovadas.</li>
+</ul>
+<h2 id="diagrama-de-componentes">Diagrama de componentes<a class="headerlink" href="#diagrama-de-componentes" title="Permanent link">&para;</a></h2>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:247px;height:510px;background:#FFFFFF;" width="247px" height="510px" viewBox="0 0 247 510" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="cluster" data-qualified-name="EC2 .alvo da AP2." id="ent0001" data-source-line="2"><path d="M8.5,144.8 L149.794,144.8 A3.75,3.75 0 0 1 152.294,147.3 L159.294,167.097 L202.5,167.097 A2.5,2.5 0 0 1 205,169.597 L205,493.19 A2.5,2.5 0 0 1 202.5,495.69 L8.5,495.69 A2.5,2.5 0 0 1 6,493.19 L6,147.3 A2.5,2.5 0 0 1 8.5,144.8" style="stroke:#000;stroke-width:1.5;" fill="none"/><line x1="6" y1="167.097" x2="159.294" y2="167.097" style="stroke:#000;stroke-width:1.5;"/><text x="10" y="159.795" fill="#000" font-size="14" textLength="140.294" font-weight="700">EC2 (alvo da AP2)</text></g><g class="entity" data-qualified-name="EC2 .alvo da AP2..WEB" id="ent0002" data-source-line="3"><rect x="21.52" y="179.8" width="160.969" height="46.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="162.489" y="184.8" width="15" height="10" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="160.489" y="186.8" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><rect x="160.489" y="190.8" width="4" height="2" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><text x="36.52" y="212.795" fill="#000" font-size="14" textLength="120.969">web: Django/DRF</text></g><g class="entity" data-qualified-name="EC2 .alvo da AP2..DB" id="ent0003" data-source-line="4"><path d="M22.02,313.1 C22.02,303.1 96.999,303.1 96.999,303.1 C96.999,303.1 171.978,303.1 171.978,313.1 L171.978,338.397 C171.978,348.397 96.999,348.397 96.999,348.397 C96.999,348.397 22.02,348.397 22.02,338.397 L22.02,313.1" style="stroke:#181818;stroke-width:0.5;" fill="#F1F1F1"/><path d="M22.02,313.1 C22.02,323.1 96.999,323.1 96.999,323.1 C96.999,323.1 171.978,323.1 171.978,313.1" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="32.02" y="340.095" fill="#000" font-size="14" textLength="129.958">db: PostgreSQL 16</text></g><g class="entity" data-qualified-name="EC2 .alvo da AP2..VOL" id="ent0004" data-source-line="5"><path d="M34.84,425.39 L75.84,425.39 A3.75,3.75 0 0 1 78.34,427.89 L85.34,446.39 L159.159,446.39 A2.5,2.5 0 0 1 161.659,448.89 L161.659,477.187 A2.5,2.5 0 0 1 159.159,479.687 L34.84,479.687 A2.5,2.5 0 0 1 32.34,477.187 L32.34,427.89 A2.5,2.5 0 0 1 34.84,425.39" style="stroke:#181818;stroke-width:0.5;" fill="#F1F1F1"/><line x1="32.34" y1="446.39" x2="85.34" y2="446.39" style="stroke:#181818;stroke-width:0.5;"/><text x="42.34" y="466.385" fill="#000" font-size="14" textLength="99.319">postgres_data</text></g><g class="entity" data-qualified-name="CLI" id="ent0007" data-source-line="9"><ellipse cx="102.003" cy="14" rx="8" ry="8" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M102.003,22 L102.003,49 M89.003,30 L115.003,30 M102.003,49 L89.003,64 M102.003,49 L115.003,64" style="stroke:#181818;stroke-width:0.5;" fill="none"/><text x="57.17" y="78.495" fill="#000" font-size="14" textLength="89.667">Cliente HTTP</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk5" data-source-line="6" data-link-type="dependency"><path d="M101.07,226.39 C100.17,248.22 99.005,276.184 98.115,297.834" style="stroke:#181818;stroke-width:1;" fill="none" id="WEB-to-DB"/><polygon points="97.91,302.83,102.276,294.002,98.115,297.834,94.283,293.673,97.91,302.83" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="101" y="269.167" fill="#000" font-size="13" textLength="130.336">rede Docker interna</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" id="lnk6" data-source-line="7" data-link-type="dependency"><path d="M97,348.77 C97,370.04 97,418.28 97,440.97" style="stroke:#181818;stroke-width:1;" fill="none" id="DB-to-VOL"/><polygon points="97,445.97,101,436.97,97,440.97,93,436.97,97,445.97" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="98" y="391.457" fill="#000" font-size="13" textLength="78.813">persistência</text></g><g class="link" data-entity-1="ent0007" data-entity-2="ent0002" id="lnk8" data-source-line="10" data-link-type="dependency"><path d="M102,81.93 C102,112.27 102,149.1 102,174.52" style="stroke:#181818;stroke-width:1;" fill="none" id="CLI-to-WEB"/><polygon points="102,179.52,106,170.52,102,174.52,98,170.52,102,179.52" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="103" y="124.867" fill="#000" font-size="13" textLength="71.83">porta 8000</text></g><?plantuml-src 9O_1JiCm38RlUGhJ4npMZ1qGsW49rY4GGmmsmN7oKgyDJPCgSRS3ueLu3LuCjnny-h__itrclN5zIL0pTsckTSHJNbck-tsVA9hWcJpd9hJwsJOrMlSKyKYSTDkKmQHTrxTEjvYOekQQMagwf0FsZhMpLStv0AWEJOCLGRPSpE0StJ50YN2xdbrayAL0z5tmiWYo4-tdK7oYhu8ktkupm0GVopibFECUapXA8TOXSHLfyxg2owiHAeGv15TIXApxJzDkA8tf-yjA3HwOJ6u4XJb4ag-BO1efMFaoUbH3CW122z5HJ3Rnxuyt5jMtGiD1v0jdvLA2X-rsFReNgqSbCpQ75T8CaH6kfzFf7m00?></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:247px;height:510px;background:#1B1B1B;" width="247px" height="510px" viewBox="0 0 247 510" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><rect x="0" y="0" width="247" height="510" fill="#1B1B1B" style="stroke:none;"/><g class="cluster" data-qualified-name="EC2 .alvo da AP2." id="ent0001" data-source-line="2"><path d="M8.5,144.8 L149.794,144.8 A3.75,3.75 0 0 1 152.294,147.3 L159.294,167.097 L202.5,167.097 A2.5,2.5 0 0 1 205,169.597 L205,493.19 A2.5,2.5 0 0 1 202.5,495.69 L8.5,495.69 A2.5,2.5 0 0 1 6,493.19 L6,147.3 A2.5,2.5 0 0 1 8.5,144.8" style="stroke:#FFF;stroke-width:1.5;" fill="none"/><line x1="6" y1="167.097" x2="159.294" y2="167.097" style="stroke:#FFF;stroke-width:1.5;"/><text x="10" y="159.795" fill="#FFF" font-size="14" textLength="140.294" font-weight="700">EC2 (alvo da AP2)</text></g><g class="entity" data-qualified-name="EC2 .alvo da AP2..WEB" id="ent0002" data-source-line="3"><rect x="21.52" y="179.8" width="160.969" height="46.297" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;" rx="2.5" ry="2.5"/><rect x="162.489" y="184.8" width="15" height="10" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="160.489" y="186.8" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><rect x="160.489" y="190.8" width="4" height="2" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="36.52" y="212.795" fill="#FFF" font-size="14" textLength="120.969">web: Django/DRF</text></g><g class="entity" data-qualified-name="EC2 .alvo da AP2..DB" id="ent0003" data-source-line="4"><path d="M22.02,313.1 C22.02,303.1 96.999,303.1 96.999,303.1 C96.999,303.1 171.978,303.1 171.978,313.1 L171.978,338.397 C171.978,348.397 96.999,348.397 96.999,348.397 C96.999,348.397 22.02,348.397 22.02,338.397 L22.02,313.1" style="stroke:#E7E7E7;stroke-width:0.5;" fill="#313139"/><path d="M22.02,313.1 C22.02,323.1 96.999,323.1 96.999,323.1 C96.999,323.1 171.978,323.1 171.978,313.1" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="32.02" y="340.095" fill="#FFF" font-size="14" textLength="129.958">db: PostgreSQL 16</text></g><g class="entity" data-qualified-name="EC2 .alvo da AP2..VOL" id="ent0004" data-source-line="5"><path d="M34.84,425.39 L75.84,425.39 A3.75,3.75 0 0 1 78.34,427.89 L85.34,446.39 L159.159,446.39 A2.5,2.5 0 0 1 161.659,448.89 L161.659,477.187 A2.5,2.5 0 0 1 159.159,479.687 L34.84,479.687 A2.5,2.5 0 0 1 32.34,477.187 L32.34,427.89 A2.5,2.5 0 0 1 34.84,425.39" style="stroke:#E7E7E7;stroke-width:0.5;" fill="#313139"/><line x1="32.34" y1="446.39" x2="85.34" y2="446.39" style="stroke:#E7E7E7;stroke-width:0.5;"/><text x="42.34" y="466.385" fill="#FFF" font-size="14" textLength="99.319">postgres_data</text></g><g class="entity" data-qualified-name="CLI" id="ent0007" data-source-line="9"><ellipse cx="102.003" cy="14" rx="8" ry="8" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"/><path d="M102.003,22 L102.003,49 M89.003,30 L115.003,30 M102.003,49 L89.003,64 M102.003,49 L115.003,64" style="stroke:#E7E7E7;stroke-width:0.5;" fill="none"/><text x="57.17" y="78.495" fill="#FFF" font-size="14" textLength="89.667">Cliente HTTP</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk5" data-source-line="6" data-link-type="dependency"><path d="M101.07,226.39 C100.17,248.22 99.005,276.184 98.115,297.834" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="WEB-to-DB"/><polygon points="97.91,302.83,102.276,294.002,98.115,297.834,94.283,293.673,97.91,302.83" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="101" y="269.167" fill="#FFF" font-size="13" textLength="130.336">rede Docker interna</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" id="lnk6" data-source-line="7" data-link-type="dependency"><path d="M97,348.77 C97,370.04 97,418.28 97,440.97" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="DB-to-VOL"/><polygon points="97,445.97,101,436.97,97,440.97,93,436.97,97,445.97" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="98" y="391.457" fill="#FFF" font-size="13" textLength="78.813">persistência</text></g><g class="link" data-entity-1="ent0007" data-entity-2="ent0002" id="lnk8" data-source-line="10" data-link-type="dependency"><path d="M102,81.93 C102,112.27 102,149.1 102,174.52" style="stroke:#E7E7E7;stroke-width:1;" fill="none" id="CLI-to-WEB"/><polygon points="102,179.52,106,170.52,102,174.52,98,170.52,102,179.52" fill="#E7E7E7" style="stroke:#E7E7E7;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="103" y="124.867" fill="#FFF" font-size="13" textLength="71.83">porta 8000</text></g><?plantuml-src 9O_1JiCm38RlUGhJ4nnOnWu8xO04wn288GPCS9oyn6j3qwHAtEs0U25UWnV3BGUV_k__R9-uO7nl2MhcBi-rJdYSL8xhVjTdIYO6fi0J4rlzv9eQdNzCU23EkcriD7dRzQtNBMQcfBccbhAsjCVUixQOcicGgmvDWnL1iLpCu1Jz8O95k5dFpWhuKY3sBWRP0yMHTdCeFp5KKPUlTmLWXe_bhHAUSOTP75Q8TSnS9NfxMS75vGYLmkoZjvIWwFxJl1rAO_h-l5A31yxFhmM5EIIIfyje6YauUJ85L4Co048BqL7ABlFlJp0ErRT2mr7a2-_aKeBxpMOzkXUh1oKpDeSLqeo94Qwcq-aV?></g></svg></div></div>
+
+<h2 id="dependencias">Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
+<p>O serviço <code>web</code> depende do healthcheck do <code>db</code>; a aplicação usa variáveis <code>POSTGRES_*</code> para conexão. Não foram encontrados apps de domínio com models de negócio, nem componentes JSONB/GIN.</p>
+<h2 id="matriz-de-rastreabilidade">Matriz de rastreabilidade<a class="headerlink" href="#matriz-de-rastreabilidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Pacote</th>
+<th>Evidência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B2</td>
+<td><code>docker-compose.yml</code></td>
+<td><code>web</code>, <code>db</code>, <code>depends_on</code>, healthcheck e volume</td>
+</tr>
+<tr>
+<td>A7/B4</td>
+<td><code>config/settings.py</code>, <code>.env.example</code></td>
+<td>Leitura de segredos do ambiente</td>
+</tr>
+<tr>
+<td>A2/A3/A4/A5</td>
+<td>App de domínio</td>
+<td>Não encontrado; desenvolvimento pendente</td>
+</tr>
+<tr>
+<td>B6</td>
+<td><code>config/urls.py</code></td>
+<td><code>/api/</code> e <code>/admin/</code>; acesso EC2 não comprovado</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright ©️ 2026, Jonh Carvalho
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
